@@ -13,6 +13,9 @@ permissions:
   issues: write
   pull-requests: write
 
+env:
+  ISSUE_TITLE: "OpenAPI Spec Update Available"
+
 jobs:
   sync-openapi:
     runs-on: ubuntu-latest
@@ -60,72 +63,72 @@ jobs:
           Updated: ${{ steps.date.outputs.date }}"
           git push origin openapi-update-${{ steps.date.outputs.date }}
 
-      - name: Check for existing issue
+      - name: Find or create issue
         if: steps.changes.outputs.changed == 'true'
-        id: existing_issue
+        id: issue
         uses: actions/github-script@v7
         with:
           script: |
+            const issueTitle = process.env.ISSUE_TITLE;
+
+            // Search for existing open issue with exact title
             const issues = await github.rest.issues.listForRepo({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              labels: 'openapi-update',
-              state: 'open'
+              state: 'open',
+              labels: 'openapi-update'
             });
-            if (issues.data.length > 0) {
-              console.log(`Found existing open issue #${issues.data[0].number}`);
-              return issues.data[0].number;
-            }
-            console.log('No existing open issue found');
-            return '';
-          result-encoding: string
 
-      - name: Create GitHub Issue
-        if: steps.changes.outputs.changed == 'true' && steps.existing_issue.outputs.result == ''
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const issue = await github.rest.issues.create({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              title: `OpenAPI Spec Update Available - ${{ steps.date.outputs.date }}`,
-              body: `## F5 Distributed Cloud OpenAPI Spec Update
+            const existingIssue = issues.data.find(issue => issue.title === issueTitle);
 
-            A new version of the F5 Distributed Cloud OpenAPI specification has been detected.
+            if (existingIssue) {
+              console.log(`Found existing issue #${existingIssue.number}`);
 
-            **Source:** https://docs.cloud.f5.com/docs-v2/downloads/f5-distributed-cloud-open-api.zip
+              // Add comment to existing issue
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: existingIssue.number,
+                body: `## Update Detected - ${{ steps.date.outputs.date }}
+
+            A new update to the OpenAPI specification has been detected.
 
             **Branch:** \`openapi-update-${{ steps.date.outputs.date }}\`
-
-            **Detected:** ${{ steps.date.outputs.date }}
-
-            Please review the changes in the associated pull request.`,
-              labels: ['openapi-update', 'automated']
-            });
-            console.log(`Created issue #${issue.data.number}`);
-            return issue.data.number;
-
-      - name: Update existing issue
-        if: steps.changes.outputs.changed == 'true' && steps.existing_issue.outputs.result != ''
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const issueNumber = ${{ steps.existing_issue.outputs.result }};
-            await github.rest.issues.createComment({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: issueNumber,
-              body: `## New Update Detected - ${{ steps.date.outputs.date }}
-
-            Another update to the OpenAPI specification has been detected.
-
-            **Branch:** \`openapi-update-${{ steps.date.outputs.date }}\`
-
             **Detected:** ${{ steps.date.outputs.date }}
 
             A new pull request has been created for this update.`
+              });
+
+              return existingIssue.number;
+            }
+
+            // Create new issue
+            const issue = await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: issueTitle,
+              body: `## F5 Distributed Cloud OpenAPI Spec Update
+
+            This issue tracks updates to the F5 Distributed Cloud OpenAPI specification.
+
+            **Source:** https://docs.cloud.f5.com/docs-v2/downloads/f5-distributed-cloud-open-api.zip
+
+            ---
+
+            ### Latest Update - ${{ steps.date.outputs.date }}
+
+            **Branch:** \`openapi-update-${{ steps.date.outputs.date }}\`
+
+            Please review the changes in the associated pull request.
+
+            ---
+
+            *This issue will be updated automatically when new spec versions are detected. Close this issue once all updates have been reviewed and merged.*`,
+              labels: ['openapi-update', 'automated']
             });
-            console.log(`Added comment to existing issue #${issueNumber}`);
+
+            console.log(`Created issue #${issue.data.number}`);
+            return issue.data.number;
 
       - name: Create Pull Request
         if: steps.changes.outputs.changed == 'true'
@@ -143,8 +146,8 @@ jobs:
             This PR contains an automated update to the F5 Distributed Cloud OpenAPI specification.
 
             **Source:** https://docs.cloud.f5.com/docs-v2/downloads/f5-distributed-cloud-open-api.zip
-
             **Detected:** ${{ steps.date.outputs.date }}
+            **Tracking Issue:** #${{ steps.issue.outputs.result }}
 
             ## Changes
 
@@ -154,6 +157,9 @@ jobs:
 
             - [ ] Review the diff for any breaking changes
             - [ ] Verify the spec is valid
-            - [ ] Ensure downstream dependencies are compatible`
+            - [ ] Ensure downstream dependencies are compatible
+
+            ---
+            *Closes #${{ steps.issue.outputs.result }} when merged (if no other pending updates)*`
             });
             console.log(`Created PR #${pr.data.number}`);
