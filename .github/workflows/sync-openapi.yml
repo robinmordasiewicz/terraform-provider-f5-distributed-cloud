@@ -1,0 +1,115 @@
+name: Sync F5 Distributed Cloud OpenAPI Spec
+
+on:
+  schedule:
+    # 7am Atlantic Time (11:00 UTC during AST, 10:00 UTC during ADT)
+    - cron: '0 11 * * *'
+    # 7pm Mountain Time (01:00 UTC next day during MST, 02:00 UTC during MDT)
+    - cron: '0 1 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+
+jobs:
+  sync-openapi:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Download and extract OpenAPI spec
+        run: |
+          curl -sL -o openapi.zip "https://docs.cloud.f5.com/docs-v2/downloads/f5-distributed-cloud-open-api.zip"
+          unzip -o openapi.zip
+          rm openapi.zip
+
+      - name: Check for changes
+        id: changes
+        run: |
+          if git diff --quiet; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+            echo "No changes detected"
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+            echo "Changes detected in OpenAPI spec"
+          fi
+
+      - name: Get current date
+        if: steps.changes.outputs.changed == 'true'
+        id: date
+        run: echo "date=$(date +'%Y-%m-%d-%H%M')" >> $GITHUB_OUTPUT
+
+      - name: Create branch and commit changes
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -b openapi-update-${{ steps.date.outputs.date }}
+          git add -A
+          git commit -m "Update F5 Distributed Cloud OpenAPI spec
+
+          Automated update from https://docs.cloud.f5.com/docs-v2/downloads/f5-distributed-cloud-open-api.zip
+
+          Updated: ${{ steps.date.outputs.date }}"
+          git push origin openapi-update-${{ steps.date.outputs.date }}
+
+      - name: Create GitHub Issue
+        if: steps.changes.outputs.changed == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const issue = await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `OpenAPI Spec Update Available - ${{ steps.date.outputs.date }}`,
+              body: `## F5 Distributed Cloud OpenAPI Spec Update
+
+            A new version of the F5 Distributed Cloud OpenAPI specification has been detected.
+
+            **Source:** https://docs.cloud.f5.com/docs-v2/downloads/f5-distributed-cloud-open-api.zip
+
+            **Branch:** \`openapi-update-${{ steps.date.outputs.date }}\`
+
+            **Detected:** ${{ steps.date.outputs.date }}
+
+            Please review the changes in the associated pull request.`,
+              labels: ['openapi-update', 'automated']
+            });
+            console.log(`Created issue #${issue.data.number}`);
+            return issue.data.number;
+
+      - name: Create Pull Request
+        if: steps.changes.outputs.changed == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr = await github.rest.pulls.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `Update F5 Distributed Cloud OpenAPI spec - ${{ steps.date.outputs.date }}`,
+              head: `openapi-update-${{ steps.date.outputs.date }}`,
+              base: 'main',
+              body: `## Summary
+
+            This PR contains an automated update to the F5 Distributed Cloud OpenAPI specification.
+
+            **Source:** https://docs.cloud.f5.com/docs-v2/downloads/f5-distributed-cloud-open-api.zip
+
+            **Detected:** ${{ steps.date.outputs.date }}
+
+            ## Changes
+
+            The OpenAPI spec file has been updated to the latest version from F5.
+
+            ## Review Checklist
+
+            - [ ] Review the diff for any breaking changes
+            - [ ] Verify the spec is valid
+            - [ ] Ensure downstream dependencies are compatible`
+            });
+            console.log(`Created PR #${pr.data.number}`);
