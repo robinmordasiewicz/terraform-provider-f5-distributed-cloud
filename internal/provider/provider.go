@@ -5,11 +5,16 @@ package provider
 
 import (
 	"context"
+	"os"
 
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
+	"github.com/hashicorp/terraform-plugin-framework/path"
 	"github.com/hashicorp/terraform-plugin-framework/provider"
 	"github.com/hashicorp/terraform-plugin-framework/provider/schema"
 	"github.com/hashicorp/terraform-plugin-framework/resource"
+	"github.com/hashicorp/terraform-plugin-framework/types"
+	"github.com/hashicorp/terraform-plugin-log/tflog"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/client"
 )
 
 // Ensure F5XCProvider satisfies various provider interfaces.
@@ -21,6 +26,14 @@ type F5XCProvider struct {
 	// provider is built and ran locally, and "test" when running acceptance
 	// testing.
 	version string
+}
+
+// F5XCProviderModel describes the provider data model.
+type F5XCProviderModel struct {
+	APIURL     types.String `tfsdk:"api_url"`
+	P12File    types.String `tfsdk:"p12_file"`
+	P12Password types.String `tfsdk:"p12_password"`
+	APIToken   types.String `tfsdk:"api_token"`
 }
 
 // New returns a new provider instance.
@@ -42,21 +55,150 @@ func (p *F5XCProvider) Metadata(ctx context.Context, req provider.MetadataReques
 func (p *F5XCProvider) Schema(ctx context.Context, req provider.SchemaRequest, resp *provider.SchemaResponse) {
 	resp.Schema = schema.Schema{
 		Description: "Terraform provider for F5 Distributed Cloud (F5 XC) services.",
-		Attributes:  map[string]schema.Attribute{},
+		MarkdownDescription: `
+The F5 Distributed Cloud (F5 XC) provider enables infrastructure engineers to manage F5 XC resources using Terraform.
+
+## Authentication
+
+The provider supports two authentication methods:
+
+1. **API Token Authentication** (recommended for automation):
+   - Set the ` + "`api_token`" + ` attribute or ` + "`F5XC_API_TOKEN`" + ` environment variable
+
+2. **Certificate Authentication** (P12 file):
+   - Set ` + "`p12_file`" + ` and ` + "`p12_password`" + ` attributes or
+   - Set ` + "`F5XC_API_P12_FILE`" + ` and ` + "`F5XC_API_P12_PASSWORD`" + ` environment variables
+
+## Example Usage
+
+` + "```hcl" + `
+provider "f5xc" {
+  api_url   = "https://your-tenant.console.ves.volterra.io/api"
+  api_token = var.f5xc_api_token
+}
+` + "```" + `
+`,
+		Attributes: map[string]schema.Attribute{
+			"api_url": schema.StringAttribute{
+				Description: "The URL for the F5 XC API. Can also be set via the F5XC_API_URL environment variable.",
+				Optional:    true,
+			},
+			"p12_file": schema.StringAttribute{
+				Description: "Path to the P12 certificate file for authentication. Can also be set via the F5XC_API_P12_FILE environment variable.",
+				Optional:    true,
+			},
+			"p12_password": schema.StringAttribute{
+				Description: "Password for the P12 certificate file. Can also be set via the F5XC_API_P12_PASSWORD environment variable.",
+				Optional:    true,
+				Sensitive:   true,
+			},
+			"api_token": schema.StringAttribute{
+				Description: "API token for authentication. Can also be set via the F5XC_API_TOKEN environment variable.",
+				Optional:    true,
+				Sensitive:   true,
+			},
+		},
 	}
 }
 
 // Configure prepares an F5 XC API client for data sources and resources.
 func (p *F5XCProvider) Configure(ctx context.Context, req provider.ConfigureRequest, resp *provider.ConfigureResponse) {
-	// TODO: Implement provider configuration in Phase 2/3
+	tflog.Info(ctx, "Configuring F5 XC provider")
+
+	var config F5XCProviderModel
+	diags := req.Config.Get(ctx, &config)
+	resp.Diagnostics.Append(diags...)
+	if resp.Diagnostics.HasError() {
+		return
+	}
+
+	// Get values from environment variables if not set in config
+	apiURL := os.Getenv("F5XC_API_URL")
+	if !config.APIURL.IsNull() {
+		apiURL = config.APIURL.ValueString()
+	}
+
+	p12File := os.Getenv("F5XC_API_P12_FILE")
+	if !config.P12File.IsNull() {
+		p12File = config.P12File.ValueString()
+	}
+
+	p12Password := os.Getenv("F5XC_API_P12_PASSWORD")
+	if !config.P12Password.IsNull() {
+		p12Password = config.P12Password.ValueString()
+	}
+
+	apiToken := os.Getenv("F5XC_API_TOKEN")
+	if !config.APIToken.IsNull() {
+		apiToken = config.APIToken.ValueString()
+	}
+
+	// Validate required fields
+	if apiURL == "" {
+		resp.Diagnostics.AddAttributeError(
+			path.Root("api_url"),
+			"Missing API URL",
+			"The provider requires an API URL to be configured. "+
+				"Set the api_url attribute or F5XC_API_URL environment variable.",
+		)
+	}
+
+	// Validate authentication
+	hasToken := apiToken != ""
+	hasCert := p12File != ""
+
+	if !hasToken && !hasCert {
+		resp.Diagnostics.AddError(
+			"Missing Authentication Credentials",
+			"The provider requires authentication credentials. "+
+				"Configure either api_token (or F5XC_API_TOKEN) for token authentication, "+
+				"or p12_file/p12_password (or F5XC_API_P12_FILE/F5XC_API_P12_PASSWORD) for certificate authentication.",
+		)
+	}
+
+	if resp.Diagnostics.HasError() {
+		return
+	}
+
+	// Create client configuration
+	clientConfig := &client.ClientConfig{
+		APIURL: apiURL,
+		Auth: &client.AuthConfig{
+			P12File:     p12File,
+			P12Password: p12Password,
+			APIToken:    apiToken,
+		},
+	}
+
+	// Create the F5 XC client
+	f5xcClient, err := client.NewClient(clientConfig)
+	if err != nil {
+		resp.Diagnostics.AddError(
+			"Unable to Create F5 XC Client",
+			"An unexpected error occurred when creating the F5 XC API client. "+
+				"If the error is not clear, please contact the provider developers.\n\n"+
+				"Error: "+err.Error(),
+		)
+		return
+	}
+
+	tflog.Info(ctx, "F5 XC provider configured successfully")
+
+	// Make the client available during DataSource and Resource type Configure methods.
+	resp.DataSourceData = f5xcClient
+	resp.ResourceData = f5xcClient
 }
 
 // Resources defines the resources implemented in the provider.
 func (p *F5XCProvider) Resources(ctx context.Context) []func() resource.Resource {
-	return []func() resource.Resource{}
+	return []func() resource.Resource{
+		// Resources will be registered here as they are implemented
+	}
 }
 
 // DataSources defines the data sources implemented in the provider.
 func (p *F5XCProvider) DataSources(ctx context.Context) []func() datasource.DataSource {
-	return []func() datasource.DataSource{}
+	return []func() datasource.DataSource{
+		// Data sources will be registered here as they are implemented
+	}
 }
