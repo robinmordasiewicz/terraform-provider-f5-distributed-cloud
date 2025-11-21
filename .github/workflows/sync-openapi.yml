@@ -155,6 +155,7 @@ jobs:
 
       - name: Create Pull Request
         if: steps.existing_pr.outputs.result == 'false' && steps.changes.outputs.changed == 'true'
+        id: create_pr
         uses: actions/github-script@v7
         with:
           script: |
@@ -177,13 +178,14 @@ jobs:
 
             The OpenAPI spec file has been updated to the latest version from F5.
 
-            ## Review Checklist
-
-            - [ ] Review the diff for any breaking changes
-            - [ ] Verify the spec is valid
-            - [ ] Ensure downstream dependencies are compatible
-
             ---
             *Closes #${{ steps.issue.outputs.result }} when merged*`
             });
             console.log(`Created PR #${pr.data.number}`);
+            return pr.data.number;
+
+      - name: Enable auto-merge
+        if: steps.existing_pr.outputs.result == 'false' && steps.changes.outputs.changed == 'true'
+        run: gh pr merge ${{ steps.create_pr.outputs.result }} --auto --merge
+        env:
+          GH_TOKEN: ${{ github.token }}
