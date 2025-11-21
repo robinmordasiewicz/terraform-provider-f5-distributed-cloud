@@ -28,8 +28,9 @@ jobs:
 
       - name: Download and extract OpenAPI spec
         run: |
+          mkdir -p docs/specifications/api
           curl -sL -o openapi.zip "https://docs.cloud.f5.com/docs-v2/downloads/f5-distributed-cloud-open-api.zip"
-          unzip -o openapi.zip
+          unzip -o openapi.zip -d docs/specifications/api
           rm openapi.zip
 
       - name: Check for existing open PR
@@ -83,7 +84,7 @@ jobs:
         run: |
           npm install -g @apidevtools/swagger-cli
           echo "Validating OpenAPI specifications..."
-          for file in $(find . -type f \( -name "*.yaml" -o -name "*.yml" -o -name "*.json" \) ! -path "./.git/*" ! -path "./node_modules/*"); do
+          for file in $(find docs/specifications/api -type f \( -name "*.yaml" -o -name "*.yml" -o -name "*.json" \)); do
             if grep -q -E "(openapi|swagger).*['\"]?[0-9]+\.[0-9]+" "$file" 2>/dev/null; then
               echo "Validating: $file"
               swagger-cli validate "$file"
