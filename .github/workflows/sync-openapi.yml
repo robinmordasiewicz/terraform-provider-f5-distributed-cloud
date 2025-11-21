@@ -72,6 +72,26 @@ jobs:
         id: date
         run: echo "date=$(date +'%Y-%m-%d-%H%M')" >> $GITHUB_OUTPUT
 
+      - name: Setup Node.js
+        if: steps.existing_pr.outputs.result == 'false' && steps.changes.outputs.changed == 'true'
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Validate OpenAPI spec
+        if: steps.existing_pr.outputs.result == 'false' && steps.changes.outputs.changed == 'true'
+        run: |
+          npm install -g @apidevtools/swagger-cli
+          echo "Validating OpenAPI specifications..."
+          for file in $(find . -type f \( -name "*.yaml" -o -name "*.yml" -o -name "*.json" \) ! -path "./.git/*" ! -path "./node_modules/*"); do
+            if grep -q -E "(openapi|swagger).*['\"]?[0-9]+\.[0-9]+" "$file" 2>/dev/null; then
+              echo "Validating: $file"
+              swagger-cli validate "$file"
+              echo "✅ $file is valid"
+            fi
+          done
+          echo "✅ All OpenAPI specs validated successfully"
+
       - name: Create branch and commit changes
         if: steps.existing_pr.outputs.result == 'false' && steps.changes.outputs.changed == 'true'
         run: |
@@ -184,8 +204,23 @@ jobs:
             console.log(`Created PR #${pr.data.number}`);
             return pr.data.number;
 
-      - name: Enable auto-merge
+      - name: Merge Pull Request
         if: steps.existing_pr.outputs.result == 'false' && steps.changes.outputs.changed == 'true'
-        run: gh pr merge ${{ steps.create_pr.outputs.result }} --auto --merge
+        run: gh pr merge ${{ steps.create_pr.outputs.result }} --merge --admin
         env:
           GH_TOKEN: ${{ github.token }}
+
+      - name: Close tracking issue
+        if: steps.existing_pr.outputs.result == 'false' && steps.changes.outputs.changed == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const issueNumber = ${{ steps.issue.outputs.result }};
+            await github.rest.issues.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issueNumber,
+              state: 'closed',
+              state_reason: 'completed'
+            });
+            console.log(`Closed issue #${issueNumber}`);
