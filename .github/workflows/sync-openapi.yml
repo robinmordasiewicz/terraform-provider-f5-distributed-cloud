@@ -31,12 +31,14 @@ jobs:
       - name: Check for changes
         id: changes
         run: |
-          if git diff --quiet; then
+          git add -A
+          if git diff --cached --quiet; then
             echo "changed=false" >> $GITHUB_OUTPUT
             echo "No changes detected"
           else
             echo "changed=true" >> $GITHUB_OUTPUT
             echo "Changes detected in OpenAPI spec"
+            git reset HEAD
           fi
 
       - name: Get current date
