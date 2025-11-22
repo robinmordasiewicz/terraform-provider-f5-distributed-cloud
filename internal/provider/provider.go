@@ -138,6 +138,9 @@ import (
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/waf_exclusion_policy"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/waf_rule"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/app_setting"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/policy_based_routing"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/proxy"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/rate_limiter_policy"
 )
 
 // Ensure F5XCProvider satisfies various provider interfaces.
@@ -395,6 +398,9 @@ func (p *F5XCProvider) Resources(ctx context.Context) []func() resource.Resource
 		waf_exclusion_policy.NewWAFExclusionPolicyResource,
 		waf_rule.NewWAFRuleResource,
 		app_setting.NewAppSettingResource,
+		policy_based_routing.NewPolicyBasedRoutingResource,
+		proxy.NewProxyResource,
+		rate_limiter_policy.NewRateLimiterPolicyResource,
 	}
 }
 
