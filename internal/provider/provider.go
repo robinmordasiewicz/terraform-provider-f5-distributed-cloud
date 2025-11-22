@@ -17,6 +17,7 @@ import (
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/client"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/http_loadbalancer"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/namespace"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/origin_pool"
 )
 
 // Ensure F5XCProvider satisfies various provider interfaces.
@@ -196,6 +197,7 @@ func (p *F5XCProvider) Resources(ctx context.Context) []func() resource.Resource
 	return []func() resource.Resource{
 		http_loadbalancer.NewHTTPLoadBalancerResource,
 		namespace.NewNamespaceResource,
+		origin_pool.NewOriginPoolResource,
 	}
 }
 
