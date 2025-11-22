@@ -108,6 +108,7 @@ import (
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/log_receiver"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/malicious_user_mitigation"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/namespace"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/namespace_role"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/nat_policy"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/network_connector"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/network_firewall"
@@ -118,9 +119,12 @@ import (
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/policer"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/protocol_policer"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/rate_limiter"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/rbac_policy"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/role"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/route"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/secret_policy"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/segment"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/segment_connection"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/secret_policy_rule"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/securemesh_site"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/service_mesh"
@@ -376,6 +380,7 @@ func (p *F5XCProvider) Resources(ctx context.Context) []func() resource.Resource
 		log_receiver.NewLogReceiverResource,
 		malicious_user_mitigation.NewMaliciousUserMitigationResource,
 		namespace.NewNamespaceResource,
+		namespace_role.NewNamespaceRoleResource,
 		nat_policy.NewNATPolicyResource,
 		network_connector.NewNetworkConnectorResource,
 		network_firewall.NewNetworkFirewallResource,
@@ -386,9 +391,12 @@ func (p *F5XCProvider) Resources(ctx context.Context) []func() resource.Resource
 		policer.NewPolicerResource,
 		protocol_policer.NewProtocolPolicerResource,
 		rate_limiter.NewRateLimiterResource,
+		rbac_policy.NewRBACPolicyResource,
 		role.NewRoleResource,
 		route.NewRouteResource,
 		secret_policy.NewSecretPolicyResource,
+		segment.NewSegmentResource,
+		segment_connection.NewSegmentConnectionResource,
 		secret_policy_rule.NewSecretPolicyRuleResource,
 		securemesh_site.NewSecuremeshSiteResource,
 		service_mesh.NewServiceMeshResource,
