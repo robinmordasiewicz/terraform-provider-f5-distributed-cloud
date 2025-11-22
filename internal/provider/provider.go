@@ -64,11 +64,15 @@ import (
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/alert_receiver"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/bgp"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/bgp_asn_set"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/bgp_routing_policy"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/cdn_cache_rule"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/cdn_loadbalancer"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/api_credential"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/api_definition"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/api_group"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/api_group_element"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/app_firewall"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/authentication"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/app_type"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/aws_tgw_site"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/aws_vpc_site"
@@ -328,12 +332,16 @@ func (p *F5XCProvider) Resources(ctx context.Context) []func() resource.Resource
 		alert_receiver.NewAlertReceiverResource,
 		bgp.NewBGPResource,
 		bgp_asn_set.NewBGPASNSetResource,
+		bgp_routing_policy.NewBGPRoutingPolicyResource,
 		cdn_cache_rule.NewCDNCacheRuleResource,
 		cdn_loadbalancer.NewCDNLoadBalancerResource,
 		api_credential.NewAPICredentialResource,
 		api_definition.NewAPIDefinitionResource,
+		api_group.NewAPIGroupResource,
+		api_group_element.NewAPIGroupElementResource,
 		app_firewall.NewAppFirewallResource,
 		app_type.NewAppTypeResource,
+		authentication.NewAuthenticationResource,
 		aws_tgw_site.NewAWSTGWSiteResource,
 		aws_vpc_site.NewAWSVPCSiteResource,
 		azure_vnet_site.NewAzureVNETSiteResource,
