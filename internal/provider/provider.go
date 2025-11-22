@@ -15,6 +15,8 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/types"
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/client"
+	ds_app_firewall "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/app_firewall"
+	ds_http_loadbalancer "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/http_loadbalancer"
 	ds_namespace "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/namespace"
 	ds_origin_pool "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/origin_pool"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/active_service_policies"
@@ -33,6 +35,7 @@ import (
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/dns_lb_pool"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/enhanced_firewall_policy"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/forward_proxy_policy"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/gcp_vpc_site"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/global_log_receiver"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/healthcheck"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/http_loadbalancer"
@@ -250,6 +253,7 @@ func (p *F5XCProvider) Resources(ctx context.Context) []func() resource.Resource
 		dns_lb_pool.NewDNSLBPoolResource,
 		enhanced_firewall_policy.NewEnhancedFirewallPolicyResource,
 		forward_proxy_policy.NewForwardProxyPolicyResource,
+		gcp_vpc_site.NewGCPVPCSiteResource,
 		global_log_receiver.NewGlobalLogReceiverResource,
 		healthcheck.NewHealthcheckResource,
 		http_loadbalancer.NewHTTPLoadBalancerResource,
@@ -280,6 +284,8 @@ func (p *F5XCProvider) Resources(ctx context.Context) []func() resource.Resource
 // DataSources defines the data sources implemented in the provider.
 func (p *F5XCProvider) DataSources(ctx context.Context) []func() datasource.DataSource {
 	return []func() datasource.DataSource{
+		ds_app_firewall.NewAppFirewallDataSource,
+		ds_http_loadbalancer.NewHTTPLoadBalancerDataSource,
 		ds_namespace.NewNamespaceDataSource,
 		ds_origin_pool.NewOriginPoolDataSource,
 	}
