@@ -58,6 +58,10 @@ import (
 	ds_global_log_receiver "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/global_log_receiver"
 	ds_malicious_user_mitigation "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/malicious_user_mitigation"
 	ds_protocol_policer "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/protocol_policer"
+	ds_segment "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/segment"
+	ds_site "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/site"
+	ds_token "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/token"
+	ds_workload "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/workload"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/active_service_policies"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/advertise_policy"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/alert_policy"
@@ -489,5 +493,9 @@ func (p *F5XCProvider) DataSources(ctx context.Context) []func() datasource.Data
 		ds_api_credential.NewAPICredentialDataSource,
 		ds_client_connection_limit.NewClientConnectionLimitDataSource,
 		ds_active_service_policies.NewActiveServicePoliciesDataSource,
+		ds_segment.NewSegmentDataSource,
+		ds_site.NewSiteDataSource,
+		ds_token.NewTokenDataSource,
+		ds_workload.NewWorkloadDataSource,
 	}
 }
