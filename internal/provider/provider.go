@@ -133,7 +133,11 @@ import (
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/virtual_site"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/voltstack_site"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/subnet"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/user_group"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/waf"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/waf_exclusion_policy"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/waf_rule"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/app_setting"
 )
 
 // Ensure F5XCProvider satisfies various provider interfaces.
@@ -386,7 +390,11 @@ func (p *F5XCProvider) Resources(ctx context.Context) []func() resource.Resource
 		virtual_site.NewVirtualSiteResource,
 		voltstack_site.NewVoltstackSiteResource,
 		subnet.NewSubnetResource,
+		user_group.NewUserGroupResource,
+		waf.NewWAFResource,
+		waf_exclusion_policy.NewWAFExclusionPolicyResource,
 		waf_rule.NewWAFRuleResource,
+		app_setting.NewAppSettingResource,
 	}
 }
 
