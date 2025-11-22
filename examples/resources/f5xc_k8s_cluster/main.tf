@@ -1,5 +1,9 @@
+# Example configuration for f5xc_k8s_cluster
+
 resource "f5xc_k8s_cluster" "example" {
-  name        = "my-k8s-cluster"
+  name        = "example-k8s_cluster"
   namespace   = "system"
-  description = "Production Kubernetes cluster"
+  description = "Example K8SCluster resource managed by Terraform"
+
+  # Add additional configuration as needed
 }

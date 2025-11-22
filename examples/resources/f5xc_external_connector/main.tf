@@ -1,6 +1,9 @@
-# Example: External Connector
+# Example configuration for f5xc_external_connector
+
 resource "f5xc_external_connector" "example" {
-  name        = "my-external-connector"
-  namespace   = "my-namespace"
-  description = "Example external connector for integration"
+  name        = "example-external_connector"
+  namespace   = "system"
+  description = "Example ExternalConnector resource managed by Terraform"
+
+  # Add additional configuration as needed
 }

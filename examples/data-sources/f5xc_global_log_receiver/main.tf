@@ -1,12 +1,8 @@
-# Example: Look up an existing global log receiver
-data "f5xc_global_log_receiver" "example" {
-  name      = "my-global-log-receiver"
-  namespace = "system"
-}
+# Example configuration for f5xc_global_log_receiver data source
 
-# Output the receiver type
-output "receiver_type" {
-  value = data.f5xc_global_log_receiver.example.receiver_type
+data "f5xc_global_log_receiver" "example" {
+  name      = "existing-global_log_receiver"
+  namespace = "system"
 }
 
 output "global_log_receiver_id" {

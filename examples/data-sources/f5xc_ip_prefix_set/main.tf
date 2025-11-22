@@ -1,14 +1,10 @@
-# Example: Look up an existing IP prefix set
+# Example configuration for f5xc_ip_prefix_set data source
+
 data "f5xc_ip_prefix_set" "example" {
-  name      = "my-prefix-set"
-  namespace = "my-namespace"
+  name      = "existing-ip_prefix_set"
+  namespace = "system"
 }
 
-# Output the IP prefixes
-output "prefixes" {
-  value = data.f5xc_ip_prefix_set.example.prefixes
-}
-
-output "prefix_set_id" {
+output "ip_prefix_set_id" {
   value = data.f5xc_ip_prefix_set.example.id
 }

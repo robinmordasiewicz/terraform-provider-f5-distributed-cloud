@@ -1,0 +1,10 @@
+# Example configuration for f5xc_k8s_cluster_role data source
+
+data "f5xc_k8s_cluster_role" "example" {
+  name      = "existing-k8s_cluster_role"
+  namespace = "system"
+}
+
+output "k8s_cluster_role_id" {
+  value = data.f5xc_k8s_cluster_role.example.id
+}

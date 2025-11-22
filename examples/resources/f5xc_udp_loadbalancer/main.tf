@@ -1,13 +1,9 @@
-resource "f5xc_udp_loadbalancer" "dns" {
-  name        = "dns-lb"
-  namespace   = "system"
-  description = "UDP load balancer for DNS traffic"
-  port        = 53
-}
+# Example configuration for f5xc_udp_loadbalancer
 
-resource "f5xc_udp_loadbalancer" "syslog" {
-  name        = "syslog-lb"
+resource "f5xc_udp_loadbalancer" "example" {
+  name        = "example-udp_loadbalancer"
   namespace   = "system"
-  description = "UDP load balancer for syslog"
-  port        = 514
+  description = "Example UDPLoadbalancer resource managed by Terraform"
+
+  # Add additional configuration as needed
 }

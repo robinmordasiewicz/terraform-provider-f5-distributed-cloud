@@ -1,6 +1,9 @@
-# Example: Service Policy Rule
+# Example configuration for f5xc_service_policy_rule
+
 resource "f5xc_service_policy_rule" "example" {
-  name        = "my-service-policy-rule"
-  namespace   = "my-namespace"
-  description = "Example service policy rule"
+  name        = "example-service_policy_rule"
+  namespace   = "system"
+  description = "Example ServicePolicyRule resource managed by Terraform"
+
+  # Add additional configuration as needed
 }

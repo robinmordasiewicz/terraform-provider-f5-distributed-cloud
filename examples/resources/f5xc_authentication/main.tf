@@ -1,6 +1,9 @@
-# Example: Authentication
+# Example configuration for f5xc_authentication
+
 resource "f5xc_authentication" "example" {
-  name        = "my-authentication"
-  namespace   = "my-namespace"
-  description = "Example authentication configuration"
+  name        = "example-authentication"
+  namespace   = "system"
+  description = "Example Authentication resource managed by Terraform"
+
+  # Add additional configuration as needed
 }

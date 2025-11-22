@@ -1,5 +1,9 @@
+# Example configuration for f5xc_network_interface
+
 resource "f5xc_network_interface" "example" {
-  name        = "my-network-interface"
+  name        = "example-network_interface"
   namespace   = "system"
-  description = "Site network interface configuration"
+  description = "Example NetworkInterface resource managed by Terraform"
+
+  # Add additional configuration as needed
 }

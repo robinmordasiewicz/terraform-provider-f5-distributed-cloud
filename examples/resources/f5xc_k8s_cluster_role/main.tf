@@ -1,5 +1,9 @@
+# Example configuration for f5xc_k8s_cluster_role
+
 resource "f5xc_k8s_cluster_role" "example" {
-  name        = "my-cluster-role"
+  name        = "example-k8s_cluster_role"
   namespace   = "system"
-  description = "Cluster role for admin access"
+  description = "Example K8SClusterRole resource managed by Terraform"
+
+  # Add additional configuration as needed
 }

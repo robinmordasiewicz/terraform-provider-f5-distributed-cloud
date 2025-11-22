@@ -1,12 +1,8 @@
-# Example: Look up an existing malicious user mitigation
-data "f5xc_malicious_user_mitigation" "example" {
-  name      = "my-mitigation"
-  namespace = "my-namespace"
-}
+# Example configuration for f5xc_malicious_user_mitigation data source
 
-# Output the enabled status
-output "enabled" {
-  value = data.f5xc_malicious_user_mitigation.example.enabled
+data "f5xc_malicious_user_mitigation" "example" {
+  name      = "existing-malicious_user_mitigation"
+  namespace = "system"
 }
 
 output "malicious_user_mitigation_id" {

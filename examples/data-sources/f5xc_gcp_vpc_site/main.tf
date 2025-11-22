@@ -1,14 +1,10 @@
-# Example: Look up an existing GCP VPC site
+# Example configuration for f5xc_gcp_vpc_site data source
+
 data "f5xc_gcp_vpc_site" "example" {
-  name      = "my-gcp-site"
+  name      = "existing-gcp_vpc_site"
   namespace = "system"
 }
 
-# Output the site state and GCP region
-output "site_state" {
-  value = data.f5xc_gcp_vpc_site.example.site_state
-}
-
-output "gcp_region" {
-  value = data.f5xc_gcp_vpc_site.example.gcp_region
+output "gcp_vpc_site_id" {
+  value = data.f5xc_gcp_vpc_site.example.id
 }

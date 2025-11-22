@@ -1,6 +1,9 @@
-# Example: Registration
+# Example configuration for f5xc_registration
+
 resource "f5xc_registration" "example" {
-  name        = "my-registration"
-  namespace   = "my-namespace"
-  description = "Example site registration"
+  name        = "example-registration"
+  namespace   = "system"
+  description = "Example Registration resource managed by Terraform"
+
+  # Add additional configuration as needed
 }

@@ -1,12 +1,8 @@
-# Example: Look up an existing enhanced firewall policy
-data "f5xc_enhanced_firewall_policy" "example" {
-  name      = "my-enhanced-firewall-policy"
-  namespace = "my-namespace"
-}
+# Example configuration for f5xc_enhanced_firewall_policy data source
 
-# Output the enabled status
-output "enabled" {
-  value = data.f5xc_enhanced_firewall_policy.example.enabled
+data "f5xc_enhanced_firewall_policy" "example" {
+  name      = "existing-enhanced_firewall_policy"
+  namespace = "system"
 }
 
 output "enhanced_firewall_policy_id" {

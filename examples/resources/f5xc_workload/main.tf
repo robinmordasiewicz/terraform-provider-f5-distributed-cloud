@@ -1,6 +1,9 @@
-# Example: Workload
+# Example configuration for f5xc_workload
+
 resource "f5xc_workload" "example" {
-  name        = "my-workload"
-  namespace   = "my-namespace"
-  description = "Example workload definition for application deployment"
+  name        = "example-workload"
+  namespace   = "system"
+  description = "Example Workload resource managed by Terraform"
+
+  # Add additional configuration as needed
 }

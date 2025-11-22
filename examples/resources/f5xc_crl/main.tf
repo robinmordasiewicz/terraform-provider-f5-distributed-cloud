@@ -1,6 +1,9 @@
-# Example: CRL (Certificate Revocation List)
+# Example configuration for f5xc_crl
+
 resource "f5xc_crl" "example" {
-  name        = "my-crl"
-  namespace   = "my-namespace"
-  description = "Example certificate revocation list"
+  name        = "example-crl"
+  namespace   = "system"
+  description = "Example CRL resource managed by Terraform"
+
+  # Add additional configuration as needed
 }

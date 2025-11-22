@@ -1,6 +1,9 @@
-# Example: Network Policy Rule
+# Example configuration for f5xc_network_policy_rule
+
 resource "f5xc_network_policy_rule" "example" {
-  name        = "my-network-policy-rule"
-  namespace   = "my-namespace"
-  description = "Example network policy rule"
+  name        = "example-network_policy_rule"
+  namespace   = "system"
+  description = "Example NetworkPolicyRule resource managed by Terraform"
+
+  # Add additional configuration as needed
 }

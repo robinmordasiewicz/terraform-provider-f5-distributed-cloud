@@ -1,6 +1,9 @@
+# Example configuration for f5xc_dns_domain
+
 resource "f5xc_dns_domain" "example" {
-  name        = "my-dns-domain"
+  name        = "example-dns_domain"
   namespace   = "system"
-  description = "DNS domain configuration"
-  domain      = "app.example.com"
+  description = "Example DNSDomain resource managed by Terraform"
+
+  # Add additional configuration as needed
 }

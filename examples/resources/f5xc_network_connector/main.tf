@@ -1,5 +1,9 @@
+# Example configuration for f5xc_network_connector
+
 resource "f5xc_network_connector" "example" {
-  name        = "my-network-connector"
+  name        = "example-network_connector"
   namespace   = "system"
-  description = "Connector for site-to-site connectivity"
+  description = "Example NetworkConnector resource managed by Terraform"
+
+  # Add additional configuration as needed
 }

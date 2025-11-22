@@ -1,12 +1,8 @@
-# Example: Look up an existing alert policy
-data "f5xc_alert_policy" "example" {
-  name      = "my-alert-policy"
-  namespace = "my-namespace"
-}
+# Example configuration for f5xc_alert_policy data source
 
-# Output whether the alert policy is enabled
-output "enabled" {
-  value = data.f5xc_alert_policy.example.enabled
+data "f5xc_alert_policy" "example" {
+  name      = "existing-alert_policy"
+  namespace = "system"
 }
 
 output "alert_policy_id" {

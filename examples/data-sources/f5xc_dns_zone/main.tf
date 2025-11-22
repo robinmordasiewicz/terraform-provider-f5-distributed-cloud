@@ -1,12 +1,8 @@
-# Example: Look up an existing DNS zone
-data "f5xc_dns_zone" "example" {
-  name      = "my-dns-zone"
-  namespace = "my-namespace"
-}
+# Example configuration for f5xc_dns_zone data source
 
-# Output the domain name
-output "domain" {
-  value = data.f5xc_dns_zone.example.domain
+data "f5xc_dns_zone" "example" {
+  name      = "existing-dns_zone"
+  namespace = "system"
 }
 
 output "dns_zone_id" {

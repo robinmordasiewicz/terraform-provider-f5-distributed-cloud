@@ -1,15 +1,9 @@
-resource "f5xc_cdn_cache_rule" "static_assets" {
-  name        = "static-assets-cache"
-  namespace   = "system"
-  description = "Cache static assets for 1 hour"
-  path_match  = "/static/*"
-  cache_ttl   = 3600
-}
+# Example configuration for f5xc_cdn_cache_rule
 
-resource "f5xc_cdn_cache_rule" "images" {
-  name        = "image-cache"
+resource "f5xc_cdn_cache_rule" "example" {
+  name        = "example-cdn_cache_rule"
   namespace   = "system"
-  description = "Cache images for 24 hours"
-  path_match  = "/images/*"
-  cache_ttl   = 86400
+  description = "Example CDNCacheRule resource managed by Terraform"
+
+  # Add additional configuration as needed
 }

@@ -1,12 +1,8 @@
-# Example: Look up an existing forward proxy policy
-data "f5xc_forward_proxy_policy" "example" {
-  name      = "my-forward-proxy-policy"
-  namespace = "my-namespace"
-}
+# Example configuration for f5xc_forward_proxy_policy data source
 
-# Output the enabled status
-output "enabled" {
-  value = data.f5xc_forward_proxy_policy.example.enabled
+data "f5xc_forward_proxy_policy" "example" {
+  name      = "existing-forward_proxy_policy"
+  namespace = "system"
 }
 
 output "forward_proxy_policy_id" {

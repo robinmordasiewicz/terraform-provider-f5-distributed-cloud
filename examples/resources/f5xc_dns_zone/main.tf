@@ -1,6 +1,9 @@
+# Example configuration for f5xc_dns_zone
+
 resource "f5xc_dns_zone" "example" {
-  name        = "my-dns-zone"
+  name        = "example-dns_zone"
   namespace   = "system"
-  description = "Primary DNS zone for example.com"
-  domain      = "example.com"
+  description = "Example DNSZone resource managed by Terraform"
+
+  # Add additional configuration as needed
 }

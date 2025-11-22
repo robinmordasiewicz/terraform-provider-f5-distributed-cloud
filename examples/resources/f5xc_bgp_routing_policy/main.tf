@@ -1,6 +1,9 @@
-# Example: BGP Routing Policy
+# Example configuration for f5xc_bgp_routing_policy
+
 resource "f5xc_bgp_routing_policy" "example" {
-  name        = "my-bgp-routing-policy"
-  namespace   = "my-namespace"
-  description = "Example BGP routing policy for route advertisement"
+  name        = "example-bgp_routing_policy"
+  namespace   = "system"
+  description = "Example BGPRoutingPolicy resource managed by Terraform"
+
+  # Add additional configuration as needed
 }

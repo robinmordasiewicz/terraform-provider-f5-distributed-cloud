@@ -1,12 +1,8 @@
-# Example: Look up an existing protocol policer
-data "f5xc_protocol_policer" "example" {
-  name      = "my-protocol-policer"
-  namespace = "my-namespace"
-}
+# Example configuration for f5xc_protocol_policer data source
 
-# Output the enabled status
-output "enabled" {
-  value = data.f5xc_protocol_policer.example.enabled
+data "f5xc_protocol_policer" "example" {
+  name      = "existing-protocol_policer"
+  namespace = "system"
 }
 
 output "protocol_policer_id" {

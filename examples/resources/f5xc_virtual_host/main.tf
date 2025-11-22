@@ -1,6 +1,9 @@
+# Example configuration for f5xc_virtual_host
+
 resource "f5xc_virtual_host" "example" {
-  name        = "my-vhost"
+  name        = "example-virtual_host"
   namespace   = "system"
-  description = "Example virtual host"
-  domains     = ["app.example.com", "www.example.com"]
+  description = "Example VirtualHost resource managed by Terraform"
+
+  # Add additional configuration as needed
 }

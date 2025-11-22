@@ -1,6 +1,9 @@
-# Example: Cluster
+# Example configuration for f5xc_cluster
+
 resource "f5xc_cluster" "example" {
-  name        = "my-cluster"
-  namespace   = "my-namespace"
-  description = "Example cluster for container orchestration"
+  name        = "example-cluster"
+  namespace   = "system"
+  description = "Example Cluster resource managed by Terraform"
+
+  # Add additional configuration as needed
 }

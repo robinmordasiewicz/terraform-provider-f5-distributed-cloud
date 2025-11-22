@@ -1,6 +1,9 @@
-# Example: Endpoint
+# Example configuration for f5xc_endpoint
+
 resource "f5xc_endpoint" "example" {
-  name        = "my-endpoint"
-  namespace   = "my-namespace"
-  description = "Example endpoint for service destination"
+  name        = "example-endpoint"
+  namespace   = "system"
+  description = "Example Endpoint resource managed by Terraform"
+
+  # Add additional configuration as needed
 }

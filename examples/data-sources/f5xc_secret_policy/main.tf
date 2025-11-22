@@ -1,12 +1,8 @@
-# Example: Look up an existing secret policy
-data "f5xc_secret_policy" "example" {
-  name      = "my-secret-policy"
-  namespace = "my-namespace"
-}
+# Example configuration for f5xc_secret_policy data source
 
-# Output the enabled status
-output "enabled" {
-  value = data.f5xc_secret_policy.example.enabled
+data "f5xc_secret_policy" "example" {
+  name      = "existing-secret_policy"
+  namespace = "system"
 }
 
 output "secret_policy_id" {

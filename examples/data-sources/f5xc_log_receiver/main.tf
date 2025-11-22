@@ -1,12 +1,8 @@
-# Example: Look up an existing log receiver
-data "f5xc_log_receiver" "example" {
-  name      = "my-log-receiver"
-  namespace = "my-namespace"
-}
+# Example configuration for f5xc_log_receiver data source
 
-# Output the receiver type
-output "receiver_type" {
-  value = data.f5xc_log_receiver.example.receiver_type
+data "f5xc_log_receiver" "example" {
+  name      = "existing-log_receiver"
+  namespace = "system"
 }
 
 output "log_receiver_id" {
