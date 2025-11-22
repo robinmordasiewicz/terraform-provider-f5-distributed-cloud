@@ -17,9 +17,11 @@ import (
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/client"
 	ds_app_firewall "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/app_firewall"
 	ds_cloud_credentials "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/cloud_credentials"
+	ds_healthcheck "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/healthcheck"
 	ds_http_loadbalancer "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/http_loadbalancer"
 	ds_namespace "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/namespace"
 	ds_origin_pool "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/origin_pool"
+	ds_rate_limiter "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/rate_limiter"
 	ds_service_policy "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/service_policy"
 	ds_tcp_loadbalancer "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/tcp_loadbalancer"
 	ds_virtual_site "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/virtual_site"
@@ -290,9 +292,11 @@ func (p *F5XCProvider) DataSources(ctx context.Context) []func() datasource.Data
 	return []func() datasource.DataSource{
 		ds_app_firewall.NewAppFirewallDataSource,
 		ds_cloud_credentials.NewCloudCredentialsDataSource,
+		ds_healthcheck.NewHealthcheckDataSource,
 		ds_http_loadbalancer.NewHTTPLoadBalancerDataSource,
 		ds_namespace.NewNamespaceDataSource,
 		ds_origin_pool.NewOriginPoolDataSource,
+		ds_rate_limiter.NewRateLimiterDataSource,
 		ds_service_policy.NewServicePolicyDataSource,
 		ds_tcp_loadbalancer.NewTCPLoadBalancerDataSource,
 		ds_virtual_site.NewVirtualSiteDataSource,
