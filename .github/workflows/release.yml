@@ -1,49 +1,147 @@
 # Copyright (c) Robin Mordasiewicz
 # SPDX-License-Identifier: MPL-2.0
 
-# This GitHub action can publish assets for release when a tag is created.
-# Currently it uses HashiCorp's official release workflow for community providers.
-#
-# To manually trigger this workflow:
-#   1. Create a new tag: git tag v1.0.0
-#   2. Push the tag: git push origin v1.0.0
-#
-# Or you can create a release through GitHub UI which will trigger this workflow.
+# Fully automated release workflow
+# Triggers on push to main branch and automatically:
+# 1. Determines the next version based on conventional commits
+# 2. Creates a git tag
+# 3. Builds and signs release artifacts with GoReleaser
+# 4. Publishes the release to GitHub
 
 name: Release
 
 on:
   push:
-    tags:
-      - 'v*'
+    branches:
+      - main
+    paths-ignore:
+      - '*.md'
+      - 'docs/**'
+      - '.github/workflows/sync-openapi.yml'
 
-# Releases need permissions to write to the repository.
+# Prevent concurrent releases
+concurrency:
+  group: release
+  cancel-in-progress: false
+
 permissions:
   contents: write
 
 jobs:
-  goreleaser:
+  release:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
         with:
-          # Allow goreleaser to access older tag information.
           fetch-depth: 0
-      - uses: actions/setup-go@v5
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
         with:
           go-version-file: 'go.mod'
           cache: true
+
+      - name: Get latest tag
+        id: get_latest_tag
+        run: |
+          # Get the latest tag, or use v0.0.0 if no tags exist
+          LATEST_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "v0.0.0")
+          echo "latest_tag=${LATEST_TAG}" >> $GITHUB_OUTPUT
+          echo "Latest tag: ${LATEST_TAG}"
+
+      - name: Determine version bump
+        id: bump_version
+        run: |
+          LATEST_TAG="${{ steps.get_latest_tag.outputs.latest_tag }}"
+
+          # Remove 'v' prefix for version calculation
+          VERSION=${LATEST_TAG#v}
+
+          # Parse version components
+          MAJOR=$(echo $VERSION | cut -d. -f1)
+          MINOR=$(echo $VERSION | cut -d. -f2)
+          PATCH=$(echo $VERSION | cut -d. -f3)
+
+          # Get commits since last tag
+          if [ "$LATEST_TAG" = "v0.0.0" ]; then
+            COMMITS=$(git log --oneline)
+          else
+            COMMITS=$(git log ${LATEST_TAG}..HEAD --oneline)
+          fi
+
+          # Check if there are any commits to release
+          if [ -z "$COMMITS" ]; then
+            echo "No new commits since last release"
+            echo "skip_release=true" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+
+          echo "Commits since last release:"
+          echo "$COMMITS"
+
+          # Determine bump type based on conventional commits
+          BUMP_TYPE="patch"
+
+          if echo "$COMMITS" | grep -qiE "^[a-f0-9]+ (feat|feature)(\(.+\))?!:|BREAKING CHANGE"; then
+            BUMP_TYPE="major"
+          elif echo "$COMMITS" | grep -qiE "^[a-f0-9]+ (feat|feature)(\(.+\))?:"; then
+            BUMP_TYPE="minor"
+          fi
+
+          # Calculate new version
+          case $BUMP_TYPE in
+            major)
+              NEW_MAJOR=$((MAJOR + 1))
+              NEW_VERSION="${NEW_MAJOR}.0.0"
+              ;;
+            minor)
+              NEW_MINOR=$((MINOR + 1))
+              NEW_VERSION="${MAJOR}.${NEW_MINOR}.0"
+              ;;
+            patch)
+              NEW_PATCH=$((PATCH + 1))
+              NEW_VERSION="${MAJOR}.${MINOR}.${NEW_PATCH}"
+              ;;
+          esac
+
+          echo "Bump type: ${BUMP_TYPE}"
+          echo "New version: v${NEW_VERSION}"
+
+          echo "new_version=v${NEW_VERSION}" >> $GITHUB_OUTPUT
+          echo "skip_release=false" >> $GITHUB_OUTPUT
+
+      - name: Create and push tag
+        if: steps.bump_version.outputs.skip_release != 'true'
+        run: |
+          NEW_VERSION="${{ steps.bump_version.outputs.new_version }}"
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git tag -a "${NEW_VERSION}" -m "Release ${NEW_VERSION}"
+          git push origin "${NEW_VERSION}"
+
+          echo "Created and pushed tag: ${NEW_VERSION}"
+
       - name: Import GPG key
+        if: steps.bump_version.outputs.skip_release != 'true'
         uses: crazy-max/ghaction-import-gpg@v6
         id: import_gpg
         with:
           gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
+
       - name: Run GoReleaser
+        if: steps.bump_version.outputs.skip_release != 'true'
         uses: goreleaser/goreleaser-action@v6
         with:
           args: release --clean
         env:
-          # GitHub sets the GITHUB_TOKEN secret automatically.
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GPG_FINGERPRINT: ${{ steps.import_gpg.outputs.fingerprint }}
+
+      - name: Release skipped
+        if: steps.bump_version.outputs.skip_release == 'true'
+        run: echo "No new commits to release"
