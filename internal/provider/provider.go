@@ -41,6 +41,10 @@ import (
 	ds_user "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/user"
 	ds_virtual_site "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/virtual_site"
 	ds_voltstack_site "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/voltstack_site"
+	ds_log_receiver "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/log_receiver"
+	ds_route "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/route"
+	ds_secret_policy "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/secret_policy"
+	ds_service_mesh "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/service_mesh"
 	ds_waf_rule "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/waf_rule"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/active_service_policies"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/alert_policy"
@@ -333,5 +337,9 @@ func (p *F5XCProvider) DataSources(ctx context.Context) []func() datasource.Data
 		ds_virtual_site.NewVirtualSiteDataSource,
 		ds_voltstack_site.NewVoltstackSiteDataSource,
 		ds_waf_rule.NewWAFRuleDataSource,
+		ds_route.NewRouteDataSource,
+		ds_log_receiver.NewLogReceiverDataSource,
+		ds_secret_policy.NewSecretPolicyDataSource,
+		ds_service_mesh.NewServiceMeshDataSource,
 	}
 }
