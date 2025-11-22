@@ -17,9 +17,9 @@ type AWSVPCSiteResourceModel struct {
 }
 
 type APIAWSVPCSite struct {
-	Metadata   APIMetadata        `json:"metadata"`
-	Spec       APIAWSVPCSiteSpec  `json:"spec"`
-	SystemMeta APISystemMetadata  `json:"system_metadata,omitempty"`
+	Metadata   APIMetadata       `json:"metadata"`
+	Spec       APIAWSVPCSiteSpec `json:"spec"`
+	SystemMeta APISystemMetadata `json:"system_metadata,omitempty"`
 }
 
 type APIMetadata struct {

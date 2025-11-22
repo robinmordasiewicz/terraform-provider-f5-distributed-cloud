@@ -38,12 +38,12 @@ resource "f5xc_user" "example" {
 ` + "```" + `
 `,
 		Attributes: map[string]schema.Attribute{
-			"id":          schema.StringAttribute{Computed: true, PlanModifiers: []planmodifier.String{stringplanmodifier.UseStateForUnknown()}},
-			"name":        schema.StringAttribute{Required: true, PlanModifiers: []planmodifier.String{stringplanmodifier.RequiresReplace()}},
-			"namespace":   schema.StringAttribute{Required: true, PlanModifiers: []planmodifier.String{stringplanmodifier.RequiresReplace()}},
-			"email":       schema.StringAttribute{Required: true, Description: "Email address of the user."},
-			"first_name":  schema.StringAttribute{Optional: true, Description: "First name of the user."},
-			"last_name":   schema.StringAttribute{Optional: true, Description: "Last name of the user."},
+			"id":         schema.StringAttribute{Computed: true, PlanModifiers: []planmodifier.String{stringplanmodifier.UseStateForUnknown()}},
+			"name":       schema.StringAttribute{Required: true, PlanModifiers: []planmodifier.String{stringplanmodifier.RequiresReplace()}},
+			"namespace":  schema.StringAttribute{Required: true, PlanModifiers: []planmodifier.String{stringplanmodifier.RequiresReplace()}},
+			"email":      schema.StringAttribute{Required: true, Description: "Email address of the user."},
+			"first_name": schema.StringAttribute{Optional: true, Description: "First name of the user."},
+			"last_name":  schema.StringAttribute{Optional: true, Description: "Last name of the user."},
 			"type": schema.StringAttribute{
 				Optional:    true,
 				Description: "Type of user (USER, SERVICE_CREDENTIAL).",

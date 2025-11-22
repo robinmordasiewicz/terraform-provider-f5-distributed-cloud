@@ -10,6 +10,7 @@ import (
 
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-log/tflog"
+
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/client"
 )
 
@@ -20,7 +21,9 @@ type MaliciousUserMitigationResource struct {
 	client *client.Client
 }
 
-func NewMaliciousUserMitigationResource() resource.Resource { return &MaliciousUserMitigationResource{} }
+func NewMaliciousUserMitigationResource() resource.Resource {
+	return &MaliciousUserMitigationResource{}
+}
 
 func (r *MaliciousUserMitigationResource) Metadata(ctx context.Context, req resource.MetadataRequest, resp *resource.MetadataResponse) {
 	resp.TypeName = req.ProviderTypeName + "_malicious_user_mitigation"

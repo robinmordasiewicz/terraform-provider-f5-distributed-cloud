@@ -6,11 +6,11 @@ package active_service_policies
 import "github.com/hashicorp/terraform-plugin-framework/types"
 
 type ActiveServicePoliciesResourceModel struct {
-	Name        types.String   `tfsdk:"name"`
-	Namespace   types.String   `tfsdk:"namespace"`
-	Description types.String   `tfsdk:"description"`
+	Name        types.String     `tfsdk:"name"`
+	Namespace   types.String     `tfsdk:"namespace"`
+	Description types.String     `tfsdk:"description"`
 	Policies    []PolicyRefModel `tfsdk:"policies"`
-	ID          types.String   `tfsdk:"id"`
+	ID          types.String     `tfsdk:"id"`
 }
 
 type PolicyRefModel struct {
@@ -19,9 +19,9 @@ type PolicyRefModel struct {
 }
 
 type APIActiveServicePolicies struct {
-	Metadata   APIMetadata                    `json:"metadata"`
-	Spec       APIActiveServicePoliciesSpec   `json:"spec"`
-	SystemMeta APISystemMetadata              `json:"system_metadata,omitempty"`
+	Metadata   APIMetadata                  `json:"metadata"`
+	Spec       APIActiveServicePoliciesSpec `json:"spec"`
+	SystemMeta APISystemMetadata            `json:"system_metadata,omitempty"`
 }
 
 type APIMetadata struct {

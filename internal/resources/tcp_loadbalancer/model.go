@@ -15,14 +15,14 @@ type TCPLoadBalancerResourceModel struct {
 	Description types.String `tfsdk:"description"`
 
 	// Domains and ports
-	Domains   []types.String `tfsdk:"domains"`
-	ListenPort types.Int64   `tfsdk:"listen_port"`
+	Domains    []types.String `tfsdk:"domains"`
+	ListenPort types.Int64    `tfsdk:"listen_port"`
 
 	// Origin pool reference
 	OriginPools []OriginPoolRefModel `tfsdk:"origin_pools"`
 
 	// Advertisement
-	AdvertiseOnPublic         types.Bool `tfsdk:"advertise_on_public"`
+	AdvertiseOnPublic           types.Bool `tfsdk:"advertise_on_public"`
 	AdvertiseOnPublicDefaultVIP types.Bool `tfsdk:"advertise_on_public_default_vip"`
 
 	// DNS info
@@ -72,18 +72,18 @@ type APISystemMetadata struct {
 
 // APITCPLoadBalancerSpec represents the spec for TCP Load Balancer.
 type APITCPLoadBalancerSpec struct {
-	Domains        []string                `json:"domains,omitempty"`
-	ListenPort     uint32                  `json:"listen_port,omitempty"`
-	OriginPools    []APIOriginPoolWithWeight `json:"origin_pools_weights,omitempty"`
-	AdvertiseOnPublic         *struct{}   `json:"advertise_on_public,omitempty"`
-	AdvertiseOnPublicDefaultVIP *struct{} `json:"advertise_on_public_default_vip,omitempty"`
-	DNSVolterraManaged        *struct{}   `json:"dns_volterra_managed,omitempty"`
-	AutomaticPort             *struct{}   `json:"automatic_port,omitempty"`
-	NoSNI                     *struct{}   `json:"no_sni,omitempty"`
-	HashPolicyChoiceLeastActive *struct{} `json:"hash_policy_choice_least_active,omitempty"`
-	HashPolicyChoiceRandom      *struct{} `json:"hash_policy_choice_random,omitempty"`
-	HashPolicyChoiceSourceIPStickiness *struct{} `json:"hash_policy_choice_source_ip_stickiness,omitempty"`
-	IdleTimeout               uint32      `json:"idle_timeout,omitempty"`
+	Domains                            []string                  `json:"domains,omitempty"`
+	ListenPort                         uint32                    `json:"listen_port,omitempty"`
+	OriginPools                        []APIOriginPoolWithWeight `json:"origin_pools_weights,omitempty"`
+	AdvertiseOnPublic                  *struct{}                 `json:"advertise_on_public,omitempty"`
+	AdvertiseOnPublicDefaultVIP        *struct{}                 `json:"advertise_on_public_default_vip,omitempty"`
+	DNSVolterraManaged                 *struct{}                 `json:"dns_volterra_managed,omitempty"`
+	AutomaticPort                      *struct{}                 `json:"automatic_port,omitempty"`
+	NoSNI                              *struct{}                 `json:"no_sni,omitempty"`
+	HashPolicyChoiceLeastActive        *struct{}                 `json:"hash_policy_choice_least_active,omitempty"`
+	HashPolicyChoiceRandom             *struct{}                 `json:"hash_policy_choice_random,omitempty"`
+	HashPolicyChoiceSourceIPStickiness *struct{}                 `json:"hash_policy_choice_source_ip_stickiness,omitempty"`
+	IdleTimeout                        uint32                    `json:"idle_timeout,omitempty"`
 }
 
 // APIOriginPoolWithWeight represents an origin pool reference with weight.

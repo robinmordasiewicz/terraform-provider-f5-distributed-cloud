@@ -6,12 +6,12 @@ package role
 import "github.com/hashicorp/terraform-plugin-framework/types"
 
 type RoleResourceModel struct {
-	Name        types.String `tfsdk:"name"`
-	Namespace   types.String `tfsdk:"namespace"`
-	Description types.String `tfsdk:"description"`
-	RoleType    types.String `tfsdk:"role_type"`
+	Name        types.String      `tfsdk:"name"`
+	Namespace   types.String      `tfsdk:"namespace"`
+	Description types.String      `tfsdk:"description"`
+	RoleType    types.String      `tfsdk:"role_type"`
 	Permissions []PermissionModel `tfsdk:"permissions"`
-	ID          types.String `tfsdk:"id"`
+	ID          types.String      `tfsdk:"id"`
 }
 
 type PermissionModel struct {

@@ -6,12 +6,12 @@ package network_policy
 import "github.com/hashicorp/terraform-plugin-framework/types"
 
 type NetworkPolicyResourceModel struct {
-	Name        types.String `tfsdk:"name"`
-	Namespace   types.String `tfsdk:"namespace"`
-	Description types.String `tfsdk:"description"`
-	PolicyType  types.String `tfsdk:"policy_type"`
+	Name        types.String       `tfsdk:"name"`
+	Namespace   types.String       `tfsdk:"namespace"`
+	Description types.String       `tfsdk:"description"`
+	PolicyType  types.String       `tfsdk:"policy_type"`
 	Rules       []NetworkRuleModel `tfsdk:"rules"`
-	ID          types.String `tfsdk:"id"`
+	ID          types.String       `tfsdk:"id"`
 }
 
 type NetworkRuleModel struct {
@@ -24,9 +24,9 @@ type NetworkRuleModel struct {
 }
 
 type APINetworkPolicy struct {
-	Metadata   APIMetadata            `json:"metadata"`
-	Spec       APINetworkPolicySpec   `json:"spec"`
-	SystemMeta APISystemMetadata      `json:"system_metadata,omitempty"`
+	Metadata   APIMetadata          `json:"metadata"`
+	Spec       APINetworkPolicySpec `json:"spec"`
+	SystemMeta APISystemMetadata    `json:"system_metadata,omitempty"`
 }
 
 type APIMetadata struct {

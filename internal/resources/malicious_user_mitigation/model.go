@@ -6,21 +6,21 @@ package malicious_user_mitigation
 import "github.com/hashicorp/terraform-plugin-framework/types"
 
 type MaliciousUserMitigationResourceModel struct {
-	Name               types.String `tfsdk:"name"`
-	Namespace          types.String `tfsdk:"namespace"`
-	Description        types.String `tfsdk:"description"`
-	MitigationType     types.String `tfsdk:"mitigation_type"`
-	CaptchaChallenge   types.Bool   `tfsdk:"captcha_challenge"`
-	JavascriptChallenge types.Bool  `tfsdk:"javascript_challenge"`
-	TemporaryBlock     types.Bool   `tfsdk:"temporary_block"`
-	BlockDuration      types.Int64  `tfsdk:"block_duration"`
-	ID                 types.String `tfsdk:"id"`
+	Name                types.String `tfsdk:"name"`
+	Namespace           types.String `tfsdk:"namespace"`
+	Description         types.String `tfsdk:"description"`
+	MitigationType      types.String `tfsdk:"mitigation_type"`
+	CaptchaChallenge    types.Bool   `tfsdk:"captcha_challenge"`
+	JavascriptChallenge types.Bool   `tfsdk:"javascript_challenge"`
+	TemporaryBlock      types.Bool   `tfsdk:"temporary_block"`
+	BlockDuration       types.Int64  `tfsdk:"block_duration"`
+	ID                  types.String `tfsdk:"id"`
 }
 
 type APIMaliciousUserMitigation struct {
-	Metadata   APIMetadata                     `json:"metadata"`
-	Spec       APIMaliciousUserMitigationSpec  `json:"spec"`
-	SystemMeta APISystemMetadata               `json:"system_metadata,omitempty"`
+	Metadata   APIMetadata                    `json:"metadata"`
+	Spec       APIMaliciousUserMitigationSpec `json:"spec"`
+	SystemMeta APISystemMetadata              `json:"system_metadata,omitempty"`
 }
 
 type APIMetadata struct {

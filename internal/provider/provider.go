@@ -14,6 +14,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/types"
 	"github.com/hashicorp/terraform-plugin-log/tflog"
+
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/client"
 	ds_app_firewall "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/app_firewall"
 	ds_cloud_credentials "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/cloud_credentials"
@@ -81,10 +82,10 @@ type F5XCProvider struct {
 
 // F5XCProviderModel describes the provider data model.
 type F5XCProviderModel struct {
-	APIURL     types.String `tfsdk:"api_url"`
-	P12File    types.String `tfsdk:"p12_file"`
+	APIURL      types.String `tfsdk:"api_url"`
+	P12File     types.String `tfsdk:"p12_file"`
 	P12Password types.String `tfsdk:"p12_password"`
-	APIToken   types.String `tfsdk:"api_token"`
+	APIToken    types.String `tfsdk:"api_token"`
 }
 
 // New returns a new provider instance.

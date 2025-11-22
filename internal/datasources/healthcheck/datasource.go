@@ -10,6 +10,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/types"
+
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/client"
 )
 
@@ -24,15 +25,15 @@ type HealthcheckDataSource struct {
 }
 
 type HealthcheckDataSourceModel struct {
-	ID               types.String `tfsdk:"id"`
-	Name             types.String `tfsdk:"name"`
-	Namespace        types.String `tfsdk:"namespace"`
-	Description      types.String `tfsdk:"description"`
-	HealthCheckType  types.String `tfsdk:"healthcheck_type"`
-	Timeout          types.Int64  `tfsdk:"timeout"`
-	Interval         types.Int64  `tfsdk:"interval"`
-	UnhealthyThreshold types.Int64 `tfsdk:"unhealthy_threshold"`
-	HealthyThreshold types.Int64  `tfsdk:"healthy_threshold"`
+	ID                 types.String `tfsdk:"id"`
+	Name               types.String `tfsdk:"name"`
+	Namespace          types.String `tfsdk:"namespace"`
+	Description        types.String `tfsdk:"description"`
+	HealthCheckType    types.String `tfsdk:"healthcheck_type"`
+	Timeout            types.Int64  `tfsdk:"timeout"`
+	Interval           types.Int64  `tfsdk:"interval"`
+	UnhealthyThreshold types.Int64  `tfsdk:"unhealthy_threshold"`
+	HealthyThreshold   types.Int64  `tfsdk:"healthy_threshold"`
 }
 
 type APIHealthcheck struct {
@@ -43,12 +44,12 @@ type APIHealthcheck struct {
 		UID         string `json:"uid,omitempty"`
 	} `json:"metadata"`
 	Spec struct {
-		HTTPHealthCheck  interface{} `json:"http_health_check,omitempty"`
-		TCPHealthCheck   interface{} `json:"tcp_health_check,omitempty"`
-		Timeout          int         `json:"timeout,omitempty"`
-		Interval         int         `json:"interval,omitempty"`
-		UnhealthyThreshold int       `json:"unhealthy_threshold,omitempty"`
-		HealthyThreshold int         `json:"healthy_threshold,omitempty"`
+		HTTPHealthCheck    interface{} `json:"http_health_check,omitempty"`
+		TCPHealthCheck     interface{} `json:"tcp_health_check,omitempty"`
+		Timeout            int         `json:"timeout,omitempty"`
+		Interval           int         `json:"interval,omitempty"`
+		UnhealthyThreshold int         `json:"unhealthy_threshold,omitempty"`
+		HealthyThreshold   int         `json:"healthy_threshold,omitempty"`
 	} `json:"spec"`
 }
 

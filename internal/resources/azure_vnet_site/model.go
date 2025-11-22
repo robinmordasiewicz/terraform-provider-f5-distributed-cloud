@@ -18,9 +18,9 @@ type AzureVNETSiteResourceModel struct {
 }
 
 type APIAzureVNETSite struct {
-	Metadata   APIMetadata           `json:"metadata"`
-	Spec       APIAzureVNETSiteSpec  `json:"spec"`
-	SystemMeta APISystemMetadata     `json:"system_metadata,omitempty"`
+	Metadata   APIMetadata          `json:"metadata"`
+	Spec       APIAzureVNETSiteSpec `json:"spec"`
+	SystemMeta APISystemMetadata    `json:"system_metadata,omitempty"`
 }
 
 type APIMetadata struct {

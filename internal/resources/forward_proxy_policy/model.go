@@ -6,24 +6,24 @@ package forward_proxy_policy
 import "github.com/hashicorp/terraform-plugin-framework/types"
 
 type ForwardProxyPolicyResourceModel struct {
-	Name        types.String `tfsdk:"name"`
-	Namespace   types.String `tfsdk:"namespace"`
-	Description types.String `tfsdk:"description"`
+	Name        types.String     `tfsdk:"name"`
+	Namespace   types.String     `tfsdk:"namespace"`
+	Description types.String     `tfsdk:"description"`
 	ProxyRules  []ProxyRuleModel `tfsdk:"proxy_rules"`
-	ID          types.String `tfsdk:"id"`
+	ID          types.String     `tfsdk:"id"`
 }
 
 type ProxyRuleModel struct {
-	Action       types.String `tfsdk:"action"`
-	DomainMatch  types.String `tfsdk:"domain_match"`
-	HTTPMethods  types.List   `tfsdk:"http_methods"`
-	PortMatch    types.Int64  `tfsdk:"port_match"`
+	Action      types.String `tfsdk:"action"`
+	DomainMatch types.String `tfsdk:"domain_match"`
+	HTTPMethods types.List   `tfsdk:"http_methods"`
+	PortMatch   types.Int64  `tfsdk:"port_match"`
 }
 
 type APIForwardProxyPolicy struct {
-	Metadata   APIMetadata                 `json:"metadata"`
-	Spec       APIForwardProxyPolicySpec   `json:"spec"`
-	SystemMeta APISystemMetadata           `json:"system_metadata,omitempty"`
+	Metadata   APIMetadata               `json:"metadata"`
+	Spec       APIForwardProxyPolicySpec `json:"spec"`
+	SystemMeta APISystemMetadata         `json:"system_metadata,omitempty"`
 }
 
 type APIMetadata struct {

@@ -6,14 +6,14 @@ package tunnel
 import "github.com/hashicorp/terraform-plugin-framework/types"
 
 type TunnelResourceModel struct {
-	Name         types.String `tfsdk:"name"`
-	Namespace    types.String `tfsdk:"namespace"`
-	Description  types.String `tfsdk:"description"`
-	TunnelType   types.String `tfsdk:"tunnel_type"`
-	RemoteIP     types.String `tfsdk:"remote_ip"`
-	LocalIP      types.String `tfsdk:"local_ip"`
+	Name           types.String `tfsdk:"name"`
+	Namespace      types.String `tfsdk:"namespace"`
+	Description    types.String `tfsdk:"description"`
+	TunnelType     types.String `tfsdk:"tunnel_type"`
+	RemoteIP       types.String `tfsdk:"remote_ip"`
+	LocalIP        types.String `tfsdk:"local_ip"`
 	EncryptionType types.String `tfsdk:"encryption_type"`
-	ID           types.String `tfsdk:"id"`
+	ID             types.String `tfsdk:"id"`
 }
 
 type APITunnel struct {

@@ -6,12 +6,12 @@ package site_mesh_group
 import "github.com/hashicorp/terraform-plugin-framework/types"
 
 type SiteMeshGroupResourceModel struct {
-	Name        types.String    `tfsdk:"name"`
-	Namespace   types.String    `tfsdk:"namespace"`
-	Description types.String    `tfsdk:"description"`
-	Type        types.String    `tfsdk:"type"`
+	Name        types.String          `tfsdk:"name"`
+	Namespace   types.String          `tfsdk:"namespace"`
+	Description types.String          `tfsdk:"description"`
+	Type        types.String          `tfsdk:"type"`
 	VirtualSite []VirtualSiteRefModel `tfsdk:"virtual_site"`
-	ID          types.String    `tfsdk:"id"`
+	ID          types.String          `tfsdk:"id"`
 }
 
 type VirtualSiteRefModel struct {
@@ -20,9 +20,9 @@ type VirtualSiteRefModel struct {
 }
 
 type APISiteMeshGroup struct {
-	Metadata   APIMetadata           `json:"metadata"`
-	Spec       APISiteMeshGroupSpec  `json:"spec"`
-	SystemMeta APISystemMetadata     `json:"system_metadata,omitempty"`
+	Metadata   APIMetadata          `json:"metadata"`
+	Spec       APISiteMeshGroupSpec `json:"spec"`
+	SystemMeta APISystemMetadata    `json:"system_metadata,omitempty"`
 }
 
 type APIMetadata struct {

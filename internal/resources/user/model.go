@@ -6,14 +6,14 @@ package user
 import "github.com/hashicorp/terraform-plugin-framework/types"
 
 type UserResourceModel struct {
-	Name        types.String       `tfsdk:"name"`
-	Namespace   types.String       `tfsdk:"namespace"`
-	Email       types.String       `tfsdk:"email"`
-	FirstName   types.String       `tfsdk:"first_name"`
-	LastName    types.String       `tfsdk:"last_name"`
-	Type        types.String       `tfsdk:"type"`
-	Roles       []RoleRefModel     `tfsdk:"roles"`
-	ID          types.String       `tfsdk:"id"`
+	Name      types.String   `tfsdk:"name"`
+	Namespace types.String   `tfsdk:"namespace"`
+	Email     types.String   `tfsdk:"email"`
+	FirstName types.String   `tfsdk:"first_name"`
+	LastName  types.String   `tfsdk:"last_name"`
+	Type      types.String   `tfsdk:"type"`
+	Roles     []RoleRefModel `tfsdk:"roles"`
+	ID        types.String   `tfsdk:"id"`
 }
 
 type RoleRefModel struct {
@@ -28,8 +28,8 @@ type APIUser struct {
 }
 
 type APIMetadata struct {
-	Name        string `json:"name"`
-	Namespace   string `json:"namespace,omitempty"`
+	Name      string `json:"name"`
+	Namespace string `json:"namespace,omitempty"`
 }
 
 type APISystemMetadata struct {

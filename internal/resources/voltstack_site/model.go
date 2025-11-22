@@ -6,20 +6,20 @@ package voltstack_site
 import "github.com/hashicorp/terraform-plugin-framework/types"
 
 type VoltstackSiteResourceModel struct {
-	Name            types.String `tfsdk:"name"`
-	Namespace       types.String `tfsdk:"namespace"`
-	Description     types.String `tfsdk:"description"`
-	MasterNodes     types.Int64  `tfsdk:"master_nodes"`
-	WorkerNodes     types.Int64  `tfsdk:"worker_nodes"`
-	SiteType        types.String `tfsdk:"site_type"`
-	VolterraRegion  types.String `tfsdk:"volterra_region"`
-	ID              types.String `tfsdk:"id"`
+	Name           types.String `tfsdk:"name"`
+	Namespace      types.String `tfsdk:"namespace"`
+	Description    types.String `tfsdk:"description"`
+	MasterNodes    types.Int64  `tfsdk:"master_nodes"`
+	WorkerNodes    types.Int64  `tfsdk:"worker_nodes"`
+	SiteType       types.String `tfsdk:"site_type"`
+	VolterraRegion types.String `tfsdk:"volterra_region"`
+	ID             types.String `tfsdk:"id"`
 }
 
 type APIVoltstackSite struct {
-	Metadata   APIMetadata           `json:"metadata"`
-	Spec       APIVoltstackSiteSpec  `json:"spec"`
-	SystemMeta APISystemMetadata     `json:"system_metadata,omitempty"`
+	Metadata   APIMetadata          `json:"metadata"`
+	Spec       APIVoltstackSiteSpec `json:"spec"`
+	SystemMeta APISystemMetadata    `json:"system_metadata,omitempty"`
 }
 
 type APIMetadata struct {

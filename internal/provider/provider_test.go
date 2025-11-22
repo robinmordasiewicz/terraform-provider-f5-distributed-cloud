@@ -11,6 +11,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/providerserver"
 	"github.com/hashicorp/terraform-plugin-go/tfprotov6"
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
+
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/provider"
 )
 
@@ -57,8 +58,8 @@ func TestAccProvider_tokenAuth(t *testing.T) {
 		Steps: []resource.TestStep{
 			{
 				Config: testAccProviderConfig_tokenAuth(apiURL, apiToken),
-				Check: resource.ComposeTestCheckFunc(
-					// Provider configured successfully if no error
+				Check:  resource.ComposeTestCheckFunc(
+				// Provider configured successfully if no error
 				),
 			},
 		},
@@ -82,8 +83,8 @@ func TestAccProvider_certAuth(t *testing.T) {
 		Steps: []resource.TestStep{
 			{
 				Config: testAccProviderConfig_certAuth(apiURL, p12File, p12Password),
-				Check: resource.ComposeTestCheckFunc(
-					// Provider configured successfully if no error
+				Check:  resource.ComposeTestCheckFunc(
+				// Provider configured successfully if no error
 				),
 			},
 		},

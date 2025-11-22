@@ -10,6 +10,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/types"
+
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/client"
 )
 
@@ -24,14 +25,14 @@ type OriginPoolDataSource struct {
 }
 
 type OriginPoolDataSourceModel struct {
-	ID                   types.String `tfsdk:"id"`
-	Name                 types.String `tfsdk:"name"`
-	Namespace            types.String `tfsdk:"namespace"`
-	Description          types.String `tfsdk:"description"`
-	Port                 types.Int64  `tfsdk:"port"`
-	EndpointProtocol     types.String `tfsdk:"endpoint_protocol"`
+	ID                    types.String `tfsdk:"id"`
+	Name                  types.String `tfsdk:"name"`
+	Namespace             types.String `tfsdk:"namespace"`
+	Description           types.String `tfsdk:"description"`
+	Port                  types.Int64  `tfsdk:"port"`
+	EndpointProtocol      types.String `tfsdk:"endpoint_protocol"`
 	LoadbalancerAlgorithm types.String `tfsdk:"loadbalancer_algorithm"`
-	HealthCheckPort      types.Int64  `tfsdk:"health_check_port"`
+	HealthCheckPort       types.Int64  `tfsdk:"health_check_port"`
 }
 
 type APIOriginPool struct {

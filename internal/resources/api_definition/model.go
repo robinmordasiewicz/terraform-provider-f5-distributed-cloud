@@ -16,9 +16,9 @@ type APIDefinitionResourceModel struct {
 }
 
 type APIAPIDefinition struct {
-	Metadata   APIMetadata           `json:"metadata"`
-	Spec       APIAPIDefinitionSpec  `json:"spec"`
-	SystemMeta APISystemMetadata     `json:"system_metadata,omitempty"`
+	Metadata   APIMetadata          `json:"metadata"`
+	Spec       APIAPIDefinitionSpec `json:"spec"`
+	SystemMeta APISystemMetadata    `json:"system_metadata,omitempty"`
 }
 
 type APIMetadata struct {

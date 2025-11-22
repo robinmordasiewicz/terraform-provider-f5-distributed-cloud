@@ -25,8 +25,8 @@ type ServicePolicyResourceModel struct {
 
 // RuleModel represents a service policy rule.
 type RuleModel struct {
-	Name      types.String `tfsdk:"name"`
-	Action    types.String `tfsdk:"action"`
+	Name   types.String `tfsdk:"name"`
+	Action types.String `tfsdk:"action"`
 
 	// Match conditions
 	MatchSources      []MatchSourceModel `tfsdk:"match_sources"`
@@ -35,17 +35,17 @@ type RuleModel struct {
 
 // MatchSourceModel represents source matching criteria.
 type MatchSourceModel struct {
-	Prefix       types.String `tfsdk:"prefix"`
-	PrefixList   types.String `tfsdk:"prefix_list"`
-	ASN          types.Int64  `tfsdk:"asn"`
-	Namespace    types.String `tfsdk:"namespace"`
+	Prefix     types.String `tfsdk:"prefix"`
+	PrefixList types.String `tfsdk:"prefix_list"`
+	ASN        types.Int64  `tfsdk:"asn"`
+	Namespace  types.String `tfsdk:"namespace"`
 }
 
 // MatchDestModel represents destination matching criteria.
 type MatchDestModel struct {
-	Prefix     types.String `tfsdk:"prefix"`
-	Port       types.Int64  `tfsdk:"port"`
-	Protocol   types.String `tfsdk:"protocol"`
+	Prefix   types.String `tfsdk:"prefix"`
+	Port     types.Int64  `tfsdk:"port"`
+	Protocol types.String `tfsdk:"protocol"`
 }
 
 // API structures
@@ -68,13 +68,13 @@ type APISystemMetadata struct {
 }
 
 type APIServicePolicySpec struct {
-	Rules         []APIRule `json:"rules,omitempty"`
+	Rules         []APIRule         `json:"rules,omitempty"`
 	DefaultAction *APIDefaultAction `json:"default_action,omitempty"`
 }
 
 type APIRule struct {
-	Metadata   APIRuleMetadata `json:"metadata,omitempty"`
-	Spec       APIRuleSpec     `json:"spec,omitempty"`
+	Metadata APIRuleMetadata `json:"metadata,omitempty"`
+	Spec     APIRuleSpec     `json:"spec,omitempty"`
 }
 
 type APIRuleMetadata struct {

@@ -6,19 +6,19 @@ package rate_limiter
 import "github.com/hashicorp/terraform-plugin-framework/types"
 
 type RateLimiterResourceModel struct {
-	Name           types.String `tfsdk:"name"`
-	Namespace      types.String `tfsdk:"namespace"`
-	Description    types.String `tfsdk:"description"`
-	TotalNumber    types.Int64  `tfsdk:"total_number"`
-	Unit           types.String `tfsdk:"unit"`
-	BurstMultiplier types.Int64 `tfsdk:"burst_multiplier"`
-	ID             types.String `tfsdk:"id"`
+	Name            types.String `tfsdk:"name"`
+	Namespace       types.String `tfsdk:"namespace"`
+	Description     types.String `tfsdk:"description"`
+	TotalNumber     types.Int64  `tfsdk:"total_number"`
+	Unit            types.String `tfsdk:"unit"`
+	BurstMultiplier types.Int64  `tfsdk:"burst_multiplier"`
+	ID              types.String `tfsdk:"id"`
 }
 
 type APIRateLimiter struct {
-	Metadata   APIMetadata         `json:"metadata"`
-	Spec       APIRateLimiterSpec  `json:"spec"`
-	SystemMeta APISystemMetadata   `json:"system_metadata,omitempty"`
+	Metadata   APIMetadata        `json:"metadata"`
+	Spec       APIRateLimiterSpec `json:"spec"`
+	SystemMeta APISystemMetadata  `json:"system_metadata,omitempty"`
 }
 
 type APIMetadata struct {
