@@ -17,8 +17,11 @@ import (
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/client"
 	ds_namespace "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/namespace"
 	ds_origin_pool "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/origin_pool"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/alert_policy"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/api_credential"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/app_firewall"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/certificate"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/cloud_credentials"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/cloud_site"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/healthcheck"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/http_loadbalancer"
@@ -204,8 +207,11 @@ func (p *F5XCProvider) Configure(ctx context.Context, req provider.ConfigureRequ
 // Resources defines the resources implemented in the provider.
 func (p *F5XCProvider) Resources(ctx context.Context) []func() resource.Resource {
 	return []func() resource.Resource{
+		alert_policy.NewAlertPolicyResource,
+		api_credential.NewAPICredentialResource,
 		app_firewall.NewAppFirewallResource,
 		certificate.NewCertificateResource,
+		cloud_credentials.NewCloudCredentialsResource,
 		cloud_site.NewCloudSiteResource,
 		healthcheck.NewHealthcheckResource,
 		http_loadbalancer.NewHTTPLoadBalancerResource,
