@@ -59,7 +59,11 @@ import (
 	ds_malicious_user_mitigation "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/malicious_user_mitigation"
 	ds_protocol_policer "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/protocol_policer"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/active_service_policies"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/advertise_policy"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/alert_policy"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/alert_receiver"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/bgp"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/bgp_asn_set"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/api_credential"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/api_definition"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/app_firewall"
@@ -277,7 +281,11 @@ func (p *F5XCProvider) Configure(ctx context.Context, req provider.ConfigureRequ
 func (p *F5XCProvider) Resources(ctx context.Context) []func() resource.Resource {
 	return []func() resource.Resource{
 		active_service_policies.NewActiveServicePoliciesResource,
+		advertise_policy.NewAdvertisePolicyResource,
 		alert_policy.NewAlertPolicyResource,
+		alert_receiver.NewAlertReceiverResource,
+		bgp.NewBGPResource,
+		bgp_asn_set.NewBGPASNSetResource,
 		api_credential.NewAPICredentialResource,
 		api_definition.NewAPIDefinitionResource,
 		app_firewall.NewAppFirewallResource,
