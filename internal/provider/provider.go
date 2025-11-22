@@ -107,8 +107,12 @@ import (
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/tunnel"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/udp_loadbalancer"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/user"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/virtual_host"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/virtual_k8s"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/virtual_network"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/virtual_site"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/voltstack_site"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/subnet"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/waf_rule"
 )
 
@@ -336,8 +340,12 @@ func (p *F5XCProvider) Resources(ctx context.Context) []func() resource.Resource
 		tunnel.NewTunnelResource,
 		udp_loadbalancer.NewUDPLoadBalancerResource,
 		user.NewUserResource,
+		virtual_host.NewVirtualHostResource,
+		virtual_k8s.NewVirtualK8sResource,
+		virtual_network.NewVirtualNetworkResource,
 		virtual_site.NewVirtualSiteResource,
 		voltstack_site.NewVoltstackSiteResource,
+		subnet.NewSubnetResource,
 		waf_rule.NewWAFRuleResource,
 	}
 }
