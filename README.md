@@ -137,7 +137,13 @@ See [docs/resources/](docs/resources/) for full documentation.
 | `f5xc_namespace` | Read namespace data |
 | `f5xc_origin_pool` | Read origin pool data |
 | `f5xc_http_loadbalancer` | Read HTTP load balancer data |
+| `f5xc_tcp_loadbalancer` | Read TCP load balancer data |
 | `f5xc_app_firewall` | Read application firewall data |
+| `f5xc_cloud_credentials` | Read cloud credentials data |
+| `f5xc_virtual_site` | Read virtual site data |
+| `f5xc_service_policy` | Read service policy data |
+| `f5xc_healthcheck` | Read healthcheck configuration |
+| `f5xc_rate_limiter` | Read rate limiter configuration |
 
 See [docs/data-sources/](docs/data-sources/) for full documentation.
 
