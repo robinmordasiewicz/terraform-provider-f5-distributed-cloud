@@ -18,10 +18,15 @@ import (
 	ds_namespace "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/namespace"
 	ds_origin_pool "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/origin_pool"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/app_firewall"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/certificate"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/cloud_site"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/healthcheck"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/http_loadbalancer"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/namespace"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/origin_pool"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/service_policy"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/tcp_loadbalancer"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/virtual_site"
 )
 
 // Ensure F5XCProvider satisfies various provider interfaces.
@@ -200,10 +205,15 @@ func (p *F5XCProvider) Configure(ctx context.Context, req provider.ConfigureRequ
 func (p *F5XCProvider) Resources(ctx context.Context) []func() resource.Resource {
 	return []func() resource.Resource{
 		app_firewall.NewAppFirewallResource,
+		certificate.NewCertificateResource,
 		cloud_site.NewCloudSiteResource,
+		healthcheck.NewHealthcheckResource,
 		http_loadbalancer.NewHTTPLoadBalancerResource,
 		namespace.NewNamespaceResource,
 		origin_pool.NewOriginPoolResource,
+		service_policy.NewServicePolicyResource,
+		tcp_loadbalancer.NewTCPLoadBalancerResource,
+		virtual_site.NewVirtualSiteResource,
 	}
 }
 
