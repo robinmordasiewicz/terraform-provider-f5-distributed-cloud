@@ -1,12 +1,20 @@
 # Copyright (c) Robin Mordasiewicz
 # SPDX-License-Identifier: MPL-2.0
 
-# Fully automated release workflow
+# Fully automated release workflow following Conventional Commits specification
+# https://www.conventionalcommits.org/en/v1.0.0/
+#
+# Version bumping rules:
+# - BREAKING CHANGE in footer or ! after type → MAJOR (1.0.0 → 2.0.0)
+# - feat: → MINOR (1.0.0 → 1.1.0)
+# - fix:, perf:, refactor:, etc. → PATCH (1.0.0 → 1.0.1)
+#
 # Triggers on push to main branch and automatically:
-# 1. Determines the next version based on conventional commits
-# 2. Creates a git tag
-# 3. Builds and signs release artifacts with GoReleaser
-# 4. Publishes the release to GitHub
+# 1. Analyzes commits since last tag using Conventional Commits
+# 2. Determines semantic version bump
+# 3. Creates and pushes git tag
+# 4. Builds and signs release artifacts with GoReleaser
+# 5. Publishes the release to GitHub
 
 name: Release
 
@@ -46,12 +54,15 @@ jobs:
       - name: Get latest tag
         id: get_latest_tag
         run: |
-          # Get the latest tag, or use v0.0.0 if no tags exist
-          LATEST_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "v0.0.0")
+          # Get the latest semantic version tag, or use v0.0.0 if no tags exist
+          LATEST_TAG=$(git tag -l 'v[0-9]*.[0-9]*.[0-9]*' --sort=-v:refname | head -n1)
+          if [ -z "$LATEST_TAG" ]; then
+            LATEST_TAG="v0.0.0"
+          fi
           echo "latest_tag=${LATEST_TAG}" >> $GITHUB_OUTPUT
           echo "Latest tag: ${LATEST_TAG}"
 
-      - name: Determine version bump
+      - name: Analyze commits and determine version bump
         id: bump_version
         run: |
           LATEST_TAG="${{ steps.get_latest_tag.outputs.latest_tag }}"
@@ -64,31 +75,50 @@ jobs:
           MINOR=$(echo $VERSION | cut -d. -f2)
           PATCH=$(echo $VERSION | cut -d. -f3)
 
-          # Get commits since last tag
+          # Get full commit messages since last tag (not just oneline)
           if [ "$LATEST_TAG" = "v0.0.0" ]; then
-            COMMITS=$(git log --oneline)
+            COMMITS=$(git log --pretty=format:"%s%n%b" HEAD)
+            COMMIT_COUNT=$(git rev-list --count HEAD)
           else
-            COMMITS=$(git log ${LATEST_TAG}..HEAD --oneline)
+            COMMITS=$(git log --pretty=format:"%s%n%b" ${LATEST_TAG}..HEAD)
+            COMMIT_COUNT=$(git rev-list --count ${LATEST_TAG}..HEAD)
           fi
 
           # Check if there are any commits to release
-          if [ -z "$COMMITS" ]; then
+          if [ "$COMMIT_COUNT" = "0" ]; then
             echo "No new commits since last release"
             echo "skip_release=true" >> $GITHUB_OUTPUT
             exit 0
           fi
 
-          echo "Commits since last release:"
-          echo "$COMMITS"
+          echo "Found ${COMMIT_COUNT} commits since ${LATEST_TAG}"
+          echo "Analyzing commits for conventional commit patterns..."
 
-          # Determine bump type based on conventional commits
+          # Determine bump type based on Conventional Commits spec
+          # Default to patch for any commits
           BUMP_TYPE="patch"
 
-          if echo "$COMMITS" | grep -qiE "^[a-f0-9]+ (feat|feature)(\(.+\))?!:|BREAKING CHANGE"; then
+          # Check for BREAKING CHANGE (MAJOR bump)
+          # Per spec: "!" after type/scope OR "BREAKING CHANGE:" in footer
+          if echo "$COMMITS" | grep -qE "^[a-z]+(\([^)]+\))?!:"; then
+            echo "Found breaking change indicator (!) in commit type"
             BUMP_TYPE="major"
-          elif echo "$COMMITS" | grep -qiE "^[a-f0-9]+ (feat|feature)(\(.+\))?:"; then
+          elif echo "$COMMITS" | grep -qiE "^BREAKING CHANGE:"; then
+            echo "Found BREAKING CHANGE in commit footer"
+            BUMP_TYPE="major"
+          elif echo "$COMMITS" | grep -qiE "BREAKING-CHANGE:"; then
+            echo "Found BREAKING-CHANGE in commit footer"
+            BUMP_TYPE="major"
+          # Check for feat: (MINOR bump) - only if no breaking changes
+          elif echo "$COMMITS" | grep -qE "^feat(\([^)]+\))?:"; then
+            echo "Found feat: commit - minor version bump"
             BUMP_TYPE="minor"
           fi
+
+          # Log what types of commits were found
+          echo ""
+          echo "Commit analysis:"
+          echo "$COMMITS" | grep -E "^(feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert)(\([^)]+\))?!?:" | head -20 || echo "No conventional commits found"
 
           # Calculate new version
           case $BUMP_TYPE in
@@ -106,10 +136,13 @@ jobs:
               ;;
           esac
 
-          echo "Bump type: ${BUMP_TYPE}"
+          echo ""
+          echo "Version bump: ${BUMP_TYPE}"
+          echo "Current version: ${LATEST_TAG}"
           echo "New version: v${NEW_VERSION}"
 
           echo "new_version=v${NEW_VERSION}" >> $GITHUB_OUTPUT
+          echo "bump_type=${BUMP_TYPE}" >> $GITHUB_OUTPUT
           echo "skip_release=false" >> $GITHUB_OUTPUT
 
       - name: Create and push tag
