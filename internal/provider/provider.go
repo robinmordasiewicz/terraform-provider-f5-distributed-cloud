@@ -23,18 +23,22 @@ import (
 	ds_azure_vnet_site "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/azure_vnet_site"
 	ds_certificate "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/certificate"
 	ds_cloud_credentials "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/cloud_credentials"
+	ds_cloud_site "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/cloud_site"
 	ds_discovery "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/discovery"
 	ds_dns_zone "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/dns_zone"
 	ds_gcp_vpc_site "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/gcp_vpc_site"
 	ds_healthcheck "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/healthcheck"
 	ds_http_loadbalancer "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/http_loadbalancer"
+	ds_ip_prefix_set "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/ip_prefix_set"
 	ds_namespace "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/namespace"
 	ds_network_policy "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/network_policy"
 	ds_origin_pool "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/origin_pool"
 	ds_rate_limiter "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/rate_limiter"
+	ds_role "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/role"
 	ds_service_policy "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/service_policy"
 	ds_tcp_loadbalancer "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/tcp_loadbalancer"
 	ds_tunnel "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/tunnel"
+	ds_user "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/user"
 	ds_virtual_site "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/virtual_site"
 	ds_voltstack_site "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/voltstack_site"
 	ds_waf_rule "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/waf_rule"
@@ -310,18 +314,22 @@ func (p *F5XCProvider) DataSources(ctx context.Context) []func() datasource.Data
 		ds_azure_vnet_site.NewAzureVNETSiteDataSource,
 		ds_certificate.NewCertificateDataSource,
 		ds_cloud_credentials.NewCloudCredentialsDataSource,
+		ds_cloud_site.NewCloudSiteDataSource,
 		ds_discovery.NewDiscoveryDataSource,
 		ds_dns_zone.NewDNSZoneDataSource,
 		ds_gcp_vpc_site.NewGCPVPCSiteDataSource,
 		ds_healthcheck.NewHealthcheckDataSource,
 		ds_http_loadbalancer.NewHTTPLoadBalancerDataSource,
+		ds_ip_prefix_set.NewIPPrefixSetDataSource,
 		ds_namespace.NewNamespaceDataSource,
 		ds_network_policy.NewNetworkPolicyDataSource,
 		ds_origin_pool.NewOriginPoolDataSource,
 		ds_rate_limiter.NewRateLimiterDataSource,
+		ds_role.NewRoleDataSource,
 		ds_service_policy.NewServicePolicyDataSource,
 		ds_tcp_loadbalancer.NewTCPLoadBalancerDataSource,
 		ds_tunnel.NewTunnelDataSource,
+		ds_user.NewUserDataSource,
 		ds_virtual_site.NewVirtualSiteDataSource,
 		ds_voltstack_site.NewVoltstackSiteDataSource,
 		ds_waf_rule.NewWAFRuleDataSource,
