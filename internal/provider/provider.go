@@ -89,6 +89,9 @@ import (
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/healthcheck"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/http_loadbalancer"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/ip_prefix_set"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/k8s_cluster"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/k8s_cluster_role"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/k8s_cluster_role_binding"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/known_label"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/log_receiver"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/malicious_user_mitigation"
@@ -322,6 +325,9 @@ func (p *F5XCProvider) Resources(ctx context.Context) []func() resource.Resource
 		healthcheck.NewHealthcheckResource,
 		http_loadbalancer.NewHTTPLoadBalancerResource,
 		ip_prefix_set.NewIPPrefixSetResource,
+		k8s_cluster.NewK8sClusterResource,
+		k8s_cluster_role.NewK8sClusterRoleResource,
+		k8s_cluster_role_binding.NewK8sClusterRoleBindingResource,
 		known_label.NewKnownLabelResource,
 		log_receiver.NewLogReceiverResource,
 		malicious_user_mitigation.NewMaliciousUserMitigationResource,
