@@ -23,6 +23,8 @@ import (
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/api_definition"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/app_firewall"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/app_type"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/aws_vpc_site"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/azure_vnet_site"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/certificate"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/client_connection_limit"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/cloud_credentials"
@@ -53,6 +55,7 @@ import (
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/tunnel"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/user"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/virtual_site"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/voltstack_site"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/waf_rule"
 )
 
@@ -237,6 +240,8 @@ func (p *F5XCProvider) Resources(ctx context.Context) []func() resource.Resource
 		api_definition.NewAPIDefinitionResource,
 		app_firewall.NewAppFirewallResource,
 		app_type.NewAppTypeResource,
+		aws_vpc_site.NewAWSVPCSiteResource,
+		azure_vnet_site.NewAzureVNETSiteResource,
 		certificate.NewCertificateResource,
 		client_connection_limit.NewClientConnectionLimitResource,
 		cloud_credentials.NewCloudCredentialsResource,
@@ -267,6 +272,7 @@ func (p *F5XCProvider) Resources(ctx context.Context) []func() resource.Resource
 		tunnel.NewTunnelResource,
 		user.NewUserResource,
 		virtual_site.NewVirtualSiteResource,
+		voltstack_site.NewVoltstackSiteResource,
 		waf_rule.NewWAFRuleResource,
 	}
 }
