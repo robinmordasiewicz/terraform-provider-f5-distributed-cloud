@@ -46,6 +46,10 @@ import (
 	ds_secret_policy "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/secret_policy"
 	ds_service_mesh "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/service_mesh"
 	ds_waf_rule "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/waf_rule"
+	ds_enhanced_firewall_policy "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/enhanced_firewall_policy"
+	ds_forward_proxy_policy "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/forward_proxy_policy"
+	ds_known_label "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/known_label"
+	ds_site_mesh_group "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/site_mesh_group"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/active_service_policies"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/alert_policy"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/api_credential"
@@ -341,5 +345,9 @@ func (p *F5XCProvider) DataSources(ctx context.Context) []func() datasource.Data
 		ds_log_receiver.NewLogReceiverDataSource,
 		ds_secret_policy.NewSecretPolicyDataSource,
 		ds_service_mesh.NewServiceMeshDataSource,
+		ds_site_mesh_group.NewSiteMeshGroupDataSource,
+		ds_forward_proxy_policy.NewForwardProxyPolicyDataSource,
+		ds_enhanced_firewall_policy.NewEnhancedFirewallPolicyDataSource,
+		ds_known_label.NewKnownLabelDataSource,
 	}
 }
