@@ -83,6 +83,8 @@ import (
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/dns_load_balancer"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/dns_zone"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/enhanced_firewall_policy"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/fast_acl"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/fast_acl_rule"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/forward_proxy_policy"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/gcp_vpc_site"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/global_log_receiver"
@@ -96,11 +98,13 @@ import (
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/log_receiver"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/malicious_user_mitigation"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/namespace"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/nat_policy"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/network_connector"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/network_firewall"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/network_interface"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/network_policy"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/origin_pool"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/policer"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/protocol_policer"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/rate_limiter"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/role"
@@ -322,6 +326,8 @@ func (p *F5XCProvider) Resources(ctx context.Context) []func() resource.Resource
 		dns_load_balancer.NewDNSLoadBalancerResource,
 		dns_zone.NewDNSZoneResource,
 		enhanced_firewall_policy.NewEnhancedFirewallPolicyResource,
+		fast_acl.NewFastACLResource,
+		fast_acl_rule.NewFastACLRuleResource,
 		forward_proxy_policy.NewForwardProxyPolicyResource,
 		gcp_vpc_site.NewGCPVPCSiteResource,
 		global_log_receiver.NewGlobalLogReceiverResource,
@@ -335,11 +341,13 @@ func (p *F5XCProvider) Resources(ctx context.Context) []func() resource.Resource
 		log_receiver.NewLogReceiverResource,
 		malicious_user_mitigation.NewMaliciousUserMitigationResource,
 		namespace.NewNamespaceResource,
+		nat_policy.NewNATPolicyResource,
 		network_connector.NewNetworkConnectorResource,
 		network_firewall.NewNetworkFirewallResource,
 		network_interface.NewNetworkInterfaceResource,
 		network_policy.NewNetworkPolicyResource,
 		origin_pool.NewOriginPoolResource,
+		policer.NewPolicerResource,
 		protocol_policer.NewProtocolPolicerResource,
 		rate_limiter.NewRateLimiterResource,
 		role.NewRoleResource,
