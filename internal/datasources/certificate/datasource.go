@@ -40,7 +40,7 @@ type APICertificate struct {
 		UID         string `json:"uid,omitempty"`
 	} `json:"metadata"`
 	Spec struct {
-		CertificateURL string `json:"certificate_url,omitempty"`
+		CertificateURL string      `json:"certificate_url,omitempty"`
 		PrivateKey     interface{} `json:"private_key,omitempty"`
 	} `json:"spec"`
 }

@@ -13,9 +13,9 @@ type ServicePolicySetResourceModel struct {
 }
 
 type APIServicePolicySet struct {
-	Metadata   APIMetadata            `json:"metadata"`
+	Metadata   APIMetadata             `json:"metadata"`
 	Spec       APIServicePolicySetSpec `json:"spec"`
-	SystemMeta APISystemMetadata      `json:"system_metadata,omitempty"`
+	SystemMeta APISystemMetadata       `json:"system_metadata,omitempty"`
 }
 
 type APIMetadata struct {

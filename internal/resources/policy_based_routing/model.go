@@ -17,9 +17,9 @@ type PolicyBasedRoutingResourceModel struct {
 
 // APIPolicyBasedRouting represents the API request/response structure.
 type APIPolicyBasedRouting struct {
-	Metadata   APIMetadata                 `json:"metadata"`
-	Spec       APIPolicyBasedRoutingSpec   `json:"spec"`
-	SystemMeta *APISystemMetadata          `json:"system_metadata,omitempty"`
+	Metadata   APIMetadata               `json:"metadata"`
+	Spec       APIPolicyBasedRoutingSpec `json:"spec"`
+	SystemMeta *APISystemMetadata        `json:"system_metadata,omitempty"`
 }
 
 // APIMetadata represents the metadata section.

@@ -19,9 +19,9 @@ type UserIdentificationResourceModel struct {
 
 // APIUserIdentification represents the API structure for user identification.
 type APIUserIdentification struct {
-	Metadata   APIMetadata                 `json:"metadata"`
-	Spec       APIUserIdentificationSpec   `json:"spec"`
-	SystemMeta APISystemMetadata           `json:"system_metadata,omitempty"`
+	Metadata   APIMetadata               `json:"metadata"`
+	Spec       APIUserIdentificationSpec `json:"spec"`
+	SystemMeta APISystemMetadata         `json:"system_metadata,omitempty"`
 }
 
 // APIMetadata represents the metadata structure in API requests/responses.

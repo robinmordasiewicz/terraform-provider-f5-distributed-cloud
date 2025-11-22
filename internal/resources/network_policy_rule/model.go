@@ -13,9 +13,9 @@ type NetworkPolicyRuleResourceModel struct {
 }
 
 type APINetworkPolicyRule struct {
-	Metadata   APIMetadata                `json:"metadata"`
-	Spec       APINetworkPolicyRuleSpec   `json:"spec"`
-	SystemMeta APISystemMetadata          `json:"system_metadata,omitempty"`
+	Metadata   APIMetadata              `json:"metadata"`
+	Spec       APINetworkPolicyRuleSpec `json:"spec"`
+	SystemMeta APISystemMetadata        `json:"system_metadata,omitempty"`
 }
 
 type APIMetadata struct {

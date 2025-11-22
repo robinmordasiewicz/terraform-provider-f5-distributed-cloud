@@ -13,9 +13,9 @@ type AdvertisePolicyResourceModel struct {
 }
 
 type APIAdvertisePolicy struct {
-	Metadata   APIMetadata             `json:"metadata"`
-	Spec       APIAdvertisePolicySpec  `json:"spec"`
-	SystemMeta APISystemMetadata       `json:"system_metadata,omitempty"`
+	Metadata   APIMetadata            `json:"metadata"`
+	Spec       APIAdvertisePolicySpec `json:"spec"`
+	SystemMeta APISystemMetadata      `json:"system_metadata,omitempty"`
 }
 
 type APIMetadata struct {

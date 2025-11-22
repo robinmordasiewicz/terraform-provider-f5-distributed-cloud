@@ -17,9 +17,9 @@ type AuthenticationResourceModel struct {
 
 // APIAuthentication represents the API request/response structure.
 type APIAuthentication struct {
-	Metadata   APIMetadata            `json:"metadata"`
-	Spec       APIAuthenticationSpec  `json:"spec"`
-	SystemMeta *APISystemMetadata     `json:"system_metadata,omitempty"`
+	Metadata   APIMetadata           `json:"metadata"`
+	Spec       APIAuthenticationSpec `json:"spec"`
+	SystemMeta *APISystemMetadata    `json:"system_metadata,omitempty"`
 }
 
 // APIMetadata represents the metadata section.

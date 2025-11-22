@@ -17,9 +17,9 @@ type APIGroupElementResourceModel struct {
 
 // APIAPIGroupElement represents the API request/response structure.
 type APIAPIGroupElement struct {
-	Metadata   APIMetadata              `json:"metadata"`
-	Spec       APIAPIGroupElementSpec   `json:"spec"`
-	SystemMeta *APISystemMetadata       `json:"system_metadata,omitempty"`
+	Metadata   APIMetadata            `json:"metadata"`
+	Spec       APIAPIGroupElementSpec `json:"spec"`
+	SystemMeta *APISystemMetadata     `json:"system_metadata,omitempty"`
 }
 
 // APIMetadata represents the metadata section.

@@ -17,9 +17,9 @@ type RateLimiterPolicyResourceModel struct {
 
 // APIRateLimiterPolicy represents the API request/response structure.
 type APIRateLimiterPolicy struct {
-	Metadata   APIMetadata               `json:"metadata"`
-	Spec       APIRateLimiterPolicySpec  `json:"spec"`
-	SystemMeta *APISystemMetadata        `json:"system_metadata,omitempty"`
+	Metadata   APIMetadata              `json:"metadata"`
+	Spec       APIRateLimiterPolicySpec `json:"spec"`
+	SystemMeta *APISystemMetadata       `json:"system_metadata,omitempty"`
 }
 
 // APIMetadata represents the metadata section.

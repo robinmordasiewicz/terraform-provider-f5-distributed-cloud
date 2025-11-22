@@ -14,7 +14,7 @@ func Schema() schema.Schema {
 		Description: "Manages an F5 Distributed Cloud App Setting. App Settings configure application behavior.",
 		Attributes: map[string]schema.Attribute{
 			"id": schema.StringAttribute{
-				Computed:    true,
+				Computed: true,
 				PlanModifiers: []planmodifier.String{
 					stringplanmodifier.UseStateForUnknown(),
 				},
