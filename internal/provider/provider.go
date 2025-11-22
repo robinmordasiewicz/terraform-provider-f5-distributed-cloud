@@ -43,11 +43,14 @@ import (
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/protocol_policer"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/rate_limiter"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/role"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/service_mesh"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/service_policy"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/site_mesh_group"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/tcp_loadbalancer"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/tunnel"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/user"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/virtual_site"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/waf_rule"
 )
 
 // Ensure F5XCProvider satisfies various provider interfaces.
@@ -251,11 +254,14 @@ func (p *F5XCProvider) Resources(ctx context.Context) []func() resource.Resource
 		protocol_policer.NewProtocolPolicerResource,
 		rate_limiter.NewRateLimiterResource,
 		role.NewRoleResource,
+		service_mesh.NewServiceMeshResource,
 		service_policy.NewServicePolicyResource,
 		site_mesh_group.NewSiteMeshGroupResource,
 		tcp_loadbalancer.NewTCPLoadBalancerResource,
+		tunnel.NewTunnelResource,
 		user.NewUserResource,
 		virtual_site.NewVirtualSiteResource,
+		waf_rule.NewWAFRuleResource,
 	}
 }
 
