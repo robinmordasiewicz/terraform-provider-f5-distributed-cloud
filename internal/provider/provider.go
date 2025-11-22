@@ -22,6 +22,7 @@ import (
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/api_credential"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/api_definition"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/app_firewall"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/app_type"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/enhanced_firewall_policy"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/certificate"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/cloud_credentials"
@@ -35,7 +36,9 @@ import (
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/namespace"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/network_policy"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/origin_pool"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/rate_limiter"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/role"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/user"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/service_policy"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/tcp_loadbalancer"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/virtual_site"
@@ -221,6 +224,7 @@ func (p *F5XCProvider) Resources(ctx context.Context) []func() resource.Resource
 		api_credential.NewAPICredentialResource,
 		api_definition.NewAPIDefinitionResource,
 		app_firewall.NewAppFirewallResource,
+		app_type.NewAppTypeResource,
 		certificate.NewCertificateResource,
 		cloud_credentials.NewCloudCredentialsResource,
 		cloud_site.NewCloudSiteResource,
@@ -234,9 +238,11 @@ func (p *F5XCProvider) Resources(ctx context.Context) []func() resource.Resource
 		namespace.NewNamespaceResource,
 		network_policy.NewNetworkPolicyResource,
 		origin_pool.NewOriginPoolResource,
+		rate_limiter.NewRateLimiterResource,
 		role.NewRoleResource,
 		service_policy.NewServicePolicyResource,
 		tcp_loadbalancer.NewTCPLoadBalancerResource,
+		user.NewUserResource,
 		virtual_site.NewVirtualSiteResource,
 	}
 }
