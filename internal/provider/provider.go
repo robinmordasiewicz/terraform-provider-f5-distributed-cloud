@@ -30,9 +30,11 @@ import (
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/discovery"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/dns_lb_pool"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/forward_proxy_policy"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/global_log_receiver"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/healthcheck"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/http_loadbalancer"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/log_receiver"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/malicious_user_mitigation"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/namespace"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/network_policy"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/origin_pool"
@@ -40,6 +42,7 @@ import (
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/role"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/user"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/service_policy"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/site_mesh_group"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/tcp_loadbalancer"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/virtual_site"
 )
@@ -232,15 +235,18 @@ func (p *F5XCProvider) Resources(ctx context.Context) []func() resource.Resource
 		dns_lb_pool.NewDNSLBPoolResource,
 		enhanced_firewall_policy.NewEnhancedFirewallPolicyResource,
 		forward_proxy_policy.NewForwardProxyPolicyResource,
+		global_log_receiver.NewGlobalLogReceiverResource,
 		healthcheck.NewHealthcheckResource,
 		http_loadbalancer.NewHTTPLoadBalancerResource,
 		log_receiver.NewLogReceiverResource,
+		malicious_user_mitigation.NewMaliciousUserMitigationResource,
 		namespace.NewNamespaceResource,
 		network_policy.NewNetworkPolicyResource,
 		origin_pool.NewOriginPoolResource,
 		rate_limiter.NewRateLimiterResource,
 		role.NewRoleResource,
 		service_policy.NewServicePolicyResource,
+		site_mesh_group.NewSiteMeshGroupResource,
 		tcp_loadbalancer.NewTCPLoadBalancerResource,
 		user.NewUserResource,
 		virtual_site.NewVirtualSiteResource,
