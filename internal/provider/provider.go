@@ -15,6 +15,8 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/types"
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/client"
+	ds_namespace "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/namespace"
+	ds_origin_pool "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/origin_pool"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/app_firewall"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/cloud_site"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/http_loadbalancer"
@@ -208,6 +210,7 @@ func (p *F5XCProvider) Resources(ctx context.Context) []func() resource.Resource
 // DataSources defines the data sources implemented in the provider.
 func (p *F5XCProvider) DataSources(ctx context.Context) []func() datasource.DataSource {
 	return []func() datasource.DataSource{
-		// Data sources will be registered here as they are implemented
+		ds_namespace.NewNamespaceDataSource,
+		ds_origin_pool.NewOriginPoolDataSource,
 	}
 }
