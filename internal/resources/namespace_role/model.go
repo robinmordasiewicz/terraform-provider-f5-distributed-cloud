@@ -20,9 +20,9 @@ type PermissionModel struct {
 }
 
 type APINamespaceRole struct {
-	Metadata   APIMetadata            `json:"metadata"`
-	Spec       APINamespaceRoleSpec   `json:"spec"`
-	SystemMeta APISystemMetadata      `json:"system_metadata,omitempty"`
+	Metadata   APIMetadata          `json:"metadata"`
+	Spec       APINamespaceRoleSpec `json:"spec"`
+	SystemMeta APISystemMetadata    `json:"system_metadata,omitempty"`
 }
 
 type APIMetadata struct {

@@ -16,9 +16,9 @@ type AlertReceiverResourceModel struct {
 }
 
 type APIAlertReceiver struct {
-	Metadata   APIMetadata           `json:"metadata"`
-	Spec       APIAlertReceiverSpec  `json:"spec"`
-	SystemMeta APISystemMetadata     `json:"system_metadata,omitempty"`
+	Metadata   APIMetadata          `json:"metadata"`
+	Spec       APIAlertReceiverSpec `json:"spec"`
+	SystemMeta APISystemMetadata    `json:"system_metadata,omitempty"`
 }
 
 type APIMetadata struct {

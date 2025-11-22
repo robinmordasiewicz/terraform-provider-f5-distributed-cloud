@@ -17,9 +17,9 @@ type BGPRoutingPolicyResourceModel struct {
 
 // APIBGPRoutingPolicy represents the API request/response structure.
 type APIBGPRoutingPolicy struct {
-	Metadata   APIMetadata        `json:"metadata"`
+	Metadata   APIMetadata             `json:"metadata"`
 	Spec       APIBGPRoutingPolicySpec `json:"spec"`
-	SystemMeta *APISystemMetadata `json:"system_metadata,omitempty"`
+	SystemMeta *APISystemMetadata      `json:"system_metadata,omitempty"`
 }
 
 // APIMetadata represents the metadata section.

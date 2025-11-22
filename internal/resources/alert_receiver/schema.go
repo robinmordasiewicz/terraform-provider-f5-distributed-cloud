@@ -36,12 +36,12 @@ resource "f5xc_alert_receiver" "email" {
 ` + "```" + `
 `,
 		Attributes: map[string]schema.Attribute{
-			"id":           schema.StringAttribute{Computed: true, PlanModifiers: []planmodifier.String{stringplanmodifier.UseStateForUnknown()}},
-			"name":         schema.StringAttribute{Required: true, PlanModifiers: []planmodifier.String{stringplanmodifier.RequiresReplace()}},
-			"namespace":    schema.StringAttribute{Required: true, PlanModifiers: []planmodifier.String{stringplanmodifier.RequiresReplace()}},
-			"description":  schema.StringAttribute{Optional: true},
-			"email":        schema.StringAttribute{Optional: true, Description: "Email address to send alerts to."},
-			"slack_url":    schema.StringAttribute{Optional: true, Sensitive: true, Description: "Slack webhook URL for notifications."},
+			"id":            schema.StringAttribute{Computed: true, PlanModifiers: []planmodifier.String{stringplanmodifier.UseStateForUnknown()}},
+			"name":          schema.StringAttribute{Required: true, PlanModifiers: []planmodifier.String{stringplanmodifier.RequiresReplace()}},
+			"namespace":     schema.StringAttribute{Required: true, PlanModifiers: []planmodifier.String{stringplanmodifier.RequiresReplace()}},
+			"description":   schema.StringAttribute{Optional: true},
+			"email":         schema.StringAttribute{Optional: true, Description: "Email address to send alerts to."},
+			"slack_url":     schema.StringAttribute{Optional: true, Sensitive: true, Description: "Slack webhook URL for notifications."},
 			"pagerduty_key": schema.StringAttribute{Optional: true, Sensitive: true, Description: "PagerDuty routing key for notifications."},
 		},
 	}

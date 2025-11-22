@@ -13,9 +13,9 @@ type FastACLRuleResourceModel struct {
 }
 
 type APIFastACLRule struct {
-	Metadata   APIMetadata          `json:"metadata"`
-	Spec       APIFastACLRuleSpec   `json:"spec"`
-	SystemMeta APISystemMetadata    `json:"system_metadata,omitempty"`
+	Metadata   APIMetadata        `json:"metadata"`
+	Spec       APIFastACLRuleSpec `json:"spec"`
+	SystemMeta APISystemMetadata  `json:"system_metadata,omitempty"`
 }
 
 type APIMetadata struct {

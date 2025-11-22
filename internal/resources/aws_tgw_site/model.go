@@ -13,9 +13,9 @@ type AWSTGWSiteResourceModel struct {
 }
 
 type APIAWSTGWSite struct {
-	Metadata   APIMetadata           `json:"metadata"`
-	Spec       APIAWSTGWSiteSpec     `json:"spec"`
-	SystemMeta APISystemMetadata     `json:"system_metadata,omitempty"`
+	Metadata   APIMetadata       `json:"metadata"`
+	Spec       APIAWSTGWSiteSpec `json:"spec"`
+	SystemMeta APISystemMetadata `json:"system_metadata,omitempty"`
 }
 
 type APIMetadata struct {

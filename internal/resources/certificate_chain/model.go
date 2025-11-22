@@ -17,9 +17,9 @@ type CertificateChainResourceModel struct {
 
 // APICertificateChain represents the API request/response structure.
 type APICertificateChain struct {
-	Metadata   APIMetadata               `json:"metadata"`
-	Spec       APICertificateChainSpec   `json:"spec"`
-	SystemMeta *APISystemMetadata        `json:"system_metadata,omitempty"`
+	Metadata   APIMetadata             `json:"metadata"`
+	Spec       APICertificateChainSpec `json:"spec"`
+	SystemMeta *APISystemMetadata      `json:"system_metadata,omitempty"`
 }
 
 // APIMetadata represents the metadata section.

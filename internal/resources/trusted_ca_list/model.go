@@ -17,9 +17,9 @@ type TrustedCAListResourceModel struct {
 
 // APITrustedCAList represents the API request/response structure.
 type APITrustedCAList struct {
-	Metadata   APIMetadata            `json:"metadata"`
-	Spec       APITrustedCAListSpec   `json:"spec"`
-	SystemMeta *APISystemMetadata     `json:"system_metadata,omitempty"`
+	Metadata   APIMetadata          `json:"metadata"`
+	Spec       APITrustedCAListSpec `json:"spec"`
+	SystemMeta *APISystemMetadata   `json:"system_metadata,omitempty"`
 }
 
 // APIMetadata represents the metadata section.

@@ -6,12 +6,12 @@ package dns_load_balancer
 import "github.com/hashicorp/terraform-plugin-framework/types"
 
 type DNSLoadBalancerResourceModel struct {
-	Name             types.String `tfsdk:"name"`
-	Namespace        types.String `tfsdk:"namespace"`
-	Description      types.String `tfsdk:"description"`
-	Domain           types.String `tfsdk:"domain"`
-	LoadBalanceType  types.String `tfsdk:"load_balance_type"`
-	ID               types.String `tfsdk:"id"`
+	Name            types.String `tfsdk:"name"`
+	Namespace       types.String `tfsdk:"namespace"`
+	Description     types.String `tfsdk:"description"`
+	Domain          types.String `tfsdk:"domain"`
+	LoadBalanceType types.String `tfsdk:"load_balance_type"`
+	ID              types.String `tfsdk:"id"`
 }
 
 type APIDNSLoadBalancer struct {

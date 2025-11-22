@@ -13,9 +13,9 @@ type ExternalConnectorResourceModel struct {
 }
 
 type APIExternalConnector struct {
-	Metadata   APIMetadata                `json:"metadata"`
-	Spec       APIExternalConnectorSpec   `json:"spec"`
-	SystemMeta APISystemMetadata          `json:"system_metadata,omitempty"`
+	Metadata   APIMetadata              `json:"metadata"`
+	Spec       APIExternalConnectorSpec `json:"spec"`
+	SystemMeta APISystemMetadata        `json:"system_metadata,omitempty"`
 }
 
 type APIMetadata struct {
