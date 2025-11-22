@@ -63,6 +63,10 @@ import (
 	ds_segment "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/segment"
 	ds_api_group "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/api_group"
 	ds_authentication "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/authentication"
+	ds_network_policy_set "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/network_policy_set"
+	ds_public_ip "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/public_ip"
+	ds_registration "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/registration"
+	ds_service_policy_set "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/service_policy_set"
 	ds_site "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/site"
 	ds_token "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/token"
 	ds_workload "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/workload"
@@ -505,5 +509,9 @@ func (p *F5XCProvider) DataSources(ctx context.Context) []func() datasource.Data
 		ds_authentication.NewAuthenticationDataSource,
 		ds_rbac_policy.NewRBACPolicyDataSource,
 		ds_namespace_role.NewNamespaceRoleDataSource,
+		ds_network_policy_set.NewNetworkPolicySetDataSource,
+		ds_service_policy_set.NewServicePolicySetDataSource,
+		ds_public_ip.NewPublicIPDataSource,
+		ds_registration.NewRegistrationDataSource,
 	}
 }
