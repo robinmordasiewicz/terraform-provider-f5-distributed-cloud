@@ -23,6 +23,9 @@ import (
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/certificate"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/cloud_credentials"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/cloud_site"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/discovery"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/dns_lb_pool"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/forward_proxy_policy"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/healthcheck"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/http_loadbalancer"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/namespace"
@@ -213,6 +216,9 @@ func (p *F5XCProvider) Resources(ctx context.Context) []func() resource.Resource
 		certificate.NewCertificateResource,
 		cloud_credentials.NewCloudCredentialsResource,
 		cloud_site.NewCloudSiteResource,
+		discovery.NewDiscoveryResource,
+		dns_lb_pool.NewDNSLBPoolResource,
+		forward_proxy_policy.NewForwardProxyPolicyResource,
 		healthcheck.NewHealthcheckResource,
 		http_loadbalancer.NewHTTPLoadBalancerResource,
 		namespace.NewNamespaceResource,
