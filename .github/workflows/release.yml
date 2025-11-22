@@ -4,10 +4,10 @@
 # Fully automated release workflow following Conventional Commits specification
 # https://www.conventionalcommits.org/en/v1.0.0/
 #
-# Version bumping rules:
-# - BREAKING CHANGE in footer or ! after type → MAJOR (1.0.0 → 2.0.0)
+# Version bumping rules (based on commit subject line only):
+# - type!: (breaking change indicator) → MAJOR (1.0.0 → 2.0.0)
 # - feat: → MINOR (1.0.0 → 1.1.0)
-# - fix:, perf:, refactor:, etc. → PATCH (1.0.0 → 1.0.1)
+# - fix:, chore:, docs:, refactor:, perf:, etc. → PATCH (1.0.0 → 1.0.1)
 #
 # Triggers on push to main branch and automatically:
 # 1. Analyzes commits since last tag using Conventional Commits
@@ -98,27 +98,32 @@ jobs:
           # Default to patch for any commits
           BUMP_TYPE="patch"
 
+          # Get commit subjects only (first line of each commit) for type analysis
+          if [ "$LATEST_TAG" = "v0.0.0" ]; then
+            SUBJECTS=$(git log --pretty=format:"%s" HEAD)
+          else
+            SUBJECTS=$(git log --pretty=format:"%s" ${LATEST_TAG}..HEAD)
+          fi
+
           # Check for BREAKING CHANGE (MAJOR bump)
-          # Per spec: "!" after type/scope OR "BREAKING CHANGE:" in footer
-          if echo "$COMMITS" | grep -qE "^[a-z]+(\([^)]+\))?!:"; then
-            echo "Found breaking change indicator (!) in commit type"
+          # Per spec: "!" after type/scope in subject line triggers major bump
+          if echo "$SUBJECTS" | grep -qE "^[a-z]+(\([^)]+\))?!:"; then
+            echo "Found breaking change indicator (!) in commit subject"
             BUMP_TYPE="major"
-          elif echo "$COMMITS" | grep -qiE "^BREAKING CHANGE:"; then
-            echo "Found BREAKING CHANGE in commit footer"
-            BUMP_TYPE="major"
-          elif echo "$COMMITS" | grep -qiE "BREAKING-CHANGE:"; then
-            echo "Found BREAKING-CHANGE in commit footer"
-            BUMP_TYPE="major"
-          # Check for feat: (MINOR bump) - only if no breaking changes
-          elif echo "$COMMITS" | grep -qE "^feat(\([^)]+\))?:"; then
+          # Check for feat: (MINOR bump)
+          elif echo "$SUBJECTS" | grep -qE "^feat(\([^)]+\))?:"; then
             echo "Found feat: commit - minor version bump"
             BUMP_TYPE="minor"
+          # All other conventional commits are patch bumps (fix:, chore:, docs:, etc.)
           fi
 
           # Log what types of commits were found
           echo ""
-          echo "Commit analysis:"
-          echo "$COMMITS" | grep -E "^(feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert)(\([^)]+\))?!?:" | head -20 || echo "No conventional commits found"
+          echo "Commit subjects:"
+          echo "$SUBJECTS"
+          echo ""
+          echo "Conventional commits detected:"
+          echo "$SUBJECTS" | grep -E "^(feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert)(\([^)]+\))?!?:" | head -20 || echo "No conventional commits found"
 
           # Calculate new version
           case $BUMP_TYPE in
