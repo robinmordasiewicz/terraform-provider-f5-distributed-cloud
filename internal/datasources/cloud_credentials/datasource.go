@@ -10,6 +10,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/types"
+
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/client"
 )
 
@@ -39,9 +40,9 @@ type APICloudCredentials struct {
 		UID         string `json:"uid,omitempty"`
 	} `json:"metadata"`
 	Spec struct {
-		AWSSecretKey       interface{} `json:"aws_secret_key,omitempty"`
-		AzureClientSecret  interface{} `json:"azure_client_secret,omitempty"`
-		GCPCredFile        interface{} `json:"gcp_cred_file,omitempty"`
+		AWSSecretKey      interface{} `json:"aws_secret_key,omitempty"`
+		AzureClientSecret interface{} `json:"azure_client_secret,omitempty"`
+		GCPCredFile       interface{} `json:"gcp_cred_file,omitempty"`
 	} `json:"spec"`
 }
 

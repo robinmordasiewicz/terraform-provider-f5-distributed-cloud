@@ -18,7 +18,7 @@ type OriginPoolResourceModel struct {
 	OriginServers []OriginServerModel `tfsdk:"origin_servers"`
 
 	// Port and protocol
-	Port            types.Int64  `tfsdk:"port"`
+	Port             types.Int64  `tfsdk:"port"`
 	EndpointProtocol types.String `tfsdk:"endpoint_protocol"`
 
 	// Health check
@@ -33,10 +33,10 @@ type OriginPoolResourceModel struct {
 
 // OriginServerModel represents an origin server configuration.
 type OriginServerModel struct {
-	PublicIP    *PublicIPModel     `tfsdk:"public_ip"`
-	PrivateIP   *PrivateIPModel    `tfsdk:"private_ip"`
-	PublicName  *PublicNameModel   `tfsdk:"public_name"`
-	Labels      types.Map          `tfsdk:"labels"`
+	PublicIP   *PublicIPModel   `tfsdk:"public_ip"`
+	PrivateIP  *PrivateIPModel  `tfsdk:"private_ip"`
+	PublicName *PublicNameModel `tfsdk:"public_name"`
+	Labels     types.Map        `tfsdk:"labels"`
 }
 
 // PublicIPModel represents a public IP origin server.
@@ -46,9 +46,9 @@ type PublicIPModel struct {
 
 // PrivateIPModel represents a private IP origin server.
 type PrivateIPModel struct {
-	IP        types.String `tfsdk:"ip"`
-	SiteName  types.String `tfsdk:"site_name"`
-	InsideNetwork types.Bool `tfsdk:"inside_network"`
+	IP            types.String `tfsdk:"ip"`
+	SiteName      types.String `tfsdk:"site_name"`
+	InsideNetwork types.Bool   `tfsdk:"inside_network"`
 }
 
 // PublicNameModel represents a DNS name origin server.
@@ -90,9 +90,9 @@ type APIOriginPoolSpec struct {
 
 // APIOriginServer represents an origin server in the API.
 type APIOriginServer struct {
-	PublicIP   *APIPublicIP   `json:"public_ip,omitempty"`
-	PrivateIP  *APIPrivateIP  `json:"private_ip,omitempty"`
-	PublicName *APIPublicName `json:"public_name,omitempty"`
+	PublicIP   *APIPublicIP      `json:"public_ip,omitempty"`
+	PrivateIP  *APIPrivateIP     `json:"private_ip,omitempty"`
+	PublicName *APIPublicName    `json:"public_name,omitempty"`
 	Labels     map[string]string `json:"labels,omitempty"`
 }
 
@@ -103,10 +103,10 @@ type APIPublicIP struct {
 
 // APIPrivateIP represents a private IP configuration.
 type APIPrivateIP struct {
-	IP            string        `json:"ip"`
-	SiteLocator   *APISiteLocator `json:"site_locator,omitempty"`
-	InsideNetwork *struct{}     `json:"inside_network,omitempty"`
-	OutsideNetwork *struct{}    `json:"outside_network,omitempty"`
+	IP             string          `json:"ip"`
+	SiteLocator    *APISiteLocator `json:"site_locator,omitempty"`
+	InsideNetwork  *struct{}       `json:"inside_network,omitempty"`
+	OutsideNetwork *struct{}       `json:"outside_network,omitempty"`
 }
 
 // APISiteLocator represents a site locator.

@@ -37,13 +37,13 @@ resource "f5xc_api_credential" "example" {
 			"namespace":   schema.StringAttribute{Required: true, PlanModifiers: []planmodifier.String{stringplanmodifier.RequiresReplace()}},
 			"description": schema.StringAttribute{Optional: true},
 			"credential_type": schema.StringAttribute{
-				Required: true,
+				Required:   true,
 				Validators: []validator.String{stringvalidator.OneOf("API_CERTIFICATE", "KUBE_CONFIG", "API_TOKEN")},
 			},
-			"expiration_days": schema.Int64Attribute{Optional: true, Computed: true, Default: int64default.StaticInt64(365)},
-			"virtual_k8s_name": schema.StringAttribute{Optional: true, Description: "Name of the virtual K8s cluster (for KUBE_CONFIG type)"},
+			"expiration_days":       schema.Int64Attribute{Optional: true, Computed: true, Default: int64default.StaticInt64(365)},
+			"virtual_k8s_name":      schema.StringAttribute{Optional: true, Description: "Name of the virtual K8s cluster (for KUBE_CONFIG type)"},
 			"virtual_k8s_namespace": schema.StringAttribute{Optional: true, Description: "Namespace of the virtual K8s cluster"},
-			"data": schema.StringAttribute{Computed: true, Sensitive: true, Description: "The credential data (certificate or token)"},
+			"data":                  schema.StringAttribute{Computed: true, Sensitive: true, Description: "The credential data (certificate or token)"},
 		},
 	}
 }

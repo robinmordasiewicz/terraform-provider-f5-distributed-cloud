@@ -6,12 +6,12 @@ package dns_lb_pool
 import "github.com/hashicorp/terraform-plugin-framework/types"
 
 type DNSLBPoolResourceModel struct {
-	Name        types.String `tfsdk:"name"`
-	Namespace   types.String `tfsdk:"namespace"`
-	Description types.String `tfsdk:"description"`
-	LoadBalancingMode types.String `tfsdk:"load_balancing_mode"`
-	Members     []PoolMemberModel `tfsdk:"members"`
-	ID          types.String `tfsdk:"id"`
+	Name              types.String      `tfsdk:"name"`
+	Namespace         types.String      `tfsdk:"namespace"`
+	Description       types.String      `tfsdk:"description"`
+	LoadBalancingMode types.String      `tfsdk:"load_balancing_mode"`
+	Members           []PoolMemberModel `tfsdk:"members"`
+	ID                types.String      `tfsdk:"id"`
 }
 
 type PoolMemberModel struct {

@@ -6,14 +6,14 @@ package cloud_credentials
 import "github.com/hashicorp/terraform-plugin-framework/types"
 
 type CloudCredentialsResourceModel struct {
-	Name          types.String `tfsdk:"name"`
-	Namespace     types.String `tfsdk:"namespace"`
-	Description   types.String `tfsdk:"description"`
-	CloudProvider types.String `tfsdk:"cloud_provider"`
-	AWSCredentials *AWSCredentialsModel `tfsdk:"aws_credentials"`
+	Name             types.String           `tfsdk:"name"`
+	Namespace        types.String           `tfsdk:"namespace"`
+	Description      types.String           `tfsdk:"description"`
+	CloudProvider    types.String           `tfsdk:"cloud_provider"`
+	AWSCredentials   *AWSCredentialsModel   `tfsdk:"aws_credentials"`
 	AzureCredentials *AzureCredentialsModel `tfsdk:"azure_credentials"`
-	GCPCredentials *GCPCredentialsModel `tfsdk:"gcp_credentials"`
-	ID            types.String `tfsdk:"id"`
+	GCPCredentials   *GCPCredentialsModel   `tfsdk:"gcp_credentials"`
+	ID               types.String           `tfsdk:"id"`
 }
 
 type AWSCredentialsModel struct {
@@ -51,15 +51,15 @@ type APISystemMetadata struct {
 }
 
 type APICloudCredentialsSpec struct {
-	CloudProvider string `json:"cloud_provider,omitempty"`
-	AWSCred       *APIAWSCred `json:"aws_cred,omitempty"`
+	CloudProvider string        `json:"cloud_provider,omitempty"`
+	AWSCred       *APIAWSCred   `json:"aws_cred,omitempty"`
 	AzureCred     *APIAzureCred `json:"azure_cred,omitempty"`
-	GCPCred       *APIGCPCred `json:"gcp_cred,omitempty"`
+	GCPCred       *APIGCPCred   `json:"gcp_cred,omitempty"`
 }
 
 type APIAWSCred struct {
-	AccessKey       string `json:"access_key,omitempty"`
-	SecretKey       string `json:"secret_key,omitempty"`
+	AccessKey string `json:"access_key,omitempty"`
+	SecretKey string `json:"secret_key,omitempty"`
 }
 
 type APIAzureCred struct {

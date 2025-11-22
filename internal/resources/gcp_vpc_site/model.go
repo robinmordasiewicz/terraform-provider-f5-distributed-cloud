@@ -18,9 +18,9 @@ type GCPVPCSiteResourceModel struct {
 }
 
 type APIGCPVPCSite struct {
-	Metadata   APIMetadata        `json:"metadata"`
-	Spec       APIGCPVPCSiteSpec  `json:"spec"`
-	SystemMeta APISystemMetadata  `json:"system_metadata,omitempty"`
+	Metadata   APIMetadata       `json:"metadata"`
+	Spec       APIGCPVPCSiteSpec `json:"spec"`
+	SystemMeta APISystemMetadata `json:"system_metadata,omitempty"`
 }
 
 type APIMetadata struct {

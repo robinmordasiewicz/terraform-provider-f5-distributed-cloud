@@ -59,7 +59,7 @@ resource "f5xc_cloud_credentials" "azure" {
 			"namespace":   schema.StringAttribute{Required: true, PlanModifiers: []planmodifier.String{stringplanmodifier.RequiresReplace()}},
 			"description": schema.StringAttribute{Optional: true},
 			"cloud_provider": schema.StringAttribute{
-				Required: true,
+				Required:   true,
 				Validators: []validator.String{stringvalidator.OneOf("aws", "azure", "gcp")},
 			},
 		},

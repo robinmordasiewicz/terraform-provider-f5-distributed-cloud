@@ -19,9 +19,9 @@ type NamespaceResourceModel struct {
 
 // APINamespace represents the namespace structure for API requests/responses.
 type APINamespace struct {
-	Metadata    APINamespaceMetadata `json:"metadata"`
-	Spec        APINamespaceSpec     `json:"spec,omitempty"`
-	SystemMeta  APISystemMetadata    `json:"system_metadata,omitempty"`
+	Metadata   APINamespaceMetadata `json:"metadata"`
+	Spec       APINamespaceSpec     `json:"spec,omitempty"`
+	SystemMeta APISystemMetadata    `json:"system_metadata,omitempty"`
 }
 
 // APINamespaceMetadata represents the metadata for a namespace.

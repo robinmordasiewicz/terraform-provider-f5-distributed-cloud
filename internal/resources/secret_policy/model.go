@@ -15,9 +15,9 @@ type SecretPolicyResourceModel struct {
 }
 
 type APISecretPolicy struct {
-	Metadata   APIMetadata          `json:"metadata"`
-	Spec       APISecretPolicySpec  `json:"spec"`
-	SystemMeta APISystemMetadata    `json:"system_metadata,omitempty"`
+	Metadata   APIMetadata         `json:"metadata"`
+	Spec       APISecretPolicySpec `json:"spec"`
+	SystemMeta APISystemMetadata   `json:"system_metadata,omitempty"`
 }
 
 type APIMetadata struct {

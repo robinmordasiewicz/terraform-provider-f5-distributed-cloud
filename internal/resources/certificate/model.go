@@ -26,10 +26,10 @@ type CertificateResourceModel struct {
 
 // SecretModel represents a secret reference.
 type SecretModel struct {
-	ClearSecretURL   types.String `tfsdk:"clear_secret_url"`
+	ClearSecretURL     types.String `tfsdk:"clear_secret_url"`
 	BlindfoldSecretURL types.String `tfsdk:"blindfold_secret_url"`
-	VaultSecretURL   types.String `tfsdk:"vault_secret_url"`
-	WingmanSecretURL types.String `tfsdk:"wingman_secret_url"`
+	VaultSecretURL     types.String `tfsdk:"vault_secret_url"`
+	WingmanSecretURL   types.String `tfsdk:"wingman_secret_url"`
 }
 
 // API structures

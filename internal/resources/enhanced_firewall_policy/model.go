@@ -6,27 +6,27 @@ package enhanced_firewall_policy
 import "github.com/hashicorp/terraform-plugin-framework/types"
 
 type EnhancedFirewallPolicyResourceModel struct {
-	Name        types.String `tfsdk:"name"`
-	Namespace   types.String `tfsdk:"namespace"`
-	Description types.String `tfsdk:"description"`
+	Name        types.String        `tfsdk:"name"`
+	Namespace   types.String        `tfsdk:"namespace"`
+	Description types.String        `tfsdk:"description"`
 	Rules       []FirewallRuleModel `tfsdk:"rules"`
-	ID          types.String `tfsdk:"id"`
+	ID          types.String        `tfsdk:"id"`
 }
 
 type FirewallRuleModel struct {
-	Name        types.String `tfsdk:"name"`
-	Action      types.String `tfsdk:"action"`
-	Protocol    types.String `tfsdk:"protocol"`
-	SrcIP       types.String `tfsdk:"src_ip"`
-	DstIP       types.String `tfsdk:"dst_ip"`
-	SrcPort     types.Int64  `tfsdk:"src_port"`
-	DstPort     types.Int64  `tfsdk:"dst_port"`
+	Name     types.String `tfsdk:"name"`
+	Action   types.String `tfsdk:"action"`
+	Protocol types.String `tfsdk:"protocol"`
+	SrcIP    types.String `tfsdk:"src_ip"`
+	DstIP    types.String `tfsdk:"dst_ip"`
+	SrcPort  types.Int64  `tfsdk:"src_port"`
+	DstPort  types.Int64  `tfsdk:"dst_port"`
 }
 
 type APIEnhancedFirewallPolicy struct {
-	Metadata   APIMetadata                     `json:"metadata"`
-	Spec       APIEnhancedFirewallPolicySpec   `json:"spec"`
-	SystemMeta APISystemMetadata               `json:"system_metadata,omitempty"`
+	Metadata   APIMetadata                   `json:"metadata"`
+	Spec       APIEnhancedFirewallPolicySpec `json:"spec"`
+	SystemMeta APISystemMetadata             `json:"system_metadata,omitempty"`
 }
 
 type APIMetadata struct {

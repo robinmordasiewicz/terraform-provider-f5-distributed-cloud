@@ -19,9 +19,9 @@ type GlobalLogReceiverResourceModel struct {
 }
 
 type APIGlobalLogReceiver struct {
-	Metadata   APIMetadata               `json:"metadata"`
-	Spec       APIGlobalLogReceiverSpec  `json:"spec"`
-	SystemMeta APISystemMetadata         `json:"system_metadata,omitempty"`
+	Metadata   APIMetadata              `json:"metadata"`
+	Spec       APIGlobalLogReceiverSpec `json:"spec"`
+	SystemMeta APISystemMetadata        `json:"system_metadata,omitempty"`
 }
 
 type APIMetadata struct {

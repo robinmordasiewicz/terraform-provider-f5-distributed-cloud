@@ -16,16 +16,16 @@ type HTTPLoadBalancerResourceModel struct {
 	Domains     []types.String `tfsdk:"domains"`
 
 	// Load balancer type - HTTP or HTTPS
-	HTTPType    types.String   `tfsdk:"http_type"`
+	HTTPType types.String `tfsdk:"http_type"`
 
 	// Port configuration
-	AdvertisePort types.Int64  `tfsdk:"advertise_port"`
+	AdvertisePort types.Int64 `tfsdk:"advertise_port"`
 
 	// Origin pools
 	DefaultOriginPools []OriginPoolModel `tfsdk:"default_origin_pools"`
 
 	// WAF configuration
-	DisableWAF  types.Bool   `tfsdk:"disable_waf"`
+	DisableWAF types.Bool `tfsdk:"disable_waf"`
 
 	// Computed fields
 	ID types.String `tfsdk:"id"`
@@ -33,19 +33,19 @@ type HTTPLoadBalancerResourceModel struct {
 
 // OriginPoolModel represents an origin pool reference.
 type OriginPoolModel struct {
-	PoolName   types.String `tfsdk:"pool_name"`
+	PoolName      types.String `tfsdk:"pool_name"`
 	PoolNamespace types.String `tfsdk:"pool_namespace"`
-	Weight     types.Int64  `tfsdk:"weight"`
-	Priority   types.Int64  `tfsdk:"priority"`
+	Weight        types.Int64  `tfsdk:"weight"`
+	Priority      types.Int64  `tfsdk:"priority"`
 }
 
 // API structures for F5 XC HTTP Load Balancer
 
 // APIHTTPLoadBalancer represents the API structure for HTTP Load Balancer.
 type APIHTTPLoadBalancer struct {
-	Metadata   APIMetadata          `json:"metadata"`
+	Metadata   APIMetadata             `json:"metadata"`
 	Spec       APIHTTPLoadBalancerSpec `json:"spec"`
-	SystemMeta APISystemMetadata    `json:"system_metadata,omitempty"`
+	SystemMeta APISystemMetadata       `json:"system_metadata,omitempty"`
 }
 
 // APIMetadata represents metadata for API requests.
@@ -63,13 +63,13 @@ type APISystemMetadata struct {
 
 // APIHTTPLoadBalancerSpec represents the spec for HTTP Load Balancer.
 type APIHTTPLoadBalancerSpec struct {
-	Domains            []string                 `json:"domains,omitempty"`
-	HTTP               *APIHTTPConfig           `json:"http,omitempty"`
-	HTTPS              *APIHTTPSConfig          `json:"https,omitempty"`
-	AdvertiseCustom    *APIAdvertiseCustom      `json:"advertise_custom,omitempty"`
-	DefaultOriginPools []APIOriginPoolRef       `json:"default_origin_servers,omitempty"`
-	DisableWAF         *struct{}                `json:"disable_waf,omitempty"`
-	AppFirewall        *APIAppFirewallRef       `json:"app_firewall,omitempty"`
+	Domains            []string            `json:"domains,omitempty"`
+	HTTP               *APIHTTPConfig      `json:"http,omitempty"`
+	HTTPS              *APIHTTPSConfig     `json:"https,omitempty"`
+	AdvertiseCustom    *APIAdvertiseCustom `json:"advertise_custom,omitempty"`
+	DefaultOriginPools []APIOriginPoolRef  `json:"default_origin_servers,omitempty"`
+	DisableWAF         *struct{}           `json:"disable_waf,omitempty"`
+	AppFirewall        *APIAppFirewallRef  `json:"app_firewall,omitempty"`
 }
 
 // APIHTTPConfig represents HTTP configuration.
@@ -90,15 +90,15 @@ type APIAdvertiseCustom struct {
 
 // APIAdvertiseWhere represents where to advertise.
 type APIAdvertiseWhere struct {
-	Site       *APISiteRef `json:"site,omitempty"`
+	Site        *APISiteRef `json:"site,omitempty"`
 	VirtualSite *APISiteRef `json:"virtual_site,omitempty"`
-	Port       uint32      `json:"port,omitempty"`
+	Port        uint32      `json:"port,omitempty"`
 }
 
 // APISiteRef represents a site reference.
 type APISiteRef struct {
-	Site      *APIObjectRef `json:"site,omitempty"`
-	Network   string        `json:"network,omitempty"`
+	Site    *APIObjectRef `json:"site,omitempty"`
+	Network string        `json:"network,omitempty"`
 }
 
 // APIObjectRef represents an object reference.

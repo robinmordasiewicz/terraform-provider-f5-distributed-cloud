@@ -9,24 +9,24 @@ import (
 
 // AppFirewallResourceModel describes the resource data model.
 type AppFirewallResourceModel struct {
-	ID                     types.String            `tfsdk:"id"`
-	Name                   types.String            `tfsdk:"name"`
-	Namespace              types.String            `tfsdk:"namespace"`
-	Description            types.String            `tfsdk:"description"`
-	Mode                   types.String            `tfsdk:"mode"`
-	DetectionSettings      *DetectionSettingsModel `tfsdk:"detection_settings"`
-	BotProtection          *BotProtectionModel     `tfsdk:"bot_protection"`
-	AllowedResponseCodes   types.List              `tfsdk:"allowed_response_codes"`
-	DefaultAnonymization   types.Bool              `tfsdk:"default_anonymization"`
-	UseDefaultBlockingPage types.Bool              `tfsdk:"use_default_blocking_page"`
+	ID                     types.String             `tfsdk:"id"`
+	Name                   types.String             `tfsdk:"name"`
+	Namespace              types.String             `tfsdk:"namespace"`
+	Description            types.String             `tfsdk:"description"`
+	Mode                   types.String             `tfsdk:"mode"`
+	DetectionSettings      *DetectionSettingsModel  `tfsdk:"detection_settings"`
+	BotProtection          *BotProtectionModel      `tfsdk:"bot_protection"`
+	AllowedResponseCodes   types.List               `tfsdk:"allowed_response_codes"`
+	DefaultAnonymization   types.Bool               `tfsdk:"default_anonymization"`
+	UseDefaultBlockingPage types.Bool               `tfsdk:"use_default_blocking_page"`
 	CustomBlockingPage     *CustomBlockingPageModel `tfsdk:"custom_blocking_page"`
-	Labels                 types.Map               `tfsdk:"labels"`
+	Labels                 types.Map                `tfsdk:"labels"`
 }
 
 // DetectionSettingsModel describes detection settings.
 type DetectionSettingsModel struct {
 	SignatureBasedBotProtection types.Bool   `tfsdk:"signature_based_bot_protection"`
-	XhrCheck                     types.Bool   `tfsdk:"xhr_check"`
+	XhrCheck                    types.Bool   `tfsdk:"xhr_check"`
 	CookieProtection            types.Bool   `tfsdk:"cookie_protection"`
 	EnableSuppression           types.Bool   `tfsdk:"enable_suppression"`
 	ViolationRating             types.String `tfsdk:"violation_rating"`
@@ -34,9 +34,9 @@ type DetectionSettingsModel struct {
 
 // BotProtectionModel describes bot protection settings.
 type BotProtectionModel struct {
-	GoodBotAction        types.String `tfsdk:"good_bot_action"`
-	MaliciousBotAction   types.String `tfsdk:"malicious_bot_action"`
-	SuspiciousBotAction  types.String `tfsdk:"suspicious_bot_action"`
+	GoodBotAction       types.String `tfsdk:"good_bot_action"`
+	MaliciousBotAction  types.String `tfsdk:"malicious_bot_action"`
+	SuspiciousBotAction types.String `tfsdk:"suspicious_bot_action"`
 }
 
 // CustomBlockingPageModel describes custom blocking page settings.
@@ -67,13 +67,13 @@ type APISystemMetadata struct {
 
 // APIAppFirewallSpec represents the app firewall specification.
 type APIAppFirewallSpec struct {
-	Mode                   string                    `json:"mode,omitempty"`
-	DetectionSettings      *APIDetectionSettings     `json:"detection_settings,omitempty"`
-	BotProtection          *APIBotProtection         `json:"bot_protection,omitempty"`
-	AllowedResponseCodes   []string                  `json:"allowed_response_codes,omitempty"`
-	DefaultAnonymization   bool                      `json:"default_anonymization,omitempty"`
-	UseDefaultBlockingPage bool                      `json:"use_default_blocking_page,omitempty"`
-	CustomBlockingPage     *APICustomBlockingPage    `json:"custom_blocking_page,omitempty"`
+	Mode                   string                 `json:"mode,omitempty"`
+	DetectionSettings      *APIDetectionSettings  `json:"detection_settings,omitempty"`
+	BotProtection          *APIBotProtection      `json:"bot_protection,omitempty"`
+	AllowedResponseCodes   []string               `json:"allowed_response_codes,omitempty"`
+	DefaultAnonymization   bool                   `json:"default_anonymization,omitempty"`
+	UseDefaultBlockingPage bool                   `json:"use_default_blocking_page,omitempty"`
+	CustomBlockingPage     *APICustomBlockingPage `json:"custom_blocking_page,omitempty"`
 }
 
 // APIDetectionSettings represents detection settings in API.

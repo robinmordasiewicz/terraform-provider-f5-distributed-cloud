@@ -6,21 +6,21 @@ package api_credential
 import "github.com/hashicorp/terraform-plugin-framework/types"
 
 type APICredentialResourceModel struct {
-	Name            types.String `tfsdk:"name"`
-	Namespace       types.String `tfsdk:"namespace"`
-	Description     types.String `tfsdk:"description"`
-	CredentialType  types.String `tfsdk:"credential_type"`
-	ExpirationDays  types.Int64  `tfsdk:"expiration_days"`
-	VirtualK8sName  types.String `tfsdk:"virtual_k8s_name"`
+	Name                types.String `tfsdk:"name"`
+	Namespace           types.String `tfsdk:"namespace"`
+	Description         types.String `tfsdk:"description"`
+	CredentialType      types.String `tfsdk:"credential_type"`
+	ExpirationDays      types.Int64  `tfsdk:"expiration_days"`
+	VirtualK8sName      types.String `tfsdk:"virtual_k8s_name"`
 	VirtualK8sNamespace types.String `tfsdk:"virtual_k8s_namespace"`
-	ID              types.String `tfsdk:"id"`
-	Data            types.String `tfsdk:"data"`
+	ID                  types.String `tfsdk:"id"`
+	Data                types.String `tfsdk:"data"`
 }
 
 type APIAPICredential struct {
-	Metadata   APIMetadata            `json:"metadata"`
-	Spec       APIAPICredentialSpec   `json:"spec"`
-	SystemMeta APISystemMetadata      `json:"system_metadata,omitempty"`
+	Metadata   APIMetadata          `json:"metadata"`
+	Spec       APIAPICredentialSpec `json:"spec"`
+	SystemMeta APISystemMetadata    `json:"system_metadata,omitempty"`
 }
 
 type APIMetadata struct {
@@ -35,9 +35,9 @@ type APISystemMetadata struct {
 }
 
 type APIAPICredentialSpec struct {
-	Type           string `json:"type,omitempty"`
-	ExpirationDays int32  `json:"expiration_days,omitempty"`
-	VirtualK8sName string `json:"virtual_k8s_name,omitempty"`
+	Type                string `json:"type,omitempty"`
+	ExpirationDays      int32  `json:"expiration_days,omitempty"`
+	VirtualK8sName      string `json:"virtual_k8s_name,omitempty"`
 	VirtualK8sNamespace string `json:"virtual_k8s_namespace,omitempty"`
 }
 

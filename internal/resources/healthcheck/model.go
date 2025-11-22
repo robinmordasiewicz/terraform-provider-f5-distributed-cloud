@@ -18,8 +18,8 @@ type HealthcheckResourceModel struct {
 	TCPHealthCheck  *TCPHealthCheckModel  `tfsdk:"tcp_health_check"`
 
 	// Common settings
-	Timeout           types.Int64 `tfsdk:"timeout"`
-	Interval          types.Int64 `tfsdk:"interval"`
+	Timeout            types.Int64 `tfsdk:"timeout"`
+	Interval           types.Int64 `tfsdk:"interval"`
 	UnhealthyThreshold types.Int64 `tfsdk:"unhealthy_threshold"`
 	HealthyThreshold   types.Int64 `tfsdk:"healthy_threshold"`
 
@@ -29,10 +29,10 @@ type HealthcheckResourceModel struct {
 
 // HTTPHealthCheckModel represents HTTP health check settings.
 type HTTPHealthCheckModel struct {
-	Path               types.String `tfsdk:"path"`
-	UseHTTPS           types.Bool   `tfsdk:"use_https"`
+	Path                types.String   `tfsdk:"path"`
+	UseHTTPS            types.Bool     `tfsdk:"use_https"`
 	ExpectedStatusCodes []types.String `tfsdk:"expected_status_codes"`
-	Headers            types.Map    `tfsdk:"headers"`
+	Headers             types.Map      `tfsdk:"headers"`
 }
 
 // TCPHealthCheckModel represents TCP health check settings.

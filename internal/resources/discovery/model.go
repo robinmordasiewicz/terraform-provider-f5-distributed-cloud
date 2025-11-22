@@ -6,15 +6,15 @@ package discovery
 import "github.com/hashicorp/terraform-plugin-framework/types"
 
 type DiscoveryResourceModel struct {
-	Name            types.String `tfsdk:"name"`
-	Namespace       types.String `tfsdk:"namespace"`
-	Description     types.String `tfsdk:"description"`
-	DiscoveryType   types.String `tfsdk:"discovery_type"`
-	ClusterName     types.String `tfsdk:"cluster_name"`
-	KubeConfig      types.String `tfsdk:"kube_config"`
-	VirtualSiteRef  types.String `tfsdk:"virtual_site_ref"`
-	PublishInfo     *PublishInfoModel `tfsdk:"publish_info"`
-	ID              types.String `tfsdk:"id"`
+	Name           types.String      `tfsdk:"name"`
+	Namespace      types.String      `tfsdk:"namespace"`
+	Description    types.String      `tfsdk:"description"`
+	DiscoveryType  types.String      `tfsdk:"discovery_type"`
+	ClusterName    types.String      `tfsdk:"cluster_name"`
+	KubeConfig     types.String      `tfsdk:"kube_config"`
+	VirtualSiteRef types.String      `tfsdk:"virtual_site_ref"`
+	PublishInfo    *PublishInfoModel `tfsdk:"publish_info"`
+	ID             types.String      `tfsdk:"id"`
 }
 
 type PublishInfoModel struct {

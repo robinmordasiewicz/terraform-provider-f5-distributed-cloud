@@ -10,6 +10,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/datasource"
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/types"
+
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/client"
 )
 
@@ -24,11 +25,11 @@ type TCPLoadBalancerDataSource struct {
 }
 
 type TCPLoadBalancerDataSourceModel struct {
-	ID                types.String `tfsdk:"id"`
-	Name              types.String `tfsdk:"name"`
-	Namespace         types.String `tfsdk:"namespace"`
-	Description       types.String `tfsdk:"description"`
-	ListenPort        types.Int64  `tfsdk:"listen_port"`
+	ID                 types.String `tfsdk:"id"`
+	Name               types.String `tfsdk:"name"`
+	Namespace          types.String `tfsdk:"namespace"`
+	Description        types.String `tfsdk:"description"`
+	ListenPort         types.Int64  `tfsdk:"listen_port"`
 	DNSVolterraManaged types.Bool   `tfsdk:"dns_volterra_managed"`
 }
 
@@ -40,7 +41,7 @@ type APITCPLoadBalancer struct {
 		UID         string `json:"uid,omitempty"`
 	} `json:"metadata"`
 	Spec struct {
-		ListenPort        int  `json:"listen_port,omitempty"`
+		ListenPort         int  `json:"listen_port,omitempty"`
 		DNSVolterraManaged bool `json:"dns_volterra_managed,omitempty"`
 	} `json:"spec"`
 }

@@ -6,11 +6,11 @@ package app_type
 import "github.com/hashicorp/terraform-plugin-framework/types"
 
 type AppTypeResourceModel struct {
-	Name        types.String     `tfsdk:"name"`
-	Namespace   types.String     `tfsdk:"namespace"`
-	Description types.String     `tfsdk:"description"`
-	Features    []FeatureModel   `tfsdk:"features"`
-	ID          types.String     `tfsdk:"id"`
+	Name        types.String   `tfsdk:"name"`
+	Namespace   types.String   `tfsdk:"namespace"`
+	Description types.String   `tfsdk:"description"`
+	Features    []FeatureModel `tfsdk:"features"`
+	ID          types.String   `tfsdk:"id"`
 }
 
 type FeatureModel struct {
@@ -18,8 +18,8 @@ type FeatureModel struct {
 }
 
 type APIAppType struct {
-	Metadata   APIMetadata      `json:"metadata"`
-	Spec       APIAppTypeSpec   `json:"spec"`
+	Metadata   APIMetadata       `json:"metadata"`
+	Spec       APIAppTypeSpec    `json:"spec"`
 	SystemMeta APISystemMetadata `json:"system_metadata,omitempty"`
 }
 

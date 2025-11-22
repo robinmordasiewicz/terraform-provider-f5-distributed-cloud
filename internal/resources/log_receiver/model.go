@@ -6,20 +6,20 @@ package log_receiver
 import "github.com/hashicorp/terraform-plugin-framework/types"
 
 type LogReceiverResourceModel struct {
-	Name         types.String `tfsdk:"name"`
-	Namespace    types.String `tfsdk:"namespace"`
-	Description  types.String `tfsdk:"description"`
-	ReceiverType types.String `tfsdk:"receiver_type"`
-	HTTPReceiver *HTTPReceiverModel `tfsdk:"http_receiver"`
+	Name           types.String         `tfsdk:"name"`
+	Namespace      types.String         `tfsdk:"namespace"`
+	Description    types.String         `tfsdk:"description"`
+	ReceiverType   types.String         `tfsdk:"receiver_type"`
+	HTTPReceiver   *HTTPReceiverModel   `tfsdk:"http_receiver"`
 	SyslogReceiver *SyslogReceiverModel `tfsdk:"syslog_receiver"`
-	ID           types.String `tfsdk:"id"`
+	ID             types.String         `tfsdk:"id"`
 }
 
 type HTTPReceiverModel struct {
-	URL        types.String `tfsdk:"url"`
-	AuthToken  types.String `tfsdk:"auth_token"`
-	BatchSize  types.Int64  `tfsdk:"batch_size"`
-	TLSConfig  *TLSConfigModel `tfsdk:"tls_config"`
+	URL       types.String    `tfsdk:"url"`
+	AuthToken types.String    `tfsdk:"auth_token"`
+	BatchSize types.Int64     `tfsdk:"batch_size"`
+	TLSConfig *TLSConfigModel `tfsdk:"tls_config"`
 }
 
 type SyslogReceiverModel struct {
@@ -35,9 +35,9 @@ type TLSConfigModel struct {
 }
 
 type APILogReceiver struct {
-	Metadata   APIMetadata         `json:"metadata"`
-	Spec       APILogReceiverSpec  `json:"spec"`
-	SystemMeta APISystemMetadata   `json:"system_metadata,omitempty"`
+	Metadata   APIMetadata        `json:"metadata"`
+	Spec       APILogReceiverSpec `json:"spec"`
+	SystemMeta APISystemMetadata  `json:"system_metadata,omitempty"`
 }
 
 type APIMetadata struct {

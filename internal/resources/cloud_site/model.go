@@ -9,24 +9,24 @@ import (
 
 // CloudSiteResourceModel describes the resource data model.
 type CloudSiteResourceModel struct {
-	ID                types.String      `tfsdk:"id"`
-	Name              types.String      `tfsdk:"name"`
-	Description       types.String      `tfsdk:"description"`
-	SiteType          types.String      `tfsdk:"site_type"`
-	Provider          types.String      `tfsdk:"cloud_provider"`
-	Region            types.String      `tfsdk:"region"`
-	VPCName           types.String      `tfsdk:"vpc_name"`
-	VPCID             types.String      `tfsdk:"vpc_id"`
-	CIDR              types.String      `tfsdk:"cidr"`
-	Subnets           []SubnetModel     `tfsdk:"subnets"`
-	MasterNodes       *MasterNodesModel `tfsdk:"master_nodes"`
-	WorkerNodes       *WorkerNodesModel `tfsdk:"worker_nodes"`
-	SSHKey            types.String      `tfsdk:"ssh_key"`
-	Labels            types.Map         `tfsdk:"labels"`
-	Annotations       types.Map         `tfsdk:"annotations"`
-	SiteState         types.String      `tfsdk:"site_state"`
-	SoftwareVersion   types.String      `tfsdk:"software_version"`
-	OperatingSystem   types.String      `tfsdk:"operating_system"`
+	ID              types.String      `tfsdk:"id"`
+	Name            types.String      `tfsdk:"name"`
+	Description     types.String      `tfsdk:"description"`
+	SiteType        types.String      `tfsdk:"site_type"`
+	Provider        types.String      `tfsdk:"cloud_provider"`
+	Region          types.String      `tfsdk:"region"`
+	VPCName         types.String      `tfsdk:"vpc_name"`
+	VPCID           types.String      `tfsdk:"vpc_id"`
+	CIDR            types.String      `tfsdk:"cidr"`
+	Subnets         []SubnetModel     `tfsdk:"subnets"`
+	MasterNodes     *MasterNodesModel `tfsdk:"master_nodes"`
+	WorkerNodes     *WorkerNodesModel `tfsdk:"worker_nodes"`
+	SSHKey          types.String      `tfsdk:"ssh_key"`
+	Labels          types.Map         `tfsdk:"labels"`
+	Annotations     types.Map         `tfsdk:"annotations"`
+	SiteState       types.String      `tfsdk:"site_state"`
+	SoftwareVersion types.String      `tfsdk:"software_version"`
+	OperatingSystem types.String      `tfsdk:"operating_system"`
 }
 
 // SubnetModel describes a subnet configuration.
@@ -55,10 +55,10 @@ type WorkerNodesModel struct {
 
 // APICloudSite represents the API request/response structure.
 type APICloudSite struct {
-	Metadata    APIMetadata          `json:"metadata"`
-	Spec        APICloudSiteSpec     `json:"spec"`
-	SystemMeta  *APISystemMetadata   `json:"system_metadata,omitempty"`
-	Status      *APICloudSiteStatus  `json:"status,omitempty"`
+	Metadata   APIMetadata         `json:"metadata"`
+	Spec       APICloudSiteSpec    `json:"spec"`
+	SystemMeta *APISystemMetadata  `json:"system_metadata,omitempty"`
+	Status     *APICloudSiteStatus `json:"status,omitempty"`
 }
 
 // APIMetadata represents the metadata section.
@@ -76,18 +76,18 @@ type APISystemMetadata struct {
 
 // APICloudSiteSpec represents the cloud site specification.
 type APICloudSiteSpec struct {
-	SiteType        string            `json:"site_type,omitempty"`
-	CloudProvider   string            `json:"cloud_provider,omitempty"`
-	Region          string            `json:"region,omitempty"`
-	VPCName         string            `json:"vpc_name,omitempty"`
-	VPCID           string            `json:"vpc_id,omitempty"`
-	CIDR            string            `json:"cidr,omitempty"`
-	Subnets         []APISubnet       `json:"subnets,omitempty"`
-	MasterNodes     *APIMasterNodes   `json:"master_nodes,omitempty"`
-	WorkerNodes     *APIWorkerNodes   `json:"worker_nodes,omitempty"`
-	SSHKey          string            `json:"ssh_key,omitempty"`
-	SoftwareVersion string            `json:"software_version,omitempty"`
-	OperatingSystem string            `json:"operating_system,omitempty"`
+	SiteType        string          `json:"site_type,omitempty"`
+	CloudProvider   string          `json:"cloud_provider,omitempty"`
+	Region          string          `json:"region,omitempty"`
+	VPCName         string          `json:"vpc_name,omitempty"`
+	VPCID           string          `json:"vpc_id,omitempty"`
+	CIDR            string          `json:"cidr,omitempty"`
+	Subnets         []APISubnet     `json:"subnets,omitempty"`
+	MasterNodes     *APIMasterNodes `json:"master_nodes,omitempty"`
+	WorkerNodes     *APIWorkerNodes `json:"worker_nodes,omitempty"`
+	SSHKey          string          `json:"ssh_key,omitempty"`
+	SoftwareVersion string          `json:"software_version,omitempty"`
+	OperatingSystem string          `json:"operating_system,omitempty"`
 }
 
 // APISubnet represents subnet configuration in API.
