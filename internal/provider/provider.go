@@ -141,6 +141,10 @@ import (
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/policy_based_routing"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/proxy"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/rate_limiter_policy"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/certificate_chain"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/crl"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/oidc_provider"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/trusted_ca_list"
 )
 
 // Ensure F5XCProvider satisfies various provider interfaces.
@@ -401,6 +405,10 @@ func (p *F5XCProvider) Resources(ctx context.Context) []func() resource.Resource
 		policy_based_routing.NewPolicyBasedRoutingResource,
 		proxy.NewProxyResource,
 		rate_limiter_policy.NewRateLimiterPolicyResource,
+		certificate_chain.NewCertificateChainResource,
+		crl.NewCRLResource,
+		oidc_provider.NewOIDCProviderResource,
+		trusted_ca_list.NewTrustedCAListResource,
 	}
 }
 
