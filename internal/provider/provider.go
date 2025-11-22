@@ -16,9 +16,13 @@ import (
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/client"
+	ds_alert_policy "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/alert_policy"
+	ds_api_definition "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/api_definition"
 	ds_app_firewall "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/app_firewall"
 	ds_certificate "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/certificate"
 	ds_cloud_credentials "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/cloud_credentials"
+	ds_discovery "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/discovery"
+	ds_dns_zone "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/dns_zone"
 	ds_healthcheck "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/healthcheck"
 	ds_http_loadbalancer "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/http_loadbalancer"
 	ds_namespace "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/namespace"
@@ -295,9 +299,13 @@ func (p *F5XCProvider) Resources(ctx context.Context) []func() resource.Resource
 // DataSources defines the data sources implemented in the provider.
 func (p *F5XCProvider) DataSources(ctx context.Context) []func() datasource.DataSource {
 	return []func() datasource.DataSource{
+		ds_alert_policy.NewAlertPolicyDataSource,
+		ds_api_definition.NewAPIDefinitionDataSource,
 		ds_app_firewall.NewAppFirewallDataSource,
 		ds_certificate.NewCertificateDataSource,
 		ds_cloud_credentials.NewCloudCredentialsDataSource,
+		ds_discovery.NewDiscoveryDataSource,
+		ds_dns_zone.NewDNSZoneDataSource,
 		ds_healthcheck.NewHealthcheckDataSource,
 		ds_http_loadbalancer.NewHTTPLoadBalancerDataSource,
 		ds_namespace.NewNamespaceDataSource,
