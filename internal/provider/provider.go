@@ -64,6 +64,8 @@ import (
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/alert_receiver"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/bgp"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/bgp_asn_set"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/cdn_cache_rule"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/cdn_loadbalancer"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/api_credential"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/api_definition"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/app_firewall"
@@ -103,6 +105,7 @@ import (
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/site_mesh_group"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/tcp_loadbalancer"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/tunnel"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/udp_loadbalancer"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/user"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/virtual_site"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/voltstack_site"
@@ -290,6 +293,8 @@ func (p *F5XCProvider) Resources(ctx context.Context) []func() resource.Resource
 		alert_receiver.NewAlertReceiverResource,
 		bgp.NewBGPResource,
 		bgp_asn_set.NewBGPASNSetResource,
+		cdn_cache_rule.NewCDNCacheRuleResource,
+		cdn_loadbalancer.NewCDNLoadBalancerResource,
 		api_credential.NewAPICredentialResource,
 		api_definition.NewAPIDefinitionResource,
 		app_firewall.NewAppFirewallResource,
@@ -329,6 +334,7 @@ func (p *F5XCProvider) Resources(ctx context.Context) []func() resource.Resource
 		site_mesh_group.NewSiteMeshGroupResource,
 		tcp_loadbalancer.NewTCPLoadBalancerResource,
 		tunnel.NewTunnelResource,
+		udp_loadbalancer.NewUDPLoadBalancerResource,
 		user.NewUserResource,
 		virtual_site.NewVirtualSiteResource,
 		voltstack_site.NewVoltstackSiteResource,
