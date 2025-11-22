@@ -70,6 +70,7 @@ import (
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/api_definition"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/app_firewall"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/app_type"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/aws_tgw_site"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/aws_vpc_site"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/azure_vnet_site"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/certificate"
@@ -83,6 +84,7 @@ import (
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/dns_load_balancer"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/dns_zone"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/enhanced_firewall_policy"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/external_connector"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/fast_acl"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/fast_acl_rule"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/forward_proxy_policy"
@@ -110,6 +112,7 @@ import (
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/role"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/route"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/secret_policy"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/securemesh_site"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/service_mesh"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/service_policy"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/site_mesh_group"
@@ -313,6 +316,7 @@ func (p *F5XCProvider) Resources(ctx context.Context) []func() resource.Resource
 		api_definition.NewAPIDefinitionResource,
 		app_firewall.NewAppFirewallResource,
 		app_type.NewAppTypeResource,
+		aws_tgw_site.NewAWSTGWSiteResource,
 		aws_vpc_site.NewAWSVPCSiteResource,
 		azure_vnet_site.NewAzureVNETSiteResource,
 		certificate.NewCertificateResource,
@@ -326,6 +330,7 @@ func (p *F5XCProvider) Resources(ctx context.Context) []func() resource.Resource
 		dns_load_balancer.NewDNSLoadBalancerResource,
 		dns_zone.NewDNSZoneResource,
 		enhanced_firewall_policy.NewEnhancedFirewallPolicyResource,
+		external_connector.NewExternalConnectorResource,
 		fast_acl.NewFastACLResource,
 		fast_acl_rule.NewFastACLRuleResource,
 		forward_proxy_policy.NewForwardProxyPolicyResource,
@@ -353,6 +358,7 @@ func (p *F5XCProvider) Resources(ctx context.Context) []func() resource.Resource
 		role.NewRoleResource,
 		route.NewRouteResource,
 		secret_policy.NewSecretPolicyResource,
+		securemesh_site.NewSecuremeshSiteResource,
 		service_mesh.NewServiceMeshResource,
 		service_policy.NewServicePolicyResource,
 		site_mesh_group.NewSiteMeshGroupResource,
