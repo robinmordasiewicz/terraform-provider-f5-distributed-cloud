@@ -19,10 +19,13 @@ import (
 	ds_alert_policy "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/alert_policy"
 	ds_api_definition "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/api_definition"
 	ds_app_firewall "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/app_firewall"
+	ds_aws_vpc_site "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/aws_vpc_site"
+	ds_azure_vnet_site "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/azure_vnet_site"
 	ds_certificate "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/certificate"
 	ds_cloud_credentials "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/cloud_credentials"
 	ds_discovery "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/discovery"
 	ds_dns_zone "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/dns_zone"
+	ds_gcp_vpc_site "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/gcp_vpc_site"
 	ds_healthcheck "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/healthcheck"
 	ds_http_loadbalancer "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/http_loadbalancer"
 	ds_namespace "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/namespace"
@@ -33,6 +36,7 @@ import (
 	ds_tcp_loadbalancer "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/tcp_loadbalancer"
 	ds_tunnel "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/tunnel"
 	ds_virtual_site "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/virtual_site"
+	ds_voltstack_site "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/voltstack_site"
 	ds_waf_rule "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/waf_rule"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/active_service_policies"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/alert_policy"
@@ -302,10 +306,13 @@ func (p *F5XCProvider) DataSources(ctx context.Context) []func() datasource.Data
 		ds_alert_policy.NewAlertPolicyDataSource,
 		ds_api_definition.NewAPIDefinitionDataSource,
 		ds_app_firewall.NewAppFirewallDataSource,
+		ds_aws_vpc_site.NewAWSVPCSiteDataSource,
+		ds_azure_vnet_site.NewAzureVNETSiteDataSource,
 		ds_certificate.NewCertificateDataSource,
 		ds_cloud_credentials.NewCloudCredentialsDataSource,
 		ds_discovery.NewDiscoveryDataSource,
 		ds_dns_zone.NewDNSZoneDataSource,
+		ds_gcp_vpc_site.NewGCPVPCSiteDataSource,
 		ds_healthcheck.NewHealthcheckDataSource,
 		ds_http_loadbalancer.NewHTTPLoadBalancerDataSource,
 		ds_namespace.NewNamespaceDataSource,
@@ -316,6 +323,7 @@ func (p *F5XCProvider) DataSources(ctx context.Context) []func() datasource.Data
 		ds_tcp_loadbalancer.NewTCPLoadBalancerDataSource,
 		ds_tunnel.NewTunnelDataSource,
 		ds_virtual_site.NewVirtualSiteDataSource,
+		ds_voltstack_site.NewVoltstackSiteDataSource,
 		ds_waf_rule.NewWAFRuleDataSource,
 	}
 }
