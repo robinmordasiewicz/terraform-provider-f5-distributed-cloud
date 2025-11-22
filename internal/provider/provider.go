@@ -75,7 +75,11 @@ import (
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/cloud_credentials"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/cloud_site"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/discovery"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/dns_domain"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/dns_lb_health_check"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/dns_lb_pool"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/dns_load_balancer"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/dns_zone"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/enhanced_firewall_policy"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/forward_proxy_policy"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/gcp_vpc_site"
@@ -297,7 +301,11 @@ func (p *F5XCProvider) Resources(ctx context.Context) []func() resource.Resource
 		cloud_credentials.NewCloudCredentialsResource,
 		cloud_site.NewCloudSiteResource,
 		discovery.NewDiscoveryResource,
+		dns_domain.NewDNSDomainResource,
+		dns_lb_health_check.NewDNSLBHealthCheckResource,
 		dns_lb_pool.NewDNSLBPoolResource,
+		dns_load_balancer.NewDNSLoadBalancerResource,
+		dns_zone.NewDNSZoneResource,
 		enhanced_firewall_policy.NewEnhancedFirewallPolicyResource,
 		forward_proxy_policy.NewForwardProxyPolicyResource,
 		gcp_vpc_site.NewGCPVPCSiteResource,
