@@ -35,6 +35,7 @@ import (
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/healthcheck"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/http_loadbalancer"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/ip_prefix_set"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/known_label"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/log_receiver"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/malicious_user_mitigation"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/namespace"
@@ -43,6 +44,8 @@ import (
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/protocol_policer"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/rate_limiter"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/role"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/route"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/secret_policy"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/service_mesh"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/service_policy"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/site_mesh_group"
@@ -246,6 +249,7 @@ func (p *F5XCProvider) Resources(ctx context.Context) []func() resource.Resource
 		healthcheck.NewHealthcheckResource,
 		http_loadbalancer.NewHTTPLoadBalancerResource,
 		ip_prefix_set.NewIPPrefixSetResource,
+		known_label.NewKnownLabelResource,
 		log_receiver.NewLogReceiverResource,
 		malicious_user_mitigation.NewMaliciousUserMitigationResource,
 		namespace.NewNamespaceResource,
@@ -254,6 +258,8 @@ func (p *F5XCProvider) Resources(ctx context.Context) []func() resource.Resource
 		protocol_policer.NewProtocolPolicerResource,
 		rate_limiter.NewRateLimiterResource,
 		role.NewRoleResource,
+		route.NewRouteResource,
+		secret_policy.NewSecretPolicyResource,
 		service_mesh.NewServiceMeshResource,
 		service_policy.NewServicePolicyResource,
 		site_mesh_group.NewSiteMeshGroupResource,
