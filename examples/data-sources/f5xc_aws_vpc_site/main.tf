@@ -1,14 +1,10 @@
-# Example: Look up an existing AWS VPC site
+# Example configuration for f5xc_aws_vpc_site data source
+
 data "f5xc_aws_vpc_site" "example" {
-  name      = "my-aws-site"
+  name      = "existing-aws_vpc_site"
   namespace = "system"
 }
 
-# Output the site state and AWS region
-output "site_state" {
-  value = data.f5xc_aws_vpc_site.example.site_state
-}
-
-output "aws_region" {
-  value = data.f5xc_aws_vpc_site.example.aws_region
+output "aws_vpc_site_id" {
+  value = data.f5xc_aws_vpc_site.example.id
 }

@@ -1,12 +1,8 @@
-# Example: Look up an existing site mesh group
-data "f5xc_site_mesh_group" "example" {
-  name      = "my-site-mesh-group"
-  namespace = "system"
-}
+# Example configuration for f5xc_site_mesh_group data source
 
-# Output the mesh type
-output "mesh_type" {
-  value = data.f5xc_site_mesh_group.example.mesh_type
+data "f5xc_site_mesh_group" "example" {
+  name      = "existing-site_mesh_group"
+  namespace = "system"
 }
 
 output "site_mesh_group_id" {

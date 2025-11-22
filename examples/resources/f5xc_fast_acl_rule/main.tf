@@ -1,5 +1,9 @@
+# Example configuration for f5xc_fast_acl_rule
+
 resource "f5xc_fast_acl_rule" "example" {
-  name        = "my-fast-acl-rule"
+  name        = "example-fast_acl_rule"
   namespace   = "system"
-  description = "Individual access control entry"
+  description = "Example FastACLRule resource managed by Terraform"
+
+  # Add additional configuration as needed
 }

@@ -1,5 +1,9 @@
+# Example configuration for f5xc_k8s_cluster_role_binding
+
 resource "f5xc_k8s_cluster_role_binding" "example" {
-  name        = "my-cluster-role-binding"
+  name        = "example-k8s_cluster_role_binding"
   namespace   = "system"
-  description = "Binding admin role to service account"
+  description = "Example K8SClusterRoleBinding resource managed by Terraform"
+
+  # Add additional configuration as needed
 }

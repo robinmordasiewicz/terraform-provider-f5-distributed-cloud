@@ -1,6 +1,9 @@
-# Example: Token
+# Example configuration for f5xc_token
+
 resource "f5xc_token" "example" {
-  name        = "my-token"
-  namespace   = "my-namespace"
-  description = "Example token for site registration"
+  name        = "example-token"
+  namespace   = "system"
+  description = "Example Token resource managed by Terraform"
+
+  # Add additional configuration as needed
 }

@@ -1,7 +1,9 @@
+# Example configuration for f5xc_dns_load_balancer
+
 resource "f5xc_dns_load_balancer" "example" {
-  name              = "my-dns-lb"
-  namespace         = "system"
-  description       = "DNS load balancer for global distribution"
-  domain            = "app.example.com"
-  load_balance_type = "round_robin"
+  name        = "example-dns_load_balancer"
+  namespace   = "system"
+  description = "Example DNSLoadBalancer resource managed by Terraform"
+
+  # Add additional configuration as needed
 }

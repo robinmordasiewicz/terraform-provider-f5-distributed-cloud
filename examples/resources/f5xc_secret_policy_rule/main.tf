@@ -1,6 +1,9 @@
-# Example: Secret Policy Rule
+# Example configuration for f5xc_secret_policy_rule
+
 resource "f5xc_secret_policy_rule" "example" {
-  name        = "my-secret-policy-rule"
-  namespace   = "my-namespace"
-  description = "Example secret policy rule"
+  name        = "example-secret_policy_rule"
+  namespace   = "system"
+  description = "Example SecretPolicyRule resource managed by Terraform"
+
+  # Add additional configuration as needed
 }

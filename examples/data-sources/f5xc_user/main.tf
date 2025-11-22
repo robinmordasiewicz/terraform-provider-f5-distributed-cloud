@@ -1,12 +1,8 @@
-# Example: Look up an existing user
-data "f5xc_user" "example" {
-  name      = "my-user"
-  namespace = "system"
-}
+# Example configuration for f5xc_user data source
 
-# Output the user email
-output "email" {
-  value = data.f5xc_user.example.email
+data "f5xc_user" "example" {
+  name      = "existing-user"
+  namespace = "system"
 }
 
 output "user_id" {

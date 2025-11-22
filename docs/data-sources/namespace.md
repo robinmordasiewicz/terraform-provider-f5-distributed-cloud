@@ -1,39 +1,29 @@
 ---
-page_title: "f5xc_namespace Data Source - F5 Distributed Cloud"
+page_title: "f5xc_namespace Data Source - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
-  Fetches information about an existing F5 Distributed Cloud Namespace.
+  namespace creates logical independent workspace within a tenant. Within a namespace contained objects should have unique names.      Object within a namespace can only refer to objects within the s...
 ---
 
 # f5xc_namespace (Data Source)
 
-Fetches information about an existing F5 Distributed Cloud Namespace.
+namespace creates logical independent workspace within a tenant. Within a namespace contained objects should have unique names.      Object within a namespace can only refer to objects within the s...
 
 ## Example Usage
 
-```terraform
-data "f5xc_namespace" "existing" {
-  name = "my-namespace"
-}
-
-output "namespace_id" {
-  value = data.f5xc_namespace.existing.id
-}
-
-# Use in a resource
-resource "f5xc_origin_pool" "example" {
-  name      = "my-pool"
-  namespace = data.f5xc_namespace.existing.name
-  # ...
+```hcl
+data "f5xc_namespace" "example" {
+  name      = "example-namespace"
+  namespace = "system"
 }
 ```
 
 ## Argument Reference
 
-- `name` - (Required) Name of the namespace to look up.
+- `name` - (Required) Name of the resource.
+- `namespace` - (Required) Namespace of the resource.
 
 ## Attribute Reference
 
-- `id` - The unique identifier of the namespace.
-- `description` - Description of the namespace.
-- `labels` - Map of labels applied to the namespace.
+- `id` - The unique identifier for this resource.
+- `description` - Description of the resource.

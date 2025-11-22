@@ -1,12 +1,8 @@
-# Example: Look up an existing tunnel
-data "f5xc_tunnel" "example" {
-  name      = "my-tunnel"
-  namespace = "my-namespace"
-}
+# Example configuration for f5xc_tunnel data source
 
-# Output the tunnel type (IPSEC or SSL)
-output "tunnel_type" {
-  value = data.f5xc_tunnel.example.tunnel_type
+data "f5xc_tunnel" "example" {
+  name      = "existing-tunnel"
+  namespace = "system"
 }
 
 output "tunnel_id" {

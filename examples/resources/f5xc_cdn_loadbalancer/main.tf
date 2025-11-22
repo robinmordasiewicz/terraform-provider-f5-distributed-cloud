@@ -1,6 +1,9 @@
+# Example configuration for f5xc_cdn_loadbalancer
+
 resource "f5xc_cdn_loadbalancer" "example" {
-  name        = "my-cdn-lb"
+  name        = "example-cdn_loadbalancer"
   namespace   = "system"
-  description = "CDN load balancer for static content"
-  domains     = ["cdn.example.com", "static.example.com"]
+  description = "Example CDNLoadbalancer resource managed by Terraform"
+
+  # Add additional configuration as needed
 }

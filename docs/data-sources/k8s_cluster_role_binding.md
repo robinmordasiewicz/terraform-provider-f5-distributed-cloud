@@ -1,0 +1,29 @@
+---
+page_title: "f5xc_k8s_cluster_role_binding Data Source - terraform-provider-f5-distributed-cloud"
+subcategory: ""
+description: |-
+  Cluster role binding allows administrator to assign cluster wide cluster role to a users, groups or service accounts
+---
+
+# f5xc_k8s_cluster_role_binding (Data Source)
+
+Cluster role binding allows administrator to assign cluster wide cluster role to a users, groups or service accounts
+
+## Example Usage
+
+```hcl
+data "f5xc_k8s_cluster_role_binding" "example" {
+  name      = "example-k8s_cluster_role_binding"
+  namespace = "system"
+}
+```
+
+## Argument Reference
+
+- `name` - (Required) Name of the resource.
+- `namespace` - (Required) Namespace of the resource.
+
+## Attribute Reference
+
+- `id` - The unique identifier for this resource.
+- `description` - Description of the resource.

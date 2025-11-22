@@ -1,12 +1,8 @@
-# Example: Look up an existing discovery configuration
-data "f5xc_discovery" "example" {
-  name      = "my-discovery"
-  namespace = "my-namespace"
-}
+# Example configuration for f5xc_discovery data source
 
-# Output the discovery type
-output "discovery_type" {
-  value = data.f5xc_discovery.example.discovery_type
+data "f5xc_discovery" "example" {
+  name      = "existing-discovery"
+  namespace = "system"
 }
 
 output "discovery_id" {

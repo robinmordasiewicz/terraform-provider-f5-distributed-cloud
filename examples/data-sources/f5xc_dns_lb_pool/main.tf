@@ -1,9 +1,10 @@
-# Example: Look up an existing DNS LB Pool
+# Example configuration for f5xc_dns_lb_pool data source
+
 data "f5xc_dns_lb_pool" "example" {
-  name      = "my-dns-lb-pool"
-  namespace = "my-namespace"
+  name      = "existing-dns_lb_pool"
+  namespace = "system"
 }
 
-output "pool_type" {
-  value = data.f5xc_dns_lb_pool.example.pool_type
+output "dns_lb_pool_id" {
+  value = data.f5xc_dns_lb_pool.example.id
 }

@@ -1,6 +1,9 @@
-# Example: User Group
+# Example configuration for f5xc_user_group
+
 resource "f5xc_user_group" "example" {
-  name        = "my-user-group"
+  name        = "example-user_group"
   namespace   = "system"
-  description = "Example user group for access management"
+  description = "Example UserGroup resource managed by Terraform"
+
+  # Add additional configuration as needed
 }

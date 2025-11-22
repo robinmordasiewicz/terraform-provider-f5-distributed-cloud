@@ -1,6 +1,9 @@
-# Example: Proxy
+# Example configuration for f5xc_proxy
+
 resource "f5xc_proxy" "example" {
-  name        = "my-proxy"
-  namespace   = "my-namespace"
-  description = "Example proxy configuration"
+  name        = "example-proxy"
+  namespace   = "system"
+  description = "Example Proxy resource managed by Terraform"
+
+  # Add additional configuration as needed
 }

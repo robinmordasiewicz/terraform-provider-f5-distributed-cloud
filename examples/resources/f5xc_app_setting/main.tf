@@ -1,6 +1,9 @@
-# Example: App Setting
+# Example configuration for f5xc_app_setting
+
 resource "f5xc_app_setting" "example" {
-  name        = "my-app-setting"
-  namespace   = "my-namespace"
-  description = "Example application setting configuration"
+  name        = "example-app_setting"
+  namespace   = "system"
+  description = "Example AppSetting resource managed by Terraform"
+
+  # Add additional configuration as needed
 }

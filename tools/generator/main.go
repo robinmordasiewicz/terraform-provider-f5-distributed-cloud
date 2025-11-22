@@ -457,6 +457,11 @@ func main() {
 		log.Fatalf("Failed to generate provider imports: %v", err)
 	}
 
+	// Generate documentation and examples
+	if err := generateAllDocs(projectRoot, resources); err != nil {
+		log.Fatalf("Failed to generate documentation: %v", err)
+	}
+
 	log.Println("Code generation complete!")
 }
 
@@ -792,5 +797,235 @@ var GeneratedDataSourcesList = []string{`)
 	}
 	fmt.Fprintln(file, "}")
 
+	return nil
+}
+
+// Template for generating resource documentation
+const resourceDocTemplate = `---
+page_title: "{{.TypeName}} Resource - terraform-provider-f5-distributed-cloud"
+subcategory: ""
+description: |-
+  {{.Description}}
+---
+
+# {{.TypeName}} (Resource)
+
+{{.Description}}
+
+## Example Usage
+
+` + "```" + `hcl
+resource "{{.TypeName}}" "example" {
+  name        = "example-{{.Name}}"
+  namespace   = "system"
+  description = "Example {{.StructName}} resource"
+}
+` + "```" + `
+
+## Argument Reference
+
+- ` + "`name`" + ` - (Required) Name of the resource.
+- ` + "`namespace`" + ` - (Required) Namespace where the resource will be created.
+- ` + "`description`" + ` - (Optional) Description of the resource.
+- ` + "`labels`" + ` - (Optional) Labels for the resource.
+- ` + "`annotations`" + ` - (Optional) Annotations for the resource.
+
+## Attribute Reference
+
+- ` + "`id`" + ` - The unique identifier for this resource.
+
+## Import
+
+{{.StructName}} can be imported using the namespace and name:
+
+` + "```" + `shell
+terraform import {{.TypeName}}.example namespace/name
+` + "```" + `
+`
+
+// Template for generating data source documentation
+const datasourceDocTemplate = `---
+page_title: "{{.TypeName}} Data Source - terraform-provider-f5-distributed-cloud"
+subcategory: ""
+description: |-
+  {{.Description}}
+---
+
+# {{.TypeName}} (Data Source)
+
+{{.Description}}
+
+## Example Usage
+
+` + "```" + `hcl
+data "{{.TypeName}}" "example" {
+  name      = "example-{{.Name}}"
+  namespace = "system"
+}
+` + "```" + `
+
+## Argument Reference
+
+- ` + "`name`" + ` - (Required) Name of the resource.
+- ` + "`namespace`" + ` - (Required) Namespace of the resource.
+
+## Attribute Reference
+
+- ` + "`id`" + ` - The unique identifier for this resource.
+- ` + "`description`" + ` - Description of the resource.
+`
+
+// Template for generating resource example
+const exampleTemplate = `# Example configuration for {{.TypeName}}
+
+resource "{{.TypeName}}" "example" {
+  name        = "example-{{.Name}}"
+  namespace   = "system"
+  description = "Example {{.StructName}} resource managed by Terraform"
+
+  # Add additional configuration as needed
+}
+`
+
+// Template for generating data source example
+const datasourceExampleTemplate = `# Example configuration for {{.TypeName}} data source
+
+data "{{.TypeName}}" "example" {
+  name      = "existing-{{.Name}}"
+  namespace = "system"
+}
+
+output "{{.Name}}_id" {
+  value = data.{{.TypeName}}.example.id
+}
+`
+
+func generateResourceDoc(docsDir string, res ResourceInfo) error {
+	// Create docs/resources directory
+	resourceDocsDir := filepath.Join(docsDir, "resources")
+	if err := os.MkdirAll(resourceDocsDir, 0755); err != nil {
+		return err
+	}
+
+	// Generate documentation file
+	tmpl, err := template.New("resourceDoc").Parse(resourceDocTemplate)
+	if err != nil {
+		return err
+	}
+
+	docPath := filepath.Join(resourceDocsDir, res.Name+".md")
+	file, err := os.Create(docPath)
+	if err != nil {
+		return err
+	}
+	defer file.Close()
+
+	return tmpl.Execute(file, res)
+}
+
+func generateDataSourceDoc(docsDir string, res ResourceInfo) error {
+	// Create docs/data-sources directory
+	dsDocsDir := filepath.Join(docsDir, "data-sources")
+	if err := os.MkdirAll(dsDocsDir, 0755); err != nil {
+		return err
+	}
+
+	// Generate documentation file
+	tmpl, err := template.New("datasourceDoc").Parse(datasourceDocTemplate)
+	if err != nil {
+		return err
+	}
+
+	docPath := filepath.Join(dsDocsDir, res.Name+".md")
+	file, err := os.Create(docPath)
+	if err != nil {
+		return err
+	}
+	defer file.Close()
+
+	return tmpl.Execute(file, res)
+}
+
+func generateResourceExample(examplesDir string, res ResourceInfo) error {
+	// Create examples/resources directory
+	resourceExamplesDir := filepath.Join(examplesDir, "resources", res.TypeName)
+	if err := os.MkdirAll(resourceExamplesDir, 0755); err != nil {
+		return err
+	}
+
+	// Generate example file
+	tmpl, err := template.New("example").Parse(exampleTemplate)
+	if err != nil {
+		return err
+	}
+
+	examplePath := filepath.Join(resourceExamplesDir, "main.tf")
+	file, err := os.Create(examplePath)
+	if err != nil {
+		return err
+	}
+	defer file.Close()
+
+	return tmpl.Execute(file, res)
+}
+
+func generateDataSourceExample(examplesDir string, res ResourceInfo) error {
+	// Create examples/data-sources directory
+	dsExamplesDir := filepath.Join(examplesDir, "data-sources", res.TypeName)
+	if err := os.MkdirAll(dsExamplesDir, 0755); err != nil {
+		return err
+	}
+
+	// Generate example file
+	tmpl, err := template.New("dsExample").Parse(datasourceExampleTemplate)
+	if err != nil {
+		return err
+	}
+
+	examplePath := filepath.Join(dsExamplesDir, "main.tf")
+	file, err := os.Create(examplePath)
+	if err != nil {
+		return err
+	}
+	defer file.Close()
+
+	return tmpl.Execute(file, res)
+}
+
+func generateAllDocs(projectRoot string, resources []ResourceInfo) error {
+	docsDir := filepath.Join(projectRoot, "docs")
+	examplesDir := filepath.Join(projectRoot, "examples")
+
+	var resourceCount, datasourceCount int
+
+	for _, res := range resources {
+		// Generate resource docs and examples
+		if res.HasCreate && res.HasRead && res.HasDelete {
+			if err := generateResourceDoc(docsDir, res); err != nil {
+				log.Printf("Warning: Could not generate doc for resource %s: %v", res.Name, err)
+				continue
+			}
+			if err := generateResourceExample(examplesDir, res); err != nil {
+				log.Printf("Warning: Could not generate example for resource %s: %v", res.Name, err)
+				continue
+			}
+			resourceCount++
+		}
+
+		// Generate data source docs and examples
+		if res.HasRead {
+			if err := generateDataSourceDoc(docsDir, res); err != nil {
+				log.Printf("Warning: Could not generate doc for data source %s: %v", res.Name, err)
+				continue
+			}
+			if err := generateDataSourceExample(examplesDir, res); err != nil {
+				log.Printf("Warning: Could not generate example for data source %s: %v", res.Name, err)
+				continue
+			}
+			datasourceCount++
+		}
+	}
+
+	log.Printf("Generated documentation: %d resources, %d data sources", resourceCount, datasourceCount)
 	return nil
 }

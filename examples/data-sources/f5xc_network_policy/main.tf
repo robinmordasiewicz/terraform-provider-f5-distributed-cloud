@@ -1,12 +1,8 @@
-# Example: Look up an existing network policy
-data "f5xc_network_policy" "example" {
-  name      = "my-network-policy"
-  namespace = "my-namespace"
-}
+# Example configuration for f5xc_network_policy data source
 
-# Output the network policy type
-output "policy_type" {
-  value = data.f5xc_network_policy.example.policy_type
+data "f5xc_network_policy" "example" {
+  name      = "existing-network_policy"
+  namespace = "system"
 }
 
 output "network_policy_id" {

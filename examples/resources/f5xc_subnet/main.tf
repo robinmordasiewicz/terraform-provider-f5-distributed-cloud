@@ -1,6 +1,9 @@
+# Example configuration for f5xc_subnet
+
 resource "f5xc_subnet" "example" {
-  name        = "my-subnet"
+  name        = "example-subnet"
   namespace   = "system"
-  description = "Example subnet"
-  cidr        = "10.0.1.0/24"
+  description = "Example Subnet resource managed by Terraform"
+
+  # Add additional configuration as needed
 }

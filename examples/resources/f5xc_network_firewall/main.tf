@@ -1,5 +1,9 @@
+# Example configuration for f5xc_network_firewall
+
 resource "f5xc_network_firewall" "example" {
-  name        = "my-network-firewall"
+  name        = "example-network_firewall"
   namespace   = "system"
-  description = "Network firewall for perimeter security"
+  description = "Example NetworkFirewall resource managed by Terraform"
+
+  # Add additional configuration as needed
 }

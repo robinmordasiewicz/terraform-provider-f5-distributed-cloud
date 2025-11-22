@@ -1,12 +1,8 @@
-# Example: Look up an existing certificate
-data "f5xc_certificate" "example" {
-  name      = "my-certificate"
-  namespace = "my-namespace"
-}
+# Example configuration for f5xc_certificate data source
 
-# Output the certificate type (TLS or CA)
-output "cert_type" {
-  value = data.f5xc_certificate.example.cert_type
+data "f5xc_certificate" "example" {
+  name      = "existing-certificate"
+  namespace = "system"
 }
 
 output "certificate_id" {

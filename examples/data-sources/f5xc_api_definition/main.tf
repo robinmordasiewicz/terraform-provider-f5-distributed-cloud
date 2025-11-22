@@ -1,12 +1,8 @@
-# Example: Look up an existing API definition
-data "f5xc_api_definition" "example" {
-  name      = "my-api-definition"
-  namespace = "my-namespace"
-}
+# Example configuration for f5xc_api_definition data source
 
-# Output the swagger URL
-output "swagger_url" {
-  value = data.f5xc_api_definition.example.swagger_url
+data "f5xc_api_definition" "example" {
+  name      = "existing-api_definition"
+  namespace = "system"
 }
 
 output "api_definition_id" {

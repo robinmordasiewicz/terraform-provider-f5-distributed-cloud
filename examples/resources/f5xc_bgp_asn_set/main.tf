@@ -1,6 +1,9 @@
+# Example configuration for f5xc_bgp_asn_set
+
 resource "f5xc_bgp_asn_set" "example" {
-  name        = "my-asn-set"
+  name        = "example-bgp_asn_set"
   namespace   = "system"
-  description = "BGP ASN set for routing policies"
-  asns        = [65000, 65001, 65002]
+  description = "Example BGPAsnSet resource managed by Terraform"
+
+  # Add additional configuration as needed
 }
