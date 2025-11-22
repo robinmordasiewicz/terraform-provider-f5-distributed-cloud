@@ -17,10 +17,12 @@ import (
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/client"
 	ds_namespace "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/namespace"
 	ds_origin_pool "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/origin_pool"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/active_service_policies"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/alert_policy"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/api_credential"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/api_definition"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/app_firewall"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/enhanced_firewall_policy"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/certificate"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/cloud_credentials"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/cloud_site"
@@ -31,6 +33,7 @@ import (
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/http_loadbalancer"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/log_receiver"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/namespace"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/network_policy"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/origin_pool"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/role"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/service_policy"
@@ -213,6 +216,7 @@ func (p *F5XCProvider) Configure(ctx context.Context, req provider.ConfigureRequ
 // Resources defines the resources implemented in the provider.
 func (p *F5XCProvider) Resources(ctx context.Context) []func() resource.Resource {
 	return []func() resource.Resource{
+		active_service_policies.NewActiveServicePoliciesResource,
 		alert_policy.NewAlertPolicyResource,
 		api_credential.NewAPICredentialResource,
 		api_definition.NewAPIDefinitionResource,
@@ -222,11 +226,13 @@ func (p *F5XCProvider) Resources(ctx context.Context) []func() resource.Resource
 		cloud_site.NewCloudSiteResource,
 		discovery.NewDiscoveryResource,
 		dns_lb_pool.NewDNSLBPoolResource,
+		enhanced_firewall_policy.NewEnhancedFirewallPolicyResource,
 		forward_proxy_policy.NewForwardProxyPolicyResource,
 		healthcheck.NewHealthcheckResource,
 		http_loadbalancer.NewHTTPLoadBalancerResource,
 		log_receiver.NewLogReceiverResource,
 		namespace.NewNamespaceResource,
+		network_policy.NewNetworkPolicyResource,
 		origin_pool.NewOriginPoolResource,
 		role.NewRoleResource,
 		service_policy.NewServicePolicyResource,
