@@ -50,7 +50,11 @@ import (
 	ds_forward_proxy_policy "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/forward_proxy_policy"
 	ds_known_label "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/known_label"
 	ds_site_mesh_group "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/site_mesh_group"
+	ds_active_service_policies "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/active_service_policies"
+	ds_api_credential "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/api_credential"
 	ds_app_type "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/app_type"
+	ds_client_connection_limit "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/client_connection_limit"
+	ds_dns_lb_pool "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/dns_lb_pool"
 	ds_global_log_receiver "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/global_log_receiver"
 	ds_malicious_user_mitigation "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/malicious_user_mitigation"
 	ds_protocol_policer "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/protocol_policer"
@@ -357,5 +361,9 @@ func (p *F5XCProvider) DataSources(ctx context.Context) []func() datasource.Data
 		ds_malicious_user_mitigation.NewMaliciousUserMitigationDataSource,
 		ds_protocol_policer.NewProtocolPolicerDataSource,
 		ds_app_type.NewAppTypeDataSource,
+		ds_dns_lb_pool.NewDNSLBPoolDataSource,
+		ds_api_credential.NewAPICredentialDataSource,
+		ds_client_connection_limit.NewClientConnectionLimitDataSource,
+		ds_active_service_policies.NewActiveServicePoliciesDataSource,
 	}
 }
