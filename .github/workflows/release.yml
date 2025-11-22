@@ -1,0 +1,49 @@
+# Copyright (c) Robin Mordasiewicz
+# SPDX-License-Identifier: MPL-2.0
+
+# This GitHub action can publish assets for release when a tag is created.
+# Currently it uses HashiCorp's official release workflow for community providers.
+#
+# To manually trigger this workflow:
+#   1. Create a new tag: git tag v1.0.0
+#   2. Push the tag: git push origin v1.0.0
+#
+# Or you can create a release through GitHub UI which will trigger this workflow.
+
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+# Releases need permissions to write to the repository.
+permissions:
+  contents: write
+
+jobs:
+  goreleaser:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # Allow goreleaser to access older tag information.
+          fetch-depth: 0
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: 'go.mod'
+          cache: true
+      - name: Import GPG key
+        uses: crazy-max/ghaction-import-gpg@v6
+        id: import_gpg
+        with:
+          gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
+          passphrase: ${{ secrets.PASSPHRASE }}
+      - name: Run GoReleaser
+        uses: goreleaser/goreleaser-action@v6
+        with:
+          args: release --clean
+        env:
+          # GitHub sets the GITHUB_TOKEN secret automatically.
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GPG_FINGERPRINT: ${{ steps.import_gpg.outputs.fingerprint }}
