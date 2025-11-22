@@ -156,7 +156,11 @@ import (
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/certificate_chain"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/crl"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/oidc_provider"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/site"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/token"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/trusted_ca_list"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/user_identification"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/workload"
 )
 
 // Ensure F5XCProvider satisfies various provider interfaces.
@@ -432,7 +436,11 @@ func (p *F5XCProvider) Resources(ctx context.Context) []func() resource.Resource
 		certificate_chain.NewCertificateChainResource,
 		crl.NewCRLResource,
 		oidc_provider.NewOIDCProviderResource,
+		site.NewSiteResource,
+		token.NewTokenResource,
 		trusted_ca_list.NewTrustedCAListResource,
+		user_identification.NewUserIdentificationResource,
+		workload.NewWorkloadResource,
 	}
 }
 
