@@ -15,6 +15,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/types"
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/client"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/cloud_site"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/http_loadbalancer"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/namespace"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/origin_pool"
@@ -195,6 +196,7 @@ func (p *F5XCProvider) Configure(ctx context.Context, req provider.ConfigureRequ
 // Resources defines the resources implemented in the provider.
 func (p *F5XCProvider) Resources(ctx context.Context) []func() resource.Resource {
 	return []func() resource.Resource{
+		cloud_site.NewCloudSiteResource,
 		http_loadbalancer.NewHTTPLoadBalancerResource,
 		namespace.NewNamespaceResource,
 		origin_pool.NewOriginPoolResource,
