@@ -57,8 +57,12 @@ import (
 	ds_dns_lb_pool "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/dns_lb_pool"
 	ds_global_log_receiver "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/global_log_receiver"
 	ds_malicious_user_mitigation "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/malicious_user_mitigation"
+	ds_namespace_role "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/namespace_role"
 	ds_protocol_policer "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/protocol_policer"
+	ds_rbac_policy "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/rbac_policy"
 	ds_segment "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/segment"
+	ds_api_group "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/api_group"
+	ds_authentication "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/authentication"
 	ds_site "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/site"
 	ds_token "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/token"
 	ds_workload "github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/datasources/workload"
@@ -497,5 +501,9 @@ func (p *F5XCProvider) DataSources(ctx context.Context) []func() datasource.Data
 		ds_site.NewSiteDataSource,
 		ds_token.NewTokenDataSource,
 		ds_workload.NewWorkloadDataSource,
+		ds_api_group.NewAPIGroupDataSource,
+		ds_authentication.NewAuthenticationDataSource,
+		ds_rbac_policy.NewRBACPolicyDataSource,
+		ds_namespace_role.NewNamespaceRoleDataSource,
 	}
 }
