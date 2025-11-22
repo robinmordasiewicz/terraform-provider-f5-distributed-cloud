@@ -105,6 +105,7 @@ import (
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/network_firewall"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/network_interface"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/network_policy"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/network_policy_rule"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/origin_pool"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/policer"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/protocol_policer"
@@ -112,9 +113,11 @@ import (
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/role"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/route"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/secret_policy"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/secret_policy_rule"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/securemesh_site"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/service_mesh"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/service_policy"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/service_policy_rule"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/site_mesh_group"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/tcp_loadbalancer"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/tunnel"
@@ -351,6 +354,7 @@ func (p *F5XCProvider) Resources(ctx context.Context) []func() resource.Resource
 		network_firewall.NewNetworkFirewallResource,
 		network_interface.NewNetworkInterfaceResource,
 		network_policy.NewNetworkPolicyResource,
+		network_policy_rule.NewNetworkPolicyRuleResource,
 		origin_pool.NewOriginPoolResource,
 		policer.NewPolicerResource,
 		protocol_policer.NewProtocolPolicerResource,
@@ -358,9 +362,11 @@ func (p *F5XCProvider) Resources(ctx context.Context) []func() resource.Resource
 		role.NewRoleResource,
 		route.NewRouteResource,
 		secret_policy.NewSecretPolicyResource,
+		secret_policy_rule.NewSecretPolicyRuleResource,
 		securemesh_site.NewSecuremeshSiteResource,
 		service_mesh.NewServiceMeshResource,
 		service_policy.NewServicePolicyResource,
+		service_policy_rule.NewServicePolicyRuleResource,
 		site_mesh_group.NewSiteMeshGroupResource,
 		tcp_loadbalancer.NewTCPLoadBalancerResource,
 		tunnel.NewTunnelResource,
