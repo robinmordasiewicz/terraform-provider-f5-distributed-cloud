@@ -15,6 +15,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/types"
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/client"
+	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/resources/namespace"
 )
 
 // Ensure F5XCProvider satisfies various provider interfaces.
@@ -192,7 +193,7 @@ func (p *F5XCProvider) Configure(ctx context.Context, req provider.ConfigureRequ
 // Resources defines the resources implemented in the provider.
 func (p *F5XCProvider) Resources(ctx context.Context) []func() resource.Resource {
 	return []func() resource.Resource{
-		// Resources will be registered here as they are implemented
+		namespace.NewNamespaceResource,
 	}
 }
 
