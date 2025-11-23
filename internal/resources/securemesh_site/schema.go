@@ -13,14 +13,14 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages an F5 Distributed Cloud Securemesh Site.",
 		MarkdownDescription: `
-The ` + "`f5_distributed_cloud_securemesh_site`" + ` resource manages Securemesh Sites in F5 Distributed Cloud.
+The ` + "`f5distributedcloud_securemesh_site`" + ` resource manages Securemesh Sites in F5 Distributed Cloud.
 
 Securemesh Sites provide secure connectivity for distributed applications.
 
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5_distributed_cloud_securemesh_site" "example" {
+resource "f5distributedcloud_securemesh_site" "example" {
   name        = "my-securemesh-site"
   namespace   = "system"
   description = "Example securemesh site"

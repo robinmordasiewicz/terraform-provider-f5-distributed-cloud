@@ -13,14 +13,14 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages an F5 Distributed Cloud Kubernetes Cluster.",
 		MarkdownDescription: `
-The ` + "`f5_distributed_cloud_k8s_cluster`" + ` resource manages Kubernetes Clusters in F5 Distributed Cloud.
+The ` + "`f5distributedcloud_k8s_cluster`" + ` resource manages Kubernetes Clusters in F5 Distributed Cloud.
 
 Kubernetes Clusters provide container orchestration capabilities.
 
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5_distributed_cloud_k8s_cluster" "example" {
+resource "f5distributedcloud_k8s_cluster" "example" {
   name        = "my-k8s-cluster"
   namespace   = "system"
   description = "Production Kubernetes cluster"

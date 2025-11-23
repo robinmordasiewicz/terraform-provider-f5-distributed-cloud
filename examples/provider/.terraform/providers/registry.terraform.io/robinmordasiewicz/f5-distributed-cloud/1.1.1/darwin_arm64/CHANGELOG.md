@@ -13,15 +13,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - HTTP client with retry logic and error handling
 
 ### Resources
-- `f5_distributed_cloud_namespace` - Manage F5 XC namespaces
-- `f5_distributed_cloud_origin_pool` - Manage origin server pools
-- `f5_distributed_cloud_http_loadbalancer` - Manage HTTP load balancers
-- `f5_distributed_cloud_cloud_site` - Manage cloud sites (AWS VPC, Azure VNET, GCP VPC)
-- `f5_distributed_cloud_app_firewall` - Manage application firewall (WAF) policies
+- `f5distributedcloud_namespace` - Manage F5 XC namespaces
+- `f5distributedcloud_origin_pool` - Manage origin server pools
+- `f5distributedcloud_http_loadbalancer` - Manage HTTP load balancers
+- `f5distributedcloud_cloud_site` - Manage cloud sites (AWS VPC, Azure VNET, GCP VPC)
+- `f5distributedcloud_app_firewall` - Manage application firewall (WAF) policies
 
 ### Data Sources
-- `f5_distributed_cloud_namespace` - Read existing namespaces
-- `f5_distributed_cloud_origin_pool` - Read existing origin pools
+- `f5distributedcloud_namespace` - Read existing namespaces
+- `f5distributedcloud_origin_pool` - Read existing origin pools
 
 ### Documentation
 - Getting started guide

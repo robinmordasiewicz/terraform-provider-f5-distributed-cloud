@@ -14,7 +14,7 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages an F5 Distributed Cloud User Group. User Groups organize users for access control.",
 		MarkdownDescription: `
-The ` + "`f5_distributed_cloud_user_group`" + ` resource manages User Groups in F5 Distributed Cloud.
+The ` + "`f5distributedcloud_user_group`" + ` resource manages User Groups in F5 Distributed Cloud.
 
 User Groups organize users for access control, allowing you to assign permissions
 and policies to groups of users rather than individual users.
@@ -22,7 +22,7 @@ and policies to groups of users rather than individual users.
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5_distributed_cloud_user_group" "example" {
+resource "f5distributedcloud_user_group" "example" {
   name        = "my-user-group"
   namespace   = "system"
   description = "User group for administrators"
@@ -34,7 +34,7 @@ resource "f5_distributed_cloud_user_group" "example" {
 User Groups can be imported using namespace/name:
 
 ` + "```shell" + `
-terraform import f5_distributed_cloud_user_group.example system/my-user-group
+terraform import f5distributedcloud_user_group.example system/my-user-group
 ` + "```" + `
 `,
 		Attributes: map[string]schema.Attribute{

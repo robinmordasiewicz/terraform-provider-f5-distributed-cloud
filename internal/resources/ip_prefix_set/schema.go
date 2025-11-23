@@ -14,14 +14,14 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages F5 Distributed Cloud IP Prefix Set.",
 		MarkdownDescription: `
-The ` + "`f5_distributed_cloud_ip_prefix_set`" + ` resource manages IP Prefix Sets in F5 Distributed Cloud.
+The ` + "`f5distributedcloud_ip_prefix_set`" + ` resource manages IP Prefix Sets in F5 Distributed Cloud.
 
 IP Prefix Sets define a collection of IP address prefixes for use in security rules and policies.
 
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5_distributed_cloud_ip_prefix_set" "example" {
+resource "f5distributedcloud_ip_prefix_set" "example" {
   name      = "trusted-networks"
   namespace = "my-namespace"
   prefixes  = ["10.0.0.0/8", "192.168.0.0/16", "172.16.0.0/12"]

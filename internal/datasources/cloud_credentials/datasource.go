@@ -11,7 +11,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/types"
 
-	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/client"
+	"github.com/robinmordasiewicz/terraform-provider-f5distributedcloud/internal/client"
 )
 
 var _ datasource.DataSource = &CloudCredentialsDataSource{}
@@ -54,18 +54,18 @@ func (d *CloudCredentialsDataSource) Schema(ctx context.Context, req datasource.
 	resp.Schema = schema.Schema{
 		Description: "Fetches information about existing F5 Distributed Cloud Cloud Credentials.",
 		MarkdownDescription: `
-The ` + "`f5_distributed_cloud_cloud_credentials`" + ` data source retrieves information about existing cloud credentials.
+The ` + "`f5distributedcloud_cloud_credentials`" + ` data source retrieves information about existing cloud credentials.
 
 ## Example Usage
 
 ` + "```hcl" + `
-data "f5_distributed_cloud_cloud_credentials" "example" {
+data "f5distributedcloud_cloud_credentials" "example" {
   name      = "my-aws-creds"
   namespace = "system"
 }
 
 output "cloud_type" {
-  value = data.f5_distributed_cloud_cloud_credentials.example.cloud_type
+  value = data.f5distributedcloud_cloud_credentials.example.cloud_type
 }
 ` + "```" + `
 `,

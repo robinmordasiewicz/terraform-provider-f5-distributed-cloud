@@ -4,6 +4,7 @@
 package client
 
 import (
+	"errors"
 	"net/http"
 	"testing"
 )
@@ -111,11 +112,11 @@ func TestNewCertificateAuthenticator_NoCredentials(t *testing.T) {
 	}
 
 	// Verify it's an AuthenticationError
-	authErr, ok := err.(*AuthenticationError)
-	if !ok {
+	var authErr *AuthenticationError
+	if !errors.As(err, &authErr) {
 		t.Errorf("expected AuthenticationError, got %T", err)
 	}
-	if authErr.Method != string(AuthMethodCertificate) {
+	if authErr != nil && authErr.Method != string(AuthMethodCertificate) {
 		t.Errorf("AuthenticationError.Method = %q, want %q", authErr.Method, AuthMethodCertificate)
 	}
 }
@@ -175,7 +176,7 @@ func TestNewAuthenticator(t *testing.T) {
 			wantErr:    false,
 		},
 		{
-			name: "no credentials returns error",
+			name:   "no credentials returns error",
 			config: &AuthConfig{
 				// No credentials
 			},

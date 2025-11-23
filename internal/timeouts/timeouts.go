@@ -4,6 +4,7 @@
 package timeouts
 
 import (
+	"context"
 	"time"
 
 	"github.com/hashicorp/terraform-plugin-framework-timeouts/resource/timeouts"
@@ -34,7 +35,7 @@ const (
 // BlockAll returns a timeouts block with all CRUD timeouts enabled.
 func BlockAll() schema.Block {
 	return timeouts.Block(
-		nil,
+		context.Background(),
 		timeouts.Opts{
 			Create: true,
 			Read:   true,
@@ -47,7 +48,7 @@ func BlockAll() schema.Block {
 // BlockCreateUpdateDelete returns a timeouts block without read timeout.
 func BlockCreateUpdateDelete() schema.Block {
 	return timeouts.Block(
-		nil,
+		context.Background(),
 		timeouts.Opts{
 			Create: true,
 			Update: true,
@@ -59,7 +60,7 @@ func BlockCreateUpdateDelete() schema.Block {
 // BlockSite returns a timeouts block with longer timeouts for site resources.
 func BlockSite() schema.Block {
 	return timeouts.Block(
-		nil,
+		context.Background(),
 		timeouts.Opts{
 			Create: true,
 			Read:   true,

@@ -11,7 +11,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/types"
 
-	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/client"
+	"github.com/robinmordasiewicz/terraform-provider-f5distributedcloud/internal/client"
 )
 
 var _ datasource.DataSource = &NetworkPolicyDataSource{}
@@ -52,18 +52,18 @@ func (d *NetworkPolicyDataSource) Schema(ctx context.Context, req datasource.Sch
 	resp.Schema = schema.Schema{
 		Description: "Fetches information about an existing F5 Distributed Cloud Network Policy.",
 		MarkdownDescription: `
-The ` + "`f5_distributed_cloud_network_policy`" + ` data source retrieves information about an existing network policy.
+The ` + "`f5distributedcloud_network_policy`" + ` data source retrieves information about an existing network policy.
 
 ## Example Usage
 
 ` + "```hcl" + `
-data "f5_distributed_cloud_network_policy" "example" {
+data "f5distributedcloud_network_policy" "example" {
   name      = "my-network-policy"
   namespace = "my-namespace"
 }
 
 output "policy_type" {
-  value = data.f5_distributed_cloud_network_policy.example.policy_type
+  value = data.f5distributedcloud_network_policy.example.policy_type
 }
 ` + "```" + `
 `,

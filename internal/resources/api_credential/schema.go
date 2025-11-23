@@ -16,14 +16,14 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages an F5 Distributed Cloud API Credential.",
 		MarkdownDescription: `
-The ` + "`f5_distributed_cloud_api_credential`" + ` resource manages API Credentials in F5 Distributed Cloud.
+The ` + "`f5distributedcloud_api_credential`" + ` resource manages API Credentials in F5 Distributed Cloud.
 
 API Credentials are used for programmatic access to F5 XC APIs.
 
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5_distributed_cloud_api_credential" "example" {
+resource "f5distributedcloud_api_credential" "example" {
   name            = "terraform-api-cred"
   namespace       = "system"
   credential_type = "API_CERTIFICATE"

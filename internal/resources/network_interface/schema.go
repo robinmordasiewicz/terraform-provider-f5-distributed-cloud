@@ -13,14 +13,14 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages an F5 Distributed Cloud Network Interface.",
 		MarkdownDescription: `
-The ` + "`f5_distributed_cloud_network_interface`" + ` resource manages Network Interfaces in F5 Distributed Cloud.
+The ` + "`f5distributedcloud_network_interface`" + ` resource manages Network Interfaces in F5 Distributed Cloud.
 
 Network Interfaces configure site network connectivity.
 
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5_distributed_cloud_network_interface" "example" {
+resource "f5distributedcloud_network_interface" "example" {
   name        = "my-network-interface"
   namespace   = "system"
   description = "Site network interface configuration"

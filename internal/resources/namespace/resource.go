@@ -9,13 +9,12 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/hashicorp/terraform-plugin-framework/diag"
 	"github.com/hashicorp/terraform-plugin-framework/path"
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
-	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/client"
+	"github.com/robinmordasiewicz/terraform-provider-f5distributedcloud/internal/client"
 )
 
 // Default timeouts for namespace operations.
@@ -384,28 +383,4 @@ func (r *NamespaceResource) savePrivateState(ctx context.Context, resp *resource
 	}
 
 	resp.Private.SetKey(ctx, privateStateKey, data)
-}
-
-// privateStateGetter is an interface for accessing private state from various request types.
-type privateStateGetter interface {
-	GetKey(ctx context.Context, key string) ([]byte, diag.Diagnostics)
-}
-
-// getPrivateState retrieves API metadata from private state.
-func (r *NamespaceResource) getPrivateState(ctx context.Context, private privateStateGetter) (*privateStateData, error) {
-	data, diags := private.GetKey(ctx, privateStateKey)
-	if diags.HasError() {
-		return nil, fmt.Errorf("failed to get private state: %v", diags.Errors())
-	}
-
-	if data == nil {
-		return nil, nil
-	}
-
-	var privateData privateStateData
-	if err := json.Unmarshal(data, &privateData); err != nil {
-		return nil, fmt.Errorf("failed to unmarshal private state: %w", err)
-	}
-
-	return &privateData, nil
 }

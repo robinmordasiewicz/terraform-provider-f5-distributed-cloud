@@ -11,7 +11,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/types"
 
-	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/client"
+	"github.com/robinmordasiewicz/terraform-provider-f5distributedcloud/internal/client"
 )
 
 var _ datasource.DataSource = &NamespaceDataSource{}
@@ -48,17 +48,17 @@ func (d *NamespaceDataSource) Schema(ctx context.Context, req datasource.SchemaR
 	resp.Schema = schema.Schema{
 		Description: "Fetches information about an existing F5 Distributed Cloud Namespace.",
 		MarkdownDescription: `
-The ` + "`f5_distributed_cloud_namespace`" + ` data source retrieves information about an existing namespace.
+The ` + "`f5distributedcloud_namespace`" + ` data source retrieves information about an existing namespace.
 
 ## Example Usage
 
 ` + "```hcl" + `
-data "f5_distributed_cloud_namespace" "example" {
+data "f5distributedcloud_namespace" "example" {
   name = "my-namespace"
 }
 
 output "namespace_id" {
-  value = data.f5_distributed_cloud_namespace.example.id
+  value = data.f5distributedcloud_namespace.example.id
 }
 ` + "```" + `
 `,

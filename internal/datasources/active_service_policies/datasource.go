@@ -11,7 +11,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/types"
 
-	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/client"
+	"github.com/robinmordasiewicz/terraform-provider-f5distributedcloud/internal/client"
 )
 
 var _ datasource.DataSource = &ActiveServicePoliciesDataSource{}
@@ -52,18 +52,18 @@ func (d *ActiveServicePoliciesDataSource) Schema(ctx context.Context, req dataso
 	resp.Schema = schema.Schema{
 		Description: "Fetches information about existing F5 Distributed Cloud Active Service Policies.",
 		MarkdownDescription: `
-The ` + "`f5_distributed_cloud_active_service_policies`" + ` data source retrieves information about active service policies.
+The ` + "`f5distributedcloud_active_service_policies`" + ` data source retrieves information about active service policies.
 
 ## Example Usage
 
 ` + "```hcl" + `
-data "f5_distributed_cloud_active_service_policies" "example" {
+data "f5distributedcloud_active_service_policies" "example" {
   name      = "my-active-policies"
   namespace = "my-namespace"
 }
 
 output "enabled" {
-  value = data.f5_distributed_cloud_active_service_policies.example.enabled
+  value = data.f5distributedcloud_active_service_policies.example.enabled
 }
 ` + "```" + `
 `,

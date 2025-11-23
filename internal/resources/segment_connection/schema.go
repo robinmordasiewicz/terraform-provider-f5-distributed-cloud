@@ -14,7 +14,7 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages an F5 Distributed Cloud Segment Connection. Segment Connections link network segments together.",
 		MarkdownDescription: `
-The ` + "`f5_distributed_cloud_segment_connection`" + ` resource manages Segment Connections in F5 Distributed Cloud.
+The ` + "`f5distributedcloud_segment_connection`" + ` resource manages Segment Connections in F5 Distributed Cloud.
 
 Segment Connections link network segments together, enabling communication between
 different network segments within the F5 Distributed Cloud infrastructure.
@@ -22,7 +22,7 @@ different network segments within the F5 Distributed Cloud infrastructure.
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5_distributed_cloud_segment_connection" "example" {
+resource "f5distributedcloud_segment_connection" "example" {
   name        = "my-segment-connection"
   namespace   = "system"
   description = "Connection between production and staging segments"
@@ -44,7 +44,7 @@ resource "f5_distributed_cloud_segment_connection" "example" {
 Segment Connections can be imported using namespace/name:
 
 ` + "```shell" + `
-terraform import f5_distributed_cloud_segment_connection.example system/my-segment-connection
+terraform import f5distributedcloud_segment_connection.example system/my-segment-connection
 ` + "```" + `
 `,
 		Attributes: map[string]schema.Attribute{

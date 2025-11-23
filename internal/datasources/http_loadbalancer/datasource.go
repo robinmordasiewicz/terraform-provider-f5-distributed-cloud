@@ -11,7 +11,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/types"
 
-	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/client"
+	"github.com/robinmordasiewicz/terraform-provider-f5distributedcloud/internal/client"
 )
 
 var _ datasource.DataSource = &HTTPLoadBalancerDataSource{}
@@ -52,18 +52,18 @@ func (d *HTTPLoadBalancerDataSource) Schema(ctx context.Context, req datasource.
 	resp.Schema = schema.Schema{
 		Description: "Fetches information about an existing F5 Distributed Cloud HTTP Load Balancer.",
 		MarkdownDescription: `
-The ` + "`f5_distributed_cloud_http_loadbalancer`" + ` data source retrieves information about an existing HTTP Load Balancer.
+The ` + "`f5distributedcloud_http_loadbalancer`" + ` data source retrieves information about an existing HTTP Load Balancer.
 
 ## Example Usage
 
 ` + "```hcl" + `
-data "f5_distributed_cloud_http_loadbalancer" "example" {
+data "f5distributedcloud_http_loadbalancer" "example" {
   name      = "my-lb"
   namespace = "my-namespace"
 }
 
 output "lb_domains" {
-  value = data.f5_distributed_cloud_http_loadbalancer.example.domains
+  value = data.f5distributedcloud_http_loadbalancer.example.domains
 }
 ` + "```" + `
 `,

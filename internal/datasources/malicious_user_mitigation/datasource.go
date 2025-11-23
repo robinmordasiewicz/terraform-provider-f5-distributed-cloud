@@ -11,7 +11,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/types"
 
-	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/client"
+	"github.com/robinmordasiewicz/terraform-provider-f5distributedcloud/internal/client"
 )
 
 var _ datasource.DataSource = &MaliciousUserMitigationDataSource{}
@@ -52,18 +52,18 @@ func (d *MaliciousUserMitigationDataSource) Schema(ctx context.Context, req data
 	resp.Schema = schema.Schema{
 		Description: "Fetches information about an existing F5 Distributed Cloud Malicious User Mitigation.",
 		MarkdownDescription: `
-The ` + "`f5_distributed_cloud_malicious_user_mitigation`" + ` data source retrieves information about an existing malicious user mitigation configuration.
+The ` + "`f5distributedcloud_malicious_user_mitigation`" + ` data source retrieves information about an existing malicious user mitigation configuration.
 
 ## Example Usage
 
 ` + "```hcl" + `
-data "f5_distributed_cloud_malicious_user_mitigation" "example" {
+data "f5distributedcloud_malicious_user_mitigation" "example" {
   name      = "my-mitigation"
   namespace = "my-namespace"
 }
 
 output "enabled" {
-  value = data.f5_distributed_cloud_malicious_user_mitigation.example.enabled
+  value = data.f5distributedcloud_malicious_user_mitigation.example.enabled
 }
 ` + "```" + `
 `,

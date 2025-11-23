@@ -11,7 +11,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/types"
 
-	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/client"
+	"github.com/robinmordasiewicz/terraform-provider-f5distributedcloud/internal/client"
 )
 
 var _ datasource.DataSource = &AppTypeDataSource{}
@@ -52,18 +52,18 @@ func (d *AppTypeDataSource) Schema(ctx context.Context, req datasource.SchemaReq
 	resp.Schema = schema.Schema{
 		Description: "Fetches information about an existing F5 Distributed Cloud App Type.",
 		MarkdownDescription: `
-The ` + "`f5_distributed_cloud_app_type`" + ` data source retrieves information about an existing app type.
+The ` + "`f5distributedcloud_app_type`" + ` data source retrieves information about an existing app type.
 
 ## Example Usage
 
 ` + "```hcl" + `
-data "f5_distributed_cloud_app_type" "example" {
+data "f5distributedcloud_app_type" "example" {
   name      = "my-app-type"
   namespace = "shared"
 }
 
 output "app_type" {
-  value = data.f5_distributed_cloud_app_type.example.app_type
+  value = data.f5distributedcloud_app_type.example.app_type
 }
 ` + "```" + `
 `,

@@ -19,7 +19,7 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages an F5 Distributed Cloud Site (AWS VPC, Azure VNET, or GCP VPC site).",
 		MarkdownDescription: `
-The ` + "`f5_distributed_cloud_cloud_site`" + ` resource manages Cloud Sites in F5 Distributed Cloud.
+The ` + "`f5distributedcloud_cloud_site`" + ` resource manages Cloud Sites in F5 Distributed Cloud.
 
 Cloud Sites are deployed infrastructure in public cloud providers that enable
 F5 Distributed Cloud services such as load balancing, security, and networking.
@@ -33,7 +33,7 @@ F5 Distributed Cloud services such as load balancing, security, and networking.
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5_distributed_cloud_cloud_site" "aws_site" {
+resource "f5distributedcloud_cloud_site" "aws_site" {
   name           = "my-aws-site"
   description    = "AWS VPC Site"
   site_type      = "aws_vpc_site"
@@ -63,7 +63,7 @@ resource "f5_distributed_cloud_cloud_site" "aws_site" {
 Cloud Sites can be imported using the site name:
 
 ` + "```shell" + `
-terraform import f5_distributed_cloud_cloud_site.example my-aws-site
+terraform import f5distributedcloud_cloud_site.example my-aws-site
 ` + "```" + `
 `,
 		Attributes: map[string]schema.Attribute{

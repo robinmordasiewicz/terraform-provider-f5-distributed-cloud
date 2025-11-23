@@ -13,14 +13,14 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages an F5 Distributed Cloud Network Policy Rule.",
 		MarkdownDescription: `
-The ` + "`f5_distributed_cloud_network_policy_rule`" + ` resource manages Network Policy Rules in F5 Distributed Cloud.
+The ` + "`f5distributedcloud_network_policy_rule`" + ` resource manages Network Policy Rules in F5 Distributed Cloud.
 
 Network Policy Rules define specific rules within a network policy.
 
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5_distributed_cloud_network_policy_rule" "example" {
+resource "f5distributedcloud_network_policy_rule" "example" {
   name        = "my-network-policy-rule"
   namespace   = "my-namespace"
   description = "Example network policy rule"

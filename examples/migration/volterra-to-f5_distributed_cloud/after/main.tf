@@ -1,16 +1,16 @@
 # Example: F5 Distributed Cloud Provider Configuration (AFTER migration)
-# This shows the migrated configuration using the f5_distributed_cloud provider
+# This shows the migrated configuration using the f5distributedcloud provider
 
 terraform {
   required_providers {
-    f5_distributed_cloud = {
+    f5distributedcloud = {
       source  = "robinmordasiewicz/f5-distributed-cloud"
       version = "~> 1.0"
     }
   }
 }
 
-provider "f5_distributed_cloud" {
+provider "f5distributedcloud" {
   api_url  = var.api_url
   p12_file = var.api_p12_file
   # Alternative: Use token authentication
@@ -28,14 +28,14 @@ variable "api_url" {
 }
 
 # Namespace resource (renamed from volterra_namespace)
-resource "f5_distributed_cloud_namespace" "example" {
+resource "f5distributedcloud_namespace" "example" {
   name = "example-namespace"
 }
 
 # Origin pool resource (renamed from volterra_origin_pool)
-resource "f5_distributed_cloud_origin_pool" "example" {
+resource "f5distributedcloud_origin_pool" "example" {
   name                   = "example-origin-pool"
-  namespace              = f5_distributed_cloud_namespace.example.name
+  namespace              = f5distributedcloud_namespace.example.name
   endpoint_selection     = "LOCAL_PREFERRED"
   loadbalancer_algorithm = "ROUND_ROBIN"
 
@@ -49,18 +49,18 @@ resource "f5_distributed_cloud_origin_pool" "example" {
 }
 
 # HTTP Load Balancer resource (renamed from volterra_http_loadbalancer)
-resource "f5_distributed_cloud_http_loadbalancer" "example" {
-  name                            = "example-lb"
-  namespace                       = f5_distributed_cloud_namespace.example.name
-  domains                         = ["example.com"]
+resource "f5distributedcloud_http_loadbalancer" "example" {
+  name      = "example-lb"
+  namespace = f5distributedcloud_namespace.example.name
+  domains   = ["example.com"]
   http {
     dns_volterra_managed = false
   }
 
   default_route_pools {
     pool {
-      name      = f5_distributed_cloud_origin_pool.example.name
-      namespace = f5_distributed_cloud_namespace.example.name
+      name      = f5distributedcloud_origin_pool.example.name
+      namespace = f5distributedcloud_namespace.example.name
     }
     weight = 1
   }
@@ -69,7 +69,7 @@ resource "f5_distributed_cloud_http_loadbalancer" "example" {
 }
 
 # App Firewall resource (renamed from volterra_app_firewall)
-resource "f5_distributed_cloud_app_firewall" "example" {
+resource "f5distributedcloud_app_firewall" "example" {
   name      = "example-waf"
-  namespace = f5_distributed_cloud_namespace.example.name
+  namespace = f5distributedcloud_namespace.example.name
 }

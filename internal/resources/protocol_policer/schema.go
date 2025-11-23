@@ -15,14 +15,14 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages F5 Distributed Cloud Protocol Policer.",
 		MarkdownDescription: `
-The ` + "`f5_distributed_cloud_protocol_policer`" + ` resource manages Protocol Policers in F5 Distributed Cloud.
+The ` + "`f5distributedcloud_protocol_policer`" + ` resource manages Protocol Policers in F5 Distributed Cloud.
 
 Protocol Policers define rate limiting policies for specific protocols.
 
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5_distributed_cloud_protocol_policer" "example" {
+resource "f5distributedcloud_protocol_policer" "example" {
   name              = "http-policer"
   namespace         = "my-namespace"
   protocol          = "HTTP"

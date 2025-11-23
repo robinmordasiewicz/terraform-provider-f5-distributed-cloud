@@ -16,7 +16,7 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages an F5 Distributed Cloud Health Check.",
 		MarkdownDescription: `
-The ` + "`f5_distributed_cloud_healthcheck`" + ` resource manages Health Checks in F5 Distributed Cloud.
+The ` + "`f5distributedcloud_healthcheck`" + ` resource manages Health Checks in F5 Distributed Cloud.
 
 Health Checks define how origin servers are monitored to determine their health status.
 They can be referenced by origin pools to enable automatic traffic routing away from unhealthy servers.
@@ -26,7 +26,7 @@ They can be referenced by origin pools to enable automatic traffic routing away 
 ### HTTP Health Check
 
 ` + "```hcl" + `
-resource "f5_distributed_cloud_healthcheck" "http" {
+resource "f5distributedcloud_healthcheck" "http" {
   name        = "my-http-healthcheck"
   namespace   = "my-namespace"
   description = "HTTP health check"
@@ -46,7 +46,7 @@ resource "f5_distributed_cloud_healthcheck" "http" {
 ### TCP Health Check
 
 ` + "```hcl" + `
-resource "f5_distributed_cloud_healthcheck" "tcp" {
+resource "f5distributedcloud_healthcheck" "tcp" {
   name        = "my-tcp-healthcheck"
   namespace   = "my-namespace"
   description = "TCP health check"
@@ -65,7 +65,7 @@ resource "f5_distributed_cloud_healthcheck" "tcp" {
 Health Checks can be imported using namespace/name:
 
 ` + "```shell" + `
-terraform import f5_distributed_cloud_healthcheck.example my-namespace/my-healthcheck
+terraform import f5distributedcloud_healthcheck.example my-namespace/my-healthcheck
 ` + "```" + `
 `,
 		Attributes: map[string]schema.Attribute{

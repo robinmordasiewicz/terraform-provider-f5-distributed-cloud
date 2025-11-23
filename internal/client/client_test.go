@@ -93,8 +93,8 @@ func TestNewClient_Defaults(t *testing.T) {
 	}
 
 	// Verify defaults are applied
-	if client.userAgent != "terraform-provider-f5-distributed-cloud" {
-		t.Errorf("default userAgent = %q, want %q", client.userAgent, "terraform-provider-f5-distributed-cloud")
+	if client.userAgent != "terraform-provider-f5distributedcloud" {
+		t.Errorf("default userAgent = %q, want %q", client.userAgent, "terraform-provider-f5distributedcloud")
 	}
 }
 
@@ -411,7 +411,7 @@ func TestClient_ContextCancellation(t *testing.T) {
 
 	err = client.Get(ctx, "/slow", nil)
 	if err == nil {
-		t.Error("Get() expected error for cancelled context")
+		t.Error("Get() expected error for canceled context")
 	}
 }
 

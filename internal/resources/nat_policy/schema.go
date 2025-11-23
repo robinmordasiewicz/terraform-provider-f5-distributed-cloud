@@ -13,14 +13,14 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages an F5 Distributed Cloud NAT Policy.",
 		MarkdownDescription: `
-The ` + "`f5_distributed_cloud_nat_policy`" + ` resource manages NAT Policies in F5 Distributed Cloud.
+The ` + "`f5distributedcloud_nat_policy`" + ` resource manages NAT Policies in F5 Distributed Cloud.
 
 NAT Policies configure network address translation rules.
 
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5_distributed_cloud_nat_policy" "example" {
+resource "f5distributedcloud_nat_policy" "example" {
   name        = "nat-policy"
   namespace   = "my-namespace"
   description = "Example NAT policy"

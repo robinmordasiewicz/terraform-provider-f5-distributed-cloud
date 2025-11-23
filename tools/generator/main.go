@@ -30,9 +30,9 @@ import (
 
 // OpenAPISpec represents the relevant parts of an OpenAPI specification
 type OpenAPISpec struct {
-	Info  OpenAPIInfo             `json:"info"`
-	Paths map[string]PathItem     `json:"paths"`
-	Tags  []Tag                   `json:"tags"`
+	Info  OpenAPIInfo         `json:"info"`
+	Paths map[string]PathItem `json:"paths"`
+	Tags  []Tag               `json:"tags"`
 }
 
 type OpenAPIInfo struct {
@@ -62,18 +62,18 @@ type Tag struct {
 
 // ResourceInfo contains extracted information about a resource
 type ResourceInfo struct {
-	Name           string   // snake_case name for Terraform
-	PackageName    string   // Go package name
-	StructName     string   // PascalCase struct name
-	TypeName       string   // Terraform type name (f5_distributed_cloud_*)
-	APIPath        string   // Base API path
-	HasCreate      bool     // POST operation exists
-	HasRead        bool     // GET operation exists
-	HasUpdate      bool     // PUT operation exists
-	HasDelete      bool     // DELETE operation exists
-	HasList        bool     // List GET operation exists
-	Description    string   // Resource description
-	SpecFile       string   // Source OpenAPI spec file
+	Name        string // snake_case name for Terraform
+	PackageName string // Go package name
+	StructName  string // PascalCase struct name
+	TypeName    string // Terraform type name (f5distributedcloud_*)
+	APIPath     string // Base API path
+	HasCreate   bool   // POST operation exists
+	HasRead     bool   // GET operation exists
+	HasUpdate   bool   // PUT operation exists
+	HasDelete   bool   // DELETE operation exists
+	HasList     bool   // List GET operation exists
+	Description string // Resource description
+	SpecFile    string // Source OpenAPI spec file
 }
 
 // Template for generating a resource file
@@ -95,7 +95,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/types"
 
-	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/client"
+	"github.com/robinmordasiewicz/terraform-provider-f5distributedcloud/internal/client"
 )
 
 var _ resource.Resource = &{{.StructName}}Resource{}
@@ -308,7 +308,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/types"
 
-	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/client"
+	"github.com/robinmordasiewicz/terraform-provider-f5distributedcloud/internal/client"
 )
 
 var _ datasource.DataSource = &{{.StructName}}DataSource{}
@@ -541,7 +541,7 @@ func parseSpec(specPath string) (*ResourceInfo, error) {
 		Name:        resourceName,
 		PackageName: strings.ReplaceAll(resourceName, "-", "_"),
 		StructName:  toStructName(resourceName),
-		TypeName:    "f5_distributed_cloud_" + resourceName,
+		TypeName:    "f5distributedcloud_" + resourceName,
 		SpecFile:    filename,
 		Description: cleanDescription(spec.Info.Description),
 	}
@@ -802,7 +802,7 @@ var GeneratedDataSourcesList = []string{`)
 
 // Template for generating resource documentation
 const resourceDocTemplate = `---
-page_title: "{{.TypeName}} Resource - terraform-provider-f5-distributed-cloud"
+page_title: "{{.TypeName}} Resource - terraform-provider-f5distributedcloud"
 subcategory: ""
 description: |-
   {{.Description}}
@@ -845,7 +845,7 @@ terraform import {{.TypeName}}.example namespace/name
 
 // Template for generating data source documentation
 const datasourceDocTemplate = `---
-page_title: "{{.TypeName}} Data Source - terraform-provider-f5-distributed-cloud"
+page_title: "{{.TypeName}} Data Source - terraform-provider-f5distributedcloud"
 subcategory: ""
 description: |-
   {{.Description}}

@@ -11,7 +11,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/types"
 
-	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/client"
+	"github.com/robinmordasiewicz/terraform-provider-f5distributedcloud/internal/client"
 )
 
 var _ datasource.DataSource = &OriginPoolDataSource{}
@@ -58,18 +58,18 @@ func (d *OriginPoolDataSource) Schema(ctx context.Context, req datasource.Schema
 	resp.Schema = schema.Schema{
 		Description: "Fetches information about an existing F5 Distributed Cloud Origin Pool.",
 		MarkdownDescription: `
-The ` + "`f5_distributed_cloud_origin_pool`" + ` data source retrieves information about an existing origin pool.
+The ` + "`f5distributedcloud_origin_pool`" + ` data source retrieves information about an existing origin pool.
 
 ## Example Usage
 
 ` + "```hcl" + `
-data "f5_distributed_cloud_origin_pool" "example" {
+data "f5distributedcloud_origin_pool" "example" {
   name      = "my-origin-pool"
   namespace = "my-namespace"
 }
 
 output "origin_pool_port" {
-  value = data.f5_distributed_cloud_origin_pool.example.port
+  value = data.f5distributedcloud_origin_pool.example.port
 }
 ` + "```" + `
 `,

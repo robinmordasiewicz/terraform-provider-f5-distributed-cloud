@@ -19,7 +19,7 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages an F5 Distributed Cloud Application Firewall (WAF) policy.",
 		MarkdownDescription: `
-The ` + "`f5_distributed_cloud_app_firewall`" + ` resource manages Application Firewall (WAF) policies in F5 Distributed Cloud.
+The ` + "`f5distributedcloud_app_firewall`" + ` resource manages Application Firewall (WAF) policies in F5 Distributed Cloud.
 
 Application Firewall policies define web application security settings including
 detection modes, bot protection, and custom blocking pages.
@@ -27,7 +27,7 @@ detection modes, bot protection, and custom blocking pages.
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5_distributed_cloud_app_firewall" "example" {
+resource "f5distributedcloud_app_firewall" "example" {
   name        = "my-app-firewall"
   namespace   = "my-namespace"
   description = "Example Application Firewall"
@@ -53,7 +53,7 @@ resource "f5_distributed_cloud_app_firewall" "example" {
 App Firewalls can be imported using namespace/name:
 
 ` + "```shell" + `
-terraform import f5_distributed_cloud_app_firewall.example my-namespace/my-app-firewall
+terraform import f5distributedcloud_app_firewall.example my-namespace/my-app-firewall
 ` + "```" + `
 `,
 		Attributes: map[string]schema.Attribute{

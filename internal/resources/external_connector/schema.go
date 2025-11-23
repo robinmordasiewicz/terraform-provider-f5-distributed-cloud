@@ -13,14 +13,14 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages an F5 Distributed Cloud External Connector.",
 		MarkdownDescription: `
-The ` + "`f5_distributed_cloud_external_connector`" + ` resource manages External Connectors in F5 Distributed Cloud.
+The ` + "`f5distributedcloud_external_connector`" + ` resource manages External Connectors in F5 Distributed Cloud.
 
 External Connectors provide integration with external systems and services.
 
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5_distributed_cloud_external_connector" "example" {
+resource "f5distributedcloud_external_connector" "example" {
   name        = "my-external-connector"
   namespace   = "my-namespace"
   description = "Example external connector"

@@ -13,21 +13,21 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages an F5 Distributed Cloud Alert Receiver.",
 		MarkdownDescription: `
-The ` + "`f5_distributed_cloud_alert_receiver`" + ` resource manages Alert Receivers in F5 Distributed Cloud.
+The ` + "`f5distributedcloud_alert_receiver`" + ` resource manages Alert Receivers in F5 Distributed Cloud.
 
 Alert Receivers define notification destinations for alerts (email, Slack, PagerDuty).
 
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5_distributed_cloud_alert_receiver" "slack" {
+resource "f5distributedcloud_alert_receiver" "slack" {
   name        = "slack-alerts"
   namespace   = "shared"
   description = "Slack channel for alerts"
   slack_url   = "https://hooks.slack.com/services/xxx/yyy/zzz"
 }
 
-resource "f5_distributed_cloud_alert_receiver" "email" {
+resource "f5distributedcloud_alert_receiver" "email" {
   name        = "email-alerts"
   namespace   = "shared"
   description = "Email alerts"

@@ -15,14 +15,14 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages F5 Distributed Cloud Global Log Receiver.",
 		MarkdownDescription: `
-The ` + "`f5_distributed_cloud_global_log_receiver`" + ` resource manages Global Log Receivers in F5 Distributed Cloud.
+The ` + "`f5distributedcloud_global_log_receiver`" + ` resource manages Global Log Receivers in F5 Distributed Cloud.
 
 Global Log Receivers enable forwarding of logs from all namespaces to external logging systems.
 
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5_distributed_cloud_global_log_receiver" "example" {
+resource "f5distributedcloud_global_log_receiver" "example" {
   name           = "global-log-receiver"
   namespace      = "system"
   receiver_type  = "HTTP"

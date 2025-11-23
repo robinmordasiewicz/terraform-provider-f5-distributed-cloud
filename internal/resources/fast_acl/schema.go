@@ -13,14 +13,14 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages an F5 Distributed Cloud Fast ACL.",
 		MarkdownDescription: `
-The ` + "`f5_distributed_cloud_fast_acl`" + ` resource manages Fast ACLs in F5 Distributed Cloud.
+The ` + "`f5distributedcloud_fast_acl`" + ` resource manages Fast ACLs in F5 Distributed Cloud.
 
 Fast ACLs provide high-performance access control lists.
 
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5_distributed_cloud_fast_acl" "example" {
+resource "f5distributedcloud_fast_acl" "example" {
   name        = "my-fast-acl"
   namespace   = "system"
   description = "High-performance access control list"

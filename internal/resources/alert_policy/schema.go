@@ -14,14 +14,14 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages an F5 Distributed Cloud Alert Policy.",
 		MarkdownDescription: `
-The ` + "`f5_distributed_cloud_alert_policy`" + ` resource manages Alert Policies in F5 Distributed Cloud.
+The ` + "`f5distributedcloud_alert_policy`" + ` resource manages Alert Policies in F5 Distributed Cloud.
 
 Alert Policies define notification rules for alerts and events.
 
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5_distributed_cloud_alert_policy" "example" {
+resource "f5distributedcloud_alert_policy" "example" {
   name        = "my-alert-policy"
   namespace   = "my-namespace"
   description = "Alert policy for critical alerts"

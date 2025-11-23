@@ -1,9 +1,9 @@
-# Resource Contract: f5_distributed_cloud_origin_pool
+# Resource Contract: f5distributedcloud_origin_pool
 
 ## Resource Schema
 
 ```hcl
-resource "f5_distributed_cloud_origin_pool" "example" {
+resource "f5distributedcloud_origin_pool" "example" {
   name      = string           # Required
   namespace = string           # Required
 
@@ -116,7 +116,7 @@ Errors:
 ```
 Import ID: {namespace}/{name}
 
-terraform import f5_distributed_cloud_origin_pool.example production/api-backends
+terraform import f5distributedcloud_origin_pool.example production/api-backends
 ```
 
 ## Validation Rules

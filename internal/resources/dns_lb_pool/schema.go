@@ -15,14 +15,14 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages F5 Distributed Cloud DNS Load Balancer Pool.",
 		MarkdownDescription: `
-The ` + "`f5_distributed_cloud_dns_lb_pool`" + ` resource manages DNS Load Balancer Pools in F5 Distributed Cloud.
+The ` + "`f5distributedcloud_dns_lb_pool`" + ` resource manages DNS Load Balancer Pools in F5 Distributed Cloud.
 
 DNS LB Pools define groups of endpoints for DNS-based load balancing with health checking and failover capabilities.
 
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5_distributed_cloud_dns_lb_pool" "example" {
+resource "f5distributedcloud_dns_lb_pool" "example" {
   name      = "my-dns-pool"
   namespace = "my-namespace"
 

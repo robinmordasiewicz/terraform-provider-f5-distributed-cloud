@@ -114,7 +114,7 @@ To use a locally built provider:
 
 3. Register the resource in `internal/provider/provider.go`
 
-4. Add examples in `examples/resources/f5_distributed_cloud_new_resource/`
+4. Add examples in `examples/resources/f5distributedcloud_new_resource/`
 
 5. Add documentation in `docs/resources/new_resource.md`
 

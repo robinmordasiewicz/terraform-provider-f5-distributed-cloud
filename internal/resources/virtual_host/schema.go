@@ -14,14 +14,14 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages an F5 Distributed Cloud Virtual Host.",
 		MarkdownDescription: `
-The ` + "`f5_distributed_cloud_virtual_host`" + ` resource manages Virtual Hosts in F5 Distributed Cloud.
+The ` + "`f5distributedcloud_virtual_host`" + ` resource manages Virtual Hosts in F5 Distributed Cloud.
 
 Virtual Hosts define HTTP routing configurations for domain-based traffic.
 
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5_distributed_cloud_virtual_host" "example" {
+resource "f5distributedcloud_virtual_host" "example" {
   name        = "my-vhost"
   namespace   = "system"
   description = "Virtual host for web application"

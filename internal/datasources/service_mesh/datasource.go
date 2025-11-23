@@ -11,7 +11,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/types"
 
-	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/client"
+	"github.com/robinmordasiewicz/terraform-provider-f5distributedcloud/internal/client"
 )
 
 var _ datasource.DataSource = &ServiceMeshDataSource{}
@@ -52,18 +52,18 @@ func (d *ServiceMeshDataSource) Schema(ctx context.Context, req datasource.Schem
 	resp.Schema = schema.Schema{
 		Description: "Fetches information about an existing F5 Distributed Cloud Service Mesh.",
 		MarkdownDescription: `
-The ` + "`f5_distributed_cloud_service_mesh`" + ` data source retrieves information about an existing service mesh.
+The ` + "`f5distributedcloud_service_mesh`" + ` data source retrieves information about an existing service mesh.
 
 ## Example Usage
 
 ` + "```hcl" + `
-data "f5_distributed_cloud_service_mesh" "example" {
+data "f5distributedcloud_service_mesh" "example" {
   name      = "my-service-mesh"
   namespace = "my-namespace"
 }
 
 output "mesh_type" {
-  value = data.f5_distributed_cloud_service_mesh.example.mesh_type
+  value = data.f5distributedcloud_service_mesh.example.mesh_type
 }
 ` + "```" + `
 `,

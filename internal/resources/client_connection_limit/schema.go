@@ -13,14 +13,14 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages F5 Distributed Cloud Client Connection Limit.",
 		MarkdownDescription: `
-The ` + "`f5_distributed_cloud_client_connection_limit`" + ` resource manages Client Connection Limits in F5 Distributed Cloud.
+The ` + "`f5distributedcloud_client_connection_limit`" + ` resource manages Client Connection Limits in F5 Distributed Cloud.
 
 Client Connection Limits define connection restrictions and circuit breaker settings.
 
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5_distributed_cloud_client_connection_limit" "example" {
+resource "f5distributedcloud_client_connection_limit" "example" {
   name                 = "api-conn-limit"
   namespace            = "my-namespace"
   max_connections      = 10000

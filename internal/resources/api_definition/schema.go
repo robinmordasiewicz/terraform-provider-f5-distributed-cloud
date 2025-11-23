@@ -13,14 +13,14 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages F5 Distributed Cloud API Definition.",
 		MarkdownDescription: `
-The ` + "`f5_distributed_cloud_api_definition`" + ` resource manages API Definitions in F5 Distributed Cloud.
+The ` + "`f5distributedcloud_api_definition`" + ` resource manages API Definitions in F5 Distributed Cloud.
 
 API Definitions allow you to import and manage API schemas (OpenAPI/Swagger) for API security and discovery features.
 
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5_distributed_cloud_api_definition" "example" {
+resource "f5distributedcloud_api_definition" "example" {
   name        = "my-api"
   namespace   = "my-namespace"
   description = "My API definition"

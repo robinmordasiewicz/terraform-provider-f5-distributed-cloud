@@ -14,7 +14,7 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages an F5 Distributed Cloud Workload. Workloads represent application deployments.",
 		MarkdownDescription: `
-The ` + "`f5_distributed_cloud_workload`" + ` resource manages Workloads in F5 Distributed Cloud.
+The ` + "`f5distributedcloud_workload`" + ` resource manages Workloads in F5 Distributed Cloud.
 
 Workloads represent application deployments that can be managed and monitored
 within the F5 Distributed Cloud platform.
@@ -22,7 +22,7 @@ within the F5 Distributed Cloud platform.
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5_distributed_cloud_workload" "example" {
+resource "f5distributedcloud_workload" "example" {
   name        = "my-workload"
   namespace   = "my-namespace"
   description = "Example workload for my application"
@@ -34,7 +34,7 @@ resource "f5_distributed_cloud_workload" "example" {
 Workloads can be imported using namespace/name:
 
 ` + "```shell" + `
-terraform import f5_distributed_cloud_workload.example my-namespace/my-workload
+terraform import f5distributedcloud_workload.example my-namespace/my-workload
 ` + "```" + `
 `,
 		Attributes: map[string]schema.Attribute{

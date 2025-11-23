@@ -11,7 +11,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/types"
 
-	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/client"
+	"github.com/robinmordasiewicz/terraform-provider-f5distributedcloud/internal/client"
 )
 
 var _ datasource.DataSource = &ProtocolPolicerDataSource{}
@@ -52,18 +52,18 @@ func (d *ProtocolPolicerDataSource) Schema(ctx context.Context, req datasource.S
 	resp.Schema = schema.Schema{
 		Description: "Fetches information about an existing F5 Distributed Cloud Protocol Policer.",
 		MarkdownDescription: `
-The ` + "`f5_distributed_cloud_protocol_policer`" + ` data source retrieves information about an existing protocol policer.
+The ` + "`f5distributedcloud_protocol_policer`" + ` data source retrieves information about an existing protocol policer.
 
 ## Example Usage
 
 ` + "```hcl" + `
-data "f5_distributed_cloud_protocol_policer" "example" {
+data "f5distributedcloud_protocol_policer" "example" {
   name      = "my-protocol-policer"
   namespace = "my-namespace"
 }
 
 output "enabled" {
-  value = data.f5_distributed_cloud_protocol_policer.example.enabled
+  value = data.f5distributedcloud_protocol_policer.example.enabled
 }
 ` + "```" + `
 `,

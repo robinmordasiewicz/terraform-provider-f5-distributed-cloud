@@ -13,14 +13,14 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages an F5 Distributed Cloud Subnet.",
 		MarkdownDescription: `
-The ` + "`f5_distributed_cloud_subnet`" + ` resource manages Subnets in F5 Distributed Cloud.
+The ` + "`f5distributedcloud_subnet`" + ` resource manages Subnets in F5 Distributed Cloud.
 
 Subnets define IP address ranges within virtual networks.
 
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5_distributed_cloud_subnet" "example" {
+resource "f5distributedcloud_subnet" "example" {
   name        = "my-subnet"
   namespace   = "system"
   description = "Application subnet"

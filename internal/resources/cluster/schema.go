@@ -14,7 +14,7 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages an F5 Distributed Cloud Cluster. Clusters provide container orchestration.",
 		MarkdownDescription: `
-The ` + "`f5_distributed_cloud_cluster`" + ` resource manages Clusters in F5 Distributed Cloud.
+The ` + "`f5distributedcloud_cluster`" + ` resource manages Clusters in F5 Distributed Cloud.
 
 Clusters provide container orchestration capabilities, allowing you to deploy
 and manage containerized applications across your F5 Distributed Cloud infrastructure.
@@ -22,7 +22,7 @@ and manage containerized applications across your F5 Distributed Cloud infrastru
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5_distributed_cloud_cluster" "example" {
+resource "f5distributedcloud_cluster" "example" {
   name        = "my-cluster"
   namespace   = "shared"
   description = "Production cluster for container workloads"
@@ -34,7 +34,7 @@ resource "f5_distributed_cloud_cluster" "example" {
 Clusters can be imported using namespace/name:
 
 ` + "```shell" + `
-terraform import f5_distributed_cloud_cluster.example shared/my-cluster
+terraform import f5distributedcloud_cluster.example shared/my-cluster
 ` + "```" + `
 `,
 		Attributes: map[string]schema.Attribute{

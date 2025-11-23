@@ -1,9 +1,9 @@
-# Provider Contract: f5_distributed_cloud
+# Provider Contract: f5distributedcloud
 
 ## Provider Configuration Schema
 
 ```hcl
-provider "f5_distributed_cloud" {
+provider "f5distributedcloud" {
   api_url    = string           # Required: Tenant API URL
   api_token  = string           # Optional: API token auth (conflicts with cert auth)
   cert_file  = string           # Optional: Certificate file path

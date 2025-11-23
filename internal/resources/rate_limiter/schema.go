@@ -15,14 +15,14 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages F5 Distributed Cloud Rate Limiter.",
 		MarkdownDescription: `
-The ` + "`f5_distributed_cloud_rate_limiter`" + ` resource manages Rate Limiters in F5 Distributed Cloud.
+The ` + "`f5distributedcloud_rate_limiter`" + ` resource manages Rate Limiters in F5 Distributed Cloud.
 
 Rate Limiters define rate limiting policies for controlling request throughput.
 
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5_distributed_cloud_rate_limiter" "example" {
+resource "f5distributedcloud_rate_limiter" "example" {
   name             = "api-rate-limit"
   namespace        = "my-namespace"
   total_number     = 100

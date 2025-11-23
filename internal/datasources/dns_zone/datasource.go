@@ -11,7 +11,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/types"
 
-	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/client"
+	"github.com/robinmordasiewicz/terraform-provider-f5distributedcloud/internal/client"
 )
 
 var _ datasource.DataSource = &DNSZoneDataSource{}
@@ -52,18 +52,18 @@ func (d *DNSZoneDataSource) Schema(ctx context.Context, req datasource.SchemaReq
 	resp.Schema = schema.Schema{
 		Description: "Fetches information about an existing F5 Distributed Cloud DNS Zone.",
 		MarkdownDescription: `
-The ` + "`f5_distributed_cloud_dns_zone`" + ` data source retrieves information about an existing DNS zone.
+The ` + "`f5distributedcloud_dns_zone`" + ` data source retrieves information about an existing DNS zone.
 
 ## Example Usage
 
 ` + "```hcl" + `
-data "f5_distributed_cloud_dns_zone" "example" {
+data "f5distributedcloud_dns_zone" "example" {
   name      = "my-dns-zone"
   namespace = "my-namespace"
 }
 
 output "domain" {
-  value = data.f5_distributed_cloud_dns_zone.example.domain
+  value = data.f5distributedcloud_dns_zone.example.domain
 }
 ` + "```" + `
 `,

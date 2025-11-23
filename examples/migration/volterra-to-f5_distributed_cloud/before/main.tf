@@ -48,9 +48,9 @@ resource "volterra_origin_pool" "example" {
 
 # HTTP Load Balancer resource
 resource "volterra_http_loadbalancer" "example" {
-  name                            = "example-lb"
-  namespace                       = volterra_namespace.example.name
-  domains                         = ["example.com"]
+  name      = "example-lb"
+  namespace = volterra_namespace.example.name
+  domains   = ["example.com"]
   http {
     dns_volterra_managed = false
   }

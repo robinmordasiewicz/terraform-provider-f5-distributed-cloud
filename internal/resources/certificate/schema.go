@@ -14,7 +14,7 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages an F5 Distributed Cloud Certificate.",
 		MarkdownDescription: `
-The ` + "`f5_distributed_cloud_certificate`" + ` resource manages TLS Certificates in F5 Distributed Cloud.
+The ` + "`f5distributedcloud_certificate`" + ` resource manages TLS Certificates in F5 Distributed Cloud.
 
 Certificates are used for TLS termination on load balancers and for securing
 connections to origin servers.
@@ -22,7 +22,7 @@ connections to origin servers.
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5_distributed_cloud_certificate" "example" {
+resource "f5distributedcloud_certificate" "example" {
   name        = "my-certificate"
   namespace   = "my-namespace"
   description = "My TLS certificate"
@@ -40,7 +40,7 @@ resource "f5_distributed_cloud_certificate" "example" {
 Certificates can be imported using namespace/name:
 
 ` + "```shell" + `
-terraform import f5_distributed_cloud_certificate.example my-namespace/my-certificate
+terraform import f5distributedcloud_certificate.example my-namespace/my-certificate
 ` + "```" + `
 `,
 		Attributes: map[string]schema.Attribute{

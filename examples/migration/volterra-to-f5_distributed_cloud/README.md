@@ -17,7 +17,7 @@ compatibility with the Volterra provider while providing additional features:
 
 | Aspect | Volterra Provider | F5 Distributed Cloud Provider |
 |--------|-------------------|------------------------------|
-| Resource prefix | `volterra_` | `f5_distributed_cloud_` |
+| Resource prefix | `volterra_` | `f5distributedcloud_` |
 | Provider name | `volterraedge/volterra` | `robinmordasiewicz/f5-distributed-cloud` |
 | Authentication | Same | Same (token or certificate) |
 | API URL format | Same | Same |
@@ -47,14 +47,14 @@ provider "volterra" {
 ```hcl
 terraform {
   required_providers {
-    f5_distributed_cloud = {
+    f5distributedcloud = {
       source  = "robinmordasiewicz/f5-distributed-cloud"
       version = "~> 1.0"
     }
   }
 }
 
-provider "f5_distributed_cloud" {
+provider "f5distributedcloud" {
   api_url  = var.api_url
   p12_file = var.api_p12_file
   # Or use token authentication:
@@ -64,19 +64,19 @@ provider "f5_distributed_cloud" {
 
 ### Step 2: Update Resource References
 
-Resource names change from `volterra_*` to `f5_distributed_cloud_*`:
+Resource names change from `volterra_*` to `f5distributedcloud_*`:
 
 | Volterra Resource | F5 XC Resource |
 |-------------------|----------------|
-| `volterra_namespace` | `f5_distributed_cloud_namespace` |
-| `volterra_origin_pool` | `f5_distributed_cloud_origin_pool` |
-| `volterra_http_loadbalancer` | `f5_distributed_cloud_http_loadbalancer` |
-| `volterra_app_firewall` | `f5_distributed_cloud_app_firewall` |
-| `volterra_healthcheck` | `f5_distributed_cloud_healthcheck` |
-| `volterra_virtual_site` | `f5_distributed_cloud_virtual_site` |
-| `volterra_aws_vpc_site` | `f5_distributed_cloud_aws_vpc_site` |
-| `volterra_azure_vnet_site` | `f5_distributed_cloud_azure_vnet_site` |
-| `volterra_gcp_vpc_site` | `f5_distributed_cloud_gcp_vpc_site` |
+| `volterra_namespace` | `f5distributedcloud_namespace` |
+| `volterra_origin_pool` | `f5distributedcloud_origin_pool` |
+| `volterra_http_loadbalancer` | `f5distributedcloud_http_loadbalancer` |
+| `volterra_app_firewall` | `f5distributedcloud_app_firewall` |
+| `volterra_healthcheck` | `f5distributedcloud_healthcheck` |
+| `volterra_virtual_site` | `f5distributedcloud_virtual_site` |
+| `volterra_aws_vpc_site` | `f5distributedcloud_aws_vpc_site` |
+| `volterra_azure_vnet_site` | `f5distributedcloud_azure_vnet_site` |
+| `volterra_gcp_vpc_site` | `f5distributedcloud_gcp_vpc_site` |
 
 ### Step 3: State Migration
 
@@ -92,10 +92,10 @@ To migrate existing state without recreating resources:
 3. **Use state mv to rename resources:**
    ```bash
    # Example: Rename namespace resource
-   terraform state mv volterra_namespace.my_ns f5_distributed_cloud_namespace.my_ns
+   terraform state mv volterra_namespace.my_ns f5distributedcloud_namespace.my_ns
 
    # Example: Rename origin pool
-   terraform state mv volterra_origin_pool.my_pool f5_distributed_cloud_origin_pool.my_pool
+   terraform state mv volterra_origin_pool.my_pool f5distributedcloud_origin_pool.my_pool
    ```
 
 4. **Re-initialize with new provider:**

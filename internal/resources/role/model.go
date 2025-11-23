@@ -3,7 +3,11 @@
 
 package role
 
-import "github.com/hashicorp/terraform-plugin-framework/types"
+import (
+	"context"
+
+	"github.com/hashicorp/terraform-plugin-framework/types"
+)
 
 type RoleResourceModel struct {
 	Name        types.String      `tfsdk:"name"`
@@ -59,7 +63,7 @@ func (m *RoleResourceModel) ToAPIRequest() *APIRole {
 			}
 			if !perm.Operations.IsNull() {
 				ops := make([]string, 0)
-				perm.Operations.ElementsAs(nil, &ops, false)
+				perm.Operations.ElementsAs(context.Background(), &ops, false)
 				apiPerm.Operations = ops
 			}
 			spec.Permissions[i] = apiPerm

@@ -14,14 +14,14 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages an F5 Distributed Cloud DNS Load Balancer Health Check.",
 		MarkdownDescription: `
-The ` + "`f5_distributed_cloud_dns_lb_health_check`" + ` resource manages DNS Load Balancer Health Checks in F5 Distributed Cloud.
+The ` + "`f5distributedcloud_dns_lb_health_check`" + ` resource manages DNS Load Balancer Health Checks in F5 Distributed Cloud.
 
 Health checks monitor the availability of DNS load balancer endpoints.
 
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5_distributed_cloud_dns_lb_health_check" "example" {
+resource "f5distributedcloud_dns_lb_health_check" "example" {
   name        = "my-health-check"
   namespace   = "system"
   description = "HTTP health check"
