@@ -14,14 +14,14 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages an F5 Distributed Cloud BGP ASN Set.",
 		MarkdownDescription: `
-The ` + "`f5xc_bgp_asn_set`" + ` resource manages BGP ASN Sets in F5 Distributed Cloud.
+The ` + "`f5_distributed_cloud_bgp_asn_set`" + ` resource manages BGP ASN Sets in F5 Distributed Cloud.
 
 BGP ASN Sets define collections of Autonomous System Numbers for BGP routing policies.
 
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5xc_bgp_asn_set" "example" {
+resource "f5_distributed_cloud_bgp_asn_set" "example" {
   name        = "my-asn-set"
   namespace   = "system"
   description = "BGP ASN set for routing"

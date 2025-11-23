@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_geo_location_set Data Source - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_geo_location_set Data Source - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   Defines the geo_location_set created by user
 ---
 
-# f5xc_geo_location_set (Data Source)
+# f5_distributed_cloud_geo_location_set (Data Source)
 
 Defines the geo_location_set created by user
 
 ## Example Usage
 
 ```hcl
-data "f5xc_geo_location_set" "example" {
+data "f5_distributed_cloud_geo_location_set" "example" {
   name      = "example-geo_location_set"
   namespace = "system"
 }

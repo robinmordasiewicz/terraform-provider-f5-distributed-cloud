@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_managed_tenant Data Source - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_managed_tenant Data Source - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   Managed tenant objects are required for declaring intent to manage a tenant. The tenant which is being managed is called a `Managed Tenant` or `MT`` and the tenant which is initiating the managemen...
 ---
 
-# f5xc_managed_tenant (Data Source)
+# f5_distributed_cloud_managed_tenant (Data Source)
 
 Managed tenant objects are required for declaring intent to manage a tenant. The tenant which is being managed is called a `Managed Tenant` or `MT`` and the tenant which is initiating the managemen...
 
 ## Example Usage
 
 ```hcl
-data "f5xc_managed_tenant" "example" {
+data "f5_distributed_cloud_managed_tenant" "example" {
   name      = "example-managed_tenant"
   namespace = "system"
 }

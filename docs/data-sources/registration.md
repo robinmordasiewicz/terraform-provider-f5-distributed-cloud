@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_registration Data Source - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_registration Data Source - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   registration API(s) are used by Customer edge site to register itself with volterra edge cloud. Every node in given site is represented by it's registration. registration must have unique hostname ...
 ---
 
-# f5xc_registration (Data Source)
+# f5_distributed_cloud_registration (Data Source)
 
 registration API(s) are used by Customer edge site to register itself with volterra edge cloud. Every node in given site is represented by it's registration. registration must have unique hostname ...
 
 ## Example Usage
 
 ```hcl
-data "f5xc_registration" "example" {
+data "f5_distributed_cloud_registration" "example" {
   name      = "example-registration"
   namespace = "system"
 }

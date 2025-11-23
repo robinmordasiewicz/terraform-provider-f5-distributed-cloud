@@ -13,14 +13,14 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages an F5 Distributed Cloud Network Connector.",
 		MarkdownDescription: `
-The ` + "`f5xc_network_connector`" + ` resource manages Network Connectors in F5 Distributed Cloud.
+The ` + "`f5_distributed_cloud_network_connector`" + ` resource manages Network Connectors in F5 Distributed Cloud.
 
 Network Connectors enable connectivity between different network segments.
 
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5xc_network_connector" "example" {
+resource "f5_distributed_cloud_network_connector" "example" {
   name        = "my-network-connector"
   namespace   = "system"
   description = "Connector for site-to-site connectivity"

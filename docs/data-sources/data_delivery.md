@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_data_delivery Data Source - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_data_delivery Data Source - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   Custom handler in Data Delivery microservice will forward request(s) to backend API(s)
 ---
 
-# f5xc_data_delivery (Data Source)
+# f5_distributed_cloud_data_delivery (Data Source)
 
 Custom handler in Data Delivery microservice will forward request(s) to backend API(s)
 
 ## Example Usage
 
 ```hcl
-data "f5xc_data_delivery" "example" {
+data "f5_distributed_cloud_data_delivery" "example" {
   name      = "example-data_delivery"
   namespace = "system"
 }

@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_site Data Source - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_site Data Source - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   Site represent physical/cloud cluster of volterra processing elements. There are two types of sites currently.     Regional Edge (RE)      Regional Edge sites are network edge sites owned and opera...
 ---
 
-# f5xc_site (Data Source)
+# f5_distributed_cloud_site (Data Source)
 
 Site represent physical/cloud cluster of volterra processing elements. There are two types of sites currently.     Regional Edge (RE)      Regional Edge sites are network edge sites owned and opera...
 
 ## Example Usage
 
 ```hcl
-data "f5xc_site" "example" {
+data "f5_distributed_cloud_site" "example" {
   name      = "example-site"
   namespace = "system"
 }

@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_cloud_connect Resource - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_cloud_connect Resource - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   Cloud Connect Represents connection endpoint for cloud.
 ---
 
-# f5xc_cloud_connect (Resource)
+# f5_distributed_cloud_cloud_connect (Resource)
 
 Cloud Connect Represents connection endpoint for cloud.
 
 ## Example Usage
 
 ```hcl
-resource "f5xc_cloud_connect" "example" {
+resource "f5_distributed_cloud_cloud_connect" "example" {
   name        = "example-cloud_connect"
   namespace   = "system"
   description = "Example CloudConnect resource"
@@ -36,5 +36,5 @@ resource "f5xc_cloud_connect" "example" {
 CloudConnect can be imported using the namespace and name:
 
 ```shell
-terraform import f5xc_cloud_connect.example namespace/name
+terraform import f5_distributed_cloud_cloud_connect.example namespace/name
 ```

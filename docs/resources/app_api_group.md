@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_app_api_group Resource - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_app_api_group Resource - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   The app_api_group construct provides a mechanism to classify the universal set of request APIs into a much smaller number of logical groups in order to make it easier to author and maintain API lev...
 ---
 
-# f5xc_app_api_group (Resource)
+# f5_distributed_cloud_app_api_group (Resource)
 
 The app_api_group construct provides a mechanism to classify the universal set of request APIs into a much smaller number of logical groups in order to make it easier to author and maintain API lev...
 
 ## Example Usage
 
 ```hcl
-resource "f5xc_app_api_group" "example" {
+resource "f5_distributed_cloud_app_api_group" "example" {
   name        = "example-app_api_group"
   namespace   = "system"
   description = "Example AppAPIGroup resource"
@@ -36,5 +36,5 @@ resource "f5xc_app_api_group" "example" {
 AppAPIGroup can be imported using the namespace and name:
 
 ```shell
-terraform import f5xc_app_api_group.example namespace/name
+terraform import f5_distributed_cloud_app_api_group.example namespace/name
 ```

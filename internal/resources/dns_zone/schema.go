@@ -13,14 +13,14 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages an F5 Distributed Cloud DNS Zone.",
 		MarkdownDescription: `
-The ` + "`f5xc_dns_zone`" + ` resource manages DNS Zones in F5 Distributed Cloud.
+The ` + "`f5_distributed_cloud_dns_zone`" + ` resource manages DNS Zones in F5 Distributed Cloud.
 
 DNS Zones define authoritative DNS domains for F5 XC DNS services.
 
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5xc_dns_zone" "example" {
+resource "f5_distributed_cloud_dns_zone" "example" {
   name        = "my-dns-zone"
   namespace   = "system"
   description = "Primary DNS zone"

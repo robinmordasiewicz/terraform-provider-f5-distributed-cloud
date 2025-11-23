@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_bot_network_policy Data Source - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_bot_network_policy Data Source - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   Configures Bot network Policy
 ---
 
-# f5xc_bot_network_policy (Data Source)
+# f5_distributed_cloud_bot_network_policy (Data Source)
 
 Configures Bot network Policy
 
 ## Example Usage
 
 ```hcl
-data "f5xc_bot_network_policy" "example" {
+data "f5_distributed_cloud_bot_network_policy" "example" {
   name      = "example-bot_network_policy"
   namespace = "system"
 }

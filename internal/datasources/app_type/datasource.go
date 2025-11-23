@@ -52,18 +52,18 @@ func (d *AppTypeDataSource) Schema(ctx context.Context, req datasource.SchemaReq
 	resp.Schema = schema.Schema{
 		Description: "Fetches information about an existing F5 Distributed Cloud App Type.",
 		MarkdownDescription: `
-The ` + "`f5xc_app_type`" + ` data source retrieves information about an existing app type.
+The ` + "`f5_distributed_cloud_app_type`" + ` data source retrieves information about an existing app type.
 
 ## Example Usage
 
 ` + "```hcl" + `
-data "f5xc_app_type" "example" {
+data "f5_distributed_cloud_app_type" "example" {
   name      = "my-app-type"
   namespace = "shared"
 }
 
 output "app_type" {
-  value = data.f5xc_app_type.example.app_type
+  value = data.f5_distributed_cloud_app_type.example.app_type
 }
 ` + "```" + `
 `,

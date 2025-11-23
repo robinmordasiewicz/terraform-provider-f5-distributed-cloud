@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_user_group Data Source - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_user_group Data Source - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   Represents group for a given tenant
 ---
 
-# f5xc_user_group (Data Source)
+# f5_distributed_cloud_user_group (Data Source)
 
 Represents group for a given tenant
 
 ## Example Usage
 
 ```hcl
-data "f5xc_user_group" "example" {
+data "f5_distributed_cloud_user_group" "example" {
   name      = "example-user_group"
   namespace = "system"
 }

@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_voltshare_admin_policy Data Source - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_voltshare_admin_policy Data Source - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   VoltShare Admin Policy object is an admin level policy object that restricts all secrets encrypted by author's team/tenant shared via F5XC VoltShare. There can be a maximum of *ONE* VoltShare Admin...
 ---
 
-# f5xc_voltshare_admin_policy (Data Source)
+# f5_distributed_cloud_voltshare_admin_policy (Data Source)
 
 VoltShare Admin Policy object is an admin level policy object that restricts all secrets encrypted by author's team/tenant shared via F5XC VoltShare. There can be a maximum of *ONE* VoltShare Admin...
 
 ## Example Usage
 
 ```hcl
-data "f5xc_voltshare_admin_policy" "example" {
+data "f5_distributed_cloud_voltshare_admin_policy" "example" {
   name      = "example-voltshare_admin_policy"
   namespace = "system"
 }

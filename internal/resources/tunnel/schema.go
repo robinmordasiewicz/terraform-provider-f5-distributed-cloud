@@ -15,14 +15,14 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages F5 Distributed Cloud Tunnel.",
 		MarkdownDescription: `
-The ` + "`f5xc_tunnel`" + ` resource manages Tunnels in F5 Distributed Cloud.
+The ` + "`f5_distributed_cloud_tunnel`" + ` resource manages Tunnels in F5 Distributed Cloud.
 
 Tunnels provide secure connectivity between sites.
 
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5xc_tunnel" "example" {
+resource "f5_distributed_cloud_tunnel" "example" {
   name            = "site-tunnel"
   namespace       = "my-namespace"
   tunnel_type     = "IPSEC"

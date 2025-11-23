@@ -54,18 +54,18 @@ func (d *TCPLoadBalancerDataSource) Schema(ctx context.Context, req datasource.S
 	resp.Schema = schema.Schema{
 		Description: "Fetches information about an existing F5 Distributed Cloud TCP Load Balancer.",
 		MarkdownDescription: `
-The ` + "`f5xc_tcp_loadbalancer`" + ` data source retrieves information about an existing TCP load balancer.
+The ` + "`f5_distributed_cloud_tcp_loadbalancer`" + ` data source retrieves information about an existing TCP load balancer.
 
 ## Example Usage
 
 ` + "```hcl" + `
-data "f5xc_tcp_loadbalancer" "example" {
+data "f5_distributed_cloud_tcp_loadbalancer" "example" {
   name      = "my-tcp-lb"
   namespace = "my-namespace"
 }
 
 output "tcp_lb_port" {
-  value = data.f5xc_tcp_loadbalancer.example.listen_port
+  value = data.f5_distributed_cloud_tcp_loadbalancer.example.listen_port
 }
 ` + "```" + `
 `,

@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_irule Resource - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_irule Resource - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   iRule object defines the iRule that can be used in CRUD, to create and manage iRule for manipulating the application traffic.
 ---
 
-# f5xc_irule (Resource)
+# f5_distributed_cloud_irule (Resource)
 
 iRule object defines the iRule that can be used in CRUD, to create and manage iRule for manipulating the application traffic.
 
 ## Example Usage
 
 ```hcl
-resource "f5xc_irule" "example" {
+resource "f5_distributed_cloud_irule" "example" {
   name        = "example-irule"
   namespace   = "system"
   description = "Example Irule resource"
@@ -36,5 +36,5 @@ resource "f5xc_irule" "example" {
 Irule can be imported using the namespace and name:
 
 ```shell
-terraform import f5xc_irule.example namespace/name
+terraform import f5_distributed_cloud_irule.example namespace/name
 ```

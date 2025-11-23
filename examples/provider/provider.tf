@@ -9,7 +9,7 @@
 
 terraform {
   required_providers {
-    f5xc = {
+    f5_distributed_cloud = {
       source = "robinmordasiewicz/f5-distributed-cloud"
     }
   }
@@ -18,18 +18,18 @@ terraform {
 # Option 1: API Token Authentication
 # This is the recommended approach for CI/CD pipelines and automation.
 #
-# provider "f5xc" {
+# provider "f5_distributed_cloud" {
 #   api_url   = "https://your-tenant.console.ves.volterra.io/api"
-#   api_token = var.f5xc_api_token
+#   api_token = var.f5_distributed_cloud_api_token
 # }
 
 # Option 2: Certificate Authentication (P12 file)
 # Use this when you have a P12 certificate file from F5 XC.
 #
-# provider "f5xc" {
+# provider "f5_distributed_cloud" {
 #   api_url      = "https://your-tenant.console.ves.volterra.io/api"
 #   p12_file     = "/path/to/certificate.p12"
-#   p12_password = var.f5xc_p12_password
+#   p12_password = var.f5_distributed_cloud_p12_password
 # }
 
 # Option 3: Using Environment Variables (recommended for security)
@@ -41,26 +41,26 @@ terraform {
 # - F5XC_API_P12_PASSWORD: Password for the P12 file (optional)
 #
 # Then configure the provider without explicit values:
-provider "f5xc" {
+provider "f5_distributed_cloud" {
   # All values will be read from environment variables
 }
 
 # Variables for sensitive credentials
-variable "f5xc_api_token" {
+variable "f5_distributed_cloud_api_token" {
   description = "API token for F5 XC authentication"
   type        = string
   sensitive   = true
   default     = ""
 }
 
-variable "f5xc_p12_password" {
+variable "f5_distributed_cloud_p12_password" {
   description = "Password for the P12 certificate file"
   type        = string
   sensitive   = true
   default     = ""
 }
 
-variable "f5xc_api_url" {
+variable "f5_distributed_cloud_api_url" {
   description = "F5 XC API URL (e.g., https://your-tenant.console.ves.volterra.io/api)"
   type        = string
   default     = ""

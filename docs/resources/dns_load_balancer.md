@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_dns_load_balancer Resource - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_dns_load_balancer Resource - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   DNS Load Balancer Record is used for configuring DNS Load Balancer for a record.
 ---
 
-# f5xc_dns_load_balancer (Resource)
+# f5_distributed_cloud_dns_load_balancer (Resource)
 
 DNS Load Balancer Record is used for configuring DNS Load Balancer for a record.
 
 ## Example Usage
 
 ```hcl
-resource "f5xc_dns_load_balancer" "example" {
+resource "f5_distributed_cloud_dns_load_balancer" "example" {
   name        = "example-dns_load_balancer"
   namespace   = "system"
   description = "Example DNSLoadBalancer resource"
@@ -36,5 +36,5 @@ resource "f5xc_dns_load_balancer" "example" {
 DNSLoadBalancer can be imported using the namespace and name:
 
 ```shell
-terraform import f5xc_dns_load_balancer.example namespace/name
+terraform import f5_distributed_cloud_dns_load_balancer.example namespace/name
 ```

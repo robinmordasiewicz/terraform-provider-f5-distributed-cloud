@@ -17,7 +17,7 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages an F5 Distributed Cloud TCP Load Balancer.",
 		MarkdownDescription: `
-The ` + "`f5xc_tcp_loadbalancer`" + ` resource manages TCP Load Balancers in F5 Distributed Cloud.
+The ` + "`f5_distributed_cloud_tcp_loadbalancer`" + ` resource manages TCP Load Balancers in F5 Distributed Cloud.
 
 TCP Load Balancers distribute incoming TCP traffic across origin pools based on
 configured rules and policies. They operate at Layer 4 and handle raw TCP connections.
@@ -25,7 +25,7 @@ configured rules and policies. They operate at Layer 4 and handle raw TCP connec
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5xc_tcp_loadbalancer" "example" {
+resource "f5_distributed_cloud_tcp_loadbalancer" "example" {
   name        = "my-tcp-lb"
   namespace   = "my-namespace"
   description = "Example TCP Load Balancer"
@@ -34,7 +34,7 @@ resource "f5xc_tcp_loadbalancer" "example" {
   listen_port = 3306
 
   origin_pools {
-    pool_name      = f5xc_origin_pool.mysql.name
+    pool_name      = f5_distributed_cloud_origin_pool.mysql.name
     pool_namespace = "my-namespace"
     weight         = 1
     priority       = 1
@@ -49,7 +49,7 @@ resource "f5xc_tcp_loadbalancer" "example" {
 TCP Load Balancers can be imported using namespace/name:
 
 ` + "```shell" + `
-terraform import f5xc_tcp_loadbalancer.example my-namespace/my-tcp-lb
+terraform import f5_distributed_cloud_tcp_loadbalancer.example my-namespace/my-tcp-lb
 ` + "```" + `
 `,
 		Attributes: map[string]schema.Attribute{

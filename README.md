@@ -25,7 +25,7 @@ This provider enables infrastructure engineers to manage F5 Distributed Cloud re
 ```hcl
 terraform {
   required_providers {
-    f5xc = {
+    f5_distributed_cloud = {
       source  = "robinmordasiewicz/f5-distributed-cloud"
       version = "~> 0.1"
     }
@@ -62,7 +62,7 @@ export F5XC_API_P12_PASSWORD="your-password"
 ### 2. Configure the Provider
 
 ```hcl
-provider "f5xc" {
+provider "f5_distributed_cloud" {
   api_url   = "https://your-tenant.console.ves.volterra.io/api"
   api_token = var.api_token
 }
@@ -72,15 +72,15 @@ provider "f5xc" {
 
 ```hcl
 # Create a namespace
-resource "f5xc_namespace" "example" {
+resource "f5_distributed_cloud_namespace" "example" {
   name        = "my-namespace"
   description = "Example namespace"
 }
 
 # Create an origin pool
-resource "f5xc_origin_pool" "backend" {
+resource "f5_distributed_cloud_origin_pool" "backend" {
   name      = "backend-pool"
-  namespace = f5xc_namespace.example.name
+  namespace = f5_distributed_cloud_namespace.example.name
   port      = 8080
 
   origin_servers {
@@ -91,15 +91,15 @@ resource "f5xc_origin_pool" "backend" {
 }
 
 # Create an HTTP load balancer
-resource "f5xc_http_loadbalancer" "frontend" {
+resource "f5_distributed_cloud_http_loadbalancer" "frontend" {
   name      = "frontend-lb"
-  namespace = f5xc_namespace.example.name
+  namespace = f5_distributed_cloud_namespace.example.name
   domains   = ["app.example.com"]
   http_port = 80
 
   default_pool {
-    name      = f5xc_origin_pool.backend.name
-    namespace = f5xc_namespace.example.name
+    name      = f5_distributed_cloud_origin_pool.backend.name
+    namespace = f5_distributed_cloud_namespace.example.name
   }
 }
 ```
@@ -116,17 +116,17 @@ resource "f5xc_http_loadbalancer" "frontend" {
 
 | Resource | Description |
 |----------|-------------|
-| `f5xc_namespace` | Manage namespaces |
-| `f5xc_origin_pool` | Manage origin pools |
-| `f5xc_http_loadbalancer` | Manage HTTP load balancers |
-| `f5xc_tcp_loadbalancer` | Manage TCP load balancers |
-| `f5xc_app_firewall` | Manage application firewalls |
-| `f5xc_service_policy` | Manage service policies |
-| `f5xc_cloud_credentials` | Manage cloud credentials |
-| `f5xc_aws_vpc_site` | Manage AWS VPC sites |
-| `f5xc_azure_vnet_site` | Manage Azure VNET sites |
-| `f5xc_gcp_vpc_site` | Manage GCP VPC sites |
-| `f5xc_voltstack_site` | Manage Voltstack sites |
+| `f5_distributed_cloud_namespace` | Manage namespaces |
+| `f5_distributed_cloud_origin_pool` | Manage origin pools |
+| `f5_distributed_cloud_http_loadbalancer` | Manage HTTP load balancers |
+| `f5_distributed_cloud_tcp_loadbalancer` | Manage TCP load balancers |
+| `f5_distributed_cloud_app_firewall` | Manage application firewalls |
+| `f5_distributed_cloud_service_policy` | Manage service policies |
+| `f5_distributed_cloud_cloud_credentials` | Manage cloud credentials |
+| `f5_distributed_cloud_aws_vpc_site` | Manage AWS VPC sites |
+| `f5_distributed_cloud_azure_vnet_site` | Manage Azure VNET sites |
+| `f5_distributed_cloud_gcp_vpc_site` | Manage GCP VPC sites |
+| `f5_distributed_cloud_voltstack_site` | Manage Voltstack sites |
 
 See [docs/resources/](docs/resources/) for full documentation.
 
@@ -134,16 +134,16 @@ See [docs/resources/](docs/resources/) for full documentation.
 
 | Data Source | Description |
 |-------------|-------------|
-| `f5xc_namespace` | Read namespace data |
-| `f5xc_origin_pool` | Read origin pool data |
-| `f5xc_http_loadbalancer` | Read HTTP load balancer data |
-| `f5xc_tcp_loadbalancer` | Read TCP load balancer data |
-| `f5xc_app_firewall` | Read application firewall data |
-| `f5xc_cloud_credentials` | Read cloud credentials data |
-| `f5xc_virtual_site` | Read virtual site data |
-| `f5xc_service_policy` | Read service policy data |
-| `f5xc_healthcheck` | Read healthcheck configuration |
-| `f5xc_rate_limiter` | Read rate limiter configuration |
+| `f5_distributed_cloud_namespace` | Read namespace data |
+| `f5_distributed_cloud_origin_pool` | Read origin pool data |
+| `f5_distributed_cloud_http_loadbalancer` | Read HTTP load balancer data |
+| `f5_distributed_cloud_tcp_loadbalancer` | Read TCP load balancer data |
+| `f5_distributed_cloud_app_firewall` | Read application firewall data |
+| `f5_distributed_cloud_cloud_credentials` | Read cloud credentials data |
+| `f5_distributed_cloud_virtual_site` | Read virtual site data |
+| `f5_distributed_cloud_service_policy` | Read service policy data |
+| `f5_distributed_cloud_healthcheck` | Read healthcheck configuration |
+| `f5_distributed_cloud_rate_limiter` | Read rate limiter configuration |
 
 See [docs/data-sources/](docs/data-sources/) for full documentation.
 
@@ -155,11 +155,11 @@ git clone https://github.com/robinmordasiewicz/terraform-provider-f5-distributed
 cd terraform-provider-f5-distributed-cloud
 
 # Build the provider
-go build -o terraform-provider-f5xc
+go build -o terraform-provider-f5-distributed-cloud
 
 # Install locally
 mkdir -p ~/.terraform.d/plugins/registry.terraform.io/robinmordasiewicz/f5-distributed-cloud/0.1.0/$(go env GOOS)_$(go env GOARCH)
-mv terraform-provider-f5xc ~/.terraform.d/plugins/registry.terraform.io/robinmordasiewicz/f5-distributed-cloud/0.1.0/$(go env GOOS)_$(go env GOARCH)/
+mv terraform-provider-f5-distributed-cloud ~/.terraform.d/plugins/registry.terraform.io/robinmordasiewicz/f5-distributed-cloud/0.1.0/$(go env GOOS)_$(go env GOARCH)/
 ```
 
 ## Contributing

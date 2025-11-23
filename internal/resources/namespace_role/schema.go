@@ -16,14 +16,14 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages an F5 Distributed Cloud Namespace Role. Namespace Roles define permissions within a namespace.",
 		MarkdownDescription: `
-The ` + "`f5xc_namespace_role`" + ` resource manages Namespace Roles in F5 Distributed Cloud.
+The ` + "`f5_distributed_cloud_namespace_role`" + ` resource manages Namespace Roles in F5 Distributed Cloud.
 
 Namespace Roles define permissions within a namespace, allowing fine-grained access control for resources and operations.
 
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5xc_namespace_role" "viewer" {
+resource "f5_distributed_cloud_namespace_role" "viewer" {
   name        = "viewer-role"
   namespace   = "my-namespace"
   description = "Read-only access role for namespace resources"

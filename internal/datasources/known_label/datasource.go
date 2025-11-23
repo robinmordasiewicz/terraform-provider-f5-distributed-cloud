@@ -52,18 +52,18 @@ func (d *KnownLabelDataSource) Schema(ctx context.Context, req datasource.Schema
 	resp.Schema = schema.Schema{
 		Description: "Fetches information about an existing F5 Distributed Cloud Known Label.",
 		MarkdownDescription: `
-The ` + "`f5xc_known_label`" + ` data source retrieves information about an existing known label.
+The ` + "`f5_distributed_cloud_known_label`" + ` data source retrieves information about an existing known label.
 
 ## Example Usage
 
 ` + "```hcl" + `
-data "f5xc_known_label" "example" {
+data "f5_distributed_cloud_known_label" "example" {
   name      = "my-known-label"
   namespace = "shared"
 }
 
 output "label_key" {
-  value = data.f5xc_known_label.example.label_key
+  value = data.f5_distributed_cloud_known_label.example.label_key
 }
 ` + "```" + `
 `,

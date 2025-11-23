@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_global_log_receiver Resource - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_global_log_receiver Resource - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   Global Log Receiver is used to specify a receiver (s3 bucket, etc.) for periodic streaming of access logs
 ---
 
-# f5xc_global_log_receiver (Resource)
+# f5_distributed_cloud_global_log_receiver (Resource)
 
 Global Log Receiver is used to specify a receiver (s3 bucket, etc.) for periodic streaming of access logs
 
 ## Example Usage
 
 ```hcl
-resource "f5xc_global_log_receiver" "example" {
+resource "f5_distributed_cloud_global_log_receiver" "example" {
   name        = "example-global_log_receiver"
   namespace   = "system"
   description = "Example GlobalLogReceiver resource"
@@ -36,5 +36,5 @@ resource "f5xc_global_log_receiver" "example" {
 GlobalLogReceiver can be imported using the namespace and name:
 
 ```shell
-terraform import f5xc_global_log_receiver.example namespace/name
+terraform import f5_distributed_cloud_global_log_receiver.example namespace/name
 ```

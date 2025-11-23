@@ -132,7 +132,7 @@ Resources from `volterraedge/volterra` provider:
 - `volterra_certificate`
 
 ### Migration Compatibility
-- Resource naming should use `f5xc_` prefix (e.g., `f5xc_http_loadbalancer`)
+- Resource naming should use `f5_distributed_cloud_` prefix (e.g., `f5_distributed_cloud_http_loadbalancer`)
 - Schema structure should align closely with proprietary provider
 - Import functionality enables state migration
 
@@ -232,12 +232,12 @@ func TestAccResource_basic(t *testing.T) {
             {
                 Config: testAccResourceConfig_basic("test"),
                 Check: resource.ComposeAggregateTestCheckFunc(
-                    resource.TestCheckResourceAttr("f5xc_namespace.test", "name", "test"),
+                    resource.TestCheckResourceAttr("f5_distributed_cloud_namespace.test", "name", "test"),
                 ),
             },
             // ImportState
             {
-                ResourceName:      "f5xc_namespace.test",
+                ResourceName:      "f5_distributed_cloud_namespace.test",
                 ImportState:       true,
                 ImportStateVerify: true,
             },

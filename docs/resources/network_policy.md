@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_network_policy Resource - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_network_policy Resource - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   Network Policy is applied to all IP packets to and from a given endpoint (called 'local_endpoint').  Local endpoint can be,   prefix : list of ip prefixes representing local endpoint   prefix_selec...
 ---
 
-# f5xc_network_policy (Resource)
+# f5_distributed_cloud_network_policy (Resource)
 
 Network Policy is applied to all IP packets to and from a given endpoint (called 'local_endpoint').  Local endpoint can be,   prefix : list of ip prefixes representing local endpoint   prefix_selec...
 
 ## Example Usage
 
 ```hcl
-resource "f5xc_network_policy" "example" {
+resource "f5_distributed_cloud_network_policy" "example" {
   name        = "example-network_policy"
   namespace   = "system"
   description = "Example NetworkPolicy resource"
@@ -36,5 +36,5 @@ resource "f5xc_network_policy" "example" {
 NetworkPolicy can be imported using the namespace and name:
 
 ```shell
-terraform import f5xc_network_policy.example namespace/name
+terraform import f5_distributed_cloud_network_policy.example namespace/name
 ```

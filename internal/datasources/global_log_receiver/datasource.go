@@ -52,18 +52,18 @@ func (d *GlobalLogReceiverDataSource) Schema(ctx context.Context, req datasource
 	resp.Schema = schema.Schema{
 		Description: "Fetches information about an existing F5 Distributed Cloud Global Log Receiver.",
 		MarkdownDescription: `
-The ` + "`f5xc_global_log_receiver`" + ` data source retrieves information about an existing global log receiver.
+The ` + "`f5_distributed_cloud_global_log_receiver`" + ` data source retrieves information about an existing global log receiver.
 
 ## Example Usage
 
 ` + "```hcl" + `
-data "f5xc_global_log_receiver" "example" {
+data "f5_distributed_cloud_global_log_receiver" "example" {
   name      = "my-global-log-receiver"
   namespace = "system"
 }
 
 output "receiver_type" {
-  value = data.f5xc_global_log_receiver.example.receiver_type
+  value = data.f5_distributed_cloud_global_log_receiver.example.receiver_type
 }
 ` + "```" + `
 `,

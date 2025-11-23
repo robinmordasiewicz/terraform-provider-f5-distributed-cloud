@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_crl Resource - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_crl Resource - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   Certificate Revocation List(CRL)  It contains information about CRL server and how to download the CRL file CRL file is used to validate the certificate presented to check whether it is revoked or ...
 ---
 
-# f5xc_crl (Resource)
+# f5_distributed_cloud_crl (Resource)
 
 Certificate Revocation List(CRL)  It contains information about CRL server and how to download the CRL file CRL file is used to validate the certificate presented to check whether it is revoked or ...
 
 ## Example Usage
 
 ```hcl
-resource "f5xc_crl" "example" {
+resource "f5_distributed_cloud_crl" "example" {
   name        = "example-crl"
   namespace   = "system"
   description = "Example CRL resource"
@@ -36,5 +36,5 @@ resource "f5xc_crl" "example" {
 CRL can be imported using the namespace and name:
 
 ```shell
-terraform import f5xc_crl.example namespace/name
+terraform import f5_distributed_cloud_crl.example namespace/name
 ```

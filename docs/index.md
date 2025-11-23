@@ -14,7 +14,7 @@ The F5 Distributed Cloud (F5 XC) provider enables Terraform to manage F5 XC reso
 ```terraform
 terraform {
   required_providers {
-    f5xc = {
+    f5_distributed_cloud = {
       source  = "robinmordasiewicz/f5-distributed-cloud"
       version = "~> 0.1"
     }
@@ -22,21 +22,21 @@ terraform {
 }
 
 # Configure the provider
-provider "f5xc" {
+provider "f5_distributed_cloud" {
   api_url   = "https://your-tenant.console.ves.volterra.io/api"
   api_token = var.api_token
 }
 
 # Create a namespace
-resource "f5xc_namespace" "example" {
+resource "f5_distributed_cloud_namespace" "example" {
   name        = "my-namespace"
   description = "Example namespace"
 }
 
 # Create an origin pool
-resource "f5xc_origin_pool" "example" {
+resource "f5_distributed_cloud_origin_pool" "example" {
   name              = "backend-pool"
-  namespace         = f5xc_namespace.example.name
+  namespace         = f5_distributed_cloud_namespace.example.name
   port              = 8080
   endpoint_protocol = "http"
 
@@ -48,17 +48,17 @@ resource "f5xc_origin_pool" "example" {
 }
 
 # Create an HTTP load balancer
-resource "f5xc_http_loadbalancer" "example" {
+resource "f5_distributed_cloud_http_loadbalancer" "example" {
   name        = "frontend-lb"
-  namespace   = f5xc_namespace.example.name
+  namespace   = f5_distributed_cloud_namespace.example.name
   domains     = ["app.example.com"]
   http_port   = 80
 
   advertise_on_public = true
 
   default_pool {
-    name      = f5xc_origin_pool.example.name
-    namespace = f5xc_namespace.example.name
+    name      = f5_distributed_cloud_origin_pool.example.name
+    namespace = f5_distributed_cloud_namespace.example.name
   }
 }
 ```
@@ -70,7 +70,7 @@ The provider supports two authentication methods:
 ### API Token (Recommended)
 
 ```terraform
-provider "f5xc" {
+provider "f5_distributed_cloud" {
   api_url   = "https://your-tenant.console.ves.volterra.io/api"
   api_token = var.api_token
 }
@@ -86,7 +86,7 @@ export F5XC_API_TOKEN="your-api-token"
 ### P12 Certificate
 
 ```terraform
-provider "f5xc" {
+provider "f5_distributed_cloud" {
   api_url      = "https://your-tenant.console.ves.volterra.io/api"
   p12_file     = "/path/to/certificate.p12"
   p12_password = var.p12_password

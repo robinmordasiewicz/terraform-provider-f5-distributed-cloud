@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_app_type Resource - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_app_type Resource - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   App Type object defines a application profile type from an advanced monitoring/security point of view. An App type is a set of (micro) services that interact with one another and function as an app...
 ---
 
-# f5xc_app_type (Resource)
+# f5_distributed_cloud_app_type (Resource)
 
 App Type object defines a application profile type from an advanced monitoring/security point of view. An App type is a set of (micro) services that interact with one another and function as an app...
 
 ## Example Usage
 
 ```hcl
-resource "f5xc_app_type" "example" {
+resource "f5_distributed_cloud_app_type" "example" {
   name        = "example-app_type"
   namespace   = "system"
   description = "Example AppType resource"
@@ -36,5 +36,5 @@ resource "f5xc_app_type" "example" {
 AppType can be imported using the namespace and name:
 
 ```shell
-terraform import f5xc_app_type.example namespace/name
+terraform import f5_distributed_cloud_app_type.example namespace/name
 ```

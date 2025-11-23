@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_cloud_credentials Resource - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_cloud_credentials Resource - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   Cloud Credentials object is used to give user cloud credentials to public cloud like AWS, Azure and GCP. These credentials can then be used by different features in volterra to perform cloud API(s)...
 ---
 
-# f5xc_cloud_credentials (Resource)
+# f5_distributed_cloud_cloud_credentials (Resource)
 
 Cloud Credentials object is used to give user cloud credentials to public cloud like AWS, Azure and GCP. These credentials can then be used by different features in volterra to perform cloud API(s)...
 
 ## Example Usage
 
 ```hcl
-resource "f5xc_cloud_credentials" "example" {
+resource "f5_distributed_cloud_cloud_credentials" "example" {
   name        = "example-cloud_credentials"
   namespace   = "system"
   description = "Example CloudCredentials resource"
@@ -36,5 +36,5 @@ resource "f5xc_cloud_credentials" "example" {
 CloudCredentials can be imported using the namespace and name:
 
 ```shell
-terraform import f5xc_cloud_credentials.example namespace/name
+terraform import f5_distributed_cloud_cloud_credentials.example namespace/name
 ```

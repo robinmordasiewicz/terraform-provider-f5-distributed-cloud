@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_protected_application Resource - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_protected_application Resource - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   Configures application protected by Bot Defense
 ---
 
-# f5xc_protected_application (Resource)
+# f5_distributed_cloud_protected_application (Resource)
 
 Configures application protected by Bot Defense
 
 ## Example Usage
 
 ```hcl
-resource "f5xc_protected_application" "example" {
+resource "f5_distributed_cloud_protected_application" "example" {
   name        = "example-protected_application"
   namespace   = "system"
   description = "Example ProtectedApplication resource"
@@ -36,5 +36,5 @@ resource "f5xc_protected_application" "example" {
 ProtectedApplication can be imported using the namespace and name:
 
 ```shell
-terraform import f5xc_protected_application.example namespace/name
+terraform import f5_distributed_cloud_protected_application.example namespace/name
 ```

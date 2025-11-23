@@ -14,14 +14,14 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages an F5 Distributed Cloud RBAC Policy. RBAC Policies define role-based access control rules.",
 		MarkdownDescription: `
-The ` + "`f5xc_rbac_policy`" + ` resource manages RBAC Policies in F5 Distributed Cloud.
+The ` + "`f5_distributed_cloud_rbac_policy`" + ` resource manages RBAC Policies in F5 Distributed Cloud.
 
 RBAC Policies define role-based access control rules that determine what actions users and services can perform on specific resources.
 
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5xc_rbac_policy" "example" {
+resource "f5_distributed_cloud_rbac_policy" "example" {
   name        = "my-rbac-policy"
   namespace   = "my-namespace"
   description = "RBAC policy for application access"

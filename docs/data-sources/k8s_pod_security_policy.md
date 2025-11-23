@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_k8s_pod_security_policy Data Source - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_k8s_pod_security_policy Data Source - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   Pod Security Policies enable fine-grained authorization of pod creation and updates.
 ---
 
-# f5xc_k8s_pod_security_policy (Data Source)
+# f5_distributed_cloud_k8s_pod_security_policy (Data Source)
 
 Pod Security Policies enable fine-grained authorization of pod creation and updates.
 
 ## Example Usage
 
 ```hcl
-data "f5xc_k8s_pod_security_policy" "example" {
+data "f5_distributed_cloud_k8s_pod_security_policy" "example" {
   name      = "example-k8s_pod_security_policy"
   namespace = "system"
 }

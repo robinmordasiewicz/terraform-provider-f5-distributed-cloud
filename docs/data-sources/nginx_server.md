@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_nginx_server Data Source - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_nginx_server Data Source - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   NGINX One Server Object configuration
 ---
 
-# f5xc_nginx_server (Data Source)
+# f5_distributed_cloud_nginx_server (Data Source)
 
 NGINX One Server Object configuration
 
 ## Example Usage
 
 ```hcl
-data "f5xc_nginx_server" "example" {
+data "f5_distributed_cloud_nginx_server" "example" {
   name      = "example-nginx_server"
   namespace = "system"
 }

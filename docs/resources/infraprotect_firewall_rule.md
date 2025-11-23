@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_infraprotect_firewall_rule Resource - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_infraprotect_firewall_rule Resource - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   DDoS transit Firewall Rule
 ---
 
-# f5xc_infraprotect_firewall_rule (Resource)
+# f5_distributed_cloud_infraprotect_firewall_rule (Resource)
 
 DDoS transit Firewall Rule
 
 ## Example Usage
 
 ```hcl
-resource "f5xc_infraprotect_firewall_rule" "example" {
+resource "f5_distributed_cloud_infraprotect_firewall_rule" "example" {
   name        = "example-infraprotect_firewall_rule"
   namespace   = "system"
   description = "Example InfraprotectFirewallRule resource"
@@ -36,5 +36,5 @@ resource "f5xc_infraprotect_firewall_rule" "example" {
 InfraprotectFirewallRule can be imported using the namespace and name:
 
 ```shell
-terraform import f5xc_infraprotect_firewall_rule.example namespace/name
+terraform import f5_distributed_cloud_infraprotect_firewall_rule.example namespace/name
 ```

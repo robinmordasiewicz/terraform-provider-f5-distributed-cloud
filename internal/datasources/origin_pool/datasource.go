@@ -58,18 +58,18 @@ func (d *OriginPoolDataSource) Schema(ctx context.Context, req datasource.Schema
 	resp.Schema = schema.Schema{
 		Description: "Fetches information about an existing F5 Distributed Cloud Origin Pool.",
 		MarkdownDescription: `
-The ` + "`f5xc_origin_pool`" + ` data source retrieves information about an existing origin pool.
+The ` + "`f5_distributed_cloud_origin_pool`" + ` data source retrieves information about an existing origin pool.
 
 ## Example Usage
 
 ` + "```hcl" + `
-data "f5xc_origin_pool" "example" {
+data "f5_distributed_cloud_origin_pool" "example" {
   name      = "my-origin-pool"
   namespace = "my-namespace"
 }
 
 output "origin_pool_port" {
-  value = data.f5xc_origin_pool.example.port
+  value = data.f5_distributed_cloud_origin_pool.example.port
 }
 ` + "```" + `
 `,

@@ -54,18 +54,18 @@ func (d *APIDefinitionDataSource) Schema(ctx context.Context, req datasource.Sch
 	resp.Schema = schema.Schema{
 		Description: "Fetches information about an existing F5 Distributed Cloud API Definition.",
 		MarkdownDescription: `
-The ` + "`f5xc_api_definition`" + ` data source retrieves information about an existing API definition.
+The ` + "`f5_distributed_cloud_api_definition`" + ` data source retrieves information about an existing API definition.
 
 ## Example Usage
 
 ` + "```hcl" + `
-data "f5xc_api_definition" "example" {
+data "f5_distributed_cloud_api_definition" "example" {
   name      = "my-api-definition"
   namespace = "my-namespace"
 }
 
 output "swagger_url" {
-  value = data.f5xc_api_definition.example.swagger_url
+  value = data.f5_distributed_cloud_api_definition.example.swagger_url
 }
 ` + "```" + `
 `,

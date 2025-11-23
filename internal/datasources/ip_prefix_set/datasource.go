@@ -52,18 +52,18 @@ func (d *IPPrefixSetDataSource) Schema(ctx context.Context, req datasource.Schem
 	resp.Schema = schema.Schema{
 		Description: "Fetches information about an existing F5 Distributed Cloud IP Prefix Set.",
 		MarkdownDescription: `
-The ` + "`f5xc_ip_prefix_set`" + ` data source retrieves information about an existing IP prefix set.
+The ` + "`f5_distributed_cloud_ip_prefix_set`" + ` data source retrieves information about an existing IP prefix set.
 
 ## Example Usage
 
 ` + "```hcl" + `
-data "f5xc_ip_prefix_set" "example" {
+data "f5_distributed_cloud_ip_prefix_set" "example" {
   name      = "my-prefix-set"
   namespace = "my-namespace"
 }
 
 output "prefixes" {
-  value = data.f5xc_ip_prefix_set.example.prefixes
+  value = data.f5_distributed_cloud_ip_prefix_set.example.prefixes
 }
 ` + "```" + `
 `,

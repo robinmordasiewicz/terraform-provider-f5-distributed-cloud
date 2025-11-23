@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_geo_location_set Resource - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_geo_location_set Resource - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   Defines the geo_location_set created by user
 ---
 
-# f5xc_geo_location_set (Resource)
+# f5_distributed_cloud_geo_location_set (Resource)
 
 Defines the geo_location_set created by user
 
 ## Example Usage
 
 ```hcl
-resource "f5xc_geo_location_set" "example" {
+resource "f5_distributed_cloud_geo_location_set" "example" {
   name        = "example-geo_location_set"
   namespace   = "system"
   description = "Example GeoLocationSet resource"
@@ -36,5 +36,5 @@ resource "f5xc_geo_location_set" "example" {
 GeoLocationSet can be imported using the namespace and name:
 
 ```shell
-terraform import f5xc_geo_location_set.example namespace/name
+terraform import f5_distributed_cloud_geo_location_set.example namespace/name
 ```

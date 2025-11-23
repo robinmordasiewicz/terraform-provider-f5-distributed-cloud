@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_cloud_site Resource - F5 Distributed Cloud"
+page_title: "f5_distributed_cloud_cloud_site Resource - F5 Distributed Cloud"
 subcategory: ""
 description: |-
   Manages an F5 Distributed Cloud Site (AWS VPC, Azure VNET, or GCP VPC).
 ---
 
-# f5xc_cloud_site (Resource)
+# f5_distributed_cloud_cloud_site (Resource)
 
 Manages an F5 Distributed Cloud Site in AWS, Azure, or GCP.
 
@@ -16,7 +16,7 @@ Cloud Sites are deployed infrastructure in public cloud providers that enable F5
 ### AWS VPC Site
 
 ```terraform
-resource "f5xc_cloud_site" "aws" {
+resource "f5_distributed_cloud_cloud_site" "aws" {
   name           = "aws-site"
   site_type      = "aws_vpc_site"
   cloud_provider = "aws"
@@ -43,7 +43,7 @@ resource "f5xc_cloud_site" "aws" {
 ### Azure VNET Site
 
 ```terraform
-resource "f5xc_cloud_site" "azure" {
+resource "f5_distributed_cloud_cloud_site" "azure" {
   name           = "azure-site"
   site_type      = "azure_vnet_site"
   cloud_provider = "azure"
@@ -106,5 +106,5 @@ resource "f5xc_cloud_site" "azure" {
 Cloud Sites can be imported using the name:
 
 ```shell
-terraform import f5xc_cloud_site.example aws-site
+terraform import f5_distributed_cloud_cloud_site.example aws-site
 ```

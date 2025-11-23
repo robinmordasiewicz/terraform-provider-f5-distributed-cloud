@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_wifi Data Source - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_wifi Data Source - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   Proto definitions for runtime WIFI info on sites.
 ---
 
-# f5xc_wifi (Data Source)
+# f5_distributed_cloud_wifi (Data Source)
 
 Proto definitions for runtime WIFI info on sites.
 
 ## Example Usage
 
 ```hcl
-data "f5xc_wifi" "example" {
+data "f5_distributed_cloud_wifi" "example" {
   name      = "example-wifi"
   namespace = "system"
 }

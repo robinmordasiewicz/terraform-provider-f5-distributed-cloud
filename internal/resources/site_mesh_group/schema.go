@@ -15,14 +15,14 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages F5 Distributed Cloud Site Mesh Group.",
 		MarkdownDescription: `
-The ` + "`f5xc_site_mesh_group`" + ` resource manages Site Mesh Groups in F5 Distributed Cloud.
+The ` + "`f5_distributed_cloud_site_mesh_group`" + ` resource manages Site Mesh Groups in F5 Distributed Cloud.
 
 Site Mesh Groups enable network connectivity between sites in a service mesh topology.
 
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5xc_site_mesh_group" "example" {
+resource "f5_distributed_cloud_site_mesh_group" "example" {
   name      = "my-mesh-group"
   namespace = "system"
   type      = "SITE_MESH_GROUP_TYPE_FULL_MESH"

@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_policy_based_routing Resource - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_policy_based_routing Resource - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   Policy based routing is used to control how different classes of traffic is forwarded and QOS is applied over WAN interfaces in SDWAN scenarios.
 ---
 
-# f5xc_policy_based_routing (Resource)
+# f5_distributed_cloud_policy_based_routing (Resource)
 
 Policy based routing is used to control how different classes of traffic is forwarded and QOS is applied over WAN interfaces in SDWAN scenarios.
 
 ## Example Usage
 
 ```hcl
-resource "f5xc_policy_based_routing" "example" {
+resource "f5_distributed_cloud_policy_based_routing" "example" {
   name        = "example-policy_based_routing"
   namespace   = "system"
   description = "Example PolicyBasedRouting resource"
@@ -36,5 +36,5 @@ resource "f5xc_policy_based_routing" "example" {
 PolicyBasedRouting can be imported using the namespace and name:
 
 ```shell
-terraform import f5xc_policy_based_routing.example namespace/name
+terraform import f5_distributed_cloud_policy_based_routing.example namespace/name
 ```

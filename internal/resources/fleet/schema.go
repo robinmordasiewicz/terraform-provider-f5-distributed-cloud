@@ -13,14 +13,14 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages an F5 Distributed Cloud Fleet. Fleets group and manage edge sites.",
 		MarkdownDescription: `
-The ` + "`f5xc_fleet`" + ` resource manages Fleets in F5 Distributed Cloud.
+The ` + "`f5_distributed_cloud_fleet`" + ` resource manages Fleets in F5 Distributed Cloud.
 
 Fleets group and manage edge sites.
 
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5xc_fleet" "example" {
+resource "f5_distributed_cloud_fleet" "example" {
   name        = "my-fleet"
   namespace   = "my-namespace"
   description = "Example fleet"

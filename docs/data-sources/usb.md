@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_usb Data Source - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_usb Data Source - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   Proto definitions for runtime USB info on sites.
 ---
 
-# f5xc_usb (Data Source)
+# f5_distributed_cloud_usb (Data Source)
 
 Proto definitions for runtime USB info on sites.
 
 ## Example Usage
 
 ```hcl
-data "f5xc_usb" "example" {
+data "f5_distributed_cloud_usb" "example" {
   name      = "example-usb"
   namespace = "system"
 }

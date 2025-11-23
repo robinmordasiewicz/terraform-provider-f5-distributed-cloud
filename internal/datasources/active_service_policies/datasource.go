@@ -52,18 +52,18 @@ func (d *ActiveServicePoliciesDataSource) Schema(ctx context.Context, req dataso
 	resp.Schema = schema.Schema{
 		Description: "Fetches information about existing F5 Distributed Cloud Active Service Policies.",
 		MarkdownDescription: `
-The ` + "`f5xc_active_service_policies`" + ` data source retrieves information about active service policies.
+The ` + "`f5_distributed_cloud_active_service_policies`" + ` data source retrieves information about active service policies.
 
 ## Example Usage
 
 ` + "```hcl" + `
-data "f5xc_active_service_policies" "example" {
+data "f5_distributed_cloud_active_service_policies" "example" {
   name      = "my-active-policies"
   namespace = "my-namespace"
 }
 
 output "enabled" {
-  value = data.f5xc_active_service_policies.example.enabled
+  value = data.f5_distributed_cloud_active_service_policies.example.enabled
 }
 ` + "```" + `
 `,

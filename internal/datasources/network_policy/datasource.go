@@ -52,18 +52,18 @@ func (d *NetworkPolicyDataSource) Schema(ctx context.Context, req datasource.Sch
 	resp.Schema = schema.Schema{
 		Description: "Fetches information about an existing F5 Distributed Cloud Network Policy.",
 		MarkdownDescription: `
-The ` + "`f5xc_network_policy`" + ` data source retrieves information about an existing network policy.
+The ` + "`f5_distributed_cloud_network_policy`" + ` data source retrieves information about an existing network policy.
 
 ## Example Usage
 
 ` + "```hcl" + `
-data "f5xc_network_policy" "example" {
+data "f5_distributed_cloud_network_policy" "example" {
   name      = "my-network-policy"
   namespace = "my-namespace"
 }
 
 output "policy_type" {
-  value = data.f5xc_network_policy.example.policy_type
+  value = data.f5_distributed_cloud_network_policy.example.policy_type
 }
 ` + "```" + `
 `,

@@ -15,14 +15,14 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages F5 Distributed Cloud Secret Policy.",
 		MarkdownDescription: `
-The ` + "`f5xc_secret_policy`" + ` resource manages Secret Policies in F5 Distributed Cloud.
+The ` + "`f5_distributed_cloud_secret_policy`" + ` resource manages Secret Policies in F5 Distributed Cloud.
 
 Secret Policies define access control for secrets management.
 
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5xc_secret_policy" "example" {
+resource "f5_distributed_cloud_secret_policy" "example" {
   name        = "app-secrets-policy"
   namespace   = "my-namespace"
   policy_type = "ALLOW_READ"

@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_protected_domain Data Source - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_protected_domain Data Source - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   Domain to Protect Object defines which domains will be protected by Client-Side Defense Client-Side Defense Objects is used to configure Client-Side Defense to detect/mitigate anomalous URLs for en...
 ---
 
-# f5xc_protected_domain (Data Source)
+# f5_distributed_cloud_protected_domain (Data Source)
 
 Domain to Protect Object defines which domains will be protected by Client-Side Defense Client-Side Defense Objects is used to configure Client-Side Defense to detect/mitigate anomalous URLs for en...
 
 ## Example Usage
 
 ```hcl
-data "f5xc_protected_domain" "example" {
+data "f5_distributed_cloud_protected_domain" "example" {
   name      = "example-protected_domain"
   namespace = "system"
 }

@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_reporting Data Source - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_reporting Data Source - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   Use this API to generate reports for Shape Bot Defense
 ---
 
-# f5xc_reporting (Data Source)
+# f5_distributed_cloud_reporting (Data Source)
 
 Use this API to generate reports for Shape Bot Defense
 
 ## Example Usage
 
 ```hcl
-data "f5xc_reporting" "example" {
+data "f5_distributed_cloud_reporting" "example" {
   name      = "example-reporting"
   namespace = "system"
 }

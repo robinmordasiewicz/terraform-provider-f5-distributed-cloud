@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_infraprotect_asn_prefix Data Source - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_infraprotect_asn_prefix Data Source - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   DDoS transit Prefix Information
 ---
 
-# f5xc_infraprotect_asn_prefix (Data Source)
+# f5_distributed_cloud_infraprotect_asn_prefix (Data Source)
 
 DDoS transit Prefix Information
 
 ## Example Usage
 
 ```hcl
-data "f5xc_infraprotect_asn_prefix" "example" {
+data "f5_distributed_cloud_infraprotect_asn_prefix" "example" {
   name      = "example-infraprotect_asn_prefix"
   namespace = "system"
 }

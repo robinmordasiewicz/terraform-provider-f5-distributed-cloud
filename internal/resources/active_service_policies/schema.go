@@ -13,14 +13,14 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages F5 Distributed Cloud Active Service Policies.",
 		MarkdownDescription: `
-The ` + "`f5xc_active_service_policies`" + ` resource manages Active Service Policies in F5 Distributed Cloud.
+The ` + "`f5_distributed_cloud_active_service_policies`" + ` resource manages Active Service Policies in F5 Distributed Cloud.
 
 Active Service Policies allow you to activate and apply a set of service policies to sites or virtual sites.
 
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5xc_active_service_policies" "example" {
+resource "f5_distributed_cloud_active_service_policies" "example" {
   name      = "active-policies"
   namespace = "system"
 

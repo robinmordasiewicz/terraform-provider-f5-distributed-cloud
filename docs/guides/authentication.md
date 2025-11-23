@@ -25,7 +25,7 @@ API tokens are the recommended authentication method for most use cases.
 #### In Provider Configuration
 
 ```hcl
-provider "f5xc" {
+provider "f5_distributed_cloud" {
   api_url   = "https://your-tenant.console.ves.volterra.io/api"
   api_token = var.api_token
 }
@@ -46,7 +46,7 @@ export F5XC_API_TOKEN="your-api-token"
 
 ```hcl
 # Provider will use environment variables
-provider "f5xc" {}
+provider "f5_distributed_cloud" {}
 ```
 
 ### API Token Security Best Practices
@@ -74,7 +74,7 @@ Certificate authentication uses PKCS#12 (.p12) files containing your client cert
 #### In Provider Configuration
 
 ```hcl
-provider "f5xc" {
+provider "f5_distributed_cloud" {
   api_url      = "https://your-tenant.console.ves.volterra.io/api"
   p12_file     = var.p12_file
   p12_password = var.p12_password
@@ -101,7 +101,7 @@ export F5XC_API_P12_PASSWORD="your-password"
 ```
 
 ```hcl
-provider "f5xc" {}
+provider "f5_distributed_cloud" {}
 ```
 
 ### P12 Certificate Security Best Practices
@@ -191,8 +191,8 @@ pipeline {
     agent any
 
     environment {
-        F5XC_API_URL     = credentials('f5xc-api-url')
-        F5XC_API_TOKEN   = credentials('f5xc-api-token')
+        F5XC_API_URL     = credentials('f5-distributed-cloud-api-url')
+        F5XC_API_TOKEN   = credentials('f5-distributed-cloud-api-token')
     }
 
     stages {
@@ -220,30 +220,30 @@ pipeline {
 ### HashiCorp Vault
 
 ```hcl
-data "vault_generic_secret" "f5xc" {
-  path = "secret/f5xc"
+data "vault_generic_secret" "f5_distributed_cloud" {
+  path = "secret/f5-distributed-cloud"
 }
 
-provider "f5xc" {
-  api_url   = data.vault_generic_secret.f5xc.data["api_url"]
-  api_token = data.vault_generic_secret.f5xc.data["api_token"]
+provider "f5_distributed_cloud" {
+  api_url   = data.vault_generic_secret.f5_distributed_cloud.data["api_url"]
+  api_token = data.vault_generic_secret.f5_distributed_cloud.data["api_token"]
 }
 ```
 
 ### AWS Secrets Manager
 
 ```hcl
-data "aws_secretsmanager_secret_version" "f5xc" {
-  secret_id = "f5xc-credentials"
+data "aws_secretsmanager_secret_version" "f5_distributed_cloud" {
+  secret_id = "f5-distributed-cloud-credentials"
 }
 
 locals {
-  f5xc_creds = jsondecode(data.aws_secretsmanager_secret_version.f5xc.secret_string)
+  f5_distributed_cloud_creds = jsondecode(data.aws_secretsmanager_secret_version.f5_distributed_cloud.secret_string)
 }
 
-provider "f5xc" {
-  api_url   = local.f5xc_creds.api_url
-  api_token = local.f5xc_creds.api_token
+provider "f5_distributed_cloud" {
+  api_url   = local.f5_distributed_cloud_creds.api_url
+  api_token = local.f5_distributed_cloud_creds.api_token
 }
 ```
 

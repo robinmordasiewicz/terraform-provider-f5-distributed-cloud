@@ -14,14 +14,14 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages an F5 Distributed Cloud CDN Load Balancer.",
 		MarkdownDescription: `
-The ` + "`f5xc_cdn_loadbalancer`" + ` resource manages CDN Load Balancers in F5 Distributed Cloud.
+The ` + "`f5_distributed_cloud_cdn_loadbalancer`" + ` resource manages CDN Load Balancers in F5 Distributed Cloud.
 
 CDN Load Balancers provide content delivery network capabilities with edge caching.
 
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5xc_cdn_loadbalancer" "example" {
+resource "f5_distributed_cloud_cdn_loadbalancer" "example" {
   name        = "my-cdn-lb"
   namespace   = "system"
   description = "CDN load balancer for static content"

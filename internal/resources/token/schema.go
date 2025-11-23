@@ -14,7 +14,7 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages an F5 Distributed Cloud Token. Tokens provide authentication for site registration.",
 		MarkdownDescription: `
-The ` + "`f5xc_token`" + ` resource manages Tokens in F5 Distributed Cloud.
+The ` + "`f5_distributed_cloud_token`" + ` resource manages Tokens in F5 Distributed Cloud.
 
 Tokens provide authentication for site registration, allowing Customer Edge (CE)
 sites to securely register with the F5 Distributed Cloud platform.
@@ -22,7 +22,7 @@ sites to securely register with the F5 Distributed Cloud platform.
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5xc_token" "example" {
+resource "f5_distributed_cloud_token" "example" {
   name        = "my-site-token"
   namespace   = "system"
   description = "Token for site registration"
@@ -34,7 +34,7 @@ resource "f5xc_token" "example" {
 Tokens can be imported using namespace/name:
 
 ` + "```shell" + `
-terraform import f5xc_token.example system/my-site-token
+terraform import f5_distributed_cloud_token.example system/my-site-token
 ` + "```" + `
 `,
 		Attributes: map[string]schema.Attribute{

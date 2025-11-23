@@ -17,7 +17,7 @@ import (
 )
 
 var testAccProtoV6ProviderFactories = map[string]func() (tfprotov6.ProviderServer, error){
-	"f5xc": providerserver.NewProtocol6WithError(provider.New("test")()),
+	"f5_distributed_cloud": providerserver.NewProtocol6WithError(provider.New("test")()),
 }
 
 func testAccPreCheck(t *testing.T) {
@@ -41,10 +41,10 @@ func TestAccCloudSiteResource_createAWS(t *testing.T) {
 			{
 				Config: testAccCloudSiteResourceConfigAWS(rName, "Test AWS Site"),
 				Check: resource.ComposeTestCheckFunc(
-					resource.TestCheckResourceAttr("f5xc_cloud_site.test", "name", rName),
-					resource.TestCheckResourceAttr("f5xc_cloud_site.test", "site_type", "aws_vpc_site"),
-					resource.TestCheckResourceAttr("f5xc_cloud_site.test", "cloud_provider", "aws"),
-					resource.TestCheckResourceAttrSet("f5xc_cloud_site.test", "id"),
+					resource.TestCheckResourceAttr("f5_distributed_cloud_cloud_site.test", "name", rName),
+					resource.TestCheckResourceAttr("f5_distributed_cloud_cloud_site.test", "site_type", "aws_vpc_site"),
+					resource.TestCheckResourceAttr("f5_distributed_cloud_cloud_site.test", "cloud_provider", "aws"),
+					resource.TestCheckResourceAttrSet("f5_distributed_cloud_cloud_site.test", "id"),
 				),
 			},
 		},
@@ -62,10 +62,10 @@ func TestAccCloudSiteResource_createAzure(t *testing.T) {
 			{
 				Config: testAccCloudSiteResourceConfigAzure(rName, "Test Azure Site"),
 				Check: resource.ComposeTestCheckFunc(
-					resource.TestCheckResourceAttr("f5xc_cloud_site.test", "name", rName),
-					resource.TestCheckResourceAttr("f5xc_cloud_site.test", "site_type", "azure_vnet_site"),
-					resource.TestCheckResourceAttr("f5xc_cloud_site.test", "cloud_provider", "azure"),
-					resource.TestCheckResourceAttrSet("f5xc_cloud_site.test", "id"),
+					resource.TestCheckResourceAttr("f5_distributed_cloud_cloud_site.test", "name", rName),
+					resource.TestCheckResourceAttr("f5_distributed_cloud_cloud_site.test", "site_type", "azure_vnet_site"),
+					resource.TestCheckResourceAttr("f5_distributed_cloud_cloud_site.test", "cloud_provider", "azure"),
+					resource.TestCheckResourceAttrSet("f5_distributed_cloud_cloud_site.test", "id"),
 				),
 			},
 		},
@@ -83,10 +83,10 @@ func TestAccCloudSiteResource_createGCP(t *testing.T) {
 			{
 				Config: testAccCloudSiteResourceConfigGCP(rName, "Test GCP Site"),
 				Check: resource.ComposeTestCheckFunc(
-					resource.TestCheckResourceAttr("f5xc_cloud_site.test", "name", rName),
-					resource.TestCheckResourceAttr("f5xc_cloud_site.test", "site_type", "gcp_vpc_site"),
-					resource.TestCheckResourceAttr("f5xc_cloud_site.test", "cloud_provider", "gcp"),
-					resource.TestCheckResourceAttrSet("f5xc_cloud_site.test", "id"),
+					resource.TestCheckResourceAttr("f5_distributed_cloud_cloud_site.test", "name", rName),
+					resource.TestCheckResourceAttr("f5_distributed_cloud_cloud_site.test", "site_type", "gcp_vpc_site"),
+					resource.TestCheckResourceAttr("f5_distributed_cloud_cloud_site.test", "cloud_provider", "gcp"),
+					resource.TestCheckResourceAttrSet("f5_distributed_cloud_cloud_site.test", "id"),
 				),
 			},
 		},
@@ -103,11 +103,11 @@ func TestAccCloudSiteResource_update(t *testing.T) {
 		Steps: []resource.TestStep{
 			{
 				Config: testAccCloudSiteResourceConfigAWS(rName, "Initial"),
-				Check:  resource.TestCheckResourceAttr("f5xc_cloud_site.test", "description", "Initial"),
+				Check:  resource.TestCheckResourceAttr("f5_distributed_cloud_cloud_site.test", "description", "Initial"),
 			},
 			{
 				Config: testAccCloudSiteResourceConfigAWS(rName, "Updated"),
-				Check:  resource.TestCheckResourceAttr("f5xc_cloud_site.test", "description", "Updated"),
+				Check:  resource.TestCheckResourceAttr("f5_distributed_cloud_cloud_site.test", "description", "Updated"),
 			},
 		},
 	})
@@ -140,7 +140,7 @@ func TestAccCloudSiteResource_import(t *testing.T) {
 				Config: testAccCloudSiteResourceConfigAWS(rName, "For import"),
 			},
 			{
-				ResourceName:            "f5xc_cloud_site.test",
+				ResourceName:            "f5_distributed_cloud_cloud_site.test",
 				ImportState:             true,
 				ImportStateVerify:       true,
 				ImportStateVerifyIgnore: []string{"site_type", "cloud_provider"},
@@ -152,9 +152,9 @@ func TestAccCloudSiteResource_import(t *testing.T) {
 
 func testAccCloudSiteResourceConfigAWS(name, description string) string {
 	return fmt.Sprintf(`
-provider "f5xc" {}
+provider "f5_distributed_cloud" {}
 
-resource "f5xc_cloud_site" "test" {
+resource "f5_distributed_cloud_cloud_site" "test" {
   name           = %[1]q
   description    = %[2]q
   site_type      = "aws_vpc_site"
@@ -182,9 +182,9 @@ resource "f5xc_cloud_site" "test" {
 
 func testAccCloudSiteResourceConfigAzure(name, description string) string {
 	return fmt.Sprintf(`
-provider "f5xc" {}
+provider "f5_distributed_cloud" {}
 
-resource "f5xc_cloud_site" "test" {
+resource "f5_distributed_cloud_cloud_site" "test" {
   name           = %[1]q
   description    = %[2]q
   site_type      = "azure_vnet_site"
@@ -212,9 +212,9 @@ resource "f5xc_cloud_site" "test" {
 
 func testAccCloudSiteResourceConfigGCP(name, description string) string {
 	return fmt.Sprintf(`
-provider "f5xc" {}
+provider "f5_distributed_cloud" {}
 
-resource "f5xc_cloud_site" "test" {
+resource "f5_distributed_cloud_cloud_site" "test" {
   name           = %[1]q
   description    = %[2]q
   site_type      = "gcp_vpc_site"

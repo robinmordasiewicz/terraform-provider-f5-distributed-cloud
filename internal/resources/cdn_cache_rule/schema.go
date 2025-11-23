@@ -14,14 +14,14 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages an F5 Distributed Cloud CDN Cache Rule.",
 		MarkdownDescription: `
-The ` + "`f5xc_cdn_cache_rule`" + ` resource manages CDN Cache Rules in F5 Distributed Cloud.
+The ` + "`f5_distributed_cloud_cdn_cache_rule`" + ` resource manages CDN Cache Rules in F5 Distributed Cloud.
 
 CDN Cache Rules define caching behavior for specific paths or content types.
 
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5xc_cdn_cache_rule" "example" {
+resource "f5_distributed_cloud_cdn_cache_rule" "example" {
   name        = "static-assets-cache"
   namespace   = "system"
   description = "Cache static assets for 1 hour"

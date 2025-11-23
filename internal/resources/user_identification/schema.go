@@ -14,14 +14,14 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages an F5 Distributed Cloud User Identification. User Identifications define how users are identified.",
 		MarkdownDescription: `
-The ` + "`f5xc_user_identification`" + ` resource manages User Identifications in F5 Distributed Cloud.
+The ` + "`f5_distributed_cloud_user_identification`" + ` resource manages User Identifications in F5 Distributed Cloud.
 
 User Identifications define how users are identified for tracking and security purposes.
 
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5xc_user_identification" "example" {
+resource "f5_distributed_cloud_user_identification" "example" {
   name        = "my-user-identification"
   namespace   = "my-namespace"
   description = "Example User Identification"
@@ -33,7 +33,7 @@ resource "f5xc_user_identification" "example" {
 User Identifications can be imported using namespace/name:
 
 ` + "```shell" + `
-terraform import f5xc_user_identification.example my-namespace/my-user-identification
+terraform import f5_distributed_cloud_user_identification.example my-namespace/my-user-identification
 ` + "```" + `
 `,
 		Attributes: map[string]schema.Attribute{

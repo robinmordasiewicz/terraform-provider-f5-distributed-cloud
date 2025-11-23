@@ -14,7 +14,7 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages an F5 Distributed Cloud namespace.",
 		MarkdownDescription: `
-The ` + "`f5xc_namespace`" + ` resource manages namespaces in F5 Distributed Cloud.
+The ` + "`f5_distributed_cloud_namespace`" + ` resource manages namespaces in F5 Distributed Cloud.
 
 Namespaces are the fundamental organizational unit in F5 XC, providing logical isolation
 for resources like load balancers, origin pools, and application firewalls.
@@ -22,7 +22,7 @@ for resources like load balancers, origin pools, and application firewalls.
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5xc_namespace" "example" {
+resource "f5_distributed_cloud_namespace" "example" {
   name        = "my-namespace"
   description = "Example namespace for my application"
 }
@@ -33,7 +33,7 @@ resource "f5xc_namespace" "example" {
 Namespaces can be imported using their name:
 
 ` + "```shell" + `
-terraform import f5xc_namespace.example my-namespace
+terraform import f5_distributed_cloud_namespace.example my-namespace
 ` + "```" + `
 `,
 		Attributes: map[string]schema.Attribute{

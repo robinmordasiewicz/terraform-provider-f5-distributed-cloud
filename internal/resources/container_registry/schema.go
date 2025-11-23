@@ -14,14 +14,14 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages an F5 Distributed Cloud Container Registry. Container registries store and manage container images.",
 		MarkdownDescription: `
-The ` + "`f5xc_container_registry`" + ` resource manages Container Registries in F5 Distributed Cloud.
+The ` + "`f5_distributed_cloud_container_registry`" + ` resource manages Container Registries in F5 Distributed Cloud.
 
 Container registries store and manage container images.
 
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5xc_container_registry" "example" {
+resource "f5_distributed_cloud_container_registry" "example" {
   name        = "my-container-registry"
   namespace   = "shared"
   description = "Container registry for application images"
@@ -33,7 +33,7 @@ resource "f5xc_container_registry" "example" {
 Container Registries can be imported using namespace/name:
 
 ` + "```shell" + `
-terraform import f5xc_container_registry.example shared/my-container-registry
+terraform import f5_distributed_cloud_container_registry.example shared/my-container-registry
 ` + "```" + `
 `,
 		Attributes: map[string]schema.Attribute{

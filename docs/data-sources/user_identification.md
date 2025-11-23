@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_user_identification Data Source - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_user_identification Data Source - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   A user_identification object consists of an ordered list of rules. The rules are evaluated against the input fields that are extracted from an request API to determine a user identifier. The identi...
 ---
 
-# f5xc_user_identification (Data Source)
+# f5_distributed_cloud_user_identification (Data Source)
 
 A user_identification object consists of an ordered list of rules. The rules are evaluated against the input fields that are extracted from an request API to determine a user identifier. The identi...
 
 ## Example Usage
 
 ```hcl
-data "f5xc_user_identification" "example" {
+data "f5_distributed_cloud_user_identification" "example" {
   name      = "example-user_identification"
   namespace = "system"
 }

@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_mobile_base_config Resource - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_mobile_base_config Resource - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   Configures Mobile SDK Base Configuration
 ---
 
-# f5xc_mobile_base_config (Resource)
+# f5_distributed_cloud_mobile_base_config (Resource)
 
 Configures Mobile SDK Base Configuration
 
 ## Example Usage
 
 ```hcl
-resource "f5xc_mobile_base_config" "example" {
+resource "f5_distributed_cloud_mobile_base_config" "example" {
   name        = "example-mobile_base_config"
   namespace   = "system"
   description = "Example MobileBaseConfig resource"
@@ -36,5 +36,5 @@ resource "f5xc_mobile_base_config" "example" {
 MobileBaseConfig can be imported using the namespace and name:
 
 ```shell
-terraform import f5xc_mobile_base_config.example namespace/name
+terraform import f5_distributed_cloud_mobile_base_config.example namespace/name
 ```

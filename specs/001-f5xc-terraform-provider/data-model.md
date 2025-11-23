@@ -47,7 +47,7 @@
 ### 1. Provider Configuration
 
 ```hcl
-provider "f5xc" {
+provider "f5_distributed_cloud" {
   api_url    = "https://<tenant>.console.ves.volterra.io/api"
 
   # Option 1: Certificate Authentication
@@ -77,12 +77,12 @@ provider "f5xc" {
 
 ### 2. Namespace
 
-**Resource**: `f5xc_namespace`
+**Resource**: `f5_distributed_cloud_namespace`
 
 The fundamental organizational unit in F5 XC. All other resources belong to a namespace.
 
 ```hcl
-resource "f5xc_namespace" "example" {
+resource "f5_distributed_cloud_namespace" "example" {
   name        = "production"
   description = "Production environment namespace"
 
@@ -111,14 +111,14 @@ resource "f5xc_namespace" "example" {
 
 ### 3. HTTP Load Balancer
 
-**Resource**: `f5xc_http_loadbalancer`
+**Resource**: `f5_distributed_cloud_http_loadbalancer`
 
 Distributes HTTP/HTTPS traffic to backend origin pools.
 
 ```hcl
-resource "f5xc_http_loadbalancer" "example" {
+resource "f5_distributed_cloud_http_loadbalancer" "example" {
   name      = "api-gateway"
-  namespace = f5xc_namespace.example.name
+  namespace = f5_distributed_cloud_namespace.example.name
 
   domains = ["api.example.com"]
 
@@ -134,16 +134,16 @@ resource "f5xc_http_loadbalancer" "example" {
   default_route {
     origin_pools {
       pool {
-        name      = f5xc_origin_pool.backend.name
-        namespace = f5xc_namespace.example.name
+        name      = f5_distributed_cloud_origin_pool.backend.name
+        namespace = f5_distributed_cloud_namespace.example.name
       }
       weight = 100
     }
   }
 
   app_firewall {
-    name      = f5xc_app_firewall.waf.name
-    namespace = f5xc_namespace.example.name
+    name      = f5_distributed_cloud_app_firewall.waf.name
+    namespace = f5_distributed_cloud_namespace.example.name
   }
 
   advertise_on_public_default_vip = true
@@ -169,14 +169,14 @@ resource "f5xc_http_loadbalancer" "example" {
 
 ### 4. TCP Load Balancer
 
-**Resource**: `f5xc_tcp_loadbalancer`
+**Resource**: `f5_distributed_cloud_tcp_loadbalancer`
 
 Distributes Layer 4 TCP traffic.
 
 ```hcl
-resource "f5xc_tcp_loadbalancer" "example" {
+resource "f5_distributed_cloud_tcp_loadbalancer" "example" {
   name      = "database-lb"
-  namespace = f5xc_namespace.example.name
+  namespace = f5_distributed_cloud_namespace.example.name
 
   domains = ["db.example.com"]
 
@@ -184,8 +184,8 @@ resource "f5xc_tcp_loadbalancer" "example" {
 
   origin_pools {
     pool {
-      name      = f5xc_origin_pool.database.name
-      namespace = f5xc_namespace.example.name
+      name      = f5_distributed_cloud_origin_pool.database.name
+      namespace = f5_distributed_cloud_namespace.example.name
     }
     weight = 100
   }
@@ -198,14 +198,14 @@ resource "f5xc_tcp_loadbalancer" "example" {
 
 ### 5. Origin Pool
 
-**Resource**: `f5xc_origin_pool`
+**Resource**: `f5_distributed_cloud_origin_pool`
 
 Defines backend server endpoints for load balancers.
 
 ```hcl
-resource "f5xc_origin_pool" "example" {
+resource "f5_distributed_cloud_origin_pool" "example" {
   name      = "api-backends"
-  namespace = f5xc_namespace.example.name
+  namespace = f5_distributed_cloud_namespace.example.name
 
   origin_servers {
     public_ip {
@@ -227,8 +227,8 @@ resource "f5xc_origin_pool" "example" {
   endpoint_selection = "LOCAL_PREFERRED"
 
   healthcheck {
-    name      = f5xc_healthcheck.http.name
-    namespace = f5xc_namespace.example.name
+    name      = f5_distributed_cloud_healthcheck.http.name
+    namespace = f5_distributed_cloud_namespace.example.name
   }
 
   loadbalancer_algorithm = "ROUND_ROBIN"
@@ -250,14 +250,14 @@ resource "f5xc_origin_pool" "example" {
 
 ### 6. App Firewall
 
-**Resource**: `f5xc_app_firewall`
+**Resource**: `f5_distributed_cloud_app_firewall`
 
 Web Application Firewall (WAF) policy configuration.
 
 ```hcl
-resource "f5xc_app_firewall" "example" {
+resource "f5_distributed_cloud_app_firewall" "example" {
   name      = "standard-waf"
-  namespace = f5xc_namespace.example.name
+  namespace = f5_distributed_cloud_namespace.example.name
 
   detection_settings {
     detection_mode   = "DETECTION"
@@ -278,13 +278,13 @@ resource "f5xc_app_firewall" "example" {
 
 ### 7. Cloud Credentials
 
-**Resource**: `f5xc_cloud_credentials`
+**Resource**: `f5_distributed_cloud_cloud_credentials`
 
 Cloud provider credentials for site provisioning.
 
 ```hcl
 # AWS Credentials - IAM Role
-resource "f5xc_cloud_credentials" "aws" {
+resource "f5_distributed_cloud_cloud_credentials" "aws" {
   name      = "aws-prod"
   namespace = "system"
 
@@ -295,7 +295,7 @@ resource "f5xc_cloud_credentials" "aws" {
 }
 
 # AWS Credentials - Access Key
-resource "f5xc_cloud_credentials" "aws_key" {
+resource "f5_distributed_cloud_cloud_credentials" "aws_key" {
   name      = "aws-key"
   namespace = "system"
 
@@ -306,7 +306,7 @@ resource "f5xc_cloud_credentials" "aws_key" {
 }
 
 # Azure Credentials
-resource "f5xc_cloud_credentials" "azure" {
+resource "f5_distributed_cloud_cloud_credentials" "azure" {
   name      = "azure-prod"
   namespace = "system"
 
@@ -319,7 +319,7 @@ resource "f5xc_cloud_credentials" "azure" {
 }
 
 # GCP Credentials
-resource "f5xc_cloud_credentials" "gcp" {
+resource "f5_distributed_cloud_cloud_credentials" "gcp" {
   name      = "gcp-prod"
   namespace = "system"
 
@@ -333,19 +333,19 @@ resource "f5xc_cloud_credentials" "gcp" {
 
 ### 8. AWS VPC Site
 
-**Resource**: `f5xc_aws_vpc_site`
+**Resource**: `f5_distributed_cloud_aws_vpc_site`
 
 F5 XC site deployment in AWS VPC.
 
 ```hcl
-resource "f5xc_aws_vpc_site" "example" {
+resource "f5_distributed_cloud_aws_vpc_site" "example" {
   name      = "aws-site-useast1"
   namespace = "system"
 
   aws_region = "us-east-1"
 
   aws_cred {
-    name      = f5xc_cloud_credentials.aws.name
+    name      = f5_distributed_cloud_cloud_credentials.aws.name
     namespace = "system"
   }
 
@@ -382,20 +382,20 @@ resource "f5xc_aws_vpc_site" "example" {
 
 ### 9. DNS Load Balancer
 
-**Resource**: `f5xc_dns_load_balancer`
+**Resource**: `f5_distributed_cloud_dns_load_balancer`
 
 DNS-based global load balancing.
 
 ```hcl
-resource "f5xc_dns_load_balancer" "example" {
+resource "f5_distributed_cloud_dns_load_balancer" "example" {
   name      = "global-dns-lb"
-  namespace = f5xc_namespace.example.name
+  namespace = f5_distributed_cloud_namespace.example.name
 
   domains = ["app.example.com"]
 
   dns_zone_ref {
     name      = "example-zone"
-    namespace = f5xc_namespace.example.name
+    namespace = f5_distributed_cloud_namespace.example.name
   }
 
   record_type = "A"
@@ -403,8 +403,8 @@ resource "f5xc_dns_load_balancer" "example" {
 
   dns_lb_pool {
     pool {
-      name      = f5xc_dns_lb_pool.primary.name
-      namespace = f5xc_namespace.example.name
+      name      = f5_distributed_cloud_dns_lb_pool.primary.name
+      namespace = f5_distributed_cloud_namespace.example.name
     }
     priority = 1
   }
@@ -476,8 +476,8 @@ All resources use a composite identifier:
 
 ### Import Syntax
 ```bash
-terraform import f5xc_http_loadbalancer.example production/api-gateway
-terraform import f5xc_namespace.example production
+terraform import f5_distributed_cloud_http_loadbalancer.example production/api-gateway
+terraform import f5_distributed_cloud_namespace.example production
 ```
 
 ### Computed Attributes

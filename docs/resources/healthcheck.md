@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_healthcheck Resource - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_healthcheck Resource - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   Health check configuration for a given cluster.
 ---
 
-# f5xc_healthcheck (Resource)
+# f5_distributed_cloud_healthcheck (Resource)
 
 Health check configuration for a given cluster.
 
 ## Example Usage
 
 ```hcl
-resource "f5xc_healthcheck" "example" {
+resource "f5_distributed_cloud_healthcheck" "example" {
   name        = "example-healthcheck"
   namespace   = "system"
   description = "Example Healthcheck resource"
@@ -36,5 +36,5 @@ resource "f5xc_healthcheck" "example" {
 Healthcheck can be imported using the namespace and name:
 
 ```shell
-terraform import f5xc_healthcheck.example namespace/name
+terraform import f5_distributed_cloud_healthcheck.example namespace/name
 ```

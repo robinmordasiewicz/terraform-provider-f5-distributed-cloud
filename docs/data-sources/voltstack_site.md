@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_voltstack_site Data Source - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_voltstack_site Data Source - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   App Stack site defines a required parameters that can be used in CRUD, to create and manage an App Stack site.
 ---
 
-# f5xc_voltstack_site (Data Source)
+# f5_distributed_cloud_voltstack_site (Data Source)
 
 App Stack site defines a required parameters that can be used in CRUD, to create and manage an App Stack site.
 
 ## Example Usage
 
 ```hcl
-data "f5xc_voltstack_site" "example" {
+data "f5_distributed_cloud_voltstack_site" "example" {
   name      = "example-voltstack_site"
   namespace = "system"
 }

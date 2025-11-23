@@ -19,7 +19,7 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages an F5 Distributed Cloud HTTP Load Balancer.",
 		MarkdownDescription: `
-The ` + "`f5xc_http_loadbalancer`" + ` resource manages HTTP Load Balancers in F5 Distributed Cloud.
+The ` + "`f5_distributed_cloud_http_loadbalancer`" + ` resource manages HTTP Load Balancers in F5 Distributed Cloud.
 
 HTTP Load Balancers distribute incoming traffic across multiple origin servers, providing
 high availability, scalability, and improved performance for web applications.
@@ -27,7 +27,7 @@ high availability, scalability, and improved performance for web applications.
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5xc_http_loadbalancer" "example" {
+resource "f5_distributed_cloud_http_loadbalancer" "example" {
   name        = "my-http-lb"
   namespace   = "my-namespace"
   description = "Example HTTP Load Balancer"
@@ -51,7 +51,7 @@ resource "f5xc_http_loadbalancer" "example" {
 HTTP Load Balancers can be imported using namespace/name:
 
 ` + "```shell" + `
-terraform import f5xc_http_loadbalancer.example my-namespace/my-http-lb
+terraform import f5_distributed_cloud_http_loadbalancer.example my-namespace/my-http-lb
 ` + "```" + `
 `,
 		Attributes: map[string]schema.Attribute{

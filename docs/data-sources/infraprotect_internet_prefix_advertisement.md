@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_infraprotect_internet_prefix_advertisement Data Source - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_infraprotect_internet_prefix_advertisement Data Source - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   DDoS transit Internet Prefix information
 ---
 
-# f5xc_infraprotect_internet_prefix_advertisement (Data Source)
+# f5_distributed_cloud_infraprotect_internet_prefix_advertisement (Data Source)
 
 DDoS transit Internet Prefix information
 
 ## Example Usage
 
 ```hcl
-data "f5xc_infraprotect_internet_prefix_advertisement" "example" {
+data "f5_distributed_cloud_infraprotect_internet_prefix_advertisement" "example" {
   name      = "example-infraprotect_internet_prefix_advertisement"
   namespace = "system"
 }

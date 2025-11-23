@@ -52,18 +52,18 @@ func (d *WAFRuleDataSource) Schema(ctx context.Context, req datasource.SchemaReq
 	resp.Schema = schema.Schema{
 		Description: "Fetches information about an existing F5 Distributed Cloud WAF Rule.",
 		MarkdownDescription: `
-The ` + "`f5xc_waf_rule`" + ` data source retrieves information about an existing WAF rule.
+The ` + "`f5_distributed_cloud_waf_rule`" + ` data source retrieves information about an existing WAF rule.
 
 ## Example Usage
 
 ` + "```hcl" + `
-data "f5xc_waf_rule" "example" {
+data "f5_distributed_cloud_waf_rule" "example" {
   name      = "my-waf-rule"
   namespace = "my-namespace"
 }
 
 output "waf_mode" {
-  value = data.f5xc_waf_rule.example.mode
+  value = data.f5_distributed_cloud_waf_rule.example.mode
 }
 ` + "```" + `
 `,

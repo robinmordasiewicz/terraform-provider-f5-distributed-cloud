@@ -52,18 +52,18 @@ func (d *AlertPolicyDataSource) Schema(ctx context.Context, req datasource.Schem
 	resp.Schema = schema.Schema{
 		Description: "Fetches information about an existing F5 Distributed Cloud Alert Policy.",
 		MarkdownDescription: `
-The ` + "`f5xc_alert_policy`" + ` data source retrieves information about an existing alert policy.
+The ` + "`f5_distributed_cloud_alert_policy`" + ` data source retrieves information about an existing alert policy.
 
 ## Example Usage
 
 ` + "```hcl" + `
-data "f5xc_alert_policy" "example" {
+data "f5_distributed_cloud_alert_policy" "example" {
   name      = "my-alert-policy"
   namespace = "my-namespace"
 }
 
 output "enabled" {
-  value = data.f5xc_alert_policy.example.enabled
+  value = data.f5_distributed_cloud_alert_policy.example.enabled
 }
 ` + "```" + `
 `,

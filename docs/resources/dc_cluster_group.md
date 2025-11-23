@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_dc_cluster_group Resource - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_dc_cluster_group Resource - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   A DC Cluster Group represents a collection of sites that can directly communicate with each other using the underlay network.
 ---
 
-# f5xc_dc_cluster_group (Resource)
+# f5_distributed_cloud_dc_cluster_group (Resource)
 
 A DC Cluster Group represents a collection of sites that can directly communicate with each other using the underlay network.
 
 ## Example Usage
 
 ```hcl
-resource "f5xc_dc_cluster_group" "example" {
+resource "f5_distributed_cloud_dc_cluster_group" "example" {
   name        = "example-dc_cluster_group"
   namespace   = "system"
   description = "Example DcClusterGroup resource"
@@ -36,5 +36,5 @@ resource "f5xc_dc_cluster_group" "example" {
 DcClusterGroup can be imported using the namespace and name:
 
 ```shell
-terraform import f5xc_dc_cluster_group.example namespace/name
+terraform import f5_distributed_cloud_dc_cluster_group.example namespace/name
 ```

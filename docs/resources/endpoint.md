@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_endpoint Resource - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_endpoint Resource - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   Endpoint object represent the actual endpoint that provides the service (Origin Server). Sometimes due to dynamic discovery of the endpoints, single endpoint object may result in multiple actual di...
 ---
 
-# f5xc_endpoint (Resource)
+# f5_distributed_cloud_endpoint (Resource)
 
 Endpoint object represent the actual endpoint that provides the service (Origin Server). Sometimes due to dynamic discovery of the endpoints, single endpoint object may result in multiple actual di...
 
 ## Example Usage
 
 ```hcl
-resource "f5xc_endpoint" "example" {
+resource "f5_distributed_cloud_endpoint" "example" {
   name        = "example-endpoint"
   namespace   = "system"
   description = "Example Endpoint resource"
@@ -36,5 +36,5 @@ resource "f5xc_endpoint" "example" {
 Endpoint can be imported using the namespace and name:
 
 ```shell
-terraform import f5xc_endpoint.example namespace/name
+terraform import f5_distributed_cloud_endpoint.example namespace/name
 ```

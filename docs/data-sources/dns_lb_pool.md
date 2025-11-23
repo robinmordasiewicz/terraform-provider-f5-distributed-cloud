@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_dns_lb_pool Data Source - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_dns_lb_pool Data Source - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   DNS Load Balancer Pool  object is used for configuring DNS Load Balancer Pool
 ---
 
-# f5xc_dns_lb_pool (Data Source)
+# f5_distributed_cloud_dns_lb_pool (Data Source)
 
 DNS Load Balancer Pool  object is used for configuring DNS Load Balancer Pool
 
 ## Example Usage
 
 ```hcl
-data "f5xc_dns_lb_pool" "example" {
+data "f5_distributed_cloud_dns_lb_pool" "example" {
   name      = "example-dns_lb_pool"
   namespace = "system"
 }

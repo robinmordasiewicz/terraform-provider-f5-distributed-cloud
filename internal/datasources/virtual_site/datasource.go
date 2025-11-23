@@ -52,18 +52,18 @@ func (d *VirtualSiteDataSource) Schema(ctx context.Context, req datasource.Schem
 	resp.Schema = schema.Schema{
 		Description: "Fetches information about an existing F5 Distributed Cloud Virtual Site.",
 		MarkdownDescription: `
-The ` + "`f5xc_virtual_site`" + ` data source retrieves information about an existing virtual site.
+The ` + "`f5_distributed_cloud_virtual_site`" + ` data source retrieves information about an existing virtual site.
 
 ## Example Usage
 
 ` + "```hcl" + `
-data "f5xc_virtual_site" "example" {
+data "f5_distributed_cloud_virtual_site" "example" {
   name      = "my-virtual-site"
   namespace = "my-namespace"
 }
 
 output "site_type" {
-  value = data.f5xc_virtual_site.example.site_type
+  value = data.f5_distributed_cloud_virtual_site.example.site_type
 }
 ` + "```" + `
 `,

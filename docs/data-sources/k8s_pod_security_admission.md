@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_k8s_pod_security_admission Data Source - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_k8s_pod_security_admission Data Source - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   Pod security admission allows users to enforce Pod Security Standards
 ---
 
-# f5xc_k8s_pod_security_admission (Data Source)
+# f5_distributed_cloud_k8s_pod_security_admission (Data Source)
 
 Pod security admission allows users to enforce Pod Security Standards
 
 ## Example Usage
 
 ```hcl
-data "f5xc_k8s_pod_security_admission" "example" {
+data "f5_distributed_cloud_k8s_pod_security_admission" "example" {
   name      = "example-k8s_pod_security_admission"
   namespace = "system"
 }

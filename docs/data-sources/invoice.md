@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_invoice Data Source - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_invoice Data Source - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   Invoice listing and downloading APIs
 ---
 
-# f5xc_invoice (Data Source)
+# f5_distributed_cloud_invoice (Data Source)
 
 Invoice listing and downloading APIs
 
 ## Example Usage
 
 ```hcl
-data "f5xc_invoice" "example" {
+data "f5_distributed_cloud_invoice" "example" {
   name      = "example-invoice"
   namespace = "system"
 }

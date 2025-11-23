@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_k8s_cluster Resource - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_k8s_cluster Resource - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   K8s cluster represents the real physical K8s cluster on the site. It can be used to configure various aspect of of the K8s cluster e.g. Pod security, k8s_cluster roles, k8s_cluster role binding, Us...
 ---
 
-# f5xc_k8s_cluster (Resource)
+# f5_distributed_cloud_k8s_cluster (Resource)
 
 K8s cluster represents the real physical K8s cluster on the site. It can be used to configure various aspect of of the K8s cluster e.g. Pod security, k8s_cluster roles, k8s_cluster role binding, Us...
 
 ## Example Usage
 
 ```hcl
-resource "f5xc_k8s_cluster" "example" {
+resource "f5_distributed_cloud_k8s_cluster" "example" {
   name        = "example-k8s_cluster"
   namespace   = "system"
   description = "Example K8SCluster resource"
@@ -36,5 +36,5 @@ resource "f5xc_k8s_cluster" "example" {
 K8SCluster can be imported using the namespace and name:
 
 ```shell
-terraform import f5xc_k8s_cluster.example namespace/name
+terraform import f5_distributed_cloud_k8s_cluster.example namespace/name
 ```

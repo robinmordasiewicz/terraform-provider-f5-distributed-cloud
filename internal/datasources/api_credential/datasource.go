@@ -52,18 +52,18 @@ func (d *APICredentialDataSource) Schema(ctx context.Context, req datasource.Sch
 	resp.Schema = schema.Schema{
 		Description: "Fetches information about an existing F5 Distributed Cloud API Credential.",
 		MarkdownDescription: `
-The ` + "`f5xc_api_credential`" + ` data source retrieves information about an existing API credential.
+The ` + "`f5_distributed_cloud_api_credential`" + ` data source retrieves information about an existing API credential.
 
 ## Example Usage
 
 ` + "```hcl" + `
-data "f5xc_api_credential" "example" {
+data "f5_distributed_cloud_api_credential" "example" {
   name      = "my-api-credential"
   namespace = "system"
 }
 
 output "credential_type" {
-  value = data.f5xc_api_credential.example.credential_type
+  value = data.f5_distributed_cloud_api_credential.example.credential_type
 }
 ` + "```" + `
 `,

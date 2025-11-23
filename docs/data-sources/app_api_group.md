@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_app_api_group Data Source - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_app_api_group Data Source - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   The app_api_group construct provides a mechanism to classify the universal set of request APIs into a much smaller number of logical groups in order to make it easier to author and maintain API lev...
 ---
 
-# f5xc_app_api_group (Data Source)
+# f5_distributed_cloud_app_api_group (Data Source)
 
 The app_api_group construct provides a mechanism to classify the universal set of request APIs into a much smaller number of logical groups in order to make it easier to author and maintain API lev...
 
 ## Example Usage
 
 ```hcl
-data "f5xc_app_api_group" "example" {
+data "f5_distributed_cloud_app_api_group" "example" {
   name      = "example-app_api_group"
   namespace = "system"
 }

@@ -73,17 +73,17 @@ terraform-provider-f5-distributed-cloud/
 │   │   └── errors.go                # Error types and handling
 │   │
 │   ├── resources/
-│   │   ├── namespace/               # f5xc_namespace
-│   │   ├── http_loadbalancer/       # f5xc_http_loadbalancer
-│   │   ├── tcp_loadbalancer/        # f5xc_tcp_loadbalancer
-│   │   ├── origin_pool/             # f5xc_origin_pool
-│   │   ├── app_firewall/            # f5xc_app_firewall
-│   │   ├── cloud_credentials/       # f5xc_cloud_credentials
-│   │   ├── aws_vpc_site/            # f5xc_aws_vpc_site
-│   │   ├── azure_vnet_site/         # f5xc_azure_vnet_site
-│   │   ├── gcp_vpc_site/            # f5xc_gcp_vpc_site
-│   │   ├── dns_load_balancer/       # f5xc_dns_load_balancer
-│   │   └── cdn_loadbalancer/        # f5xc_cdn_loadbalancer
+│   │   ├── namespace/               # f5_distributed_cloud_namespace
+│   │   ├── http_loadbalancer/       # f5_distributed_cloud_http_loadbalancer
+│   │   ├── tcp_loadbalancer/        # f5_distributed_cloud_tcp_loadbalancer
+│   │   ├── origin_pool/             # f5_distributed_cloud_origin_pool
+│   │   ├── app_firewall/            # f5_distributed_cloud_app_firewall
+│   │   ├── cloud_credentials/       # f5_distributed_cloud_cloud_credentials
+│   │   ├── aws_vpc_site/            # f5_distributed_cloud_aws_vpc_site
+│   │   ├── azure_vnet_site/         # f5_distributed_cloud_azure_vnet_site
+│   │   ├── gcp_vpc_site/            # f5_distributed_cloud_gcp_vpc_site
+│   │   ├── dns_load_balancer/       # f5_distributed_cloud_dns_load_balancer
+│   │   └── cdn_loadbalancer/        # f5_distributed_cloud_cdn_loadbalancer
 │   │
 │   ├── datasources/
 │   │   ├── namespace/
@@ -102,8 +102,8 @@ terraform-provider-f5-distributed-cloud/
 │   ├── provider/
 │   │   └── provider.tf
 │   └── resources/
-│       ├── f5xc_namespace/
-│       ├── f5xc_http_loadbalancer/
+│       ├── f5_distributed_cloud_namespace/
+│       ├── f5_distributed_cloud_http_loadbalancer/
 │       └── ...
 │
 ├── docs/                            # Generated documentation
@@ -122,23 +122,23 @@ terraform-provider-f5-distributed-cloud/
 1. Provider scaffolding with terraform-plugin-framework
 2. HTTP client with mTLS and token authentication
 3. Error handling and retry logic
-4. `f5xc_namespace` resource (simplest CRUD)
+4. `f5_distributed_cloud_namespace` resource (simplest CRUD)
 
 ### Phase 2: Core Load Balancers
-5. `f5xc_origin_pool` resource
-6. `f5xc_http_loadbalancer` resource
-7. `f5xc_tcp_loadbalancer` resource
-8. `f5xc_dns_load_balancer` resource
+5. `f5_distributed_cloud_origin_pool` resource
+6. `f5_distributed_cloud_http_loadbalancer` resource
+7. `f5_distributed_cloud_tcp_loadbalancer` resource
+8. `f5_distributed_cloud_dns_load_balancer` resource
 
 ### Phase 3: Security & CDN
-9. `f5xc_app_firewall` resource
-10. `f5xc_cdn_loadbalancer` resource
+9. `f5_distributed_cloud_app_firewall` resource
+10. `f5_distributed_cloud_cdn_loadbalancer` resource
 
 ### Phase 4: Cloud Sites
-11. `f5xc_cloud_credentials` resource
-12. `f5xc_aws_vpc_site` resource
-13. `f5xc_azure_vnet_site` resource
-14. `f5xc_gcp_vpc_site` resource
+11. `f5_distributed_cloud_cloud_credentials` resource
+12. `f5_distributed_cloud_aws_vpc_site` resource
+13. `f5_distributed_cloud_azure_vnet_site` resource
+14. `f5_distributed_cloud_gcp_vpc_site` resource
 
 ### Phase 5: Data Sources & Polish
 15. Data sources for all resources

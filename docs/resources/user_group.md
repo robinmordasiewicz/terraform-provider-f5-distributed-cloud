@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_user_group Resource - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_user_group Resource - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   Represents group for a given tenant
 ---
 
-# f5xc_user_group (Resource)
+# f5_distributed_cloud_user_group (Resource)
 
 Represents group for a given tenant
 
 ## Example Usage
 
 ```hcl
-resource "f5xc_user_group" "example" {
+resource "f5_distributed_cloud_user_group" "example" {
   name        = "example-user_group"
   namespace   = "system"
   description = "Example UserGroup resource"
@@ -36,5 +36,5 @@ resource "f5xc_user_group" "example" {
 UserGroup can be imported using the namespace and name:
 
 ```shell
-terraform import f5xc_user_group.example namespace/name
+terraform import f5_distributed_cloud_user_group.example namespace/name
 ```

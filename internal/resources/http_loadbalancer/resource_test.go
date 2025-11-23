@@ -17,7 +17,7 @@ import (
 )
 
 var testAccProtoV6ProviderFactories = map[string]func() (tfprotov6.ProviderServer, error){
-	"f5xc": providerserver.NewProtocol6WithError(provider.New("test")()),
+	"f5_distributed_cloud": providerserver.NewProtocol6WithError(provider.New("test")()),
 }
 
 func testAccPreCheck(t *testing.T) {
@@ -46,9 +46,9 @@ func TestAccHTTPLoadBalancerResource_create(t *testing.T) {
 			{
 				Config: testAccHTTPLoadBalancerResourceConfig(rName, namespace, "Test HTTP LB"),
 				Check: resource.ComposeTestCheckFunc(
-					resource.TestCheckResourceAttr("f5xc_http_loadbalancer.test", "name", rName),
-					resource.TestCheckResourceAttr("f5xc_http_loadbalancer.test", "namespace", namespace),
-					resource.TestCheckResourceAttrSet("f5xc_http_loadbalancer.test", "id"),
+					resource.TestCheckResourceAttr("f5_distributed_cloud_http_loadbalancer.test", "name", rName),
+					resource.TestCheckResourceAttr("f5_distributed_cloud_http_loadbalancer.test", "namespace", namespace),
+					resource.TestCheckResourceAttrSet("f5_distributed_cloud_http_loadbalancer.test", "id"),
 				),
 			},
 		},
@@ -71,13 +71,13 @@ func TestAccHTTPLoadBalancerResource_update(t *testing.T) {
 			{
 				Config: testAccHTTPLoadBalancerResourceConfig(rName, namespace, "Initial description"),
 				Check: resource.ComposeTestCheckFunc(
-					resource.TestCheckResourceAttr("f5xc_http_loadbalancer.test", "description", "Initial description"),
+					resource.TestCheckResourceAttr("f5_distributed_cloud_http_loadbalancer.test", "description", "Initial description"),
 				),
 			},
 			{
 				Config: testAccHTTPLoadBalancerResourceConfig(rName, namespace, "Updated description"),
 				Check: resource.ComposeTestCheckFunc(
-					resource.TestCheckResourceAttr("f5xc_http_loadbalancer.test", "description", "Updated description"),
+					resource.TestCheckResourceAttr("f5_distributed_cloud_http_loadbalancer.test", "description", "Updated description"),
 				),
 			},
 		},
@@ -100,7 +100,7 @@ func TestAccHTTPLoadBalancerResource_delete(t *testing.T) {
 			{
 				Config: testAccHTTPLoadBalancerResourceConfig(rName, namespace, "To be deleted"),
 				Check: resource.ComposeTestCheckFunc(
-					resource.TestCheckResourceAttr("f5xc_http_loadbalancer.test", "name", rName),
+					resource.TestCheckResourceAttr("f5_distributed_cloud_http_loadbalancer.test", "name", rName),
 				),
 			},
 		},
@@ -123,11 +123,11 @@ func TestAccHTTPLoadBalancerResource_import(t *testing.T) {
 			{
 				Config: testAccHTTPLoadBalancerResourceConfig(rName, namespace, "For import test"),
 				Check: resource.ComposeTestCheckFunc(
-					resource.TestCheckResourceAttr("f5xc_http_loadbalancer.test", "name", rName),
+					resource.TestCheckResourceAttr("f5_distributed_cloud_http_loadbalancer.test", "name", rName),
 				),
 			},
 			{
-				ResourceName:      "f5xc_http_loadbalancer.test",
+				ResourceName:      "f5_distributed_cloud_http_loadbalancer.test",
 				ImportState:       true,
 				ImportStateVerify: true,
 				ImportStateId:     namespace + "/" + rName,
@@ -138,9 +138,9 @@ func TestAccHTTPLoadBalancerResource_import(t *testing.T) {
 
 func testAccHTTPLoadBalancerResourceConfig(name, namespace, description string) string {
 	return fmt.Sprintf(`
-provider "f5xc" {}
+provider "f5_distributed_cloud" {}
 
-resource "f5xc_http_loadbalancer" "test" {
+resource "f5_distributed_cloud_http_loadbalancer" "test" {
   name        = %[1]q
   namespace   = %[2]q
   description = %[3]q

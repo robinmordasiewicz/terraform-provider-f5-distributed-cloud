@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_tenant_configuration Resource - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_tenant_configuration Resource - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   Tenant configuration consists of three main parts: - Basic Configuration - Brute Force Detection Settings - Password Policy Basic configuration contains general parameters which can be adjusted wit...
 ---
 
-# f5xc_tenant_configuration (Resource)
+# f5_distributed_cloud_tenant_configuration (Resource)
 
 Tenant configuration consists of three main parts: - Basic Configuration - Brute Force Detection Settings - Password Policy Basic configuration contains general parameters which can be adjusted wit...
 
 ## Example Usage
 
 ```hcl
-resource "f5xc_tenant_configuration" "example" {
+resource "f5_distributed_cloud_tenant_configuration" "example" {
   name        = "example-tenant_configuration"
   namespace   = "system"
   description = "Example TenantConfiguration resource"
@@ -36,5 +36,5 @@ resource "f5xc_tenant_configuration" "example" {
 TenantConfiguration can be imported using the namespace and name:
 
 ```shell
-terraform import f5xc_tenant_configuration.example namespace/name
+terraform import f5_distributed_cloud_tenant_configuration.example namespace/name
 ```

@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_api_discovery Resource - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_api_discovery Resource - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   The api_discovery contains settings for API discovery
 ---
 
-# f5xc_api_discovery (Resource)
+# f5_distributed_cloud_api_discovery (Resource)
 
 The api_discovery contains settings for API discovery
 
 ## Example Usage
 
 ```hcl
-resource "f5xc_api_discovery" "example" {
+resource "f5_distributed_cloud_api_discovery" "example" {
   name        = "example-api_discovery"
   namespace   = "system"
   description = "Example APIDiscovery resource"
@@ -36,5 +36,5 @@ resource "f5xc_api_discovery" "example" {
 APIDiscovery can be imported using the namespace and name:
 
 ```shell
-terraform import f5xc_api_discovery.example namespace/name
+terraform import f5_distributed_cloud_api_discovery.example namespace/name
 ```

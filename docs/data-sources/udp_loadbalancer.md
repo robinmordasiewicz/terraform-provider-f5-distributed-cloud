@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_udp_loadbalancer Data Source - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_udp_loadbalancer Data Source - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   UDP load balancer view defines a required parameters that can be used in CRUD, to create and manage UDP load balancer. It can be used to create UDP load balancer.  View will create following child ...
 ---
 
-# f5xc_udp_loadbalancer (Data Source)
+# f5_distributed_cloud_udp_loadbalancer (Data Source)
 
 UDP load balancer view defines a required parameters that can be used in CRUD, to create and manage UDP load balancer. It can be used to create UDP load balancer.  View will create following child ...
 
 ## Example Usage
 
 ```hcl
-data "f5xc_udp_loadbalancer" "example" {
+data "f5_distributed_cloud_udp_loadbalancer" "example" {
   name      = "example-udp_loadbalancer"
   namespace = "system"
 }

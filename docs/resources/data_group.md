@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_data_group Resource - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_data_group Resource - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   A data group is a group of related items - IP addresses/subnets, strings, or integers that can be referenced in iRules.
 ---
 
-# f5xc_data_group (Resource)
+# f5_distributed_cloud_data_group (Resource)
 
 A data group is a group of related items - IP addresses/subnets, strings, or integers that can be referenced in iRules.
 
 ## Example Usage
 
 ```hcl
-resource "f5xc_data_group" "example" {
+resource "f5_distributed_cloud_data_group" "example" {
   name        = "example-data_group"
   namespace   = "system"
   description = "Example DataGroup resource"
@@ -36,5 +36,5 @@ resource "f5xc_data_group" "example" {
 DataGroup can be imported using the namespace and name:
 
 ```shell
-terraform import f5xc_data_group.example namespace/name
+terraform import f5_distributed_cloud_data_group.example namespace/name
 ```

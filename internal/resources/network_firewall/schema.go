@@ -13,14 +13,14 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages an F5 Distributed Cloud Network Firewall.",
 		MarkdownDescription: `
-The ` + "`f5xc_network_firewall`" + ` resource manages Network Firewalls in F5 Distributed Cloud.
+The ` + "`f5_distributed_cloud_network_firewall`" + ` resource manages Network Firewalls in F5 Distributed Cloud.
 
 Network Firewalls provide network-level security controls.
 
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5xc_network_firewall" "example" {
+resource "f5_distributed_cloud_network_firewall" "example" {
   name        = "my-network-firewall"
   namespace   = "system"
   description = "Network firewall for perimeter security"

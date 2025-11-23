@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_report_config Resource - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_report_config Resource - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   Report configuration contains the information like      List of namespaces for which the report should be generated.     Frequency of report generation.     Time at which the report should be gener...
 ---
 
-# f5xc_report_config (Resource)
+# f5_distributed_cloud_report_config (Resource)
 
 Report configuration contains the information like      List of namespaces for which the report should be generated.     Frequency of report generation.     Time at which the report should be gener...
 
 ## Example Usage
 
 ```hcl
-resource "f5xc_report_config" "example" {
+resource "f5_distributed_cloud_report_config" "example" {
   name        = "example-report_config"
   namespace   = "system"
   description = "Example ReportConfig resource"
@@ -36,5 +36,5 @@ resource "f5xc_report_config" "example" {
 ReportConfig can be imported using the namespace and name:
 
 ```shell
-terraform import f5xc_report_config.example namespace/name
+terraform import f5_distributed_cloud_report_config.example namespace/name
 ```

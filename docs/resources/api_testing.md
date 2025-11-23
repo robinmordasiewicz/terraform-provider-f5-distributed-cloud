@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_api_testing Resource - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_api_testing Resource - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   This is the api testing type
 ---
 
-# f5xc_api_testing (Resource)
+# f5_distributed_cloud_api_testing (Resource)
 
 This is the api testing type
 
 ## Example Usage
 
 ```hcl
-resource "f5xc_api_testing" "example" {
+resource "f5_distributed_cloud_api_testing" "example" {
   name        = "example-api_testing"
   namespace   = "system"
   description = "Example APITesting resource"
@@ -36,5 +36,5 @@ resource "f5xc_api_testing" "example" {
 APITesting can be imported using the namespace and name:
 
 ```shell
-terraform import f5xc_api_testing.example namespace/name
+terraform import f5_distributed_cloud_api_testing.example namespace/name
 ```

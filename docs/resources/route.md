@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_route Resource - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_route Resource - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   route object is used to configuring L7 routing decision. route is made of three things 1. Match condition for incoming request 2. Actions to take if match is true 3. Whether custom java script proc...
 ---
 
-# f5xc_route (Resource)
+# f5_distributed_cloud_route (Resource)
 
 route object is used to configuring L7 routing decision. route is made of three things 1. Match condition for incoming request 2. Actions to take if match is true 3. Whether custom java script proc...
 
 ## Example Usage
 
 ```hcl
-resource "f5xc_route" "example" {
+resource "f5_distributed_cloud_route" "example" {
   name        = "example-route"
   namespace   = "system"
   description = "Example Route resource"
@@ -36,5 +36,5 @@ resource "f5xc_route" "example" {
 Route can be imported using the namespace and name:
 
 ```shell
-terraform import f5xc_route.example namespace/name
+terraform import f5_distributed_cloud_route.example namespace/name
 ```

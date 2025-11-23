@@ -56,18 +56,18 @@ func (d *RateLimiterDataSource) Schema(ctx context.Context, req datasource.Schem
 	resp.Schema = schema.Schema{
 		Description: "Fetches information about an existing F5 Distributed Cloud Rate Limiter.",
 		MarkdownDescription: `
-The ` + "`f5xc_rate_limiter`" + ` data source retrieves information about an existing rate limiter configuration.
+The ` + "`f5_distributed_cloud_rate_limiter`" + ` data source retrieves information about an existing rate limiter configuration.
 
 ## Example Usage
 
 ` + "```hcl" + `
-data "f5xc_rate_limiter" "example" {
+data "f5_distributed_cloud_rate_limiter" "example" {
   name      = "my-rate-limiter"
   namespace = "my-namespace"
 }
 
 output "rate_limit" {
-  value = "${data.f5xc_rate_limiter.example.total_number} per ${data.f5xc_rate_limiter.example.unit}"
+  value = "${data.f5_distributed_cloud_rate_limiter.example.total_number} per ${data.f5_distributed_cloud_rate_limiter.example.unit}"
 }
 ` + "```" + `
 `,

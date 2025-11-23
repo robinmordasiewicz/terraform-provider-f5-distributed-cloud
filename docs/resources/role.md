@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_role Resource - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_role Resource - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   Defines the role the user has in a namespace. There are two kinds of roles: * user defines roles - each tenant can define a set of their roles suiting their needs. * built-in roles - volterra defin...
 ---
 
-# f5xc_role (Resource)
+# f5_distributed_cloud_role (Resource)
 
 Defines the role the user has in a namespace. There are two kinds of roles: * user defines roles - each tenant can define a set of their roles suiting their needs. * built-in roles - volterra defin...
 
 ## Example Usage
 
 ```hcl
-resource "f5xc_role" "example" {
+resource "f5_distributed_cloud_role" "example" {
   name        = "example-role"
   namespace   = "system"
   description = "Example Role resource"
@@ -36,5 +36,5 @@ resource "f5xc_role" "example" {
 Role can be imported using the namespace and name:
 
 ```shell
-terraform import f5xc_role.example namespace/name
+terraform import f5_distributed_cloud_role.example namespace/name
 ```

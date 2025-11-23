@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_debug Data Source - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_debug Data Source - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   Proto definitions for debugging site
 ---
 
-# f5xc_debug (Data Source)
+# f5_distributed_cloud_debug (Data Source)
 
 Proto definitions for debugging site
 
 ## Example Usage
 
 ```hcl
-data "f5xc_debug" "example" {
+data "f5_distributed_cloud_debug" "example" {
   name      = "example-debug"
   namespace = "system"
 }

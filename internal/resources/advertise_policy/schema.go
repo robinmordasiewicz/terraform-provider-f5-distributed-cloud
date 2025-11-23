@@ -13,14 +13,14 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages an F5 Distributed Cloud Advertise Policy.",
 		MarkdownDescription: `
-The ` + "`f5xc_advertise_policy`" + ` resource manages Advertise Policies in F5 Distributed Cloud.
+The ` + "`f5_distributed_cloud_advertise_policy`" + ` resource manages Advertise Policies in F5 Distributed Cloud.
 
 Advertise Policies control how services are advertised to the network.
 
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5xc_advertise_policy" "example" {
+resource "f5_distributed_cloud_advertise_policy" "example" {
   name        = "my-advertise-policy"
   namespace   = "my-namespace"
   description = "Policy for service advertisement"

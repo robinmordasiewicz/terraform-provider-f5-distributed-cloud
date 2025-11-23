@@ -15,14 +15,14 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages F5 Distributed Cloud User.",
 		MarkdownDescription: `
-The ` + "`f5xc_user`" + ` resource manages Users in F5 Distributed Cloud.
+The ` + "`f5_distributed_cloud_user`" + ` resource manages Users in F5 Distributed Cloud.
 
 Users represent individuals who can access the F5 Distributed Cloud console and API.
 
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5xc_user" "example" {
+resource "f5_distributed_cloud_user" "example" {
   name       = "john-doe"
   namespace  = "system"
   email      = "john.doe@example.com"
