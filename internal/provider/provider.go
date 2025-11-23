@@ -270,24 +270,47 @@ func (p *F5XCProvider) Configure(ctx context.Context, req provider.ConfigureRequ
 		return
 	}
 
+	// Warn about unknown configuration values during plan
+	if config.APIURL.IsUnknown() {
+		resp.Diagnostics.AddWarning(
+			"Unknown API URL Configuration",
+			"The api_url value is not yet known and will be determined during apply. "+
+				"Provider configuration may fail if the value is invalid.",
+		)
+	}
+	if config.APIToken.IsUnknown() {
+		resp.Diagnostics.AddWarning(
+			"Unknown API Token Configuration",
+			"The api_token value is not yet known and will be determined during apply. "+
+				"Provider configuration may fail if the value is invalid.",
+		)
+	}
+	if config.P12File.IsUnknown() {
+		resp.Diagnostics.AddWarning(
+			"Unknown P12 File Configuration",
+			"The p12_file value is not yet known and will be determined during apply. "+
+				"Provider configuration may fail if the file path is invalid.",
+		)
+	}
+
 	// Get values from environment variables if not set in config
 	apiURL := os.Getenv("F5XC_API_URL")
-	if !config.APIURL.IsNull() {
+	if !config.APIURL.IsNull() && !config.APIURL.IsUnknown() {
 		apiURL = config.APIURL.ValueString()
 	}
 
 	p12File := os.Getenv("F5XC_API_P12_FILE")
-	if !config.P12File.IsNull() {
+	if !config.P12File.IsNull() && !config.P12File.IsUnknown() {
 		p12File = config.P12File.ValueString()
 	}
 
 	p12Password := os.Getenv("F5XC_API_P12_PASSWORD")
-	if !config.P12Password.IsNull() {
+	if !config.P12Password.IsNull() && !config.P12Password.IsUnknown() {
 		p12Password = config.P12Password.ValueString()
 	}
 
 	apiToken := os.Getenv("F5XC_API_TOKEN")
-	if !config.APIToken.IsNull() {
+	if !config.APIToken.IsNull() && !config.APIToken.IsUnknown() {
 		apiToken = config.APIToken.ValueString()
 	}
 
