@@ -52,18 +52,18 @@ func (d *TunnelDataSource) Schema(ctx context.Context, req datasource.SchemaRequ
 	resp.Schema = schema.Schema{
 		Description: "Fetches information about an existing F5 Distributed Cloud Tunnel.",
 		MarkdownDescription: `
-The ` + "`f5xc_tunnel`" + ` data source retrieves information about an existing tunnel.
+The ` + "`f5_distributed_cloud_tunnel`" + ` data source retrieves information about an existing tunnel.
 
 ## Example Usage
 
 ` + "```hcl" + `
-data "f5xc_tunnel" "example" {
+data "f5_distributed_cloud_tunnel" "example" {
   name      = "my-tunnel"
   namespace = "my-namespace"
 }
 
 output "tunnel_type" {
-  value = data.f5xc_tunnel.example.tunnel_type
+  value = data.f5_distributed_cloud_tunnel.example.tunnel_type
 }
 ` + "```" + `
 `,

@@ -52,18 +52,18 @@ func (d *RoleDataSource) Schema(ctx context.Context, req datasource.SchemaReques
 	resp.Schema = schema.Schema{
 		Description: "Fetches information about an existing F5 Distributed Cloud Role.",
 		MarkdownDescription: `
-The ` + "`f5xc_role`" + ` data source retrieves information about an existing role.
+The ` + "`f5_distributed_cloud_role`" + ` data source retrieves information about an existing role.
 
 ## Example Usage
 
 ` + "```hcl" + `
-data "f5xc_role" "example" {
+data "f5_distributed_cloud_role" "example" {
   name      = "my-role"
   namespace = "system"
 }
 
 output "role_type" {
-  value = data.f5xc_role.example.role_type
+  value = data.f5_distributed_cloud_role.example.role_type
 }
 ` + "```" + `
 `,

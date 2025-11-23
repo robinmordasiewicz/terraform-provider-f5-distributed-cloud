@@ -52,18 +52,18 @@ func (d *SiteMeshGroupDataSource) Schema(ctx context.Context, req datasource.Sch
 	resp.Schema = schema.Schema{
 		Description: "Fetches information about an existing F5 Distributed Cloud Site Mesh Group.",
 		MarkdownDescription: `
-The ` + "`f5xc_site_mesh_group`" + ` data source retrieves information about an existing site mesh group.
+The ` + "`f5_distributed_cloud_site_mesh_group`" + ` data source retrieves information about an existing site mesh group.
 
 ## Example Usage
 
 ` + "```hcl" + `
-data "f5xc_site_mesh_group" "example" {
+data "f5_distributed_cloud_site_mesh_group" "example" {
   name      = "my-site-mesh-group"
   namespace = "system"
 }
 
 output "mesh_type" {
-  value = data.f5xc_site_mesh_group.example.mesh_type
+  value = data.f5_distributed_cloud_site_mesh_group.example.mesh_type
 }
 ` + "```" + `
 `,

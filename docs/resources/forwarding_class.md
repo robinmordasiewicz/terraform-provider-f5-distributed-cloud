@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_forwarding_class Resource - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_forwarding_class Resource - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   In Policy Based Routing(forwarding) (PBR) PBR policy can select Forwarding Class object as action When match condition is satisfied(true). Forwarding class determines three things:    Ordered list ...
 ---
 
-# f5xc_forwarding_class (Resource)
+# f5_distributed_cloud_forwarding_class (Resource)
 
 In Policy Based Routing(forwarding) (PBR) PBR policy can select Forwarding Class object as action When match condition is satisfied(true). Forwarding class determines three things:    Ordered list ...
 
 ## Example Usage
 
 ```hcl
-resource "f5xc_forwarding_class" "example" {
+resource "f5_distributed_cloud_forwarding_class" "example" {
   name        = "example-forwarding_class"
   namespace   = "system"
   description = "Example ForwardingClass resource"
@@ -36,5 +36,5 @@ resource "f5xc_forwarding_class" "example" {
 ForwardingClass can be imported using the namespace and name:
 
 ```shell
-terraform import f5xc_forwarding_class.example namespace/name
+terraform import f5_distributed_cloud_forwarding_class.example namespace/name
 ```

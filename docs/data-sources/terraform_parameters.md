@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_terraform_parameters Data Source - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_terraform_parameters Data Source - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   View Terraform Parameters is set of parameters that are used by terraform scripts  to instantiate view objects external to volterra
 ---
 
-# f5xc_terraform_parameters (Data Source)
+# f5_distributed_cloud_terraform_parameters (Data Source)
 
 View Terraform Parameters is set of parameters that are used by terraform scripts  to instantiate view objects external to volterra
 
 ## Example Usage
 
 ```hcl
-data "f5xc_terraform_parameters" "example" {
+data "f5_distributed_cloud_terraform_parameters" "example" {
   name      = "example-terraform_parameters"
   namespace = "system"
 }

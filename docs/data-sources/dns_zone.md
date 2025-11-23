@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_dns_zone Data Source - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_dns_zone Data Source - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   DNS Zone object is used for configuring Primary and Secondary DNS zones.  User configures zone 'example.com'  Status for this object will show following  * List of nameservers  User can configure D...
 ---
 
-# f5xc_dns_zone (Data Source)
+# f5_distributed_cloud_dns_zone (Data Source)
 
 DNS Zone object is used for configuring Primary and Secondary DNS zones.  User configures zone 'example.com'  Status for this object will show following  * List of nameservers  User can configure D...
 
 ## Example Usage
 
 ```hcl
-data "f5xc_dns_zone" "example" {
+data "f5_distributed_cloud_dns_zone" "example" {
   name      = "example-dns_zone"
   namespace = "system"
 }

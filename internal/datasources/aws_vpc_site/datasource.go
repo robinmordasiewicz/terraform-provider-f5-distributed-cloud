@@ -56,18 +56,18 @@ func (d *AWSVPCSiteDataSource) Schema(ctx context.Context, req datasource.Schema
 	resp.Schema = schema.Schema{
 		Description: "Fetches information about an existing F5 Distributed Cloud AWS VPC Site.",
 		MarkdownDescription: `
-The ` + "`f5xc_aws_vpc_site`" + ` data source retrieves information about an existing AWS VPC site.
+The ` + "`f5_distributed_cloud_aws_vpc_site`" + ` data source retrieves information about an existing AWS VPC site.
 
 ## Example Usage
 
 ` + "```hcl" + `
-data "f5xc_aws_vpc_site" "example" {
+data "f5_distributed_cloud_aws_vpc_site" "example" {
   name      = "my-aws-site"
   namespace = "system"
 }
 
 output "site_state" {
-  value = data.f5xc_aws_vpc_site.example.site_state
+  value = data.f5_distributed_cloud_aws_vpc_site.example.site_state
 }
 ` + "```" + `
 `,

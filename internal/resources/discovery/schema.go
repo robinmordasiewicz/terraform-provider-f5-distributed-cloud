@@ -15,14 +15,14 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages F5 Distributed Cloud Discovery configuration.",
 		MarkdownDescription: `
-The ` + "`f5xc_discovery`" + ` resource manages Discovery configurations in F5 Distributed Cloud.
+The ` + "`f5_distributed_cloud_discovery`" + ` resource manages Discovery configurations in F5 Distributed Cloud.
 
 Discovery enables automatic detection of services running in Kubernetes clusters or other environments connected to F5 XC.
 
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5xc_discovery" "k8s_discovery" {
+resource "f5_distributed_cloud_discovery" "k8s_discovery" {
   name           = "k8s-discovery"
   namespace      = "my-namespace"
   discovery_type = "K8S"
@@ -38,7 +38,7 @@ resource "f5xc_discovery" "k8s_discovery" {
 ## Virtual Site Discovery
 
 ` + "```hcl" + `
-resource "f5xc_discovery" "vsite_discovery" {
+resource "f5_distributed_cloud_discovery" "vsite_discovery" {
   name             = "vsite-discovery"
   namespace        = "my-namespace"
   discovery_type   = "VIRTUAL_SITE"

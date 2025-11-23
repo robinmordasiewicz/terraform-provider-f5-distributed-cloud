@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_network_firewall Data Source - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_network_firewall Data Source - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   Network Firewall is applicable when referred to by a Fleet. The Network Firewall will be applied to all sites that are member of the referring Fleet.  It is applied on all virtual networks that are...
 ---
 
-# f5xc_network_firewall (Data Source)
+# f5_distributed_cloud_network_firewall (Data Source)
 
 Network Firewall is applicable when referred to by a Fleet. The Network Firewall will be applied to all sites that are member of the referring Fleet.  It is applied on all virtual networks that are...
 
 ## Example Usage
 
 ```hcl
-data "f5xc_network_firewall" "example" {
+data "f5_distributed_cloud_network_firewall" "example" {
   name      = "example-network_firewall"
   namespace = "system"
 }

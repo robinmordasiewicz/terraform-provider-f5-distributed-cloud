@@ -52,18 +52,18 @@ func (d *ClientConnectionLimitDataSource) Schema(ctx context.Context, req dataso
 	resp.Schema = schema.Schema{
 		Description: "Fetches information about an existing F5 Distributed Cloud Client Connection Limit.",
 		MarkdownDescription: `
-The ` + "`f5xc_client_connection_limit`" + ` data source retrieves information about an existing client connection limit.
+The ` + "`f5_distributed_cloud_client_connection_limit`" + ` data source retrieves information about an existing client connection limit.
 
 ## Example Usage
 
 ` + "```hcl" + `
-data "f5xc_client_connection_limit" "example" {
+data "f5_distributed_cloud_client_connection_limit" "example" {
   name      = "my-connection-limit"
   namespace = "my-namespace"
 }
 
 output "enabled" {
-  value = data.f5xc_client_connection_limit.example.enabled
+  value = data.f5_distributed_cloud_client_connection_limit.example.enabled
 }
 ` + "```" + `
 `,

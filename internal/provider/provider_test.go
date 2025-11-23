@@ -20,7 +20,7 @@ import (
 // CLI command executed to create a provider server to which the CLI can
 // reattach.
 var testAccProtoV6ProviderFactories = map[string]func() (tfprotov6.ProviderServer, error){
-	"f5xc": providerserver.NewProtocol6WithError(provider.New("test")()),
+	"f5_distributed_cloud": providerserver.NewProtocol6WithError(provider.New("test")()),
 }
 
 // testAccPreCheck validates the necessary test API keys exist in the testing
@@ -169,13 +169,13 @@ func TestAccProvider_missingAPIURL(t *testing.T) {
 // testAccProviderConfig_tokenAuth returns a provider configuration for token authentication.
 func testAccProviderConfig_tokenAuth(apiURL, apiToken string) string {
 	return `
-provider "f5xc" {
+provider "f5_distributed_cloud" {
   api_url   = "` + apiURL + `"
   api_token = "` + apiToken + `"
 }
 
-# Use f5xc data source to verify provider configuration
-data "f5xc_namespace" "system" {
+# Use f5_distributed_cloud data source to verify provider configuration
+data "f5_distributed_cloud_namespace" "system" {
   name = "system"
 }
 `
@@ -184,7 +184,7 @@ data "f5xc_namespace" "system" {
 // testAccProviderConfig_certAuth returns a provider configuration for certificate authentication.
 func testAccProviderConfig_certAuth(apiURL, p12File, p12Password string) string {
 	config := `
-provider "f5xc" {
+provider "f5_distributed_cloud" {
   api_url      = "` + apiURL + `"
   p12_file     = "` + p12File + `"
 `
@@ -196,7 +196,7 @@ provider "f5xc" {
 	// This tests provider configuration without requiring write permissions
 	config += `}
 
-data "f5xc_namespace" "system" {
+data "f5_distributed_cloud_namespace" "system" {
   name = "system"
 }
 `
@@ -206,12 +206,12 @@ data "f5xc_namespace" "system" {
 // testAccProviderConfig_missingCredentials returns a provider configuration without credentials.
 func testAccProviderConfig_missingCredentials(apiURL string) string {
 	return `
-provider "f5xc" {
+provider "f5_distributed_cloud" {
   api_url = "` + apiURL + `"
 }
 
-# Use f5xc data source to verify provider configuration
-data "f5xc_namespace" "system" {
+# Use f5_distributed_cloud data source to verify provider configuration
+data "f5_distributed_cloud_namespace" "system" {
   name = "system"
 }
 `
@@ -220,12 +220,12 @@ data "f5xc_namespace" "system" {
 // testAccProviderConfig_missingAPIURL returns a provider configuration without API URL.
 func testAccProviderConfig_missingAPIURL() string {
 	return `
-provider "f5xc" {
+provider "f5_distributed_cloud" {
   api_token = "some-token"
 }
 
-# Use f5xc data source to verify provider configuration
-data "f5xc_namespace" "system" {
+# Use f5_distributed_cloud data source to verify provider configuration
+data "f5_distributed_cloud_namespace" "system" {
   name = "system"
 }
 `

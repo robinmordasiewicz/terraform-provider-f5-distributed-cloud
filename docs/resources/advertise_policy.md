@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_advertise_policy Resource - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_advertise_policy Resource - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   advertise_policy object controls how and where a service represented by a given virtual_host object is advertised to consumers. Basic concept is a service is made available to consumers in a given ...
 ---
 
-# f5xc_advertise_policy (Resource)
+# f5_distributed_cloud_advertise_policy (Resource)
 
 advertise_policy object controls how and where a service represented by a given virtual_host object is advertised to consumers. Basic concept is a service is made available to consumers in a given ...
 
 ## Example Usage
 
 ```hcl
-resource "f5xc_advertise_policy" "example" {
+resource "f5_distributed_cloud_advertise_policy" "example" {
   name        = "example-advertise_policy"
   namespace   = "system"
   description = "Example AdvertisePolicy resource"
@@ -36,5 +36,5 @@ resource "f5xc_advertise_policy" "example" {
 AdvertisePolicy can be imported using the namespace and name:
 
 ```shell
-terraform import f5xc_advertise_policy.example namespace/name
+terraform import f5_distributed_cloud_advertise_policy.example namespace/name
 ```

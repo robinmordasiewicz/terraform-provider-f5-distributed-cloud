@@ -56,18 +56,18 @@ func (d *VoltstackSiteDataSource) Schema(ctx context.Context, req datasource.Sch
 	resp.Schema = schema.Schema{
 		Description: "Fetches information about an existing F5 Distributed Cloud Voltstack Site.",
 		MarkdownDescription: `
-The ` + "`f5xc_voltstack_site`" + ` data source retrieves information about an existing Voltstack site.
+The ` + "`f5_distributed_cloud_voltstack_site`" + ` data source retrieves information about an existing Voltstack site.
 
 ## Example Usage
 
 ` + "```hcl" + `
-data "f5xc_voltstack_site" "example" {
+data "f5_distributed_cloud_voltstack_site" "example" {
   name      = "my-voltstack-site"
   namespace = "system"
 }
 
 output "site_state" {
-  value = data.f5xc_voltstack_site.example.site_state
+  value = data.f5_distributed_cloud_voltstack_site.example.site_state
 }
 ` + "```" + `
 `,

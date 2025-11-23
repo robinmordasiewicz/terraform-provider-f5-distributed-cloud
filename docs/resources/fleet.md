@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_fleet Resource - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_fleet Resource - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   Fleet is used to configure infrastructure components (like nodes) in one or more F5XC customer edge sites homogeneously. Fleet configuration has following information,   * Software image release to...
 ---
 
-# f5xc_fleet (Resource)
+# f5_distributed_cloud_fleet (Resource)
 
 Fleet is used to configure infrastructure components (like nodes) in one or more F5XC customer edge sites homogeneously. Fleet configuration has following information,   * Software image release to...
 
 ## Example Usage
 
 ```hcl
-resource "f5xc_fleet" "example" {
+resource "f5_distributed_cloud_fleet" "example" {
   name        = "example-fleet"
   namespace   = "system"
   description = "Example Fleet resource"
@@ -36,5 +36,5 @@ resource "f5xc_fleet" "example" {
 Fleet can be imported using the namespace and name:
 
 ```shell
-terraform import f5xc_fleet.example namespace/name
+terraform import f5_distributed_cloud_fleet.example namespace/name
 ```

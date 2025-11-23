@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_cdn_cache_rule Resource - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_cdn_cache_rule Resource - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   CDN cache rule view defines a required parameters that can be used in CRUD, to create and manage CDN cache rule. It can be used to create CDN cache rule.
 ---
 
-# f5xc_cdn_cache_rule (Resource)
+# f5_distributed_cloud_cdn_cache_rule (Resource)
 
 CDN cache rule view defines a required parameters that can be used in CRUD, to create and manage CDN cache rule. It can be used to create CDN cache rule.
 
 ## Example Usage
 
 ```hcl
-resource "f5xc_cdn_cache_rule" "example" {
+resource "f5_distributed_cloud_cdn_cache_rule" "example" {
   name        = "example-cdn_cache_rule"
   namespace   = "system"
   description = "Example CDNCacheRule resource"
@@ -36,5 +36,5 @@ resource "f5xc_cdn_cache_rule" "example" {
 CDNCacheRule can be imported using the namespace and name:
 
 ```shell
-terraform import f5xc_cdn_cache_rule.example namespace/name
+terraform import f5_distributed_cloud_cdn_cache_rule.example namespace/name
 ```

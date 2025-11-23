@@ -15,8 +15,8 @@
 ```hcl
 terraform {
   required_providers {
-    f5xc = {
-      source  = "f5networks/f5xc"
+    f5_distributed_cloud = {
+      source  = "robinmordasiewicz/f5-distributed-cloud"
       version = "~> 0.1"
     }
   }
@@ -31,17 +31,17 @@ git clone https://github.com/robinmordasiewicz/terraform-provider-f5-distributed
 cd terraform-provider-f5-distributed-cloud
 
 # Build provider
-go build -o terraform-provider-f5xc
+go build -o terraform-provider-f5-distributed-cloud
 
 # Install locally
-mkdir -p ~/.terraform.d/plugins/local/f5networks/f5xc/0.1.0/darwin_arm64
-mv terraform-provider-f5xc ~/.terraform.d/plugins/local/f5networks/f5xc/0.1.0/darwin_arm64/
+mkdir -p ~/.terraform.d/plugins/local/robinmordasiewicz/f5-distributed-cloud/0.1.0/darwin_arm64
+mv terraform-provider-f5-distributed-cloud ~/.terraform.d/plugins/local/robinmordasiewicz/f5-distributed-cloud/0.1.0/darwin_arm64/
 
 # Configure Terraform to use local build
 cat > ~/.terraformrc << EOF
 provider_installation {
   dev_overrides {
-    "f5networks/f5xc" = "~/.terraform.d/plugins/local/f5networks/f5xc/0.1.0/darwin_arm64"
+    "robinmordasiewicz/f5-distributed-cloud" = "~/.terraform.d/plugins/local/robinmordasiewicz/f5-distributed-cloud/0.1.0/darwin_arm64"
   }
   direct {}
 }
@@ -57,24 +57,24 @@ Create `main.tf`:
 ```hcl
 terraform {
   required_providers {
-    f5xc = {
-      source  = "f5networks/f5xc"
+    f5_distributed_cloud = {
+      source  = "robinmordasiewicz/f5-distributed-cloud"
       version = "~> 0.1"
     }
   }
 }
 
 # Option 1: Certificate Authentication
-provider "f5xc" {
+provider "f5_distributed_cloud" {
   api_url   = "https://your-tenant.console.ves.volterra.io/api"
   cert_file = "/path/to/your-cert.pem"
   key_file  = "/path/to/your-key.pem"
 }
 
 # Option 2: Token Authentication
-provider "f5xc" {
+provider "f5_distributed_cloud" {
   api_url   = "https://your-tenant.console.ves.volterra.io/api"
-  api_token = var.f5xc_api_token
+  api_token = var.f5_distributed_cloud_api_token
 }
 ```
 
@@ -93,7 +93,7 @@ export F5XC_KEY_FILE="/path/to/key.pem"
 ### Create a Namespace
 
 ```hcl
-resource "f5xc_namespace" "demo" {
+resource "f5_distributed_cloud_namespace" "demo" {
   name        = "demo-namespace"
   description = "Demo namespace for quickstart"
 
@@ -107,9 +107,9 @@ resource "f5xc_namespace" "demo" {
 ### Create an Origin Pool
 
 ```hcl
-resource "f5xc_origin_pool" "backend" {
+resource "f5_distributed_cloud_origin_pool" "backend" {
   name      = "demo-backend"
-  namespace = f5xc_namespace.demo.name
+  namespace = f5_distributed_cloud_namespace.demo.name
 
   origin_servers {
     public_name {
@@ -131,9 +131,9 @@ resource "f5xc_origin_pool" "backend" {
 ### Create an HTTP Load Balancer
 
 ```hcl
-resource "f5xc_http_loadbalancer" "demo" {
+resource "f5_distributed_cloud_http_loadbalancer" "demo" {
   name      = "demo-lb"
-  namespace = f5xc_namespace.demo.name
+  namespace = f5_distributed_cloud_namespace.demo.name
 
   domains = ["demo.example.com"]
 
@@ -144,8 +144,8 @@ resource "f5xc_http_loadbalancer" "demo" {
   default_route {
     origin_pools {
       pool {
-        name      = f5xc_origin_pool.backend.name
-        namespace = f5xc_namespace.demo.name
+        name      = f5_distributed_cloud_origin_pool.backend.name
+        namespace = f5_distributed_cloud_namespace.demo.name
       }
       weight = 100
     }
@@ -156,7 +156,7 @@ resource "f5xc_http_loadbalancer" "demo" {
 
 output "lb_cname" {
   description = "CNAME to configure in DNS"
-  value       = f5xc_http_loadbalancer.demo.cname
+  value       = f5_distributed_cloud_http_loadbalancer.demo.cname
 }
 ```
 
@@ -197,13 +197,13 @@ terraform destroy
 
 ```hcl
 # Query existing namespace
-data "f5xc_namespace" "existing" {
+data "f5_distributed_cloud_namespace" "existing" {
   name = "existing-namespace"
 }
 
 # Use in resource
-resource "f5xc_http_loadbalancer" "example" {
-  namespace = data.f5xc_namespace.existing.name
+resource "f5_distributed_cloud_http_loadbalancer" "example" {
+  namespace = data.f5_distributed_cloud_namespace.existing.name
   # ...
 }
 ```
@@ -212,10 +212,10 @@ resource "f5xc_http_loadbalancer" "example" {
 
 ```bash
 # Import existing namespace
-terraform import f5xc_namespace.existing existing-namespace
+terraform import f5_distributed_cloud_namespace.existing existing-namespace
 
 # Import existing load balancer
-terraform import f5xc_http_loadbalancer.existing namespace/lb-name
+terraform import f5_distributed_cloud_http_loadbalancer.existing namespace/lb-name
 ```
 
 ### Migrating from Proprietary Provider
@@ -232,13 +232,13 @@ terraform import f5xc_http_loadbalancer.existing namespace/lb-name
    resource "volterra_namespace" "example" { ... }
 
    # After
-   provider "f5xc" { ... }
-   resource "f5xc_namespace" "example" { ... }
+   provider "f5_distributed_cloud" { ... }
+   resource "f5_distributed_cloud_namespace" "example" { ... }
    ```
 
 3. Import resources:
    ```bash
-   terraform import f5xc_namespace.example my-namespace
+   terraform import f5_distributed_cloud_namespace.example my-namespace
    ```
 
 4. Verify with plan:

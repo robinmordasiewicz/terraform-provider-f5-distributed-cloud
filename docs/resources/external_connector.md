@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_external_connector Resource - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_external_connector Resource - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   External Connector configuration mainly includes the following: 1. Tunnel connfiguration between F5 CE and external (3rd party) device 2. Tunnel specific parameters (IPSec, GRE)
 ---
 
-# f5xc_external_connector (Resource)
+# f5_distributed_cloud_external_connector (Resource)
 
 External Connector configuration mainly includes the following: 1. Tunnel connfiguration between F5 CE and external (3rd party) device 2. Tunnel specific parameters (IPSec, GRE)
 
 ## Example Usage
 
 ```hcl
-resource "f5xc_external_connector" "example" {
+resource "f5_distributed_cloud_external_connector" "example" {
   name        = "example-external_connector"
   namespace   = "system"
   description = "Example ExternalConnector resource"
@@ -36,5 +36,5 @@ resource "f5xc_external_connector" "example" {
 ExternalConnector can be imported using the namespace and name:
 
 ```shell
-terraform import f5xc_external_connector.example namespace/name
+terraform import f5_distributed_cloud_external_connector.example namespace/name
 ```

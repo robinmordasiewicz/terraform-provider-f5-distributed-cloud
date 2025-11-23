@@ -13,14 +13,14 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages an F5 Distributed Cloud Service Policy Set. Service Policy Sets group service policies together.",
 		MarkdownDescription: `
-The ` + "`f5xc_service_policy_set`" + ` resource manages Service Policy Sets in F5 Distributed Cloud.
+The ` + "`f5_distributed_cloud_service_policy_set`" + ` resource manages Service Policy Sets in F5 Distributed Cloud.
 
 Service Policy Sets group service policies together for organization and management purposes.
 
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5xc_service_policy_set" "example" {
+resource "f5_distributed_cloud_service_policy_set" "example" {
   name        = "my-policy-set"
   namespace   = "my-namespace"
   description = "Example service policy set"

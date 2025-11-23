@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_certificate Resource - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_certificate Resource - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   Certificate represents a client or server certificate.
 ---
 
-# f5xc_certificate (Resource)
+# f5_distributed_cloud_certificate (Resource)
 
 Certificate represents a client or server certificate.
 
 ## Example Usage
 
 ```hcl
-resource "f5xc_certificate" "example" {
+resource "f5_distributed_cloud_certificate" "example" {
   name        = "example-certificate"
   namespace   = "system"
   description = "Example Certificate resource"
@@ -36,5 +36,5 @@ resource "f5xc_certificate" "example" {
 Certificate can be imported using the namespace and name:
 
 ```shell
-terraform import f5xc_certificate.example namespace/name
+terraform import f5_distributed_cloud_certificate.example namespace/name
 ```

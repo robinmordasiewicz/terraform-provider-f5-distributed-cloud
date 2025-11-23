@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_cdn_loadbalancer Resource - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_cdn_loadbalancer Resource - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   CDN Loadbalancer view defines a required parameters that can be used in CRUD, to create and manage CDN loadbalancer. It can be used to create CDN loadbalancer and HTTPS loadbalancer.  View will cre...
 ---
 
-# f5xc_cdn_loadbalancer (Resource)
+# f5_distributed_cloud_cdn_loadbalancer (Resource)
 
 CDN Loadbalancer view defines a required parameters that can be used in CRUD, to create and manage CDN loadbalancer. It can be used to create CDN loadbalancer and HTTPS loadbalancer.  View will cre...
 
 ## Example Usage
 
 ```hcl
-resource "f5xc_cdn_loadbalancer" "example" {
+resource "f5_distributed_cloud_cdn_loadbalancer" "example" {
   name        = "example-cdn_loadbalancer"
   namespace   = "system"
   description = "Example CDNLoadbalancer resource"
@@ -36,5 +36,5 @@ resource "f5xc_cdn_loadbalancer" "example" {
 CDNLoadbalancer can be imported using the namespace and name:
 
 ```shell
-terraform import f5xc_cdn_loadbalancer.example namespace/name
+terraform import f5_distributed_cloud_cdn_loadbalancer.example namespace/name
 ```

@@ -52,18 +52,18 @@ func (d *EnhancedFirewallPolicyDataSource) Schema(ctx context.Context, req datas
 	resp.Schema = schema.Schema{
 		Description: "Fetches information about an existing F5 Distributed Cloud Enhanced Firewall Policy.",
 		MarkdownDescription: `
-The ` + "`f5xc_enhanced_firewall_policy`" + ` data source retrieves information about an existing enhanced firewall policy.
+The ` + "`f5_distributed_cloud_enhanced_firewall_policy`" + ` data source retrieves information about an existing enhanced firewall policy.
 
 ## Example Usage
 
 ` + "```hcl" + `
-data "f5xc_enhanced_firewall_policy" "example" {
+data "f5_distributed_cloud_enhanced_firewall_policy" "example" {
   name      = "my-enhanced-firewall-policy"
   namespace = "my-namespace"
 }
 
 output "enabled" {
-  value = data.f5xc_enhanced_firewall_policy.example.enabled
+  value = data.f5_distributed_cloud_enhanced_firewall_policy.example.enabled
 }
 ` + "```" + `
 `,

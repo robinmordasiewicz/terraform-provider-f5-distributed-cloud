@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_scim Data Source - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_scim Data Source - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   This schema specification details Volterra's support for SCIM protocol. Admin can use SCIM feature on top of SSO to enable automated provisioning of user and user groups from external identity prov...
 ---
 
-# f5xc_scim (Data Source)
+# f5_distributed_cloud_scim (Data Source)
 
 This schema specification details Volterra's support for SCIM protocol. Admin can use SCIM feature on top of SSO to enable automated provisioning of user and user groups from external identity prov...
 
 ## Example Usage
 
 ```hcl
-data "f5xc_scim" "example" {
+data "f5_distributed_cloud_scim" "example" {
   name      = "example-scim"
   namespace = "system"
 }

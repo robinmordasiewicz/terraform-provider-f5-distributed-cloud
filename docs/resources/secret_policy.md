@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_secret_policy Resource - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_secret_policy Resource - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   A Secret Policy defines who gets access to a secret. A secret_policy object consists of an unordered list of predicates and a list of secret policy rules. The predicates are evaluated against a set...
 ---
 
-# f5xc_secret_policy (Resource)
+# f5_distributed_cloud_secret_policy (Resource)
 
 A Secret Policy defines who gets access to a secret. A secret_policy object consists of an unordered list of predicates and a list of secret policy rules. The predicates are evaluated against a set...
 
 ## Example Usage
 
 ```hcl
-resource "f5xc_secret_policy" "example" {
+resource "f5_distributed_cloud_secret_policy" "example" {
   name        = "example-secret_policy"
   namespace   = "system"
   description = "Example SecretPolicy resource"
@@ -36,5 +36,5 @@ resource "f5xc_secret_policy" "example" {
 SecretPolicy can be imported using the namespace and name:
 
 ```shell
-terraform import f5xc_secret_policy.example namespace/name
+terraform import f5_distributed_cloud_secret_policy.example namespace/name
 ```

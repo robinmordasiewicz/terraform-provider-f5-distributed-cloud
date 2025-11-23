@@ -52,18 +52,18 @@ func (d *ForwardProxyPolicyDataSource) Schema(ctx context.Context, req datasourc
 	resp.Schema = schema.Schema{
 		Description: "Fetches information about an existing F5 Distributed Cloud Forward Proxy Policy.",
 		MarkdownDescription: `
-The ` + "`f5xc_forward_proxy_policy`" + ` data source retrieves information about an existing forward proxy policy.
+The ` + "`f5_distributed_cloud_forward_proxy_policy`" + ` data source retrieves information about an existing forward proxy policy.
 
 ## Example Usage
 
 ` + "```hcl" + `
-data "f5xc_forward_proxy_policy" "example" {
+data "f5_distributed_cloud_forward_proxy_policy" "example" {
   name      = "my-forward-proxy-policy"
   namespace = "my-namespace"
 }
 
 output "enabled" {
-  value = data.f5xc_forward_proxy_policy.example.enabled
+  value = data.f5_distributed_cloud_forward_proxy_policy.example.enabled
 }
 ` + "```" + `
 `,

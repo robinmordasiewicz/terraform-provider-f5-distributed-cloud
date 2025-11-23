@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_mobile_sdk Data Source - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_mobile_sdk Data Source - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   Manages an F5 Distributed Cloud resource.
 ---
 
-# f5xc_mobile_sdk (Data Source)
+# f5_distributed_cloud_mobile_sdk (Data Source)
 
 Manages an F5 Distributed Cloud resource.
 
 ## Example Usage
 
 ```hcl
-data "f5xc_mobile_sdk" "example" {
+data "f5_distributed_cloud_mobile_sdk" "example" {
   name      = "example-mobile_sdk"
   namespace = "system"
 }

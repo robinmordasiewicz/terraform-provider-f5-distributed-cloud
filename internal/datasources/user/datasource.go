@@ -52,18 +52,18 @@ func (d *UserDataSource) Schema(ctx context.Context, req datasource.SchemaReques
 	resp.Schema = schema.Schema{
 		Description: "Fetches information about an existing F5 Distributed Cloud User.",
 		MarkdownDescription: `
-The ` + "`f5xc_user`" + ` data source retrieves information about an existing user.
+The ` + "`f5_distributed_cloud_user`" + ` data source retrieves information about an existing user.
 
 ## Example Usage
 
 ` + "```hcl" + `
-data "f5xc_user" "example" {
+data "f5_distributed_cloud_user" "example" {
   name      = "my-user"
   namespace = "system"
 }
 
 output "email" {
-  value = data.f5xc_user.example.email
+  value = data.f5_distributed_cloud_user.example.email
 }
 ` + "```" + `
 `,

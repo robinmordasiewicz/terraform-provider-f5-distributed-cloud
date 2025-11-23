@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_ike_phase1_profile Resource - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_ike_phase1_profile Resource - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   IKE Phase1 profile mainly includes the following 1. Encryption protocols to be used for IKE SA 2. Authentication Protocols to be used for IKE SA 3. DH group 4. PRF 5. Key lifetime etc
 ---
 
-# f5xc_ike_phase1_profile (Resource)
+# f5_distributed_cloud_ike_phase1_profile (Resource)
 
 IKE Phase1 profile mainly includes the following 1. Encryption protocols to be used for IKE SA 2. Authentication Protocols to be used for IKE SA 3. DH group 4. PRF 5. Key lifetime etc
 
 ## Example Usage
 
 ```hcl
-resource "f5xc_ike_phase1_profile" "example" {
+resource "f5_distributed_cloud_ike_phase1_profile" "example" {
   name        = "example-ike_phase1_profile"
   namespace   = "system"
   description = "Example IkePhase1Profile resource"
@@ -36,5 +36,5 @@ resource "f5xc_ike_phase1_profile" "example" {
 IkePhase1Profile can be imported using the namespace and name:
 
 ```shell
-terraform import f5xc_ike_phase1_profile.example namespace/name
+terraform import f5_distributed_cloud_ike_phase1_profile.example namespace/name
 ```

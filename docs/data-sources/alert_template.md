@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_alert_template Data Source - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_alert_template Data Source - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   BRM Alerts Alert Template
 ---
 
-# f5xc_alert_template (Data Source)
+# f5_distributed_cloud_alert_template (Data Source)
 
 BRM Alerts Alert Template
 
 ## Example Usage
 
 ```hcl
-data "f5xc_alert_template" "example" {
+data "f5_distributed_cloud_alert_template" "example" {
   name      = "example-alert_template"
   namespace = "system"
 }

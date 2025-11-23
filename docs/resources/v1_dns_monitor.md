@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_v1_dns_monitor Resource - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_v1_dns_monitor Resource - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   DNS Monitor defines a DNS synthetic monitor.
 ---
 
-# f5xc_v1_dns_monitor (Resource)
+# f5_distributed_cloud_v1_dns_monitor (Resource)
 
 DNS Monitor defines a DNS synthetic monitor.
 
 ## Example Usage
 
 ```hcl
-resource "f5xc_v1_dns_monitor" "example" {
+resource "f5_distributed_cloud_v1_dns_monitor" "example" {
   name        = "example-v1_dns_monitor"
   namespace   = "system"
   description = "Example V1DNSMonitor resource"
@@ -36,5 +36,5 @@ resource "f5xc_v1_dns_monitor" "example" {
 V1DNSMonitor can be imported using the namespace and name:
 
 ```shell
-terraform import f5xc_v1_dns_monitor.example namespace/name
+terraform import f5_distributed_cloud_v1_dns_monitor.example namespace/name
 ```

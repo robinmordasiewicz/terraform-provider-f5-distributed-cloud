@@ -15,14 +15,14 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages F5 Distributed Cloud Service Mesh.",
 		MarkdownDescription: `
-The ` + "`f5xc_service_mesh`" + ` resource manages Service Meshes in F5 Distributed Cloud.
+The ` + "`f5_distributed_cloud_service_mesh`" + ` resource manages Service Meshes in F5 Distributed Cloud.
 
 Service Meshes provide service-to-service communication management.
 
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5xc_service_mesh" "example" {
+resource "f5_distributed_cloud_service_mesh" "example" {
   name      = "app-mesh"
   namespace = "my-namespace"
   mesh_type = "INGRESS"

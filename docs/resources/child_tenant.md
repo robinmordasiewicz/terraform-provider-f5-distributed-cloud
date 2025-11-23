@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_child_tenant Resource - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_child_tenant Resource - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   Child Tenant
 ---
 
-# f5xc_child_tenant (Resource)
+# f5_distributed_cloud_child_tenant (Resource)
 
 Child Tenant
 
 ## Example Usage
 
 ```hcl
-resource "f5xc_child_tenant" "example" {
+resource "f5_distributed_cloud_child_tenant" "example" {
   name        = "example-child_tenant"
   namespace   = "system"
   description = "Example ChildTenant resource"
@@ -36,5 +36,5 @@ resource "f5xc_child_tenant" "example" {
 ChildTenant can be imported using the namespace and name:
 
 ```shell
-terraform import f5xc_child_tenant.example namespace/name
+terraform import f5_distributed_cloud_child_tenant.example namespace/name
 ```

@@ -13,14 +13,14 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages an F5 Distributed Cloud Kubernetes Cluster Role.",
 		MarkdownDescription: `
-The ` + "`f5xc_k8s_cluster_role`" + ` resource manages Kubernetes Cluster Roles in F5 Distributed Cloud.
+The ` + "`f5_distributed_cloud_k8s_cluster_role`" + ` resource manages Kubernetes Cluster Roles in F5 Distributed Cloud.
 
 Kubernetes Cluster Roles define cluster-wide permissions for RBAC.
 
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5xc_k8s_cluster_role" "example" {
+resource "f5_distributed_cloud_k8s_cluster_role" "example" {
   name        = "my-cluster-role"
   namespace   = "system"
   description = "Cluster role for admin access"

@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_bgp Data Source - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_bgp Data Source - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   BGP object represents configuration of bgp protocol on given network interface on customer edge site. It is template configuration that can be applied on a set of sites represented by list of sites...
 ---
 
-# f5xc_bgp (Data Source)
+# f5_distributed_cloud_bgp (Data Source)
 
 BGP object represents configuration of bgp protocol on given network interface on customer edge site. It is template configuration that can be applied on a set of sites represented by list of sites...
 
 ## Example Usage
 
 ```hcl
-data "f5xc_bgp" "example" {
+data "f5_distributed_cloud_bgp" "example" {
   name      = "example-bgp"
   namespace = "system"
 }

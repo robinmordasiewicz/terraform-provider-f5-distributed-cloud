@@ -39,14 +39,14 @@ To:
 ```hcl
 terraform {
   required_providers {
-    f5xc = {
+    f5_distributed_cloud = {
       source  = "robinmordasiewicz/f5-distributed-cloud"
       version = "~> 0.1"
     }
   }
 }
 
-provider "f5xc" {
+provider "f5_distributed_cloud" {
   api_url   = var.api_url
   api_token = var.api_token  # or use p12_file/p12_password
 }
@@ -54,17 +54,17 @@ provider "f5xc" {
 
 ### Step 2: Update Resource Names
 
-Update resource type names from `volterra_*` to `f5xc_*`:
+Update resource type names from `volterra_*` to `f5_distributed_cloud_*`:
 
 | Old Resource Name | New Resource Name |
 |-------------------|-------------------|
-| `volterra_namespace` | `f5xc_namespace` |
-| `volterra_origin_pool` | `f5xc_origin_pool` |
-| `volterra_http_loadbalancer` | `f5xc_http_loadbalancer` |
-| `volterra_app_firewall` | `f5xc_app_firewall` |
-| `volterra_aws_vpc_site` | `f5xc_cloud_site` |
-| `volterra_azure_vnet_site` | `f5xc_cloud_site` |
-| `volterra_gcp_vpc_site` | `f5xc_cloud_site` |
+| `volterra_namespace` | `f5_distributed_cloud_namespace` |
+| `volterra_origin_pool` | `f5_distributed_cloud_origin_pool` |
+| `volterra_http_loadbalancer` | `f5_distributed_cloud_http_loadbalancer` |
+| `volterra_app_firewall` | `f5_distributed_cloud_app_firewall` |
+| `volterra_aws_vpc_site` | `f5_distributed_cloud_cloud_site` |
+| `volterra_azure_vnet_site` | `f5_distributed_cloud_cloud_site` |
+| `volterra_gcp_vpc_site` | `f5_distributed_cloud_cloud_site` |
 
 ### Step 3: Update Resource Attributes
 
@@ -87,7 +87,7 @@ resource "volterra_origin_pool" "example" {
 }
 
 # New
-resource "f5xc_origin_pool" "example" {
+resource "f5_distributed_cloud_origin_pool" "example" {
   name        = "example"
   namespace   = "default"
   port        = 80
@@ -119,14 +119,14 @@ resource "volterra_http_loadbalancer" "example" {
 }
 
 # New
-resource "f5xc_http_loadbalancer" "example" {
+resource "f5_distributed_cloud_http_loadbalancer" "example" {
   name        = "example"
   namespace   = "default"
   domains     = ["example.com"]
   http_port   = 80
   advertise_on_public = true
   default_pool {
-    name      = f5xc_origin_pool.example.name
+    name      = f5_distributed_cloud_origin_pool.example.name
     namespace = "default"
   }
 }
@@ -145,7 +145,7 @@ resource "volterra_aws_vpc_site" "example" {
 }
 
 # New
-resource "f5xc_cloud_site" "example" {
+resource "f5_distributed_cloud_cloud_site" "example" {
   name           = "aws-site"
   site_type      = "aws_vpc_site"
   cloud_provider = "aws"
@@ -160,19 +160,19 @@ After updating your configuration, import existing resources:
 
 ```bash
 # Import namespace
-terraform import f5xc_namespace.example my-namespace
+terraform import f5_distributed_cloud_namespace.example my-namespace
 
 # Import origin pool
-terraform import f5xc_origin_pool.example my-namespace/my-origin-pool
+terraform import f5_distributed_cloud_origin_pool.example my-namespace/my-origin-pool
 
 # Import HTTP load balancer
-terraform import f5xc_http_loadbalancer.example my-namespace/my-lb
+terraform import f5_distributed_cloud_http_loadbalancer.example my-namespace/my-lb
 
 # Import app firewall
-terraform import f5xc_app_firewall.example my-namespace/my-firewall
+terraform import f5_distributed_cloud_app_firewall.example my-namespace/my-firewall
 
 # Import cloud site
-terraform import f5xc_cloud_site.example my-site
+terraform import f5_distributed_cloud_cloud_site.example my-site
 ```
 
 ### Step 5: Verify State
@@ -195,9 +195,9 @@ If you're migrating from certificate-based authentication to API token:
 2. Update your provider configuration:
 
 ```hcl
-provider "f5xc" {
+provider "f5_distributed_cloud" {
   api_url   = "https://your-tenant.console.ves.volterra.io/api"
-  api_token = var.f5xc_api_token
+  api_token = var.f5_distributed_cloud_api_token
 }
 ```
 
@@ -212,7 +212,7 @@ export F5XC_API_TOKEN="your-api-token"
 If you prefer to continue using P12 certificates:
 
 ```hcl
-provider "f5xc" {
+provider "f5_distributed_cloud" {
   api_url      = "https://your-tenant.console.ves.volterra.io/api"
   p12_file     = var.p12_file
   p12_password = var.p12_password

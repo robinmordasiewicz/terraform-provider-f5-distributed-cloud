@@ -14,11 +14,11 @@ No changes to provider configuration are required.
 
 #### Resource Changes
 
-##### f5xc_namespace
+##### f5_distributed_cloud_namespace
 
 No breaking changes.
 
-##### f5xc_origin_pool
+##### f5_distributed_cloud_origin_pool
 
 - `endpoint_selection` has been replaced with `loadbalancer_algorithm`
 - Default port behavior changed: port is now always required
@@ -27,7 +27,7 @@ No breaking changes.
 
 ```hcl
 # Before
-resource "f5xc_origin_pool" "example" {
+resource "f5_distributed_cloud_origin_pool" "example" {
   name               = "example"
   namespace          = "default"
   endpoint_selection = "DISTRIBUTED"
@@ -35,7 +35,7 @@ resource "f5xc_origin_pool" "example" {
 }
 
 # After
-resource "f5xc_origin_pool" "example" {
+resource "f5_distributed_cloud_origin_pool" "example" {
   name                   = "example"
   namespace              = "default"
   loadbalancer_algorithm = "ROUND_ROBIN"
@@ -43,7 +43,7 @@ resource "f5xc_origin_pool" "example" {
 }
 ```
 
-##### f5xc_http_loadbalancer
+##### f5_distributed_cloud_http_loadbalancer
 
 - `advertise_on_public_default_vip` renamed to `advertise_on_public`
 - `default_route_pools` renamed to `default_pool`
@@ -52,7 +52,7 @@ resource "f5xc_origin_pool" "example" {
 
 ```hcl
 # Before
-resource "f5xc_http_loadbalancer" "example" {
+resource "f5_distributed_cloud_http_loadbalancer" "example" {
   name                            = "example"
   namespace                       = "default"
   advertise_on_public_default_vip = true
@@ -65,7 +65,7 @@ resource "f5xc_http_loadbalancer" "example" {
 }
 
 # After
-resource "f5xc_http_loadbalancer" "example" {
+resource "f5_distributed_cloud_http_loadbalancer" "example" {
   name                = "example"
   namespace           = "default"
   advertise_on_public = true
@@ -75,9 +75,9 @@ resource "f5xc_http_loadbalancer" "example" {
 }
 ```
 
-##### f5xc_cloud_site
+##### f5_distributed_cloud_cloud_site
 
-- AWS, Azure, and GCP site resources have been unified into `f5xc_cloud_site`
+- AWS, Azure, and GCP site resources have been unified into `f5_distributed_cloud_cloud_site`
 - `site_type` and `cloud_provider` attributes are now required
 
 **Migration:**
@@ -91,7 +91,7 @@ resource "volterra_aws_vpc_site" "example" {
 }
 
 # After
-resource "f5xc_cloud_site" "example" {
+resource "f5_distributed_cloud_cloud_site" "example" {
   name           = "example"
   site_type      = "aws_vpc_site"
   cloud_provider = "aws"
@@ -99,7 +99,7 @@ resource "f5xc_cloud_site" "example" {
 }
 ```
 
-##### f5xc_app_firewall
+##### f5_distributed_cloud_app_firewall
 
 - `blocking_mode` renamed to `mode`
 - Bot protection configuration structure changed
@@ -108,14 +108,14 @@ resource "f5xc_cloud_site" "example" {
 
 ```hcl
 # Before
-resource "f5xc_app_firewall" "example" {
+resource "f5_distributed_cloud_app_firewall" "example" {
   name          = "example"
   namespace     = "default"
   blocking_mode = true
 }
 
 # After
-resource "f5xc_app_firewall" "example" {
+resource "f5_distributed_cloud_app_firewall" "example" {
   name      = "example"
   namespace = "default"
   mode      = "blocking"  # or "monitoring"
@@ -152,7 +152,7 @@ Update your provider version constraint:
 ```hcl
 terraform {
   required_providers {
-    f5xc = {
+    f5_distributed_cloud = {
       source  = "robinmordasiewicz/f5-distributed-cloud"
       version = "~> 1.0"
     }
@@ -189,7 +189,7 @@ In some cases, you may need to migrate state for renamed resources:
 
 ```bash
 # Example: Migrate from old resource name to new
-terraform state mv f5xc_aws_vpc_site.example f5xc_cloud_site.example
+terraform state mv f5_distributed_cloud_aws_vpc_site.example f5_distributed_cloud_cloud_site.example
 ```
 
 ## Rollback
@@ -205,7 +205,7 @@ If you encounter issues:
    ```hcl
    terraform {
      required_providers {
-       f5xc = {
+       f5_distributed_cloud = {
          source  = "robinmordasiewicz/f5-distributed-cloud"
          version = "~> 0.x"  # Previous version
        }

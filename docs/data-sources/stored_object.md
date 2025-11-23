@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_stored_object Data Source - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_stored_object Data Source - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   Manages an F5 Distributed Cloud resource.
 ---
 
-# f5xc_stored_object (Data Source)
+# f5_distributed_cloud_stored_object (Data Source)
 
 Manages an F5 Distributed Cloud resource.
 
 ## Example Usage
 
 ```hcl
-data "f5xc_stored_object" "example" {
+data "f5_distributed_cloud_stored_object" "example" {
   name      = "example-stored_object"
   namespace = "system"
 }

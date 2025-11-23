@@ -17,7 +17,7 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages an F5 Distributed Cloud Service Policy.",
 		MarkdownDescription: `
-The ` + "`f5xc_service_policy`" + ` resource manages Service Policies in F5 Distributed Cloud.
+The ` + "`f5_distributed_cloud_service_policy`" + ` resource manages Service Policies in F5 Distributed Cloud.
 
 Service Policies define traffic control rules for service-to-service communication.
 They can be used to implement security policies, traffic routing, and access control.
@@ -25,7 +25,7 @@ They can be used to implement security policies, traffic routing, and access con
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5xc_service_policy" "example" {
+resource "f5_distributed_cloud_service_policy" "example" {
   name        = "my-service-policy"
   namespace   = "my-namespace"
   description = "Example service policy"
@@ -44,7 +44,7 @@ resource "f5xc_service_policy" "example" {
 Service Policies can be imported using namespace/name:
 
 ` + "```shell" + `
-terraform import f5xc_service_policy.example my-namespace/my-service-policy
+terraform import f5_distributed_cloud_service_policy.example my-namespace/my-service-policy
 ` + "```" + `
 `,
 		Attributes: map[string]schema.Attribute{

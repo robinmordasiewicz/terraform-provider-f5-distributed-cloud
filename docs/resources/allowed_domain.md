@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_allowed_domain Resource - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_allowed_domain Resource - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   Allowed Domain Object defines which domains will be allowed by Client-Side Defense Client-Side Defense Objects is used to configure Client-Side Defense to detect/mitigate anomalous URLs for enterpr...
 ---
 
-# f5xc_allowed_domain (Resource)
+# f5_distributed_cloud_allowed_domain (Resource)
 
 Allowed Domain Object defines which domains will be allowed by Client-Side Defense Client-Side Defense Objects is used to configure Client-Side Defense to detect/mitigate anomalous URLs for enterpr...
 
 ## Example Usage
 
 ```hcl
-resource "f5xc_allowed_domain" "example" {
+resource "f5_distributed_cloud_allowed_domain" "example" {
   name        = "example-allowed_domain"
   namespace   = "system"
   description = "Example AllowedDomain resource"
@@ -36,5 +36,5 @@ resource "f5xc_allowed_domain" "example" {
 AllowedDomain can be imported using the namespace and name:
 
 ```shell
-terraform import f5xc_allowed_domain.example namespace/name
+terraform import f5_distributed_cloud_allowed_domain.example namespace/name
 ```

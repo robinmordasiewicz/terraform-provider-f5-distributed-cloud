@@ -53,18 +53,18 @@ func (d *CertificateDataSource) Schema(ctx context.Context, req datasource.Schem
 	resp.Schema = schema.Schema{
 		Description: "Fetches information about an existing F5 Distributed Cloud Certificate.",
 		MarkdownDescription: `
-The ` + "`f5xc_certificate`" + ` data source retrieves information about an existing certificate.
+The ` + "`f5_distributed_cloud_certificate`" + ` data source retrieves information about an existing certificate.
 
 ## Example Usage
 
 ` + "```hcl" + `
-data "f5xc_certificate" "example" {
+data "f5_distributed_cloud_certificate" "example" {
   name      = "my-certificate"
   namespace = "my-namespace"
 }
 
 output "cert_type" {
-  value = data.f5xc_certificate.example.cert_type
+  value = data.f5_distributed_cloud_certificate.example.cert_type
 }
 ` + "```" + `
 `,

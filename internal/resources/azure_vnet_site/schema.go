@@ -13,14 +13,14 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages F5 Distributed Cloud Azure VNET Site.",
 		MarkdownDescription: `
-The ` + "`f5xc_azure_vnet_site`" + ` resource manages Azure VNET Sites in F5 Distributed Cloud.
+The ` + "`f5_distributed_cloud_azure_vnet_site`" + ` resource manages Azure VNET Sites in F5 Distributed Cloud.
 
 Azure VNET Sites deploy F5 XC nodes into an existing or new Azure VNET.
 
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5xc_azure_vnet_site" "example" {
+resource "f5_distributed_cloud_azure_vnet_site" "example" {
   name                  = "azure-site-1"
   namespace             = "system"
   azure_region          = "westus2"

@@ -13,14 +13,14 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages F5 Distributed Cloud Known Label.",
 		MarkdownDescription: `
-The ` + "`f5xc_known_label`" + ` resource manages Known Labels in F5 Distributed Cloud.
+The ` + "`f5_distributed_cloud_known_label`" + ` resource manages Known Labels in F5 Distributed Cloud.
 
 Known Labels define predefined labels for resource categorization and selection.
 
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5xc_known_label" "example" {
+resource "f5_distributed_cloud_known_label" "example" {
   name      = "environment-label"
   namespace = "shared"
   key       = "environment"

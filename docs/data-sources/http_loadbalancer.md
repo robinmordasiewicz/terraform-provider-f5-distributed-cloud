@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_http_loadbalancer Data Source - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_http_loadbalancer Data Source - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   HTTP Load Balancer view defines a required parameters that can be used in CRUD, to create and manage HTTP Load Balancer. It can be used to create HTTP Load Balancer and HTTPS Load Balancer.  View w...
 ---
 
-# f5xc_http_loadbalancer (Data Source)
+# f5_distributed_cloud_http_loadbalancer (Data Source)
 
 HTTP Load Balancer view defines a required parameters that can be used in CRUD, to create and manage HTTP Load Balancer. It can be used to create HTTP Load Balancer and HTTPS Load Balancer.  View w...
 
 ## Example Usage
 
 ```hcl
-data "f5xc_http_loadbalancer" "example" {
+data "f5_distributed_cloud_http_loadbalancer" "example" {
   name      = "example-http_loadbalancer"
   namespace = "system"
 }

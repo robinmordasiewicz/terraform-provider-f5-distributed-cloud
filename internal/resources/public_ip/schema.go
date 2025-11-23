@@ -14,7 +14,7 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages an F5 Distributed Cloud Public IP. Public IPs provide external IP addresses for services.",
 		MarkdownDescription: `
-The ` + "`f5xc_public_ip`" + ` resource manages Public IPs in F5 Distributed Cloud.
+The ` + "`f5_distributed_cloud_public_ip`" + ` resource manages Public IPs in F5 Distributed Cloud.
 
 Public IPs provide external IP addresses that can be used for services deployed
 within the F5 Distributed Cloud platform.
@@ -22,7 +22,7 @@ within the F5 Distributed Cloud platform.
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5xc_public_ip" "example" {
+resource "f5_distributed_cloud_public_ip" "example" {
   name        = "my-public-ip"
   namespace   = "shared"
   description = "Public IP for production services"
@@ -34,7 +34,7 @@ resource "f5xc_public_ip" "example" {
 Public IPs can be imported using namespace/name:
 
 ` + "```shell" + `
-terraform import f5xc_public_ip.example shared/my-public-ip
+terraform import f5_distributed_cloud_public_ip.example shared/my-public-ip
 ` + "```" + `
 `,
 		Attributes: map[string]schema.Attribute{

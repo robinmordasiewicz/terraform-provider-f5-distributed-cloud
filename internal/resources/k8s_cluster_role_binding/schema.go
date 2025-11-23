@@ -13,14 +13,14 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages an F5 Distributed Cloud Kubernetes Cluster Role Binding.",
 		MarkdownDescription: `
-The ` + "`f5xc_k8s_cluster_role_binding`" + ` resource manages Kubernetes Cluster Role Bindings in F5 Distributed Cloud.
+The ` + "`f5_distributed_cloud_k8s_cluster_role_binding`" + ` resource manages Kubernetes Cluster Role Bindings in F5 Distributed Cloud.
 
 Kubernetes Cluster Role Bindings bind cluster roles to users or service accounts.
 
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5xc_k8s_cluster_role_binding" "example" {
+resource "f5_distributed_cloud_k8s_cluster_role_binding" "example" {
   name        = "my-cluster-role-binding"
   namespace   = "system"
   description = "Binding admin role to service account"

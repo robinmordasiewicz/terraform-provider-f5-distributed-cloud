@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_contact Resource - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_contact Resource - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   Customer or tenant contact details. These details allows sending emails or regular mails to a customer. Customer can have many contacts and they come in two flavors: * billing - used for invoicing ...
 ---
 
-# f5xc_contact (Resource)
+# f5_distributed_cloud_contact (Resource)
 
 Customer or tenant contact details. These details allows sending emails or regular mails to a customer. Customer can have many contacts and they come in two flavors: * billing - used for invoicing ...
 
 ## Example Usage
 
 ```hcl
-resource "f5xc_contact" "example" {
+resource "f5_distributed_cloud_contact" "example" {
   name        = "example-contact"
   namespace   = "system"
   description = "Example Contact resource"
@@ -36,5 +36,5 @@ resource "f5xc_contact" "example" {
 Contact can be imported using the namespace and name:
 
 ```shell
-terraform import f5xc_contact.example namespace/name
+terraform import f5_distributed_cloud_contact.example namespace/name
 ```

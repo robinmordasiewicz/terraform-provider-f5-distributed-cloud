@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_segment Resource - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_segment Resource - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   Network Segment.
 ---
 
-# f5xc_segment (Resource)
+# f5_distributed_cloud_segment (Resource)
 
 Network Segment.
 
 ## Example Usage
 
 ```hcl
-resource "f5xc_segment" "example" {
+resource "f5_distributed_cloud_segment" "example" {
   name        = "example-segment"
   namespace   = "system"
   description = "Example Segment resource"
@@ -36,5 +36,5 @@ resource "f5xc_segment" "example" {
 Segment can be imported using the namespace and name:
 
 ```shell
-terraform import f5xc_segment.example namespace/name
+terraform import f5_distributed_cloud_segment.example namespace/name
 ```

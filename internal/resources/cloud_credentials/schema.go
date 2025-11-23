@@ -15,7 +15,7 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages F5 Distributed Cloud Cloud Credentials.",
 		MarkdownDescription: `
-The ` + "`f5xc_cloud_credentials`" + ` resource manages Cloud Provider Credentials in F5 Distributed Cloud.
+The ` + "`f5_distributed_cloud_cloud_credentials`" + ` resource manages Cloud Provider Credentials in F5 Distributed Cloud.
 
 Cloud Credentials are used to authenticate with cloud providers (AWS, Azure, GCP) for site deployment and cloud resource management.
 
@@ -24,7 +24,7 @@ Cloud Credentials are used to authenticate with cloud providers (AWS, Azure, GCP
 ### AWS Credentials
 
 ` + "```hcl" + `
-resource "f5xc_cloud_credentials" "aws" {
+resource "f5_distributed_cloud_cloud_credentials" "aws" {
   name           = "aws-creds"
   namespace      = "system"
   cloud_provider = "aws"
@@ -39,7 +39,7 @@ resource "f5xc_cloud_credentials" "aws" {
 ### Azure Credentials
 
 ` + "```hcl" + `
-resource "f5xc_cloud_credentials" "azure" {
+resource "f5_distributed_cloud_cloud_credentials" "azure" {
   name           = "azure-creds"
   namespace      = "system"
   cloud_provider = "azure"

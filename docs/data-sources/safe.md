@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_safe Data Source - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_safe Data Source - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   Use this API to interact with SAFE endpoints. All calls which not include user interaction allow a blob as the payload and return a blob as the return parameter.
 ---
 
-# f5xc_safe (Data Source)
+# f5_distributed_cloud_safe (Data Source)
 
 Use this API to interact with SAFE endpoints. All calls which not include user interaction allow a blob as the payload and return a blob as the return parameter.
 
 ## Example Usage
 
 ```hcl
-data "f5xc_safe" "example" {
+data "f5_distributed_cloud_safe" "example" {
   name      = "example-safe"
   namespace = "system"
 }

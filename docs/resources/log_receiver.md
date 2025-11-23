@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_log_receiver Resource - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_log_receiver Resource - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   Log Receiver is used to specify a receiver (syslog, splunk, datadog etc.,) to send the log. Log receiver need to be reachable on site local network.
 ---
 
-# f5xc_log_receiver (Resource)
+# f5_distributed_cloud_log_receiver (Resource)
 
 Log Receiver is used to specify a receiver (syslog, splunk, datadog etc.,) to send the log. Log receiver need to be reachable on site local network.
 
 ## Example Usage
 
 ```hcl
-resource "f5xc_log_receiver" "example" {
+resource "f5_distributed_cloud_log_receiver" "example" {
   name        = "example-log_receiver"
   namespace   = "system"
   description = "Example LogReceiver resource"
@@ -36,5 +36,5 @@ resource "f5xc_log_receiver" "example" {
 LogReceiver can be imported using the namespace and name:
 
 ```shell
-terraform import f5xc_log_receiver.example namespace/name
+terraform import f5_distributed_cloud_log_receiver.example namespace/name
 ```

@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_infraprotect Resource - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_infraprotect Resource - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   APIs to get monitoring data for infraprotect.
 ---
 
-# f5xc_infraprotect (Resource)
+# f5_distributed_cloud_infraprotect (Resource)
 
 APIs to get monitoring data for infraprotect.
 
 ## Example Usage
 
 ```hcl
-resource "f5xc_infraprotect" "example" {
+resource "f5_distributed_cloud_infraprotect" "example" {
   name        = "example-infraprotect"
   namespace   = "system"
   description = "Example Infraprotect resource"
@@ -36,5 +36,5 @@ resource "f5xc_infraprotect" "example" {
 Infraprotect can be imported using the namespace and name:
 
 ```shell
-terraform import f5xc_infraprotect.example namespace/name
+terraform import f5_distributed_cloud_infraprotect.example namespace/name
 ```

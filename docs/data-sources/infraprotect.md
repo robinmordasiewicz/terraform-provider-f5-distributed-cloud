@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_infraprotect Data Source - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_infraprotect Data Source - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   APIs to get monitoring data for infraprotect.
 ---
 
-# f5xc_infraprotect (Data Source)
+# f5_distributed_cloud_infraprotect (Data Source)
 
 APIs to get monitoring data for infraprotect.
 
 ## Example Usage
 
 ```hcl
-data "f5xc_infraprotect" "example" {
+data "f5_distributed_cloud_infraprotect" "example" {
   name      = "example-infraprotect"
   namespace = "system"
 }

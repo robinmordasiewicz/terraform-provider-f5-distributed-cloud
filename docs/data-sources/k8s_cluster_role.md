@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_k8s_cluster_role Data Source - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_k8s_cluster_role Data Source - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   K8s Cluster Role is K8s ClusterRole object, which represents set of permissions for user, group or service account to which this role is assigned.
 ---
 
-# f5xc_k8s_cluster_role (Data Source)
+# f5_distributed_cloud_k8s_cluster_role (Data Source)
 
 K8s Cluster Role is K8s ClusterRole object, which represents set of permissions for user, group or service account to which this role is assigned.
 
 ## Example Usage
 
 ```hcl
-data "f5xc_k8s_cluster_role" "example" {
+data "f5_distributed_cloud_k8s_cluster_role" "example" {
   name      = "example-k8s_cluster_role"
   namespace = "system"
 }

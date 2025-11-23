@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_api_crawler Resource - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_api_crawler Resource - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   This is the api crawler type
 ---
 
-# f5xc_api_crawler (Resource)
+# f5_distributed_cloud_api_crawler (Resource)
 
 This is the api crawler type
 
 ## Example Usage
 
 ```hcl
-resource "f5xc_api_crawler" "example" {
+resource "f5_distributed_cloud_api_crawler" "example" {
   name        = "example-api_crawler"
   namespace   = "system"
   description = "Example APICrawler resource"
@@ -36,5 +36,5 @@ resource "f5xc_api_crawler" "example" {
 APICrawler can be imported using the namespace and name:
 
 ```shell
-terraform import f5xc_api_crawler.example namespace/name
+terraform import f5_distributed_cloud_api_crawler.example namespace/name
 ```

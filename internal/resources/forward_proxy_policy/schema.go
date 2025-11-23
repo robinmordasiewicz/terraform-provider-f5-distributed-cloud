@@ -16,14 +16,14 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages F5 Distributed Cloud Forward Proxy Policy.",
 		MarkdownDescription: `
-The ` + "`f5xc_forward_proxy_policy`" + ` resource manages Forward Proxy Policies in F5 Distributed Cloud.
+The ` + "`f5_distributed_cloud_forward_proxy_policy`" + ` resource manages Forward Proxy Policies in F5 Distributed Cloud.
 
 Forward Proxy Policies define rules for controlling outbound traffic from applications through the F5 XC proxy.
 
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5xc_forward_proxy_policy" "example" {
+resource "f5_distributed_cloud_forward_proxy_policy" "example" {
   name      = "my-proxy-policy"
   namespace = "my-namespace"
 

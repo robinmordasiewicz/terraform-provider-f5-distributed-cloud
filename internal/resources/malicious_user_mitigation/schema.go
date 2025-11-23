@@ -13,14 +13,14 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages F5 Distributed Cloud Malicious User Mitigation.",
 		MarkdownDescription: `
-The ` + "`f5xc_malicious_user_mitigation`" + ` resource manages Malicious User Mitigation policies in F5 Distributed Cloud.
+The ` + "`f5_distributed_cloud_malicious_user_mitigation`" + ` resource manages Malicious User Mitigation policies in F5 Distributed Cloud.
 
 Malicious User Mitigation helps protect against malicious user behavior through various challenge and blocking mechanisms.
 
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5xc_malicious_user_mitigation" "example" {
+resource "f5_distributed_cloud_malicious_user_mitigation" "example" {
   name                 = "malicious-user-policy"
   namespace            = "my-namespace"
   mitigation_type      = "CHALLENGE"

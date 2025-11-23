@@ -13,14 +13,14 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages an F5 Distributed Cloud Policer.",
 		MarkdownDescription: `
-The ` + "`f5xc_policer`" + ` resource manages Policers in F5 Distributed Cloud.
+The ` + "`f5_distributed_cloud_policer`" + ` resource manages Policers in F5 Distributed Cloud.
 
 Policers control traffic rate limiting and shaping.
 
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5xc_policer" "example" {
+resource "f5_distributed_cloud_policer" "example" {
   name        = "my-policer"
   namespace   = "my-namespace"
   description = "Example policer for traffic control"

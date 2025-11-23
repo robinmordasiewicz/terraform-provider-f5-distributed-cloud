@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_cminstance Data Source - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_cminstance Data Source - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   cminsatnce object can be used to enable connectivity between ce site and bigip central manager.
 ---
 
-# f5xc_cminstance (Data Source)
+# f5_distributed_cloud_cminstance (Data Source)
 
 cminsatnce object can be used to enable connectivity between ce site and bigip central manager.
 
 ## Example Usage
 
 ```hcl
-data "f5xc_cminstance" "example" {
+data "f5_distributed_cloud_cminstance" "example" {
   name      = "example-cminstance"
   namespace = "system"
 }

@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_bigip_irule Resource - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_bigip_irule Resource - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   BIG-IP iRule Service manages iRule Library for customers
 ---
 
-# f5xc_bigip_irule (Resource)
+# f5_distributed_cloud_bigip_irule (Resource)
 
 BIG-IP iRule Service manages iRule Library for customers
 
 ## Example Usage
 
 ```hcl
-resource "f5xc_bigip_irule" "example" {
+resource "f5_distributed_cloud_bigip_irule" "example" {
   name        = "example-bigip_irule"
   namespace   = "system"
   description = "Example BigipIrule resource"
@@ -36,5 +36,5 @@ resource "f5xc_bigip_irule" "example" {
 BigipIrule can be imported using the namespace and name:
 
 ```shell
-terraform import f5xc_bigip_irule.example namespace/name
+terraform import f5_distributed_cloud_bigip_irule.example namespace/name
 ```

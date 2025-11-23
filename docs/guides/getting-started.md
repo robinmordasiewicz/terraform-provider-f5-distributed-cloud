@@ -15,7 +15,7 @@ Add the provider to your Terraform configuration:
 ```hcl
 terraform {
   required_providers {
-    f5xc = {
+    f5_distributed_cloud = {
       source  = "robinmordasiewicz/f5-distributed-cloud"
       version = "~> 0.1"
     }
@@ -32,9 +32,9 @@ The provider supports two authentication methods:
 ### API Token (Recommended)
 
 ```hcl
-provider "f5xc" {
+provider "f5_distributed_cloud" {
   api_url   = "https://your-tenant.console.ves.volterra.io/api"
-  api_token = var.f5xc_api_token
+  api_token = var.f5_distributed_cloud_api_token
 }
 ```
 
@@ -47,7 +47,7 @@ export F5XC_API_TOKEN="your-api-token"
 ### P12 Certificate
 
 ```hcl
-provider "f5xc" {
+provider "f5_distributed_cloud" {
   api_url      = "https://your-tenant.console.ves.volterra.io/api"
   p12_file     = "/path/to/certificate.p12"
   p12_password = var.p12_password
@@ -69,28 +69,28 @@ Here's a complete example that creates a namespace, origin pool, and HTTP load b
 ```hcl
 terraform {
   required_providers {
-    f5xc = {
+    f5_distributed_cloud = {
       source  = "robinmordasiewicz/f5-distributed-cloud"
       version = "~> 0.1"
     }
   }
 }
 
-provider "f5xc" {
+provider "f5_distributed_cloud" {
   api_url   = var.api_url
   api_token = var.api_token
 }
 
 # Create a namespace
-resource "f5xc_namespace" "example" {
+resource "f5_distributed_cloud_namespace" "example" {
   name        = "my-app-namespace"
   description = "Namespace for my application"
 }
 
 # Create an origin pool
-resource "f5xc_origin_pool" "backend" {
+resource "f5_distributed_cloud_origin_pool" "backend" {
   name              = "backend-pool"
-  namespace         = f5xc_namespace.example.name
+  namespace         = f5_distributed_cloud_namespace.example.name
   description       = "Backend server pool"
   port              = 8080
   endpoint_protocol = "http"
@@ -103,9 +103,9 @@ resource "f5xc_origin_pool" "backend" {
 }
 
 # Create an HTTP load balancer
-resource "f5xc_http_loadbalancer" "frontend" {
+resource "f5_distributed_cloud_http_loadbalancer" "frontend" {
   name        = "frontend-lb"
-  namespace   = f5xc_namespace.example.name
+  namespace   = f5_distributed_cloud_namespace.example.name
   description = "Frontend load balancer"
   domains     = ["app.example.com"]
   http_port   = 80
@@ -113,15 +113,15 @@ resource "f5xc_http_loadbalancer" "frontend" {
   advertise_on_public = true
 
   default_pool {
-    name      = f5xc_origin_pool.backend.name
-    namespace = f5xc_namespace.example.name
+    name      = f5_distributed_cloud_origin_pool.backend.name
+    namespace = f5_distributed_cloud_namespace.example.name
   }
 }
 
 # Add application firewall
-resource "f5xc_app_firewall" "waf" {
+resource "f5_distributed_cloud_app_firewall" "waf" {
   name        = "app-waf"
-  namespace   = f5xc_namespace.example.name
+  namespace   = f5_distributed_cloud_namespace.example.name
   description = "Application firewall policy"
   mode        = "blocking"
 
@@ -190,7 +190,7 @@ export F5XC_API_TOKEN="your-api-token"
 Then simplify your provider configuration:
 
 ```hcl
-provider "f5xc" {}
+provider "f5_distributed_cloud" {}
 ```
 
 ### Use Variables for Reusability
@@ -202,7 +202,7 @@ variable "environment" {
   default     = "dev"
 }
 
-resource "f5xc_namespace" "env" {
+resource "f5_distributed_cloud_namespace" "env" {
   name        = "${var.environment}-namespace"
   description = "Namespace for ${var.environment} environment"
 }
@@ -231,13 +231,13 @@ environments/
 
 ```hcl
 # Reference existing namespace
-data "f5xc_namespace" "existing" {
+data "f5_distributed_cloud_namespace" "existing" {
   name = "existing-namespace"
 }
 
-resource "f5xc_origin_pool" "pool" {
+resource "f5_distributed_cloud_origin_pool" "pool" {
   name      = "my-pool"
-  namespace = data.f5xc_namespace.existing.name
+  namespace = data.f5_distributed_cloud_namespace.existing.name
   # ...
 }
 ```
@@ -247,4 +247,4 @@ resource "f5xc_origin_pool" "pool" {
 - Explore the [resource documentation](../resources/)
 - Check out the [examples](../examples/)
 - Read the [migration guide](./migration.md) if migrating from another provider
-- Learn about [cloud sites](../resources/f5xc_cloud_site.md) for deploying infrastructure
+- Learn about [cloud sites](../resources/f5_distributed_cloud_cloud_site.md) for deploying infrastructure

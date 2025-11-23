@@ -52,18 +52,18 @@ func (d *HTTPLoadBalancerDataSource) Schema(ctx context.Context, req datasource.
 	resp.Schema = schema.Schema{
 		Description: "Fetches information about an existing F5 Distributed Cloud HTTP Load Balancer.",
 		MarkdownDescription: `
-The ` + "`f5xc_http_loadbalancer`" + ` data source retrieves information about an existing HTTP Load Balancer.
+The ` + "`f5_distributed_cloud_http_loadbalancer`" + ` data source retrieves information about an existing HTTP Load Balancer.
 
 ## Example Usage
 
 ` + "```hcl" + `
-data "f5xc_http_loadbalancer" "example" {
+data "f5_distributed_cloud_http_loadbalancer" "example" {
   name      = "my-lb"
   namespace = "my-namespace"
 }
 
 output "lb_domains" {
-  value = data.f5xc_http_loadbalancer.example.domains
+  value = data.f5_distributed_cloud_http_loadbalancer.example.domains
 }
 ` + "```" + `
 `,

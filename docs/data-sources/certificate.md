@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_certificate Data Source - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_certificate Data Source - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   Certificate represents a client or server certificate.
 ---
 
-# f5xc_certificate (Data Source)
+# f5_distributed_cloud_certificate (Data Source)
 
 Certificate represents a client or server certificate.
 
 ## Example Usage
 
 ```hcl
-data "f5xc_certificate" "example" {
+data "f5_distributed_cloud_certificate" "example" {
   name      = "example-certificate"
   namespace = "system"
 }

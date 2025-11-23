@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_fast_acl Resource - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_fast_acl Resource - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   Fast ACL provides destination and specifies rules to protect the site from denial of service attacks.   - It is specified in terms of five tuple of the packet {destination ip, destination port, sou...
 ---
 
-# f5xc_fast_acl (Resource)
+# f5_distributed_cloud_fast_acl (Resource)
 
 Fast ACL provides destination and specifies rules to protect the site from denial of service attacks.   - It is specified in terms of five tuple of the packet {destination ip, destination port, sou...
 
 ## Example Usage
 
 ```hcl
-resource "f5xc_fast_acl" "example" {
+resource "f5_distributed_cloud_fast_acl" "example" {
   name        = "example-fast_acl"
   namespace   = "system"
   description = "Example FastACL resource"
@@ -36,5 +36,5 @@ resource "f5xc_fast_acl" "example" {
 FastACL can be imported using the namespace and name:
 
 ```shell
-terraform import f5xc_fast_acl.example namespace/name
+terraform import f5_distributed_cloud_fast_acl.example namespace/name
 ```

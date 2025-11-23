@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_addon_subscription Resource - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_addon_subscription Resource - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   Represents addon subscription  Eywa will create the schema.pbac.addon_subscription object (SUBSCRIPTION_PENDING) SRE/Support team member via f5xc-support tenant changes the status of the addon_subs...
 ---
 
-# f5xc_addon_subscription (Resource)
+# f5_distributed_cloud_addon_subscription (Resource)
 
 Represents addon subscription  Eywa will create the schema.pbac.addon_subscription object (SUBSCRIPTION_PENDING) SRE/Support team member via f5xc-support tenant changes the status of the addon_subs...
 
 ## Example Usage
 
 ```hcl
-resource "f5xc_addon_subscription" "example" {
+resource "f5_distributed_cloud_addon_subscription" "example" {
   name        = "example-addon_subscription"
   namespace   = "system"
   description = "Example AddonSubscription resource"
@@ -36,5 +36,5 @@ resource "f5xc_addon_subscription" "example" {
 AddonSubscription can be imported using the namespace and name:
 
 ```shell
-terraform import f5xc_addon_subscription.example namespace/name
+terraform import f5_distributed_cloud_addon_subscription.example namespace/name
 ```

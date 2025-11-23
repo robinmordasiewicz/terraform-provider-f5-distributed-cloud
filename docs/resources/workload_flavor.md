@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_workload_flavor Resource - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_workload_flavor Resource - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   Workload flavor is used to assign CPU, memory, and storage resources to workloads.
 ---
 
-# f5xc_workload_flavor (Resource)
+# f5_distributed_cloud_workload_flavor (Resource)
 
 Workload flavor is used to assign CPU, memory, and storage resources to workloads.
 
 ## Example Usage
 
 ```hcl
-resource "f5xc_workload_flavor" "example" {
+resource "f5_distributed_cloud_workload_flavor" "example" {
   name        = "example-workload_flavor"
   namespace   = "system"
   description = "Example WorkloadFlavor resource"
@@ -36,5 +36,5 @@ resource "f5xc_workload_flavor" "example" {
 WorkloadFlavor can be imported using the namespace and name:
 
 ```shell
-terraform import f5xc_workload_flavor.example namespace/name
+terraform import f5_distributed_cloud_workload_flavor.example namespace/name
 ```

@@ -61,18 +61,18 @@ func (d *HealthcheckDataSource) Schema(ctx context.Context, req datasource.Schem
 	resp.Schema = schema.Schema{
 		Description: "Fetches information about an existing F5 Distributed Cloud Healthcheck.",
 		MarkdownDescription: `
-The ` + "`f5xc_healthcheck`" + ` data source retrieves information about an existing healthcheck configuration.
+The ` + "`f5_distributed_cloud_healthcheck`" + ` data source retrieves information about an existing healthcheck configuration.
 
 ## Example Usage
 
 ` + "```hcl" + `
-data "f5xc_healthcheck" "example" {
+data "f5_distributed_cloud_healthcheck" "example" {
   name      = "my-healthcheck"
   namespace = "my-namespace"
 }
 
 output "healthcheck_type" {
-  value = data.f5xc_healthcheck.example.healthcheck_type
+  value = data.f5_distributed_cloud_healthcheck.example.healthcheck_type
 }
 ` + "```" + `
 `,

@@ -52,18 +52,18 @@ func (d *MaliciousUserMitigationDataSource) Schema(ctx context.Context, req data
 	resp.Schema = schema.Schema{
 		Description: "Fetches information about an existing F5 Distributed Cloud Malicious User Mitigation.",
 		MarkdownDescription: `
-The ` + "`f5xc_malicious_user_mitigation`" + ` data source retrieves information about an existing malicious user mitigation configuration.
+The ` + "`f5_distributed_cloud_malicious_user_mitigation`" + ` data source retrieves information about an existing malicious user mitigation configuration.
 
 ## Example Usage
 
 ` + "```hcl" + `
-data "f5xc_malicious_user_mitigation" "example" {
+data "f5_distributed_cloud_malicious_user_mitigation" "example" {
   name      = "my-mitigation"
   namespace = "my-namespace"
 }
 
 output "enabled" {
-  value = data.f5xc_malicious_user_mitigation.example.enabled
+  value = data.f5_distributed_cloud_malicious_user_mitigation.example.enabled
 }
 ` + "```" + `
 `,

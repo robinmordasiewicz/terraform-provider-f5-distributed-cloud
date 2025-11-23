@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_plan Data Source - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_plan Data Source - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   Usage plan related RPCs. Used for billing and onboarding.
 ---
 
-# f5xc_plan (Data Source)
+# f5_distributed_cloud_plan (Data Source)
 
 Usage plan related RPCs. Used for billing and onboarding.
 
 ## Example Usage
 
 ```hcl
-data "f5xc_plan" "example" {
+data "f5_distributed_cloud_plan" "example" {
   name      = "example-plan"
   namespace = "system"
 }

@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_waf_exclusion_policy Resource - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_waf_exclusion_policy Resource - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   WAF Exclusion Policy record
 ---
 
-# f5xc_waf_exclusion_policy (Resource)
+# f5_distributed_cloud_waf_exclusion_policy (Resource)
 
 WAF Exclusion Policy record
 
 ## Example Usage
 
 ```hcl
-resource "f5xc_waf_exclusion_policy" "example" {
+resource "f5_distributed_cloud_waf_exclusion_policy" "example" {
   name        = "example-waf_exclusion_policy"
   namespace   = "system"
   description = "Example WAFExclusionPolicy resource"
@@ -36,5 +36,5 @@ resource "f5xc_waf_exclusion_policy" "example" {
 WAFExclusionPolicy can be imported using the namespace and name:
 
 ```shell
-terraform import f5xc_waf_exclusion_policy.example namespace/name
+terraform import f5_distributed_cloud_waf_exclusion_policy.example namespace/name
 ```

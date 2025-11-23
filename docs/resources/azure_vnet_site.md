@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_azure_vnet_site Resource - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_azure_vnet_site Resource - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   Azure VNet site view defines a required parameters that can be used in CRUD, to create and manage a volterra site in Azure VNet. It can be used to automatically site creation in the Azure VNet.  Vi...
 ---
 
-# f5xc_azure_vnet_site (Resource)
+# f5_distributed_cloud_azure_vnet_site (Resource)
 
 Azure VNet site view defines a required parameters that can be used in CRUD, to create and manage a volterra site in Azure VNet. It can be used to automatically site creation in the Azure VNet.  Vi...
 
 ## Example Usage
 
 ```hcl
-resource "f5xc_azure_vnet_site" "example" {
+resource "f5_distributed_cloud_azure_vnet_site" "example" {
   name        = "example-azure_vnet_site"
   namespace   = "system"
   description = "Example AzureVNETSite resource"
@@ -36,5 +36,5 @@ resource "f5xc_azure_vnet_site" "example" {
 AzureVNETSite can be imported using the namespace and name:
 
 ```shell
-terraform import f5xc_azure_vnet_site.example namespace/name
+terraform import f5_distributed_cloud_azure_vnet_site.example namespace/name
 ```

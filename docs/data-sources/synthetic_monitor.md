@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_synthetic_monitor Data Source - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_synthetic_monitor Data Source - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   Custom handler for DNS Monitor and HTTP Monitor
 ---
 
-# f5xc_synthetic_monitor (Data Source)
+# f5_distributed_cloud_synthetic_monitor (Data Source)
 
 Custom handler for DNS Monitor and HTTP Monitor
 
 ## Example Usage
 
 ```hcl
-data "f5xc_synthetic_monitor" "example" {
+data "f5_distributed_cloud_synthetic_monitor" "example" {
   name      = "example-synthetic_monitor"
   namespace = "system"
 }

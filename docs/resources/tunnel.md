@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_tunnel Resource - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_tunnel Resource - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   Tunnel configuration allows user to specify parameters for configuring static tunnels. Configuration involves specification of encapsulation and related parameters to be used for this tunnel Payloa...
 ---
 
-# f5xc_tunnel (Resource)
+# f5_distributed_cloud_tunnel (Resource)
 
 Tunnel configuration allows user to specify parameters for configuring static tunnels. Configuration involves specification of encapsulation and related parameters to be used for this tunnel Payloa...
 
 ## Example Usage
 
 ```hcl
-resource "f5xc_tunnel" "example" {
+resource "f5_distributed_cloud_tunnel" "example" {
   name        = "example-tunnel"
   namespace   = "system"
   description = "Example Tunnel resource"
@@ -36,5 +36,5 @@ resource "f5xc_tunnel" "example" {
 Tunnel can be imported using the namespace and name:
 
 ```shell
-terraform import f5xc_tunnel.example namespace/name
+terraform import f5_distributed_cloud_tunnel.example namespace/name
 ```

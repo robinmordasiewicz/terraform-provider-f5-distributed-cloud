@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_bgp_asn_set Resource - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_bgp_asn_set Resource - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   An unordered set of RFC 6793 defined 4-byte AS numbers that can be used to create whitelists or blacklists for use in network policy or service policy. The source or destination public IP address f...
 ---
 
-# f5xc_bgp_asn_set (Resource)
+# f5_distributed_cloud_bgp_asn_set (Resource)
 
 An unordered set of RFC 6793 defined 4-byte AS numbers that can be used to create whitelists or blacklists for use in network policy or service policy. The source or destination public IP address f...
 
 ## Example Usage
 
 ```hcl
-resource "f5xc_bgp_asn_set" "example" {
+resource "f5_distributed_cloud_bgp_asn_set" "example" {
   name        = "example-bgp_asn_set"
   namespace   = "system"
   description = "Example BGPAsnSet resource"
@@ -36,5 +36,5 @@ resource "f5xc_bgp_asn_set" "example" {
 BGPAsnSet can be imported using the namespace and name:
 
 ```shell
-terraform import f5xc_bgp_asn_set.example namespace/name
+terraform import f5_distributed_cloud_bgp_asn_set.example namespace/name
 ```

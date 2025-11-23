@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_infraprotect_asn_prefix Resource - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_infraprotect_asn_prefix Resource - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   DDoS transit Prefix Information
 ---
 
-# f5xc_infraprotect_asn_prefix (Resource)
+# f5_distributed_cloud_infraprotect_asn_prefix (Resource)
 
 DDoS transit Prefix Information
 
 ## Example Usage
 
 ```hcl
-resource "f5xc_infraprotect_asn_prefix" "example" {
+resource "f5_distributed_cloud_infraprotect_asn_prefix" "example" {
   name        = "example-infraprotect_asn_prefix"
   namespace   = "system"
   description = "Example InfraprotectAsnPrefix resource"
@@ -36,5 +36,5 @@ resource "f5xc_infraprotect_asn_prefix" "example" {
 InfraprotectAsnPrefix can be imported using the namespace and name:
 
 ```shell
-terraform import f5xc_infraprotect_asn_prefix.example namespace/name
+terraform import f5_distributed_cloud_infraprotect_asn_prefix.example namespace/name
 ```

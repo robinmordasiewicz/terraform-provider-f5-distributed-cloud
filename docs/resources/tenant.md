@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_tenant Resource - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_tenant Resource - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   Package for working with Tenant representation.
 ---
 
-# f5xc_tenant (Resource)
+# f5_distributed_cloud_tenant (Resource)
 
 Package for working with Tenant representation.
 
 ## Example Usage
 
 ```hcl
-resource "f5xc_tenant" "example" {
+resource "f5_distributed_cloud_tenant" "example" {
   name        = "example-tenant"
   namespace   = "system"
   description = "Example Tenant resource"
@@ -36,5 +36,5 @@ resource "f5xc_tenant" "example" {
 Tenant can be imported using the namespace and name:
 
 ```shell
-terraform import f5xc_tenant.example namespace/name
+terraform import f5_distributed_cloud_tenant.example namespace/name
 ```

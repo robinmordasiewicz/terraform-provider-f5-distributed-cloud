@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_infraprotect_internet_prefix_advertisement Resource - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_infraprotect_internet_prefix_advertisement Resource - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   DDoS transit Internet Prefix information
 ---
 
-# f5xc_infraprotect_internet_prefix_advertisement (Resource)
+# f5_distributed_cloud_infraprotect_internet_prefix_advertisement (Resource)
 
 DDoS transit Internet Prefix information
 
 ## Example Usage
 
 ```hcl
-resource "f5xc_infraprotect_internet_prefix_advertisement" "example" {
+resource "f5_distributed_cloud_infraprotect_internet_prefix_advertisement" "example" {
   name        = "example-infraprotect_internet_prefix_advertisement"
   namespace   = "system"
   description = "Example InfraprotectInternetPrefixAdvertisement resource"
@@ -36,5 +36,5 @@ resource "f5xc_infraprotect_internet_prefix_advertisement" "example" {
 InfraprotectInternetPrefixAdvertisement can be imported using the namespace and name:
 
 ```shell
-terraform import f5xc_infraprotect_internet_prefix_advertisement.example namespace/name
+terraform import f5_distributed_cloud_infraprotect_internet_prefix_advertisement.example namespace/name
 ```

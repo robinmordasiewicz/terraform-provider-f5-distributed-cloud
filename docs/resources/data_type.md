@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_data_type Resource - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_data_type Resource - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   A data_type is defined by a set of rules. these rules include the patterns for which that data type will be detected. A data type also includes information like it's related compliances weather is ...
 ---
 
-# f5xc_data_type (Resource)
+# f5_distributed_cloud_data_type (Resource)
 
 A data_type is defined by a set of rules. these rules include the patterns for which that data type will be detected. A data type also includes information like it's related compliances weather is ...
 
 ## Example Usage
 
 ```hcl
-resource "f5xc_data_type" "example" {
+resource "f5_distributed_cloud_data_type" "example" {
   name        = "example-data_type"
   namespace   = "system"
   description = "Example DataType resource"
@@ -36,5 +36,5 @@ resource "f5xc_data_type" "example" {
 DataType can be imported using the namespace and name:
 
 ```shell
-terraform import f5xc_data_type.example namespace/name
+terraform import f5_distributed_cloud_data_type.example namespace/name
 ```

@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_report Data Source - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_report Data Source - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   Report configuration contains the information like      Time at which the report was last sent to object store.     Report ID.
 ---
 
-# f5xc_report (Data Source)
+# f5_distributed_cloud_report (Data Source)
 
 Report configuration contains the information like      Time at which the report was last sent to object store.     Report ID.
 
 ## Example Usage
 
 ```hcl
-data "f5xc_report" "example" {
+data "f5_distributed_cloud_report" "example" {
   name      = "example-report"
   namespace = "system"
 }

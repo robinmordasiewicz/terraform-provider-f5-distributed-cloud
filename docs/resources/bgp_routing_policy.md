@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_bgp_routing_policy Resource - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_bgp_routing_policy Resource - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   BGP Routing Policy is a list of rules, which contains match criteria and action to be taken upon match. This helps in filtering routes which are exported or imported by BGP peers
 ---
 
-# f5xc_bgp_routing_policy (Resource)
+# f5_distributed_cloud_bgp_routing_policy (Resource)
 
 BGP Routing Policy is a list of rules, which contains match criteria and action to be taken upon match. This helps in filtering routes which are exported or imported by BGP peers
 
 ## Example Usage
 
 ```hcl
-resource "f5xc_bgp_routing_policy" "example" {
+resource "f5_distributed_cloud_bgp_routing_policy" "example" {
   name        = "example-bgp_routing_policy"
   namespace   = "system"
   description = "Example BGPRoutingPolicy resource"
@@ -36,5 +36,5 @@ resource "f5xc_bgp_routing_policy" "example" {
 BGPRoutingPolicy can be imported using the namespace and name:
 
 ```shell
-terraform import f5xc_bgp_routing_policy.example namespace/name
+terraform import f5_distributed_cloud_bgp_routing_policy.example namespace/name
 ```

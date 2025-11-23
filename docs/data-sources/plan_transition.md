@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_plan_transition Data Source - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_plan_transition Data Source - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   Package plan transition is responsible for storing and managing requests to move from one billing plan to another.
 ---
 
-# f5xc_plan_transition (Data Source)
+# f5_distributed_cloud_plan_transition (Data Source)
 
 Package plan transition is responsible for storing and managing requests to move from one billing plan to another.
 
 ## Example Usage
 
 ```hcl
-data "f5xc_plan_transition" "example" {
+data "f5_distributed_cloud_plan_transition" "example" {
   name      = "example-plan_transition"
   namespace = "system"
 }

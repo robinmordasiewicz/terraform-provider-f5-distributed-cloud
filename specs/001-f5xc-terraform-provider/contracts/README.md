@@ -7,9 +7,9 @@ This directory contains API contracts for the F5 Distributed Cloud Terraform Pro
 | Contract | Resource Type | Description |
 |----------|---------------|-------------|
 | [provider.md](./provider.md) | Provider | Provider configuration and authentication |
-| [namespace.md](./namespace.md) | `f5xc_namespace` | Namespace resource operations |
-| [http_loadbalancer.md](./http_loadbalancer.md) | `f5xc_http_loadbalancer` | HTTP/HTTPS load balancer |
-| [origin_pool.md](./origin_pool.md) | `f5xc_origin_pool` | Origin pool backend definitions |
+| [namespace.md](./namespace.md) | `f5_distributed_cloud_namespace` | Namespace resource operations |
+| [http_loadbalancer.md](./http_loadbalancer.md) | `f5_distributed_cloud_http_loadbalancer` | HTTP/HTTPS load balancer |
+| [origin_pool.md](./origin_pool.md) | `f5_distributed_cloud_origin_pool` | Origin pool backend definitions |
 
 ## Contract Structure
 

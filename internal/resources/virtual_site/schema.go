@@ -17,7 +17,7 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages an F5 Distributed Cloud Virtual Site.",
 		MarkdownDescription: `
-The ` + "`f5xc_virtual_site`" + ` resource manages Virtual Sites in F5 Distributed Cloud.
+The ` + "`f5_distributed_cloud_virtual_site`" + ` resource manages Virtual Sites in F5 Distributed Cloud.
 
 Virtual Sites are logical groupings of physical sites that allow you to apply
 configurations and policies to multiple sites as a single entity.
@@ -25,7 +25,7 @@ configurations and policies to multiple sites as a single entity.
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5xc_virtual_site" "example" {
+resource "f5_distributed_cloud_virtual_site" "example" {
   name        = "my-virtual-site"
   namespace   = "shared"
   description = "Virtual site for production"
@@ -43,7 +43,7 @@ resource "f5xc_virtual_site" "example" {
 Virtual Sites can be imported using namespace/name:
 
 ` + "```shell" + `
-terraform import f5xc_virtual_site.example shared/my-virtual-site
+terraform import f5_distributed_cloud_virtual_site.example shared/my-virtual-site
 ` + "```" + `
 `,
 		Attributes: map[string]schema.Attribute{

@@ -52,18 +52,18 @@ func (d *DNSZoneDataSource) Schema(ctx context.Context, req datasource.SchemaReq
 	resp.Schema = schema.Schema{
 		Description: "Fetches information about an existing F5 Distributed Cloud DNS Zone.",
 		MarkdownDescription: `
-The ` + "`f5xc_dns_zone`" + ` data source retrieves information about an existing DNS zone.
+The ` + "`f5_distributed_cloud_dns_zone`" + ` data source retrieves information about an existing DNS zone.
 
 ## Example Usage
 
 ` + "```hcl" + `
-data "f5xc_dns_zone" "example" {
+data "f5_distributed_cloud_dns_zone" "example" {
   name      = "my-dns-zone"
   namespace = "my-namespace"
 }
 
 output "domain" {
-  value = data.f5xc_dns_zone.example.domain
+  value = data.f5_distributed_cloud_dns_zone.example.domain
 }
 ` + "```" + `
 `,

@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_nginx_service_discovery Data Source - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_nginx_service_discovery Data Source - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   NGINX Service discovery in F5XC
 ---
 
-# f5xc_nginx_service_discovery (Data Source)
+# f5_distributed_cloud_nginx_service_discovery (Data Source)
 
 NGINX Service discovery in F5XC
 
 ## Example Usage
 
 ```hcl
-data "f5xc_nginx_service_discovery" "example" {
+data "f5_distributed_cloud_nginx_service_discovery" "example" {
   name      = "example-nginx_service_discovery"
   namespace = "system"
 }

@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_alert_gen_policy Resource - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_alert_gen_policy Resource - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   BRM Alerts Alert Generation Policy
 ---
 
-# f5xc_alert_gen_policy (Resource)
+# f5_distributed_cloud_alert_gen_policy (Resource)
 
 BRM Alerts Alert Generation Policy
 
 ## Example Usage
 
 ```hcl
-resource "f5xc_alert_gen_policy" "example" {
+resource "f5_distributed_cloud_alert_gen_policy" "example" {
   name        = "example-alert_gen_policy"
   namespace   = "system"
   description = "Example AlertGenPolicy resource"
@@ -36,5 +36,5 @@ resource "f5xc_alert_gen_policy" "example" {
 AlertGenPolicy can be imported using the namespace and name:
 
 ```shell
-terraform import f5xc_alert_gen_policy.example namespace/name
+terraform import f5_distributed_cloud_alert_gen_policy.example namespace/name
 ```

@@ -13,14 +13,14 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages an F5 Distributed Cloud Virtual Network.",
 		MarkdownDescription: `
-The ` + "`f5xc_virtual_network`" + ` resource manages Virtual Networks in F5 Distributed Cloud.
+The ` + "`f5_distributed_cloud_virtual_network`" + ` resource manages Virtual Networks in F5 Distributed Cloud.
 
 Virtual Networks provide isolated network environments for workloads.
 
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5xc_virtual_network" "example" {
+resource "f5_distributed_cloud_virtual_network" "example" {
   name        = "my-vnet"
   namespace   = "system"
   description = "Virtual network for application isolation"

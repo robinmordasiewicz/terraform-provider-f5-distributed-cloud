@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_proxy Data Source - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_proxy Data Source - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   Proxy view defines a required parameters that can be used in CRUD, to create and manage a Proxy.  View will create following child objects.  * virtual_host * advertise_policy * service_policy_set
 ---
 
-# f5xc_proxy (Data Source)
+# f5_distributed_cloud_proxy (Data Source)
 
 Proxy view defines a required parameters that can be used in CRUD, to create and manage a Proxy.  View will create following child objects.  * virtual_host * advertise_policy * service_policy_set
 
 ## Example Usage
 
 ```hcl
-data "f5xc_proxy" "example" {
+data "f5_distributed_cloud_proxy" "example" {
   name      = "example-proxy"
   namespace = "system"
 }

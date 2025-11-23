@@ -14,14 +14,14 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages F5 Distributed Cloud Route.",
 		MarkdownDescription: `
-The ` + "`f5xc_route`" + ` resource manages Routes in F5 Distributed Cloud.
+The ` + "`f5_distributed_cloud_route`" + ` resource manages Routes in F5 Distributed Cloud.
 
 Routes define traffic routing rules for load balancers.
 
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5xc_route" "example" {
+resource "f5_distributed_cloud_route" "example" {
   name        = "api-route"
   namespace   = "my-namespace"
   path        = "/api/v1/*"

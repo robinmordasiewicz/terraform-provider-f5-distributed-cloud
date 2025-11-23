@@ -19,7 +19,7 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages an F5 Distributed Cloud Origin Pool.",
 		MarkdownDescription: `
-The ` + "`f5xc_origin_pool`" + ` resource manages Origin Pools in F5 Distributed Cloud.
+The ` + "`f5_distributed_cloud_origin_pool`" + ` resource manages Origin Pools in F5 Distributed Cloud.
 
 Origin Pools define groups of backend servers that serve application traffic.
 They are used by HTTP Load Balancers to route traffic to appropriate backends.
@@ -27,7 +27,7 @@ They are used by HTTP Load Balancers to route traffic to appropriate backends.
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5xc_origin_pool" "example" {
+resource "f5_distributed_cloud_origin_pool" "example" {
   name        = "my-origin-pool"
   namespace   = "my-namespace"
   description = "Example Origin Pool"
@@ -48,7 +48,7 @@ resource "f5xc_origin_pool" "example" {
 Origin Pools can be imported using namespace/name:
 
 ` + "```shell" + `
-terraform import f5xc_origin_pool.example my-namespace/my-origin-pool
+terraform import f5_distributed_cloud_origin_pool.example my-namespace/my-origin-pool
 ` + "```" + `
 `,
 		Attributes: map[string]schema.Attribute{

@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_protected_application Data Source - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_protected_application Data Source - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   Configures application protected by Bot Defense
 ---
 
-# f5xc_protected_application (Data Source)
+# f5_distributed_cloud_protected_application (Data Source)
 
 Configures application protected by Bot Defense
 
 ## Example Usage
 
 ```hcl
-data "f5xc_protected_application" "example" {
+data "f5_distributed_cloud_protected_application" "example" {
   name      = "example-protected_application"
   namespace = "system"
 }

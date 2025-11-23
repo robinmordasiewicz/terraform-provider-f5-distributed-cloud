@@ -1,9 +1,9 @@
-# Resource Contract: f5xc_namespace
+# Resource Contract: f5_distributed_cloud_namespace
 
 ## Resource Schema
 
 ```hcl
-resource "f5xc_namespace" "example" {
+resource "f5_distributed_cloud_namespace" "example" {
   name        = string           # Required: DNS-1035 format
   description = string           # Optional: Max 1200 bytes
   labels      = map(string)      # Optional
@@ -94,7 +94,7 @@ Errors:
 ```
 Import ID: <name>
 
-terraform import f5xc_namespace.example production
+terraform import f5_distributed_cloud_namespace.example production
 
 Postconditions:
   - State populated from existing namespace

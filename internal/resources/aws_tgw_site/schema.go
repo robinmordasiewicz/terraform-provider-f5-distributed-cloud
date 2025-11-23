@@ -13,14 +13,14 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages an F5 Distributed Cloud AWS TGW Site.",
 		MarkdownDescription: `
-The ` + "`f5xc_aws_tgw_site`" + ` resource manages AWS Transit Gateway Sites in F5 Distributed Cloud.
+The ` + "`f5_distributed_cloud_aws_tgw_site`" + ` resource manages AWS Transit Gateway Sites in F5 Distributed Cloud.
 
 AWS TGW Sites enable connectivity between F5 XC and AWS Transit Gateway infrastructure.
 
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5xc_aws_tgw_site" "example" {
+resource "f5_distributed_cloud_aws_tgw_site" "example" {
   name        = "my-aws-tgw-site"
   namespace   = "system"
   description = "Example AWS TGW site"

@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_usb_policy Data Source - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_usb_policy Data Source - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   USB policy is used to specify list of USB devices allowed to be attached to node.
 ---
 
-# f5xc_usb_policy (Data Source)
+# f5_distributed_cloud_usb_policy (Data Source)
 
 USB policy is used to specify list of USB devices allowed to be attached to node.
 
 ## Example Usage
 
 ```hcl
-data "f5xc_usb_policy" "example" {
+data "f5_distributed_cloud_usb_policy" "example" {
   name      = "example-usb_policy"
   namespace = "system"
 }

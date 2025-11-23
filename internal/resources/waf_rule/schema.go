@@ -15,14 +15,14 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages F5 Distributed Cloud WAF Rule.",
 		MarkdownDescription: `
-The ` + "`f5xc_waf_rule`" + ` resource manages WAF Rules in F5 Distributed Cloud.
+The ` + "`f5_distributed_cloud_waf_rule`" + ` resource manages WAF Rules in F5 Distributed Cloud.
 
 WAF Rules define custom Web Application Firewall rules for security policies.
 
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5xc_waf_rule" "example" {
+resource "f5_distributed_cloud_waf_rule" "example" {
   name      = "custom-waf-rule"
   namespace = "my-namespace"
   mode      = "BLOCKING"

@@ -205,7 +205,7 @@ func New(version string) func() provider.Provider {
 
 // Metadata returns the provider type name.
 func (p *F5XCProvider) Metadata(ctx context.Context, req provider.MetadataRequest, resp *provider.MetadataResponse) {
-	resp.TypeName = "f5xc"
+	resp.TypeName = "f5_distributed_cloud"
 	resp.Version = p.version
 }
 
@@ -230,9 +230,9 @@ The provider supports two authentication methods:
 ## Example Usage
 
 ` + "```hcl" + `
-provider "f5xc" {
+provider "f5_distributed_cloud" {
   api_url   = "https://your-tenant.console.ves.volterra.io/api"
-  api_token = var.f5xc_api_token
+  api_token = var.f5_distributed_cloud_api_token
 }
 ` + "```" + `
 `,
@@ -329,7 +329,7 @@ func (p *F5XCProvider) Configure(ctx context.Context, req provider.ConfigureRequ
 	}
 
 	// Create the F5 XC client
-	f5xcClient, err := client.NewClient(clientConfig)
+	f5dcClient, err := client.NewClient(clientConfig)
 	if err != nil {
 		resp.Diagnostics.AddError(
 			"Unable to Create F5 XC Client",
@@ -343,8 +343,8 @@ func (p *F5XCProvider) Configure(ctx context.Context, req provider.ConfigureRequ
 	tflog.Info(ctx, "F5 XC provider configured successfully")
 
 	// Make the client available during DataSource and Resource type Configure methods.
-	resp.DataSourceData = f5xcClient
-	resp.ResourceData = f5xcClient
+	resp.DataSourceData = f5dcClient
+	resp.ResourceData = f5dcClient
 }
 
 // Resources defines the resources implemented in the provider.

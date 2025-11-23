@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_ip_prefix_set Resource - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_ip_prefix_set Resource - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   An ip prefix set contains an unordered list of IP prefixes. It can can be used to whitelist or blacklist specific IP prefixes via network policy or service policy.
 ---
 
-# f5xc_ip_prefix_set (Resource)
+# f5_distributed_cloud_ip_prefix_set (Resource)
 
 An ip prefix set contains an unordered list of IP prefixes. It can can be used to whitelist or blacklist specific IP prefixes via network policy or service policy.
 
 ## Example Usage
 
 ```hcl
-resource "f5xc_ip_prefix_set" "example" {
+resource "f5_distributed_cloud_ip_prefix_set" "example" {
   name        = "example-ip_prefix_set"
   namespace   = "system"
   description = "Example IPPrefixSet resource"
@@ -36,5 +36,5 @@ resource "f5xc_ip_prefix_set" "example" {
 IPPrefixSet can be imported using the namespace and name:
 
 ```shell
-terraform import f5xc_ip_prefix_set.example namespace/name
+terraform import f5_distributed_cloud_ip_prefix_set.example namespace/name
 ```

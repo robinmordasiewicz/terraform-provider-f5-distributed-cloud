@@ -13,14 +13,14 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages F5 Distributed Cloud App Type.",
 		MarkdownDescription: `
-The ` + "`f5xc_app_type`" + ` resource manages App Types in F5 Distributed Cloud.
+The ` + "`f5_distributed_cloud_app_type`" + ` resource manages App Types in F5 Distributed Cloud.
 
 App Types define application characteristics and enable features like API discovery, sensitive data detection, and more.
 
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5xc_app_type" "example" {
+resource "f5_distributed_cloud_app_type" "example" {
   name      = "my-app-type"
   namespace = "shared"
 

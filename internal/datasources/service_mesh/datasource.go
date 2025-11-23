@@ -52,18 +52,18 @@ func (d *ServiceMeshDataSource) Schema(ctx context.Context, req datasource.Schem
 	resp.Schema = schema.Schema{
 		Description: "Fetches information about an existing F5 Distributed Cloud Service Mesh.",
 		MarkdownDescription: `
-The ` + "`f5xc_service_mesh`" + ` data source retrieves information about an existing service mesh.
+The ` + "`f5_distributed_cloud_service_mesh`" + ` data source retrieves information about an existing service mesh.
 
 ## Example Usage
 
 ` + "```hcl" + `
-data "f5xc_service_mesh" "example" {
+data "f5_distributed_cloud_service_mesh" "example" {
   name      = "my-service-mesh"
   namespace = "my-namespace"
 }
 
 output "mesh_type" {
-  value = data.f5xc_service_mesh.example.mesh_type
+  value = data.f5_distributed_cloud_service_mesh.example.mesh_type
 }
 ` + "```" + `
 `,

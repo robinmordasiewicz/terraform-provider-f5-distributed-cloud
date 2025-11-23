@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_healthcheck Data Source - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_healthcheck Data Source - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   Health check configuration for a given cluster.
 ---
 
-# f5xc_healthcheck (Data Source)
+# f5_distributed_cloud_healthcheck (Data Source)
 
 Health check configuration for a given cluster.
 
 ## Example Usage
 
 ```hcl
-data "f5xc_healthcheck" "example" {
+data "f5_distributed_cloud_healthcheck" "example" {
   name      = "example-healthcheck"
   namespace = "system"
 }

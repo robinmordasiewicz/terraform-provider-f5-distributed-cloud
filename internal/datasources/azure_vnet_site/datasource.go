@@ -56,18 +56,18 @@ func (d *AzureVNETSiteDataSource) Schema(ctx context.Context, req datasource.Sch
 	resp.Schema = schema.Schema{
 		Description: "Fetches information about an existing F5 Distributed Cloud Azure VNET Site.",
 		MarkdownDescription: `
-The ` + "`f5xc_azure_vnet_site`" + ` data source retrieves information about an existing Azure VNET site.
+The ` + "`f5_distributed_cloud_azure_vnet_site`" + ` data source retrieves information about an existing Azure VNET site.
 
 ## Example Usage
 
 ` + "```hcl" + `
-data "f5xc_azure_vnet_site" "example" {
+data "f5_distributed_cloud_azure_vnet_site" "example" {
   name      = "my-azure-site"
   namespace = "system"
 }
 
 output "site_state" {
-  value = data.f5xc_azure_vnet_site.example.site_state
+  value = data.f5_distributed_cloud_azure_vnet_site.example.site_state
 }
 ` + "```" + `
 `,

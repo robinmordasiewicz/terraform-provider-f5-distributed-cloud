@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_discovery Resource - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_discovery Resource - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   Service discovery in F5XC performs following  Dynamic service discovery: Resolving the load balancer endpoints for a ADC cluster Dynamic VIP discovery: Publishing virtual IP to attract traffic from...
 ---
 
-# f5xc_discovery (Resource)
+# f5_distributed_cloud_discovery (Resource)
 
 Service discovery in F5XC performs following  Dynamic service discovery: Resolving the load balancer endpoints for a ADC cluster Dynamic VIP discovery: Publishing virtual IP to attract traffic from...
 
 ## Example Usage
 
 ```hcl
-resource "f5xc_discovery" "example" {
+resource "f5_distributed_cloud_discovery" "example" {
   name        = "example-discovery"
   namespace   = "system"
   description = "Example Discovery resource"
@@ -36,5 +36,5 @@ resource "f5xc_discovery" "example" {
 Discovery can be imported using the namespace and name:
 
 ```shell
-terraform import f5xc_discovery.example namespace/name
+terraform import f5_distributed_cloud_discovery.example namespace/name
 ```

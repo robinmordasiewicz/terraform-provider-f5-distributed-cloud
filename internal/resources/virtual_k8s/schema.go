@@ -13,14 +13,14 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages an F5 Distributed Cloud Virtual Kubernetes.",
 		MarkdownDescription: `
-The ` + "`f5xc_virtual_k8s`" + ` resource manages Virtual Kubernetes clusters in F5 Distributed Cloud.
+The ` + "`f5_distributed_cloud_virtual_k8s`" + ` resource manages Virtual Kubernetes clusters in F5 Distributed Cloud.
 
 Virtual Kubernetes provides managed Kubernetes namespaces across distributed sites.
 
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5xc_virtual_k8s" "example" {
+resource "f5_distributed_cloud_virtual_k8s" "example" {
   name        = "my-vk8s"
   namespace   = "system"
   description = "Virtual Kubernetes for application workloads"

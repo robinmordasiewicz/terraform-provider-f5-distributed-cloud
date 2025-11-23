@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_infraprotect_tunnel Resource - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_infraprotect_tunnel Resource - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   DDoS transit tunnel information
 ---
 
-# f5xc_infraprotect_tunnel (Resource)
+# f5_distributed_cloud_infraprotect_tunnel (Resource)
 
 DDoS transit tunnel information
 
 ## Example Usage
 
 ```hcl
-resource "f5xc_infraprotect_tunnel" "example" {
+resource "f5_distributed_cloud_infraprotect_tunnel" "example" {
   name        = "example-infraprotect_tunnel"
   namespace   = "system"
   description = "Example InfraprotectTunnel resource"
@@ -36,5 +36,5 @@ resource "f5xc_infraprotect_tunnel" "example" {
 InfraprotectTunnel can be imported using the namespace and name:
 
 ```shell
-terraform import f5xc_infraprotect_tunnel.example namespace/name
+terraform import f5_distributed_cloud_infraprotect_tunnel.example namespace/name
 ```

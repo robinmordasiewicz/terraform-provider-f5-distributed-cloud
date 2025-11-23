@@ -52,18 +52,18 @@ func (d *AppFirewallDataSource) Schema(ctx context.Context, req datasource.Schem
 	resp.Schema = schema.Schema{
 		Description: "Fetches information about an existing F5 Distributed Cloud Application Firewall.",
 		MarkdownDescription: `
-The ` + "`f5xc_app_firewall`" + ` data source retrieves information about an existing Application Firewall.
+The ` + "`f5_distributed_cloud_app_firewall`" + ` data source retrieves information about an existing Application Firewall.
 
 ## Example Usage
 
 ` + "```hcl" + `
-data "f5xc_app_firewall" "example" {
+data "f5_distributed_cloud_app_firewall" "example" {
   name      = "my-waf"
   namespace = "my-namespace"
 }
 
 output "waf_mode" {
-  value = data.f5xc_app_firewall.example.mode
+  value = data.f5_distributed_cloud_app_firewall.example.mode
 }
 ` + "```" + `
 `,

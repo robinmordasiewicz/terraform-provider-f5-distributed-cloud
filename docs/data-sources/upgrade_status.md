@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_upgrade_status Data Source - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_upgrade_status Data Source - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   Upgrade status custom APIs
 ---
 
-# f5xc_upgrade_status (Data Source)
+# f5_distributed_cloud_upgrade_status (Data Source)
 
 Upgrade status custom APIs
 
 ## Example Usage
 
 ```hcl
-data "f5xc_upgrade_status" "example" {
+data "f5_distributed_cloud_upgrade_status" "example" {
   name      = "example-upgrade_status"
   namespace = "system"
 }

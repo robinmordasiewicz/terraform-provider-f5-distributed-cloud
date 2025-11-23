@@ -13,14 +13,14 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages F5 Distributed Cloud AWS VPC Site.",
 		MarkdownDescription: `
-The ` + "`f5xc_aws_vpc_site`" + ` resource manages AWS VPC Sites in F5 Distributed Cloud.
+The ` + "`f5_distributed_cloud_aws_vpc_site`" + ` resource manages AWS VPC Sites in F5 Distributed Cloud.
 
 AWS VPC Sites deploy F5 XC nodes into an existing or new AWS VPC.
 
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5xc_aws_vpc_site" "example" {
+resource "f5_distributed_cloud_aws_vpc_site" "example" {
   name                  = "aws-site-1"
   namespace             = "system"
   aws_region            = "us-west-2"

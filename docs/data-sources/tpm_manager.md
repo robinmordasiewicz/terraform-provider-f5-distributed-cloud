@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_tpm_manager Data Source - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_tpm_manager Data Source - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   TPM Manager stores the required TPM management related data for the customer. The data includes APIKeys, Category, Root and SubCA's, and Client Certificates There are three types of Root CAs that a...
 ---
 
-# f5xc_tpm_manager (Data Source)
+# f5_distributed_cloud_tpm_manager (Data Source)
 
 TPM Manager stores the required TPM management related data for the customer. The data includes APIKeys, Category, Root and SubCA's, and Client Certificates There are three types of Root CAs that a...
 
 ## Example Usage
 
 ```hcl
-data "f5xc_tpm_manager" "example" {
+data "f5_distributed_cloud_tpm_manager" "example" {
   name      = "example-tpm_manager"
   namespace = "system"
 }

@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_securemesh_site Data Source - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_securemesh_site Data Source - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   Secure Mesh site defines a required parameters that can be used in CRUD, to create and manage an Secure Mesh site.
 ---
 
-# f5xc_securemesh_site (Data Source)
+# f5_distributed_cloud_securemesh_site (Data Source)
 
 Secure Mesh site defines a required parameters that can be used in CRUD, to create and manage an Secure Mesh site.
 
 ## Example Usage
 
 ```hcl
-data "f5xc_securemesh_site" "example" {
+data "f5_distributed_cloud_securemesh_site" "example" {
   name      = "example-securemesh_site"
   namespace = "system"
 }

@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_network_interface Resource - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_network_interface Resource - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   Network Interface object represents the configuration of a network device in a fleet of F5XC Customer Edge sites. The following properties can be configured in this object:     IP address allocatio...
 ---
 
-# f5xc_network_interface (Resource)
+# f5_distributed_cloud_network_interface (Resource)
 
 Network Interface object represents the configuration of a network device in a fleet of F5XC Customer Edge sites. The following properties can be configured in this object:     IP address allocatio...
 
 ## Example Usage
 
 ```hcl
-resource "f5xc_network_interface" "example" {
+resource "f5_distributed_cloud_network_interface" "example" {
   name        = "example-network_interface"
   namespace   = "system"
   description = "Example NetworkInterface resource"
@@ -36,5 +36,5 @@ resource "f5xc_network_interface" "example" {
 NetworkInterface can be imported using the namespace and name:
 
 ```shell
-terraform import f5xc_network_interface.example namespace/name
+terraform import f5_distributed_cloud_network_interface.example namespace/name
 ```

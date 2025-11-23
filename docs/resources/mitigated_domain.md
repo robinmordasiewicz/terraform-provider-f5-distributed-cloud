@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_mitigated_domain Resource - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_mitigated_domain Resource - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   Mitigated Domain Object defines which domains will be mitigated by Client-Side Defense. Client-Side Defense Objects is used to configure Client-Side Defense to detect/mitigate anomalous URLs for en...
 ---
 
-# f5xc_mitigated_domain (Resource)
+# f5_distributed_cloud_mitigated_domain (Resource)
 
 Mitigated Domain Object defines which domains will be mitigated by Client-Side Defense. Client-Side Defense Objects is used to configure Client-Side Defense to detect/mitigate anomalous URLs for en...
 
 ## Example Usage
 
 ```hcl
-resource "f5xc_mitigated_domain" "example" {
+resource "f5_distributed_cloud_mitigated_domain" "example" {
   name        = "example-mitigated_domain"
   namespace   = "system"
   description = "Example MitigatedDomain resource"
@@ -36,5 +36,5 @@ resource "f5xc_mitigated_domain" "example" {
 MitigatedDomain can be imported using the namespace and name:
 
 ```shell
-terraform import f5xc_mitigated_domain.example namespace/name
+terraform import f5_distributed_cloud_mitigated_domain.example namespace/name
 ```

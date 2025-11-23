@@ -52,18 +52,18 @@ func (d *DiscoveryDataSource) Schema(ctx context.Context, req datasource.SchemaR
 	resp.Schema = schema.Schema{
 		Description: "Fetches information about an existing F5 Distributed Cloud Discovery.",
 		MarkdownDescription: `
-The ` + "`f5xc_discovery`" + ` data source retrieves information about an existing discovery configuration.
+The ` + "`f5_distributed_cloud_discovery`" + ` data source retrieves information about an existing discovery configuration.
 
 ## Example Usage
 
 ` + "```hcl" + `
-data "f5xc_discovery" "example" {
+data "f5_distributed_cloud_discovery" "example" {
   name      = "my-discovery"
   namespace = "my-namespace"
 }
 
 output "discovery_type" {
-  value = data.f5xc_discovery.example.discovery_type
+  value = data.f5_distributed_cloud_discovery.example.discovery_type
 }
 ` + "```" + `
 `,

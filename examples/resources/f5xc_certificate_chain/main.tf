@@ -1,9 +1,0 @@
-# Example configuration for f5xc_certificate_chain
-
-resource "f5xc_certificate_chain" "example" {
-  name        = "example-certificate_chain"
-  namespace   = "system"
-  description = "Example CertificateChain resource managed by Terraform"
-
-  # Add additional configuration as needed
-}

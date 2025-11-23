@@ -65,7 +65,7 @@ type ResourceInfo struct {
 	Name           string   // snake_case name for Terraform
 	PackageName    string   // Go package name
 	StructName     string   // PascalCase struct name
-	TypeName       string   // Terraform type name (f5xc_*)
+	TypeName       string   // Terraform type name (f5_distributed_cloud_*)
 	APIPath        string   // Base API path
 	HasCreate      bool     // POST operation exists
 	HasRead        bool     // GET operation exists
@@ -541,7 +541,7 @@ func parseSpec(specPath string) (*ResourceInfo, error) {
 		Name:        resourceName,
 		PackageName: strings.ReplaceAll(resourceName, "-", "_"),
 		StructName:  toStructName(resourceName),
-		TypeName:    "f5xc_" + resourceName,
+		TypeName:    "f5_distributed_cloud_" + resourceName,
 		SpecFile:    filename,
 		Description: cleanDescription(spec.Info.Description),
 	}

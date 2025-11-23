@@ -52,18 +52,18 @@ func (d *CloudSiteDataSource) Schema(ctx context.Context, req datasource.SchemaR
 	resp.Schema = schema.Schema{
 		Description: "Fetches information about an existing F5 Distributed Cloud Site.",
 		MarkdownDescription: `
-The ` + "`f5xc_cloud_site`" + ` data source retrieves information about an existing cloud site.
+The ` + "`f5_distributed_cloud_cloud_site`" + ` data source retrieves information about an existing cloud site.
 
 ## Example Usage
 
 ` + "```hcl" + `
-data "f5xc_cloud_site" "example" {
+data "f5_distributed_cloud_cloud_site" "example" {
   name      = "my-cloud-site"
   namespace = "system"
 }
 
 output "site_state" {
-  value = data.f5xc_cloud_site.example.site_state
+  value = data.f5_distributed_cloud_cloud_site.example.site_state
 }
 ` + "```" + `
 `,

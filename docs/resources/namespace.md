@@ -1,11 +1,11 @@
 ---
-page_title: "f5xc_namespace Resource - F5 Distributed Cloud"
+page_title: "f5_distributed_cloud_namespace Resource - F5 Distributed Cloud"
 subcategory: ""
 description: |-
   Manages an F5 Distributed Cloud Namespace.
 ---
 
-# f5xc_namespace (Resource)
+# f5_distributed_cloud_namespace (Resource)
 
 Manages an F5 Distributed Cloud Namespace.
 
@@ -14,7 +14,7 @@ Namespaces provide logical isolation for resources within F5 XC. Resources like 
 ## Example Usage
 
 ```terraform
-resource "f5xc_namespace" "example" {
+resource "f5_distributed_cloud_namespace" "example" {
   name        = "my-namespace"
   description = "Example namespace for my application"
 }
@@ -23,7 +23,7 @@ resource "f5xc_namespace" "example" {
 ### Namespace with Labels
 
 ```terraform
-resource "f5xc_namespace" "production" {
+resource "f5_distributed_cloud_namespace" "production" {
   name        = "production"
   description = "Production environment namespace"
 
@@ -49,5 +49,5 @@ resource "f5xc_namespace" "production" {
 Namespaces can be imported using the name:
 
 ```shell
-terraform import f5xc_namespace.example my-namespace
+terraform import f5_distributed_cloud_namespace.example my-namespace
 ```

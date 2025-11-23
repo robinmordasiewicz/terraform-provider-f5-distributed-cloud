@@ -111,7 +111,7 @@ Based on plan.md structure:
 - [ ] T038 [US2] Implement namespace Delete method in internal/resources/namespace/resource.go
 - [ ] T039 [US2] Implement namespace ImportState method in internal/resources/namespace/resource.go
 - [ ] T040 [US2] Register namespace resource with provider in internal/provider/provider.go
-- [ ] T041 [P] [US2] Create namespace example in examples/resources/f5xc_namespace/resource.tf
+- [ ] T041 [P] [US2] Create namespace example in examples/resources/f5_distributed_cloud_namespace/resource.tf
 
 **Checkpoint**: Namespace resource fully functional and independently testable
 
@@ -142,7 +142,7 @@ Based on plan.md structure:
 - [ ] T051 [US3] Implement http_loadbalancer Delete method in internal/resources/http_loadbalancer/resource.go
 - [ ] T052 [US3] Implement http_loadbalancer ImportState method in internal/resources/http_loadbalancer/resource.go
 - [ ] T053 [US3] Register http_loadbalancer resource with provider in internal/provider/provider.go
-- [ ] T054 [P] [US3] Create http_loadbalancer example in examples/resources/f5xc_http_loadbalancer/resource.tf
+- [ ] T054 [P] [US3] Create http_loadbalancer example in examples/resources/f5_distributed_cloud_http_loadbalancer/resource.tf
 
 **Checkpoint**: HTTP Load Balancer resource fully functional and independently testable
 
@@ -171,7 +171,7 @@ Based on plan.md structure:
 - [ ] T064 [US4] Implement origin_pool Delete method in internal/resources/origin_pool/resource.go
 - [ ] T065 [US4] Implement origin_pool ImportState method in internal/resources/origin_pool/resource.go
 - [ ] T066 [US4] Register origin_pool resource with provider in internal/provider/provider.go
-- [ ] T067 [P] [US4] Create origin_pool example in examples/resources/f5xc_origin_pool/resource.tf
+- [ ] T067 [P] [US4] Create origin_pool example in examples/resources/f5_distributed_cloud_origin_pool/resource.tf
 
 **Checkpoint**: Origin Pool resource fully functional and independently testable
 
@@ -205,8 +205,8 @@ Based on plan.md structure:
 - [ ] T082 [P] [US5] Define gcp_vpc_site schema in internal/resources/gcp_vpc_site/schema.go
 - [ ] T083 [US5] Implement gcp_vpc_site CRUD methods in internal/resources/gcp_vpc_site/resource.go
 - [ ] T084 [US5] Register all cloud site resources with provider in internal/provider/provider.go
-- [ ] T085 [P] [US5] Create cloud_credentials example in examples/resources/f5xc_cloud_credentials/resource.tf
-- [ ] T086 [P] [US5] Create aws_vpc_site example in examples/resources/f5xc_aws_vpc_site/resource.tf
+- [ ] T085 [P] [US5] Create cloud_credentials example in examples/resources/f5_distributed_cloud_cloud_credentials/resource.tf
+- [ ] T086 [P] [US5] Create aws_vpc_site example in examples/resources/f5_distributed_cloud_aws_vpc_site/resource.tf
 
 **Checkpoint**: Cloud Site resources fully functional and independently testable
 
@@ -234,7 +234,7 @@ Based on plan.md structure:
 - [ ] T095 [US6] Implement app_firewall Delete method in internal/resources/app_firewall/resource.go
 - [ ] T096 [US6] Implement app_firewall ImportState method in internal/resources/app_firewall/resource.go
 - [ ] T097 [US6] Register app_firewall resource with provider in internal/provider/provider.go
-- [ ] T098 [P] [US6] Create app_firewall example in examples/resources/f5xc_app_firewall/resource.tf
+- [ ] T098 [P] [US6] Create app_firewall example in examples/resources/f5_distributed_cloud_app_firewall/resource.tf
 
 **Checkpoint**: App Firewall resource fully functional and independently testable
 

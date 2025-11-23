@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_app_firewall Resource - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_app_firewall Resource - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   WAF Configuration
 ---
 
-# f5xc_app_firewall (Resource)
+# f5_distributed_cloud_app_firewall (Resource)
 
 WAF Configuration
 
 ## Example Usage
 
 ```hcl
-resource "f5xc_app_firewall" "example" {
+resource "f5_distributed_cloud_app_firewall" "example" {
   name        = "example-app_firewall"
   namespace   = "system"
   description = "Example AppFirewall resource"
@@ -36,5 +36,5 @@ resource "f5xc_app_firewall" "example" {
 AppFirewall can be imported using the namespace and name:
 
 ```shell
-terraform import f5xc_app_firewall.example namespace/name
+terraform import f5_distributed_cloud_app_firewall.example namespace/name
 ```

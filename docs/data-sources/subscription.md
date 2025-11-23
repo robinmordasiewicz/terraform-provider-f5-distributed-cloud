@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_subscription Data Source - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_subscription Data Source - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   Subscription details APIs.
 ---
 
-# f5xc_subscription (Data Source)
+# f5_distributed_cloud_subscription (Data Source)
 
 Subscription details APIs.
 
 ## Example Usage
 
 ```hcl
-data "f5xc_subscription" "example" {
+data "f5_distributed_cloud_subscription" "example" {
   name      = "example-subscription"
   namespace = "system"
 }

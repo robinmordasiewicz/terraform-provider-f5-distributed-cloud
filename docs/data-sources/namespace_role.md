@@ -1,18 +1,18 @@
 ---
-page_title: "f5xc_namespace_role Data Source - terraform-provider-f5-distributed-cloud"
+page_title: "f5_distributed_cloud_namespace_role Data Source - terraform-provider-f5-distributed-cloud"
 subcategory: ""
 description: |-
   Namespace role defines a user's role in a namespace. Namespace role links a user with a role namespace. Using this object one can assign/remove a role to a user in a namespace. Namespace roles are ...
 ---
 
-# f5xc_namespace_role (Data Source)
+# f5_distributed_cloud_namespace_role (Data Source)
 
 Namespace role defines a user's role in a namespace. Namespace role links a user with a role namespace. Using this object one can assign/remove a role to a user in a namespace. Namespace roles are ...
 
 ## Example Usage
 
 ```hcl
-data "f5xc_namespace_role" "example" {
+data "f5_distributed_cloud_namespace_role" "example" {
   name      = "example-namespace_role"
   namespace = "system"
 }
