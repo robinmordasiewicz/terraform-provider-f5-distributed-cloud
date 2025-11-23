@@ -139,7 +139,7 @@ Resources from `volterraedge/volterra` provider:
 ## 5. Project Structure Recommendation
 
 ```
-terraform-provider-f5-distributed-cloud/
+terraform-provider-f5distributedcloud/
 ├── main.go                          # Provider entrypoint
 ├── go.mod                           # Go module definition
 ├── go.sum                           # Dependency checksums

@@ -16,8 +16,8 @@ Thank you for your interest in contributing to this project!
 Clone the repository and build:
 
 ```bash
-git clone https://github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud.git
-cd terraform-provider-f5-distributed-cloud
+git clone https://github.com/robinmordasiewicz/terraform-provider-f5distributedcloud.git
+cd terraform-provider-f5distributedcloud
 go build ./...
 ```
 
@@ -43,14 +43,14 @@ To use a locally built provider:
 
 1. Build the provider:
    ```bash
-   go build -o terraform-provider-f5-distributed-cloud
+   go build -o terraform-provider-f5distributedcloud
    ```
 
 2. Create or update `~/.terraformrc`:
    ```hcl
    provider_installation {
      dev_overrides {
-       "robinmordasiewicz/f5-distributed-cloud" = "/path/to/provider/binary"
+       "robinmordasiewicz/f5distributedcloud" = "/path/to/provider/binary"
      }
      direct {}
    }

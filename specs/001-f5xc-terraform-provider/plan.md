@@ -55,7 +55,7 @@ specs/001-f5xc-terraform-provider/
 ### Source Code (repository root)
 
 ```text
-terraform-provider-f5-distributed-cloud/
+terraform-provider-f5distributedcloud/
 ├── main.go                          # Provider entrypoint
 ├── go.mod                           # Go module definition
 ├── go.sum                           # Dependency checksums

@@ -1,7 +1,7 @@
 # Migration Guide: Volterra Provider to F5 Distributed Cloud Provider
 
 This guide demonstrates how to migrate from the `volterraedge/volterra` provider to the
-`robinmordasiewicz/f5-distributed-cloud` provider.
+`robinmordasiewicz/f5distributedcloud` provider.
 
 ## Overview
 
@@ -18,7 +18,7 @@ compatibility with the Volterra provider while providing additional features:
 | Aspect | Volterra Provider | F5 Distributed Cloud Provider |
 |--------|-------------------|------------------------------|
 | Resource prefix | `volterra_` | `f5distributedcloud_` |
-| Provider name | `volterraedge/volterra` | `robinmordasiewicz/f5-distributed-cloud` |
+| Provider name | `volterraedge/volterra` | `robinmordasiewicz/f5distributedcloud` |
 | Authentication | Same | Same (token or certificate) |
 | API URL format | Same | Same |
 
@@ -48,7 +48,7 @@ provider "volterra" {
 terraform {
   required_providers {
     f5distributedcloud = {
-      source  = "robinmordasiewicz/f5-distributed-cloud"
+      source  = "robinmordasiewicz/f5distributedcloud"
       version = "~> 1.0"
     }
   }

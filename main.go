@@ -23,7 +23,7 @@ func main() {
 	flag.Parse()
 
 	opts := providerserver.ServeOpts{
-		Address: "registry.terraform.io/robinmordasiewicz/f5-distributed-cloud",
+		Address: "registry.terraform.io/robinmordasiewicz/f5distributedcloud",
 		Debug:   debug,
 	}
 

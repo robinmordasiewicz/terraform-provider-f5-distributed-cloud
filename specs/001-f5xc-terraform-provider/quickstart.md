@@ -16,7 +16,7 @@
 terraform {
   required_providers {
     f5distributedcloud = {
-      source  = "robinmordasiewicz/f5-distributed-cloud"
+      source  = "robinmordasiewicz/f5distributedcloud"
       version = "~> 0.1"
     }
   }
@@ -27,21 +27,21 @@ terraform {
 
 ```bash
 # Clone repository
-git clone https://github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud.git
-cd terraform-provider-f5-distributed-cloud
+git clone https://github.com/robinmordasiewicz/terraform-provider-f5distributedcloud.git
+cd terraform-provider-f5distributedcloud
 
 # Build provider
-go build -o terraform-provider-f5-distributed-cloud
+go build -o terraform-provider-f5distributedcloud
 
 # Install locally
-mkdir -p ~/.terraform.d/plugins/local/robinmordasiewicz/f5-distributed-cloud/0.1.0/darwin_arm64
-mv terraform-provider-f5-distributed-cloud ~/.terraform.d/plugins/local/robinmordasiewicz/f5-distributed-cloud/0.1.0/darwin_arm64/
+mkdir -p ~/.terraform.d/plugins/local/robinmordasiewicz/f5distributedcloud/0.1.0/darwin_arm64
+mv terraform-provider-f5distributedcloud ~/.terraform.d/plugins/local/robinmordasiewicz/f5distributedcloud/0.1.0/darwin_arm64/
 
 # Configure Terraform to use local build
 cat > ~/.terraformrc << EOF
 provider_installation {
   dev_overrides {
-    "robinmordasiewicz/f5-distributed-cloud" = "~/.terraform.d/plugins/local/robinmordasiewicz/f5-distributed-cloud/0.1.0/darwin_arm64"
+    "robinmordasiewicz/f5distributedcloud" = "~/.terraform.d/plugins/local/robinmordasiewicz/f5distributedcloud/0.1.0/darwin_arm64"
   }
   direct {}
 }
@@ -58,7 +58,7 @@ Create `main.tf`:
 terraform {
   required_providers {
     f5distributedcloud = {
-      source  = "robinmordasiewicz/f5-distributed-cloud"
+      source  = "robinmordasiewicz/f5distributedcloud"
       version = "~> 0.1"
     }
   }
