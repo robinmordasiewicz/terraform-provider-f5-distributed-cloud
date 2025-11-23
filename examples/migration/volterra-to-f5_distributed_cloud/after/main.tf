@@ -4,7 +4,7 @@
 terraform {
   required_providers {
     f5distributedcloud = {
-      source  = "robinmordasiewicz/f5-distributed-cloud"
+      source  = "robinmordasiewicz/f5distributedcloud"
       version = "~> 1.0"
     }
   }

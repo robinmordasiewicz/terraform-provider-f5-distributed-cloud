@@ -1,7 +1,7 @@
 {
   "format_version": "1.0",
   "provider_schemas": {
-    "f5-distributed-cloud": {
+    "f5distributedcloud": {
       "provider": {
         "version": 0,
         "block": {

@@ -1,7 +1,7 @@
 # Terraform Provider for F5 Distributed Cloud
 
-[![Registry](https://img.shields.io/badge/terraform-registry-blue)](https://registry.terraform.io/providers/robinmordasiewicz/f5-distributed-cloud)
-[![Go Report Card](https://goreportcard.com/badge/github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud)](https://goreportcard.com/report/github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud)
+[![Registry](https://img.shields.io/badge/terraform-registry-blue)](https://registry.terraform.io/providers/robinmordasiewicz/f5distributedcloud)
+[![Go Report Card](https://goreportcard.com/badge/github.com/robinmordasiewicz/terraform-provider-f5distributedcloud)](https://goreportcard.com/report/github.com/robinmordasiewicz/terraform-provider-f5distributedcloud)
 [![License: MPL-2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](LICENSE)
 
 Terraform provider for managing F5 Distributed Cloud (F5 XC) resources.
@@ -26,7 +26,7 @@ This provider enables infrastructure engineers to manage F5 Distributed Cloud re
 terraform {
   required_providers {
     f5distributedcloud = {
-      source  = "robinmordasiewicz/f5-distributed-cloud"
+      source  = "robinmordasiewicz/f5distributedcloud"
       version = "~> 0.1"
     }
   }
@@ -35,7 +35,7 @@ terraform {
 
 ### Manual Installation
 
-Download the appropriate binary from the [releases page](https://github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/releases) and place it in:
+Download the appropriate binary from the [releases page](https://github.com/robinmordasiewicz/terraform-provider-f5distributedcloud/releases) and place it in:
 
 - **Linux/macOS**: `~/.terraform.d/plugins/`
 - **Windows**: `%APPDATA%\terraform.d\plugins\`
@@ -151,15 +151,15 @@ See [docs/data-sources/](docs/data-sources/) for full documentation.
 
 ```bash
 # Clone the repository
-git clone https://github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud.git
-cd terraform-provider-f5-distributed-cloud
+git clone https://github.com/robinmordasiewicz/terraform-provider-f5distributedcloud.git
+cd terraform-provider-f5distributedcloud
 
 # Build the provider
-go build -o terraform-provider-f5-distributed-cloud
+go build -o terraform-provider-f5distributedcloud
 
 # Install locally
-mkdir -p ~/.terraform.d/plugins/registry.terraform.io/robinmordasiewicz/f5-distributed-cloud/0.1.0/$(go env GOOS)_$(go env GOARCH)
-mv terraform-provider-f5-distributed-cloud ~/.terraform.d/plugins/registry.terraform.io/robinmordasiewicz/f5-distributed-cloud/0.1.0/$(go env GOOS)_$(go env GOARCH)/
+mkdir -p ~/.terraform.d/plugins/registry.terraform.io/robinmordasiewicz/f5distributedcloud/0.1.0/$(go env GOOS)_$(go env GOARCH)
+mv terraform-provider-f5distributedcloud ~/.terraform.d/plugins/registry.terraform.io/robinmordasiewicz/f5distributedcloud/0.1.0/$(go env GOOS)_$(go env GOARCH)/
 ```
 
 ## Contributing
