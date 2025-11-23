@@ -4,6 +4,7 @@
 package namespace
 
 import (
+	"github.com/hashicorp/terraform-plugin-framework-timeouts/resource/timeouts"
 	"github.com/hashicorp/terraform-plugin-framework/types"
 )
 
@@ -15,6 +16,9 @@ type NamespaceResourceModel struct {
 
 	// Computed fields (read-only from API)
 	ID types.String `tfsdk:"id"`
+
+	// Timeouts configuration
+	Timeouts timeouts.Value `tfsdk:"timeouts"`
 }
 
 // APINamespace represents the namespace structure for API requests/responses.
