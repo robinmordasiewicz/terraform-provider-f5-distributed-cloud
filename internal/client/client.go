@@ -151,8 +151,10 @@ func customRetryPolicy(ctx context.Context, resp *http.Response, err error) (boo
 
 // Do performs an HTTP request.
 func (c *Client) Do(ctx context.Context, method, path string, body interface{}, result interface{}) error {
-	// Build URL
-	reqURL := c.baseURL.ResolveReference(&url.URL{Path: path})
+	// Build URL by joining base URL with path
+	// Note: url.ResolveReference doesn't work correctly when base URL has a path component
+	// so we manually join the paths
+	reqURL := c.baseURL.String() + path
 
 	// Prepare body
 	var bodyReader io.Reader
@@ -165,7 +167,7 @@ func (c *Client) Do(ctx context.Context, method, path string, body interface{}, 
 	}
 
 	// Create request
-	req, err := retryablehttp.NewRequestWithContext(ctx, method, reqURL.String(), bodyReader)
+	req, err := retryablehttp.NewRequestWithContext(ctx, method, reqURL, bodyReader)
 	if err != nil {
 		return fmt.Errorf("failed to create request: %w", err)
 	}

@@ -105,7 +105,7 @@ func (d *NamespaceDataSource) Read(ctx context.Context, req datasource.ReadReque
 	}
 
 	var apiResp APINamespace
-	path := fmt.Sprintf("/config/namespaces/%s", data.Name.ValueString())
+	path := fmt.Sprintf("/web/namespaces/%s", data.Name.ValueString())
 	if err := d.client.Get(ctx, path, &apiResp); err != nil {
 		resp.Diagnostics.AddError("Error Reading Namespace",
 			fmt.Sprintf("Could not read namespace %s: %s", data.Name.ValueString(), err))

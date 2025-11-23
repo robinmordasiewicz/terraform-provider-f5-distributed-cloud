@@ -137,7 +137,8 @@ func TestAccProvider_invalidCredentials(t *testing.T) {
 		Steps: []resource.TestStep{
 			{
 				Config: testAccProviderConfig_tokenAuth(apiURL, "invalid-token-that-will-fail"),
-				// Provider config itself succeeds; actual auth failure happens on first API call
+				// Expect 401 error when data source makes API call with invalid credentials
+				ExpectError: regexp.MustCompile(`(401|credential invalid|unauthorized)`),
 			},
 		},
 	})
@@ -173,12 +174,9 @@ provider "f5xc" {
   api_token = "` + apiToken + `"
 }
 
-# Empty data source to trigger provider configuration
-data "terraform_remote_state" "test" {
-  backend = "local"
-  config = {
-    path = "/dev/null"
-  }
+# Use f5xc data source to verify provider configuration
+data "f5xc_namespace" "system" {
+  name = "system"
 }
 `
 }
@@ -194,14 +192,12 @@ provider "f5xc" {
 		config += `  p12_password = "` + p12Password + `"
 `
 	}
+	// Use a data source to read the "system" namespace (always exists) to verify authentication
+	// This tests provider configuration without requiring write permissions
 	config += `}
 
-# Empty data source to trigger provider configuration
-data "terraform_remote_state" "test" {
-  backend = "local"
-  config = {
-    path = "/dev/null"
-  }
+data "f5xc_namespace" "system" {
+  name = "system"
 }
 `
 	return config
@@ -214,12 +210,9 @@ provider "f5xc" {
   api_url = "` + apiURL + `"
 }
 
-# Empty data source to trigger provider configuration
-data "terraform_remote_state" "test" {
-  backend = "local"
-  config = {
-    path = "/dev/null"
-  }
+# Use f5xc data source to verify provider configuration
+data "f5xc_namespace" "system" {
+  name = "system"
 }
 `
 }
@@ -231,12 +224,9 @@ provider "f5xc" {
   api_token = "some-token"
 }
 
-# Empty data source to trigger provider configuration
-data "terraform_remote_state" "test" {
-  backend = "local"
-  config = {
-    path = "/dev/null"
-  }
+# Use f5xc data source to verify provider configuration
+data "f5xc_namespace" "system" {
+  name = "system"
 }
 `
 }

@@ -5,7 +5,6 @@ package client
 
 import (
 	"crypto/tls"
-	"crypto/x509"
 	"encoding/pem"
 	"fmt"
 	"net/http"
@@ -137,31 +136,36 @@ func (a *TokenAuthenticator) Method() AuthMethod {
 }
 
 // loadP12Certificate loads a certificate from a PKCS#12 file.
+// Supports P12 files with certificate chains (common with F5 XC certificates).
 func loadP12Certificate(p12File string, password string) (tls.Certificate, error) {
 	p12Data, err := os.ReadFile(p12File)
 	if err != nil {
 		return tls.Certificate{}, fmt.Errorf("failed to read P12 file: %w", err)
 	}
 
-	privateKey, cert, err := pkcs12.Decode(p12Data, password)
+	// Use ToPEM which handles P12 files with certificate chains
+	pemBlocks, err := pkcs12.ToPEM(p12Data, password)
 	if err != nil {
 		return tls.Certificate{}, fmt.Errorf("failed to decode P12 file: %w", err)
 	}
 
-	certPEM := pem.EncodeToMemory(&pem.Block{
-		Type:  "CERTIFICATE",
-		Bytes: cert.Raw,
-	})
-
-	keyBytes, err := x509.MarshalPKCS8PrivateKey(privateKey)
-	if err != nil {
-		return tls.Certificate{}, fmt.Errorf("failed to marshal private key: %w", err)
+	// Separate key and certificate PEM blocks
+	var keyPEM, certPEM []byte
+	for _, block := range pemBlocks {
+		pemData := pem.EncodeToMemory(block)
+		if block.Type == "PRIVATE KEY" || block.Type == "RSA PRIVATE KEY" || block.Type == "EC PRIVATE KEY" {
+			keyPEM = append(keyPEM, pemData...)
+		} else if block.Type == "CERTIFICATE" {
+			certPEM = append(certPEM, pemData...)
+		}
 	}
 
-	keyPEM := pem.EncodeToMemory(&pem.Block{
-		Type:  "PRIVATE KEY",
-		Bytes: keyBytes,
-	})
+	if len(keyPEM) == 0 {
+		return tls.Certificate{}, fmt.Errorf("no private key found in P12 file")
+	}
+	if len(certPEM) == 0 {
+		return tls.Certificate{}, fmt.Errorf("no certificate found in P12 file")
+	}
 
 	return tls.X509KeyPair(certPEM, keyPEM)
 }
