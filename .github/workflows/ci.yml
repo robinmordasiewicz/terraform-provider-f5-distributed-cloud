@@ -87,7 +87,7 @@ jobs:
 
       - name: Generate docs
         run: |
-          tfplugindocs generate --provider-name f5_distributed_cloud
+          tfplugindocs generate --provider-name f5distributedcloud
           echo "Documentation generated successfully"
 
       - name: Check for uncommitted doc changes

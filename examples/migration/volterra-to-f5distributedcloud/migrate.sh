@@ -2,10 +2,10 @@
 # Migration script: Volterra to F5 Distributed Cloud Provider
 #
 # This script helps migrate Terraform state from volterra_ resources
-# to f5_distributed_cloud_ resources.
+# to f5distributedcloud_ resources.
 #
 # Usage:
-#   1. Update your .tf files to use f5_distributed_cloud_ prefix
+#   1. Update your .tf files to use f5distributedcloud_ prefix
 #   2. Run this script to migrate state
 #   3. Run terraform init && terraform plan to verify
 
@@ -60,8 +60,8 @@ echo ""
 echo "3. Migrating resources..."
 while IFS= read -r resource; do
     if [ -n "$resource" ]; then
-        # Convert volterra_ to f5_distributed_cloud_
-        new_resource="${resource/volterra_/f5_distributed_cloud_}"
+        # Convert volterra_ to f5distributedcloud_
+        new_resource="${resource/volterra_/f5distributedcloud_}"
         echo "   Migrating: $resource -> $new_resource"
         terraform state mv "$resource" "$new_resource" 2>/dev/null || {
             echo "   WARNING: Failed to migrate $resource (may already be migrated)"

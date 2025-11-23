@@ -33,12 +33,12 @@
               "sensitive": true
             }
           },
-          "description": "\nThe F5 Distributed Cloud (F5 XC) provider enables infrastructure engineers to manage F5 XC resources using Terraform.\n\n## Authentication\n\nThe provider supports two authentication methods:\n\n1. **API Token Authentication** (recommended for automation):\n   - Set the `api_token` attribute or `F5XC_API_TOKEN` environment variable\n\n2. **Certificate Authentication** (P12 file):\n   - Set `p12_file` and `p12_password` attributes or\n   - Set `F5XC_API_P12_FILE` and `F5XC_API_P12_PASSWORD` environment variables\n\n## Example Usage\n\n```hcl\nprovider \"f5_distributed_cloud\" {\n  api_url   = \"https://your-tenant.console.ves.volterra.io/api\"\n  api_token = var.f5_distributed_cloud_api_token\n}\n```\n",
+          "description": "\nThe F5 Distributed Cloud (F5 XC) provider enables infrastructure engineers to manage F5 XC resources using Terraform.\n\n## Authentication\n\nThe provider supports two authentication methods:\n\n1. **API Token Authentication** (recommended for automation):\n   - Set the `api_token` attribute or `F5XC_API_TOKEN` environment variable\n\n2. **Certificate Authentication** (P12 file):\n   - Set `p12_file` and `p12_password` attributes or\n   - Set `F5XC_API_P12_FILE` and `F5XC_API_P12_PASSWORD` environment variables\n\n## Example Usage\n\n```hcl\nprovider \"f5distributedcloud\" {\n  api_url   = \"https://your-tenant.console.ves.volterra.io/api\"\n  api_token = var.f5distributedcloud_api_token\n}\n```\n",
           "description_kind": "markdown"
         }
       },
       "resource_schemas": {
-        "f5_distributed_cloud_active_service_policies": {
+        "f5distributedcloud_active_service_policies": {
           "version": 0,
           "block": {
             "attributes": {
@@ -86,11 +86,11 @@
                 }
               }
             },
-            "description": "\nThe `f5_distributed_cloud_active_service_policies` resource manages Active Service Policies in F5 Distributed Cloud.\n\nActive Service Policies allow you to activate and apply a set of service policies to sites or virtual sites.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_active_service_policies\" \"example\" {\n  name      = \"active-policies\"\n  namespace = \"system\"\n\n  policies {\n    name      = \"rate-limit-policy\"\n    namespace = \"my-namespace\"\n  }\n\n  policies {\n    name      = \"waf-policy\"\n    namespace = \"my-namespace\"\n  }\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_active_service_policies` resource manages Active Service Policies in F5 Distributed Cloud.\n\nActive Service Policies allow you to activate and apply a set of service policies to sites or virtual sites.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_active_service_policies\" \"example\" {\n  name      = \"active-policies\"\n  namespace = \"system\"\n\n  policies {\n    name      = \"rate-limit-policy\"\n    namespace = \"my-namespace\"\n  }\n\n  policies {\n    name      = \"waf-policy\"\n    namespace = \"my-namespace\"\n  }\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_advertise_policy": {
+        "f5distributedcloud_advertise_policy": {
           "version": 0,
           "block": {
             "attributes": {
@@ -115,11 +115,11 @@
                 "required": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_advertise_policy` resource manages Advertise Policies in F5 Distributed Cloud.\n\nAdvertise Policies control how services are advertised to the network.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_advertise_policy\" \"example\" {\n  name        = \"my-advertise-policy\"\n  namespace   = \"my-namespace\"\n  description = \"Policy for service advertisement\"\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_advertise_policy` resource manages Advertise Policies in F5 Distributed Cloud.\n\nAdvertise Policies control how services are advertised to the network.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_advertise_policy\" \"example\" {\n  name        = \"my-advertise-policy\"\n  namespace   = \"my-namespace\"\n  description = \"Policy for service advertisement\"\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_alert_policy": {
+        "f5distributedcloud_alert_policy": {
           "version": 0,
           "block": {
             "attributes": {
@@ -187,11 +187,11 @@
                 }
               }
             },
-            "description": "\nThe `f5_distributed_cloud_alert_policy` resource manages Alert Policies in F5 Distributed Cloud.\n\nAlert Policies define notification rules for alerts and events.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_alert_policy\" \"example\" {\n  name        = \"my-alert-policy\"\n  namespace   = \"my-namespace\"\n  description = \"Alert policy for critical alerts\"\n\n  receivers {\n    name      = \"slack-receiver\"\n    namespace = \"shared\"\n  }\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_alert_policy` resource manages Alert Policies in F5 Distributed Cloud.\n\nAlert Policies define notification rules for alerts and events.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_alert_policy\" \"example\" {\n  name        = \"my-alert-policy\"\n  namespace   = \"my-namespace\"\n  description = \"Alert policy for critical alerts\"\n\n  receivers {\n    name      = \"slack-receiver\"\n    namespace = \"shared\"\n  }\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_alert_receiver": {
+        "f5distributedcloud_alert_receiver": {
           "version": 0,
           "block": {
             "attributes": {
@@ -236,11 +236,11 @@
                 "sensitive": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_alert_receiver` resource manages Alert Receivers in F5 Distributed Cloud.\n\nAlert Receivers define notification destinations for alerts (email, Slack, PagerDuty).\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_alert_receiver\" \"slack\" {\n  name        = \"slack-alerts\"\n  namespace   = \"shared\"\n  description = \"Slack channel for alerts\"\n  slack_url   = \"https://hooks.slack.com/services/xxx/yyy/zzz\"\n}\n\nresource \"f5_distributed_cloud_alert_receiver\" \"email\" {\n  name        = \"email-alerts\"\n  namespace   = \"shared\"\n  description = \"Email alerts\"\n  email       = \"alerts@example.com\"\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_alert_receiver` resource manages Alert Receivers in F5 Distributed Cloud.\n\nAlert Receivers define notification destinations for alerts (email, Slack, PagerDuty).\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_alert_receiver\" \"slack\" {\n  name        = \"slack-alerts\"\n  namespace   = \"shared\"\n  description = \"Slack channel for alerts\"\n  slack_url   = \"https://hooks.slack.com/services/xxx/yyy/zzz\"\n}\n\nresource \"f5distributedcloud_alert_receiver\" \"email\" {\n  name        = \"email-alerts\"\n  namespace   = \"shared\"\n  description = \"Email alerts\"\n  email       = \"alerts@example.com\"\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_api_credential": {
+        "f5distributedcloud_api_credential": {
           "version": 0,
           "block": {
             "attributes": {
@@ -295,11 +295,11 @@
                 "optional": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_api_credential` resource manages API Credentials in F5 Distributed Cloud.\n\nAPI Credentials are used for programmatic access to F5 XC APIs.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_api_credential\" \"example\" {\n  name            = \"terraform-api-cred\"\n  namespace       = \"system\"\n  credential_type = \"API_CERTIFICATE\"\n  expiration_days = 365\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_api_credential` resource manages API Credentials in F5 Distributed Cloud.\n\nAPI Credentials are used for programmatic access to F5 XC APIs.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_api_credential\" \"example\" {\n  name            = \"terraform-api-cred\"\n  namespace       = \"system\"\n  credential_type = \"API_CERTIFICATE\"\n  expiration_days = 365\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_api_definition": {
+        "f5distributedcloud_api_definition": {
           "version": 0,
           "block": {
             "attributes": {
@@ -342,11 +342,11 @@
                 "optional": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_api_definition` resource manages API Definitions in F5 Distributed Cloud.\n\nAPI Definitions allow you to import and manage API schemas (OpenAPI/Swagger) for API security and discovery features.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_api_definition\" \"example\" {\n  name        = \"my-api\"\n  namespace   = \"my-namespace\"\n  description = \"My API definition\"\n  base_path   = \"/api/v1\"\n\n  openapi_spec = <<-EOT\n    openapi: \"3.0.0\"\n    info:\n      title: \"My API\"\n      version: \"1.0.0\"\n    paths:\n      /users:\n        get:\n          summary: \"List users\"\n  EOT\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_api_definition` resource manages API Definitions in F5 Distributed Cloud.\n\nAPI Definitions allow you to import and manage API schemas (OpenAPI/Swagger) for API security and discovery features.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_api_definition\" \"example\" {\n  name        = \"my-api\"\n  namespace   = \"my-namespace\"\n  description = \"My API definition\"\n  base_path   = \"/api/v1\"\n\n  openapi_spec = <<-EOT\n    openapi: \"3.0.0\"\n    info:\n      title: \"My API\"\n      version: \"1.0.0\"\n    paths:\n      /users:\n        get:\n          summary: \"List users\"\n  EOT\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_api_group": {
+        "f5distributedcloud_api_group": {
           "version": 0,
           "block": {
             "attributes": {
@@ -379,7 +379,7 @@
             "description_kind": "plain"
           }
         },
-        "f5_distributed_cloud_api_group_element": {
+        "f5distributedcloud_api_group_element": {
           "version": 0,
           "block": {
             "attributes": {
@@ -412,7 +412,7 @@
             "description_kind": "plain"
           }
         },
-        "f5_distributed_cloud_app_firewall": {
+        "f5distributedcloud_app_firewall": {
           "version": 0,
           "block": {
             "attributes": {
@@ -578,11 +578,11 @@
                 }
               }
             },
-            "description": "\nThe `f5_distributed_cloud_app_firewall` resource manages Application Firewall (WAF) policies in F5 Distributed Cloud.\n\nApplication Firewall policies define web application security settings including\ndetection modes, bot protection, and custom blocking pages.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_app_firewall\" \"example\" {\n  name        = \"my-app-firewall\"\n  namespace   = \"my-namespace\"\n  description = \"Example Application Firewall\"\n  mode        = \"blocking\"\n\n  detection_settings {\n    signature_based_bot_protection = true\n    xhr_check                      = true\n    cookie_protection              = true\n    violation_rating               = \"medium\"\n  }\n\n  bot_protection {\n    good_bot_action       = \"allow\"\n    malicious_bot_action  = \"block\"\n    suspicious_bot_action = \"challenge\"\n  }\n}\n```\n\n## Import\n\nApp Firewalls can be imported using namespace/name:\n\n```shell\nterraform import f5_distributed_cloud_app_firewall.example my-namespace/my-app-firewall\n```\n",
+            "description": "\nThe `f5distributedcloud_app_firewall` resource manages Application Firewall (WAF) policies in F5 Distributed Cloud.\n\nApplication Firewall policies define web application security settings including\ndetection modes, bot protection, and custom blocking pages.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_app_firewall\" \"example\" {\n  name        = \"my-app-firewall\"\n  namespace   = \"my-namespace\"\n  description = \"Example Application Firewall\"\n  mode        = \"blocking\"\n\n  detection_settings {\n    signature_based_bot_protection = true\n    xhr_check                      = true\n    cookie_protection              = true\n    violation_rating               = \"medium\"\n  }\n\n  bot_protection {\n    good_bot_action       = \"allow\"\n    malicious_bot_action  = \"block\"\n    suspicious_bot_action = \"challenge\"\n  }\n}\n```\n\n## Import\n\nApp Firewalls can be imported using namespace/name:\n\n```shell\nterraform import f5distributedcloud_app_firewall.example my-namespace/my-app-firewall\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_app_setting": {
+        "f5distributedcloud_app_setting": {
           "version": 0,
           "block": {
             "attributes": {
@@ -611,7 +611,7 @@
             "description_kind": "plain"
           }
         },
-        "f5_distributed_cloud_app_type": {
+        "f5distributedcloud_app_type": {
           "version": 0,
           "block": {
             "attributes": {
@@ -653,11 +653,11 @@
                 }
               }
             },
-            "description": "\nThe `f5_distributed_cloud_app_type` resource manages App Types in F5 Distributed Cloud.\n\nApp Types define application characteristics and enable features like API discovery, sensitive data detection, and more.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_app_type\" \"example\" {\n  name      = \"my-app-type\"\n  namespace = \"shared\"\n\n  features {\n    type = \"USER_IDENTIFICATION\"\n  }\n\n  features {\n    type = \"API_DISCOVERY\"\n  }\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_app_type` resource manages App Types in F5 Distributed Cloud.\n\nApp Types define application characteristics and enable features like API discovery, sensitive data detection, and more.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_app_type\" \"example\" {\n  name      = \"my-app-type\"\n  namespace = \"shared\"\n\n  features {\n    type = \"USER_IDENTIFICATION\"\n  }\n\n  features {\n    type = \"API_DISCOVERY\"\n  }\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_authentication": {
+        "f5distributedcloud_authentication": {
           "version": 0,
           "block": {
             "attributes": {
@@ -690,7 +690,7 @@
             "description_kind": "plain"
           }
         },
-        "f5_distributed_cloud_aws_tgw_site": {
+        "f5distributedcloud_aws_tgw_site": {
           "version": 0,
           "block": {
             "attributes": {
@@ -715,11 +715,11 @@
                 "required": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_aws_tgw_site` resource manages AWS Transit Gateway Sites in F5 Distributed Cloud.\n\nAWS TGW Sites enable connectivity between F5 XC and AWS Transit Gateway infrastructure.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_aws_tgw_site\" \"example\" {\n  name        = \"my-aws-tgw-site\"\n  namespace   = \"system\"\n  description = \"Example AWS TGW site\"\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_aws_tgw_site` resource manages AWS Transit Gateway Sites in F5 Distributed Cloud.\n\nAWS TGW Sites enable connectivity between F5 XC and AWS Transit Gateway infrastructure.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_aws_tgw_site\" \"example\" {\n  name        = \"my-aws-tgw-site\"\n  namespace   = \"system\"\n  description = \"Example AWS TGW site\"\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_aws_vpc_site": {
+        "f5distributedcloud_aws_vpc_site": {
           "version": 0,
           "block": {
             "attributes": {
@@ -768,11 +768,11 @@
                 "optional": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_aws_vpc_site` resource manages AWS VPC Sites in F5 Distributed Cloud.\n\nAWS VPC Sites deploy F5 XC nodes into an existing or new AWS VPC.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_aws_vpc_site\" \"example\" {\n  name                  = \"aws-site-1\"\n  namespace             = \"system\"\n  aws_region            = \"us-west-2\"\n  vpc_id                = \"vpc-12345678\"\n  instance_type         = \"t3.xlarge\"\n  cloud_credentials_ref = \"aws-creds\"\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_aws_vpc_site` resource manages AWS VPC Sites in F5 Distributed Cloud.\n\nAWS VPC Sites deploy F5 XC nodes into an existing or new AWS VPC.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_aws_vpc_site\" \"example\" {\n  name                  = \"aws-site-1\"\n  namespace             = \"system\"\n  aws_region            = \"us-west-2\"\n  vpc_id                = \"vpc-12345678\"\n  instance_type         = \"t3.xlarge\"\n  cloud_credentials_ref = \"aws-creds\"\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_azure_vnet_site": {
+        "f5distributedcloud_azure_vnet_site": {
           "version": 0,
           "block": {
             "attributes": {
@@ -827,11 +827,11 @@
                 "optional": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_azure_vnet_site` resource manages Azure VNET Sites in F5 Distributed Cloud.\n\nAzure VNET Sites deploy F5 XC nodes into an existing or new Azure VNET.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_azure_vnet_site\" \"example\" {\n  name                  = \"azure-site-1\"\n  namespace             = \"system\"\n  azure_region          = \"westus2\"\n  resource_group        = \"my-resource-group\"\n  vnet_name             = \"my-vnet\"\n  machine_type          = \"Standard_D3_v2\"\n  cloud_credentials_ref = \"azure-creds\"\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_azure_vnet_site` resource manages Azure VNET Sites in F5 Distributed Cloud.\n\nAzure VNET Sites deploy F5 XC nodes into an existing or new Azure VNET.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_azure_vnet_site\" \"example\" {\n  name                  = \"azure-site-1\"\n  namespace             = \"system\"\n  azure_region          = \"westus2\"\n  resource_group        = \"my-resource-group\"\n  vnet_name             = \"my-vnet\"\n  machine_type          = \"Standard_D3_v2\"\n  cloud_credentials_ref = \"azure-creds\"\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_bgp": {
+        "f5distributedcloud_bgp": {
           "version": 0,
           "block": {
             "attributes": {
@@ -862,11 +862,11 @@
                 "required": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_bgp` resource manages BGP configurations in F5 Distributed Cloud.\n\nBGP configurations define Border Gateway Protocol settings for network routing.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_bgp\" \"example\" {\n  name        = \"my-bgp-config\"\n  namespace   = \"system\"\n  description = \"BGP configuration\"\n  asn         = 65000\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_bgp` resource manages BGP configurations in F5 Distributed Cloud.\n\nBGP configurations define Border Gateway Protocol settings for network routing.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_bgp\" \"example\" {\n  name        = \"my-bgp-config\"\n  namespace   = \"system\"\n  description = \"BGP configuration\"\n  asn         = 65000\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_bgp_asn_set": {
+        "f5distributedcloud_bgp_asn_set": {
           "version": 0,
           "block": {
             "attributes": {
@@ -900,11 +900,11 @@
                 "required": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_bgp_asn_set` resource manages BGP ASN Sets in F5 Distributed Cloud.\n\nBGP ASN Sets define collections of Autonomous System Numbers for BGP routing policies.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_bgp_asn_set\" \"example\" {\n  name        = \"my-asn-set\"\n  namespace   = \"system\"\n  description = \"BGP ASN set for routing\"\n  asns        = [65000, 65001, 65002]\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_bgp_asn_set` resource manages BGP ASN Sets in F5 Distributed Cloud.\n\nBGP ASN Sets define collections of Autonomous System Numbers for BGP routing policies.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_bgp_asn_set\" \"example\" {\n  name        = \"my-asn-set\"\n  namespace   = \"system\"\n  description = \"BGP ASN set for routing\"\n  asns        = [65000, 65001, 65002]\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_bgp_routing_policy": {
+        "f5distributedcloud_bgp_routing_policy": {
           "version": 0,
           "block": {
             "attributes": {
@@ -937,7 +937,7 @@
             "description_kind": "plain"
           }
         },
-        "f5_distributed_cloud_cdn_cache_rule": {
+        "f5distributedcloud_cdn_cache_rule": {
           "version": 0,
           "block": {
             "attributes": {
@@ -975,11 +975,11 @@
                 "required": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_cdn_cache_rule` resource manages CDN Cache Rules in F5 Distributed Cloud.\n\nCDN Cache Rules define caching behavior for specific paths or content types.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_cdn_cache_rule\" \"example\" {\n  name        = \"static-assets-cache\"\n  namespace   = \"system\"\n  description = \"Cache static assets for 1 hour\"\n  path_match  = \"/static/*\"\n  cache_ttl   = 3600\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_cdn_cache_rule` resource manages CDN Cache Rules in F5 Distributed Cloud.\n\nCDN Cache Rules define caching behavior for specific paths or content types.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_cdn_cache_rule\" \"example\" {\n  name        = \"static-assets-cache\"\n  namespace   = \"system\"\n  description = \"Cache static assets for 1 hour\"\n  path_match  = \"/static/*\"\n  cache_ttl   = 3600\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_cdn_loadbalancer": {
+        "f5distributedcloud_cdn_loadbalancer": {
           "version": 0,
           "block": {
             "attributes": {
@@ -1013,11 +1013,11 @@
                 "required": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_cdn_loadbalancer` resource manages CDN Load Balancers in F5 Distributed Cloud.\n\nCDN Load Balancers provide content delivery network capabilities with edge caching.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_cdn_loadbalancer\" \"example\" {\n  name        = \"my-cdn-lb\"\n  namespace   = \"system\"\n  description = \"CDN load balancer for static content\"\n  domains     = [\"cdn.example.com\", \"static.example.com\"]\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_cdn_loadbalancer` resource manages CDN Load Balancers in F5 Distributed Cloud.\n\nCDN Load Balancers provide content delivery network capabilities with edge caching.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_cdn_loadbalancer\" \"example\" {\n  name        = \"my-cdn-lb\"\n  namespace   = \"system\"\n  description = \"CDN load balancer for static content\"\n  domains     = [\"cdn.example.com\", \"static.example.com\"]\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_certificate": {
+        "f5distributedcloud_certificate": {
           "version": 0,
           "block": {
             "attributes": {
@@ -1110,11 +1110,11 @@
                 }
               }
             },
-            "description": "\nThe `f5_distributed_cloud_certificate` resource manages TLS Certificates in F5 Distributed Cloud.\n\nCertificates are used for TLS termination on load balancers and for securing\nconnections to origin servers.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_certificate\" \"example\" {\n  name        = \"my-certificate\"\n  namespace   = \"my-namespace\"\n  description = \"My TLS certificate\"\n\n  certificate_url = \"string:///LS0tLS1CRUdJTi...\"\n\n  private_key {\n    blindfold_secret_url = \"string:///...\"\n  }\n}\n```\n\n## Import\n\nCertificates can be imported using namespace/name:\n\n```shell\nterraform import f5_distributed_cloud_certificate.example my-namespace/my-certificate\n```\n",
+            "description": "\nThe `f5distributedcloud_certificate` resource manages TLS Certificates in F5 Distributed Cloud.\n\nCertificates are used for TLS termination on load balancers and for securing\nconnections to origin servers.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_certificate\" \"example\" {\n  name        = \"my-certificate\"\n  namespace   = \"my-namespace\"\n  description = \"My TLS certificate\"\n\n  certificate_url = \"string:///LS0tLS1CRUdJTi...\"\n\n  private_key {\n    blindfold_secret_url = \"string:///...\"\n  }\n}\n```\n\n## Import\n\nCertificates can be imported using namespace/name:\n\n```shell\nterraform import f5distributedcloud_certificate.example my-namespace/my-certificate\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_certificate_chain": {
+        "f5distributedcloud_certificate_chain": {
           "version": 0,
           "block": {
             "attributes": {
@@ -1147,7 +1147,7 @@
             "description_kind": "plain"
           }
         },
-        "f5_distributed_cloud_client_connection_limit": {
+        "f5distributedcloud_client_connection_limit": {
           "version": 0,
           "block": {
             "attributes": {
@@ -1190,11 +1190,11 @@
                 "required": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_client_connection_limit` resource manages Client Connection Limits in F5 Distributed Cloud.\n\nClient Connection Limits define connection restrictions and circuit breaker settings.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_client_connection_limit\" \"example\" {\n  name                 = \"api-conn-limit\"\n  namespace            = \"my-namespace\"\n  max_connections      = 10000\n  connection_timeout   = 60\n  enable_circuit_break = true\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_client_connection_limit` resource manages Client Connection Limits in F5 Distributed Cloud.\n\nClient Connection Limits define connection restrictions and circuit breaker settings.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_client_connection_limit\" \"example\" {\n  name                 = \"api-conn-limit\"\n  namespace            = \"my-namespace\"\n  max_connections      = 10000\n  connection_timeout   = 60\n  enable_circuit_break = true\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_cloud_credentials": {
+        "f5distributedcloud_cloud_credentials": {
           "version": 0,
           "block": {
             "attributes": {
@@ -1297,11 +1297,11 @@
                 }
               }
             },
-            "description": "\nThe `f5_distributed_cloud_cloud_credentials` resource manages Cloud Provider Credentials in F5 Distributed Cloud.\n\nCloud Credentials are used to authenticate with cloud providers (AWS, Azure, GCP) for site deployment and cloud resource management.\n\n## Example Usage\n\n### AWS Credentials\n\n```hcl\nresource \"f5_distributed_cloud_cloud_credentials\" \"aws\" {\n  name           = \"aws-creds\"\n  namespace      = \"system\"\n  cloud_provider = \"aws\"\n\n  aws_credentials {\n    access_key_id     = var.aws_access_key\n    secret_access_key = var.aws_secret_key\n  }\n}\n```\n\n### Azure Credentials\n\n```hcl\nresource \"f5_distributed_cloud_cloud_credentials\" \"azure\" {\n  name           = \"azure-creds\"\n  namespace      = \"system\"\n  cloud_provider = \"azure\"\n\n  azure_credentials {\n    subscription_id = var.azure_subscription_id\n    tenant_id       = var.azure_tenant_id\n    client_id       = var.azure_client_id\n    client_secret   = var.azure_client_secret\n  }\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_cloud_credentials` resource manages Cloud Provider Credentials in F5 Distributed Cloud.\n\nCloud Credentials are used to authenticate with cloud providers (AWS, Azure, GCP) for site deployment and cloud resource management.\n\n## Example Usage\n\n### AWS Credentials\n\n```hcl\nresource \"f5distributedcloud_cloud_credentials\" \"aws\" {\n  name           = \"aws-creds\"\n  namespace      = \"system\"\n  cloud_provider = \"aws\"\n\n  aws_credentials {\n    access_key_id     = var.aws_access_key\n    secret_access_key = var.aws_secret_key\n  }\n}\n```\n\n### Azure Credentials\n\n```hcl\nresource \"f5distributedcloud_cloud_credentials\" \"azure\" {\n  name           = \"azure-creds\"\n  namespace      = \"system\"\n  cloud_provider = \"azure\"\n\n  azure_credentials {\n    subscription_id = var.azure_subscription_id\n    tenant_id       = var.azure_tenant_id\n    client_id       = var.azure_client_id\n    client_secret   = var.azure_client_secret\n  }\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_cloud_site": {
+        "f5distributedcloud_cloud_site": {
           "version": 0,
           "block": {
             "attributes": {
@@ -1513,11 +1513,11 @@
                 }
               }
             },
-            "description": "\nThe `f5_distributed_cloud_cloud_site` resource manages Cloud Sites in F5 Distributed Cloud.\n\nCloud Sites are deployed infrastructure in public cloud providers that enable\nF5 Distributed Cloud services such as load balancing, security, and networking.\n\n## Supported Cloud Providers\n\n- **AWS**: Creates VPC Sites in Amazon Web Services\n- **Azure**: Creates VNET Sites in Microsoft Azure\n- **GCP**: Creates VPC Sites in Google Cloud Platform\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_cloud_site\" \"aws_site\" {\n  name           = \"my-aws-site\"\n  description    = \"AWS VPC Site\"\n  site_type      = \"aws_vpc_site\"\n  cloud_provider = \"aws\"\n  region         = \"us-east-1\"\n\n  vpc_name = \"my-vpc\"\n  cidr     = \"10.0.0.0/16\"\n\n  subnets {\n    name              = \"subnet-1\"\n    cidr              = \"10.0.1.0/24\"\n    availability_zone = \"us-east-1a\"\n    subnet_type       = \"public\"\n  }\n\n  master_nodes {\n    instance_type = \"t3.xlarge\"\n    disk_size     = 80\n    count         = 1\n  }\n}\n```\n\n## Import\n\nCloud Sites can be imported using the site name:\n\n```shell\nterraform import f5_distributed_cloud_cloud_site.example my-aws-site\n```\n",
+            "description": "\nThe `f5distributedcloud_cloud_site` resource manages Cloud Sites in F5 Distributed Cloud.\n\nCloud Sites are deployed infrastructure in public cloud providers that enable\nF5 Distributed Cloud services such as load balancing, security, and networking.\n\n## Supported Cloud Providers\n\n- **AWS**: Creates VPC Sites in Amazon Web Services\n- **Azure**: Creates VNET Sites in Microsoft Azure\n- **GCP**: Creates VPC Sites in Google Cloud Platform\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_cloud_site\" \"aws_site\" {\n  name           = \"my-aws-site\"\n  description    = \"AWS VPC Site\"\n  site_type      = \"aws_vpc_site\"\n  cloud_provider = \"aws\"\n  region         = \"us-east-1\"\n\n  vpc_name = \"my-vpc\"\n  cidr     = \"10.0.0.0/16\"\n\n  subnets {\n    name              = \"subnet-1\"\n    cidr              = \"10.0.1.0/24\"\n    availability_zone = \"us-east-1a\"\n    subnet_type       = \"public\"\n  }\n\n  master_nodes {\n    instance_type = \"t3.xlarge\"\n    disk_size     = 80\n    count         = 1\n  }\n}\n```\n\n## Import\n\nCloud Sites can be imported using the site name:\n\n```shell\nterraform import f5distributedcloud_cloud_site.example my-aws-site\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_cluster": {
+        "f5distributedcloud_cluster": {
           "version": 0,
           "block": {
             "attributes": {
@@ -1546,11 +1546,11 @@
                 "required": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_cluster` resource manages Clusters in F5 Distributed Cloud.\n\nClusters provide container orchestration capabilities, allowing you to deploy\nand manage containerized applications across your F5 Distributed Cloud infrastructure.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_cluster\" \"example\" {\n  name        = \"my-cluster\"\n  namespace   = \"shared\"\n  description = \"Production cluster for container workloads\"\n}\n```\n\n## Import\n\nClusters can be imported using namespace/name:\n\n```shell\nterraform import f5_distributed_cloud_cluster.example shared/my-cluster\n```\n",
+            "description": "\nThe `f5distributedcloud_cluster` resource manages Clusters in F5 Distributed Cloud.\n\nClusters provide container orchestration capabilities, allowing you to deploy\nand manage containerized applications across your F5 Distributed Cloud infrastructure.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_cluster\" \"example\" {\n  name        = \"my-cluster\"\n  namespace   = \"shared\"\n  description = \"Production cluster for container workloads\"\n}\n```\n\n## Import\n\nClusters can be imported using namespace/name:\n\n```shell\nterraform import f5distributedcloud_cluster.example shared/my-cluster\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_container_registry": {
+        "f5distributedcloud_container_registry": {
           "version": 0,
           "block": {
             "attributes": {
@@ -1579,11 +1579,11 @@
                 "required": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_container_registry` resource manages Container Registries in F5 Distributed Cloud.\n\nContainer registries store and manage container images.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_container_registry\" \"example\" {\n  name        = \"my-container-registry\"\n  namespace   = \"shared\"\n  description = \"Container registry for application images\"\n}\n```\n\n## Import\n\nContainer Registries can be imported using namespace/name:\n\n```shell\nterraform import f5_distributed_cloud_container_registry.example shared/my-container-registry\n```\n",
+            "description": "\nThe `f5distributedcloud_container_registry` resource manages Container Registries in F5 Distributed Cloud.\n\nContainer registries store and manage container images.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_container_registry\" \"example\" {\n  name        = \"my-container-registry\"\n  namespace   = \"shared\"\n  description = \"Container registry for application images\"\n}\n```\n\n## Import\n\nContainer Registries can be imported using namespace/name:\n\n```shell\nterraform import f5distributedcloud_container_registry.example shared/my-container-registry\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_crl": {
+        "f5distributedcloud_crl": {
           "version": 0,
           "block": {
             "attributes": {
@@ -1616,7 +1616,7 @@
             "description_kind": "plain"
           }
         },
-        "f5_distributed_cloud_discovery": {
+        "f5distributedcloud_discovery": {
           "version": 0,
           "block": {
             "attributes": {
@@ -1689,11 +1689,11 @@
                 }
               }
             },
-            "description": "\nThe `f5_distributed_cloud_discovery` resource manages Discovery configurations in F5 Distributed Cloud.\n\nDiscovery enables automatic detection of services running in Kubernetes clusters or other environments connected to F5 XC.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_discovery\" \"k8s_discovery\" {\n  name           = \"k8s-discovery\"\n  namespace      = \"my-namespace\"\n  discovery_type = \"K8S\"\n  cluster_name   = \"my-k8s-cluster\"\n\n  publish_info {\n    disable_publish = false\n    dns_domain      = \"services.example.com\"\n  }\n}\n```\n\n## Virtual Site Discovery\n\n```hcl\nresource \"f5_distributed_cloud_discovery\" \"vsite_discovery\" {\n  name             = \"vsite-discovery\"\n  namespace        = \"my-namespace\"\n  discovery_type   = \"VIRTUAL_SITE\"\n  virtual_site_ref = \"my-virtual-site\"\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_discovery` resource manages Discovery configurations in F5 Distributed Cloud.\n\nDiscovery enables automatic detection of services running in Kubernetes clusters or other environments connected to F5 XC.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_discovery\" \"k8s_discovery\" {\n  name           = \"k8s-discovery\"\n  namespace      = \"my-namespace\"\n  discovery_type = \"K8S\"\n  cluster_name   = \"my-k8s-cluster\"\n\n  publish_info {\n    disable_publish = false\n    dns_domain      = \"services.example.com\"\n  }\n}\n```\n\n## Virtual Site Discovery\n\n```hcl\nresource \"f5distributedcloud_discovery\" \"vsite_discovery\" {\n  name             = \"vsite-discovery\"\n  namespace        = \"my-namespace\"\n  discovery_type   = \"VIRTUAL_SITE\"\n  virtual_site_ref = \"my-virtual-site\"\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_dns_domain": {
+        "f5distributedcloud_dns_domain": {
           "version": 0,
           "block": {
             "attributes": {
@@ -1724,11 +1724,11 @@
                 "required": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_dns_domain` resource manages DNS Domains in F5 Distributed Cloud.\n\nDNS Domains define domain configurations for F5 XC DNS services.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_dns_domain\" \"example\" {\n  name        = \"my-dns-domain\"\n  namespace   = \"system\"\n  description = \"Primary DNS domain\"\n  domain      = \"app.example.com\"\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_dns_domain` resource manages DNS Domains in F5 Distributed Cloud.\n\nDNS Domains define domain configurations for F5 XC DNS services.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_dns_domain\" \"example\" {\n  name        = \"my-dns-domain\"\n  namespace   = \"system\"\n  description = \"Primary DNS domain\"\n  domain      = \"app.example.com\"\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_dns_lb_health_check": {
+        "f5distributedcloud_dns_lb_health_check": {
           "version": 0,
           "block": {
             "attributes": {
@@ -1780,11 +1780,11 @@
                 "computed": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_dns_lb_health_check` resource manages DNS Load Balancer Health Checks in F5 Distributed Cloud.\n\nHealth checks monitor the availability of DNS load balancer endpoints.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_dns_lb_health_check\" \"example\" {\n  name        = \"my-health-check\"\n  namespace   = \"system\"\n  description = \"HTTP health check\"\n  protocol    = \"HTTP\"\n  port        = 80\n  interval    = 30\n  timeout     = 10\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_dns_lb_health_check` resource manages DNS Load Balancer Health Checks in F5 Distributed Cloud.\n\nHealth checks monitor the availability of DNS load balancer endpoints.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_dns_lb_health_check\" \"example\" {\n  name        = \"my-health-check\"\n  namespace   = \"system\"\n  description = \"HTTP health check\"\n  protocol    = \"HTTP\"\n  port        = 80\n  interval    = 30\n  timeout     = 10\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_dns_lb_pool": {
+        "f5distributedcloud_dns_lb_pool": {
           "version": 0,
           "block": {
             "attributes": {
@@ -1856,11 +1856,11 @@
                 }
               }
             },
-            "description": "\nThe `f5_distributed_cloud_dns_lb_pool` resource manages DNS Load Balancer Pools in F5 Distributed Cloud.\n\nDNS LB Pools define groups of endpoints for DNS-based load balancing with health checking and failover capabilities.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_dns_lb_pool\" \"example\" {\n  name      = \"my-dns-pool\"\n  namespace = \"my-namespace\"\n\n  load_balancing_mode = \"round-robin\"\n\n  members {\n    address  = \"10.0.0.1\"\n    port     = 80\n    priority = 1\n    ratio    = 1\n    enabled  = true\n  }\n\n  members {\n    address  = \"10.0.0.2\"\n    port     = 80\n    priority = 1\n    ratio    = 1\n    enabled  = true\n  }\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_dns_lb_pool` resource manages DNS Load Balancer Pools in F5 Distributed Cloud.\n\nDNS LB Pools define groups of endpoints for DNS-based load balancing with health checking and failover capabilities.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_dns_lb_pool\" \"example\" {\n  name      = \"my-dns-pool\"\n  namespace = \"my-namespace\"\n\n  load_balancing_mode = \"round-robin\"\n\n  members {\n    address  = \"10.0.0.1\"\n    port     = 80\n    priority = 1\n    ratio    = 1\n    enabled  = true\n  }\n\n  members {\n    address  = \"10.0.0.2\"\n    port     = 80\n    priority = 1\n    ratio    = 1\n    enabled  = true\n  }\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_dns_load_balancer": {
+        "f5distributedcloud_dns_load_balancer": {
           "version": 0,
           "block": {
             "attributes": {
@@ -1897,11 +1897,11 @@
                 "required": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_dns_load_balancer` resource manages DNS Load Balancers in F5 Distributed Cloud.\n\nDNS Load Balancers provide global server load balancing (GSLB) capabilities.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_dns_load_balancer\" \"example\" {\n  name              = \"my-dns-lb\"\n  namespace         = \"system\"\n  description       = \"DNS load balancer for global distribution\"\n  domain            = \"app.example.com\"\n  load_balance_type = \"round_robin\"\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_dns_load_balancer` resource manages DNS Load Balancers in F5 Distributed Cloud.\n\nDNS Load Balancers provide global server load balancing (GSLB) capabilities.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_dns_load_balancer\" \"example\" {\n  name              = \"my-dns-lb\"\n  namespace         = \"system\"\n  description       = \"DNS load balancer for global distribution\"\n  domain            = \"app.example.com\"\n  load_balance_type = \"round_robin\"\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_dns_zone": {
+        "f5distributedcloud_dns_zone": {
           "version": 0,
           "block": {
             "attributes": {
@@ -1932,11 +1932,11 @@
                 "required": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_dns_zone` resource manages DNS Zones in F5 Distributed Cloud.\n\nDNS Zones define authoritative DNS domains for F5 XC DNS services.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_dns_zone\" \"example\" {\n  name        = \"my-dns-zone\"\n  namespace   = \"system\"\n  description = \"Primary DNS zone\"\n  domain      = \"example.com\"\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_dns_zone` resource manages DNS Zones in F5 Distributed Cloud.\n\nDNS Zones define authoritative DNS domains for F5 XC DNS services.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_dns_zone\" \"example\" {\n  name        = \"my-dns-zone\"\n  namespace   = \"system\"\n  description = \"Primary DNS zone\"\n  domain      = \"example.com\"\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_endpoint": {
+        "f5distributedcloud_endpoint": {
           "version": 0,
           "block": {
             "attributes": {
@@ -1969,7 +1969,7 @@
             "description_kind": "plain"
           }
         },
-        "f5_distributed_cloud_enhanced_firewall_policy": {
+        "f5distributedcloud_enhanced_firewall_policy": {
           "version": 0,
           "block": {
             "attributes": {
@@ -2047,11 +2047,11 @@
                 }
               }
             },
-            "description": "\nThe `f5_distributed_cloud_enhanced_firewall_policy` resource manages Enhanced Firewall Policies in F5 Distributed Cloud.\n\nEnhanced Firewall Policies provide Layer 3/4 network security controls with advanced rule configurations.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_enhanced_firewall_policy\" \"example\" {\n  name      = \"enhanced-fw\"\n  namespace = \"my-namespace\"\n\n  rules {\n    name     = \"allow-https\"\n    action   = \"ALLOW\"\n    protocol = \"TCP\"\n    dst_port = 443\n  }\n\n  rules {\n    name   = \"deny-all\"\n    action = \"DENY\"\n  }\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_enhanced_firewall_policy` resource manages Enhanced Firewall Policies in F5 Distributed Cloud.\n\nEnhanced Firewall Policies provide Layer 3/4 network security controls with advanced rule configurations.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_enhanced_firewall_policy\" \"example\" {\n  name      = \"enhanced-fw\"\n  namespace = \"my-namespace\"\n\n  rules {\n    name     = \"allow-https\"\n    action   = \"ALLOW\"\n    protocol = \"TCP\"\n    dst_port = 443\n  }\n\n  rules {\n    name   = \"deny-all\"\n    action = \"DENY\"\n  }\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_external_connector": {
+        "f5distributedcloud_external_connector": {
           "version": 0,
           "block": {
             "attributes": {
@@ -2076,11 +2076,11 @@
                 "required": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_external_connector` resource manages External Connectors in F5 Distributed Cloud.\n\nExternal Connectors provide integration with external systems and services.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_external_connector\" \"example\" {\n  name        = \"my-external-connector\"\n  namespace   = \"my-namespace\"\n  description = \"Example external connector\"\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_external_connector` resource manages External Connectors in F5 Distributed Cloud.\n\nExternal Connectors provide integration with external systems and services.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_external_connector\" \"example\" {\n  name        = \"my-external-connector\"\n  namespace   = \"my-namespace\"\n  description = \"Example external connector\"\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_fast_acl": {
+        "f5distributedcloud_fast_acl": {
           "version": 0,
           "block": {
             "attributes": {
@@ -2105,11 +2105,11 @@
                 "required": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_fast_acl` resource manages Fast ACLs in F5 Distributed Cloud.\n\nFast ACLs provide high-performance access control lists.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_fast_acl\" \"example\" {\n  name        = \"my-fast-acl\"\n  namespace   = \"system\"\n  description = \"High-performance access control list\"\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_fast_acl` resource manages Fast ACLs in F5 Distributed Cloud.\n\nFast ACLs provide high-performance access control lists.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_fast_acl\" \"example\" {\n  name        = \"my-fast-acl\"\n  namespace   = \"system\"\n  description = \"High-performance access control list\"\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_fast_acl_rule": {
+        "f5distributedcloud_fast_acl_rule": {
           "version": 0,
           "block": {
             "attributes": {
@@ -2134,11 +2134,11 @@
                 "required": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_fast_acl_rule` resource manages Fast ACL Rules in F5 Distributed Cloud.\n\nFast ACL Rules define individual access control entries.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_fast_acl_rule\" \"example\" {\n  name      = \"example-fast-acl-rule\"\n  namespace = \"my-namespace\"\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_fast_acl_rule` resource manages Fast ACL Rules in F5 Distributed Cloud.\n\nFast ACL Rules define individual access control entries.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_fast_acl_rule\" \"example\" {\n  name      = \"example-fast-acl-rule\"\n  namespace = \"my-namespace\"\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_fleet": {
+        "f5distributedcloud_fleet": {
           "version": 0,
           "block": {
             "attributes": {
@@ -2163,11 +2163,11 @@
                 "required": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_fleet` resource manages Fleets in F5 Distributed Cloud.\n\nFleets group and manage edge sites.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_fleet\" \"example\" {\n  name        = \"my-fleet\"\n  namespace   = \"my-namespace\"\n  description = \"Example fleet\"\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_fleet` resource manages Fleets in F5 Distributed Cloud.\n\nFleets group and manage edge sites.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_fleet\" \"example\" {\n  name        = \"my-fleet\"\n  namespace   = \"my-namespace\"\n  description = \"Example fleet\"\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_forward_proxy_policy": {
+        "f5distributedcloud_forward_proxy_policy": {
           "version": 0,
           "block": {
             "attributes": {
@@ -2230,11 +2230,11 @@
                 }
               }
             },
-            "description": "\nThe `f5_distributed_cloud_forward_proxy_policy` resource manages Forward Proxy Policies in F5 Distributed Cloud.\n\nForward Proxy Policies define rules for controlling outbound traffic from applications through the F5 XC proxy.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_forward_proxy_policy\" \"example\" {\n  name      = \"my-proxy-policy\"\n  namespace = \"my-namespace\"\n\n  proxy_rules {\n    action       = \"allow\"\n    domain_match = \"*.example.com\"\n    port_match   = 443\n    http_methods = [\"GET\", \"POST\"]\n  }\n\n  proxy_rules {\n    action       = \"deny\"\n    domain_match = \"*.blocked.com\"\n  }\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_forward_proxy_policy` resource manages Forward Proxy Policies in F5 Distributed Cloud.\n\nForward Proxy Policies define rules for controlling outbound traffic from applications through the F5 XC proxy.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_forward_proxy_policy\" \"example\" {\n  name      = \"my-proxy-policy\"\n  namespace = \"my-namespace\"\n\n  proxy_rules {\n    action       = \"allow\"\n    domain_match = \"*.example.com\"\n    port_match   = 443\n    http_methods = [\"GET\", \"POST\"]\n  }\n\n  proxy_rules {\n    action       = \"deny\"\n    domain_match = \"*.blocked.com\"\n  }\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_gcp_vpc_site": {
+        "f5distributedcloud_gcp_vpc_site": {
           "version": 0,
           "block": {
             "attributes": {
@@ -2289,11 +2289,11 @@
                 "required": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_gcp_vpc_site` resource manages GCP VPC Sites in F5 Distributed Cloud.\n\nGCP VPC Sites deploy F5 XC nodes into an existing or new GCP VPC network.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_gcp_vpc_site\" \"example\" {\n  name                  = \"gcp-site-1\"\n  namespace             = \"system\"\n  gcp_region            = \"us-west1\"\n  project_id            = \"my-gcp-project\"\n  network_name          = \"my-vpc-network\"\n  machine_type          = \"n1-standard-4\"\n  cloud_credentials_ref = \"gcp-creds\"\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_gcp_vpc_site` resource manages GCP VPC Sites in F5 Distributed Cloud.\n\nGCP VPC Sites deploy F5 XC nodes into an existing or new GCP VPC network.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_gcp_vpc_site\" \"example\" {\n  name                  = \"gcp-site-1\"\n  namespace             = \"system\"\n  gcp_region            = \"us-west1\"\n  project_id            = \"my-gcp-project\"\n  network_name          = \"my-vpc-network\"\n  machine_type          = \"n1-standard-4\"\n  cloud_credentials_ref = \"gcp-creds\"\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_global_log_receiver": {
+        "f5distributedcloud_global_log_receiver": {
           "version": 0,
           "block": {
             "attributes": {
@@ -2355,11 +2355,11 @@
                 "optional": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_global_log_receiver` resource manages Global Log Receivers in F5 Distributed Cloud.\n\nGlobal Log Receivers enable forwarding of logs from all namespaces to external logging systems.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_global_log_receiver\" \"example\" {\n  name           = \"global-log-receiver\"\n  namespace      = \"system\"\n  receiver_type  = \"HTTP\"\n  http_endpoint  = \"https://logs.example.com/ingest\"\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_global_log_receiver` resource manages Global Log Receivers in F5 Distributed Cloud.\n\nGlobal Log Receivers enable forwarding of logs from all namespaces to external logging systems.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_global_log_receiver\" \"example\" {\n  name           = \"global-log-receiver\"\n  namespace      = \"system\"\n  receiver_type  = \"HTTP\"\n  http_endpoint  = \"https://logs.example.com/ingest\"\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_healthcheck": {
+        "f5distributedcloud_healthcheck": {
           "version": 0,
           "block": {
             "attributes": {
@@ -2464,11 +2464,11 @@
                 }
               }
             },
-            "description": "\nThe `f5_distributed_cloud_healthcheck` resource manages Health Checks in F5 Distributed Cloud.\n\nHealth Checks define how origin servers are monitored to determine their health status.\nThey can be referenced by origin pools to enable automatic traffic routing away from unhealthy servers.\n\n## Example Usage\n\n### HTTP Health Check\n\n```hcl\nresource \"f5_distributed_cloud_healthcheck\" \"http\" {\n  name        = \"my-http-healthcheck\"\n  namespace   = \"my-namespace\"\n  description = \"HTTP health check\"\n\n  http_health_check {\n    path      = \"/health\"\n    use_https = false\n  }\n\n  timeout             = 3\n  interval            = 15\n  unhealthy_threshold = 3\n  healthy_threshold   = 2\n}\n```\n\n### TCP Health Check\n\n```hcl\nresource \"f5_distributed_cloud_healthcheck\" \"tcp\" {\n  name        = \"my-tcp-healthcheck\"\n  namespace   = \"my-namespace\"\n  description = \"TCP health check\"\n\n  tcp_health_check {}\n\n  timeout             = 3\n  interval            = 15\n  unhealthy_threshold = 3\n  healthy_threshold   = 2\n}\n```\n\n## Import\n\nHealth Checks can be imported using namespace/name:\n\n```shell\nterraform import f5_distributed_cloud_healthcheck.example my-namespace/my-healthcheck\n```\n",
+            "description": "\nThe `f5distributedcloud_healthcheck` resource manages Health Checks in F5 Distributed Cloud.\n\nHealth Checks define how origin servers are monitored to determine their health status.\nThey can be referenced by origin pools to enable automatic traffic routing away from unhealthy servers.\n\n## Example Usage\n\n### HTTP Health Check\n\n```hcl\nresource \"f5distributedcloud_healthcheck\" \"http\" {\n  name        = \"my-http-healthcheck\"\n  namespace   = \"my-namespace\"\n  description = \"HTTP health check\"\n\n  http_health_check {\n    path      = \"/health\"\n    use_https = false\n  }\n\n  timeout             = 3\n  interval            = 15\n  unhealthy_threshold = 3\n  healthy_threshold   = 2\n}\n```\n\n### TCP Health Check\n\n```hcl\nresource \"f5distributedcloud_healthcheck\" \"tcp\" {\n  name        = \"my-tcp-healthcheck\"\n  namespace   = \"my-namespace\"\n  description = \"TCP health check\"\n\n  tcp_health_check {}\n\n  timeout             = 3\n  interval            = 15\n  unhealthy_threshold = 3\n  healthy_threshold   = 2\n}\n```\n\n## Import\n\nHealth Checks can be imported using namespace/name:\n\n```shell\nterraform import f5distributedcloud_healthcheck.example my-namespace/my-healthcheck\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_http_loadbalancer": {
+        "f5distributedcloud_http_loadbalancer": {
           "version": 0,
           "block": {
             "attributes": {
@@ -2564,11 +2564,11 @@
                 }
               }
             },
-            "description": "\nThe `f5_distributed_cloud_http_loadbalancer` resource manages HTTP Load Balancers in F5 Distributed Cloud.\n\nHTTP Load Balancers distribute incoming traffic across multiple origin servers, providing\nhigh availability, scalability, and improved performance for web applications.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_http_loadbalancer\" \"example\" {\n  name        = \"my-http-lb\"\n  namespace   = \"my-namespace\"\n  description = \"Example HTTP Load Balancer\"\n\n  domains = [\"app.example.com\"]\n\n  http_type = \"http\"\n  advertise_port = 80\n\n  default_origin_pools {\n    pool_name      = \"my-origin-pool\"\n    pool_namespace = \"my-namespace\"\n    weight         = 1\n    priority       = 1\n  }\n}\n```\n\n## Import\n\nHTTP Load Balancers can be imported using namespace/name:\n\n```shell\nterraform import f5_distributed_cloud_http_loadbalancer.example my-namespace/my-http-lb\n```\n",
+            "description": "\nThe `f5distributedcloud_http_loadbalancer` resource manages HTTP Load Balancers in F5 Distributed Cloud.\n\nHTTP Load Balancers distribute incoming traffic across multiple origin servers, providing\nhigh availability, scalability, and improved performance for web applications.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_http_loadbalancer\" \"example\" {\n  name        = \"my-http-lb\"\n  namespace   = \"my-namespace\"\n  description = \"Example HTTP Load Balancer\"\n\n  domains = [\"app.example.com\"]\n\n  http_type = \"http\"\n  advertise_port = 80\n\n  default_origin_pools {\n    pool_name      = \"my-origin-pool\"\n    pool_namespace = \"my-namespace\"\n    weight         = 1\n    priority       = 1\n  }\n}\n```\n\n## Import\n\nHTTP Load Balancers can be imported using namespace/name:\n\n```shell\nterraform import f5distributedcloud_http_loadbalancer.example my-namespace/my-http-lb\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_ip_prefix_set": {
+        "f5distributedcloud_ip_prefix_set": {
           "version": 0,
           "block": {
             "attributes": {
@@ -2602,11 +2602,11 @@
                 "required": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_ip_prefix_set` resource manages IP Prefix Sets in F5 Distributed Cloud.\n\nIP Prefix Sets define a collection of IP address prefixes for use in security rules and policies.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_ip_prefix_set\" \"example\" {\n  name      = \"trusted-networks\"\n  namespace = \"my-namespace\"\n  prefixes  = [\"10.0.0.0/8\", \"192.168.0.0/16\", \"172.16.0.0/12\"]\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_ip_prefix_set` resource manages IP Prefix Sets in F5 Distributed Cloud.\n\nIP Prefix Sets define a collection of IP address prefixes for use in security rules and policies.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_ip_prefix_set\" \"example\" {\n  name      = \"trusted-networks\"\n  namespace = \"my-namespace\"\n  prefixes  = [\"10.0.0.0/8\", \"192.168.0.0/16\", \"172.16.0.0/12\"]\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_k8s_cluster": {
+        "f5distributedcloud_k8s_cluster": {
           "version": 0,
           "block": {
             "attributes": {
@@ -2631,11 +2631,11 @@
                 "required": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_k8s_cluster` resource manages Kubernetes Clusters in F5 Distributed Cloud.\n\nKubernetes Clusters provide container orchestration capabilities.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_k8s_cluster\" \"example\" {\n  name        = \"my-k8s-cluster\"\n  namespace   = \"system\"\n  description = \"Production Kubernetes cluster\"\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_k8s_cluster` resource manages Kubernetes Clusters in F5 Distributed Cloud.\n\nKubernetes Clusters provide container orchestration capabilities.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_k8s_cluster\" \"example\" {\n  name        = \"my-k8s-cluster\"\n  namespace   = \"system\"\n  description = \"Production Kubernetes cluster\"\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_k8s_cluster_role": {
+        "f5distributedcloud_k8s_cluster_role": {
           "version": 0,
           "block": {
             "attributes": {
@@ -2660,11 +2660,11 @@
                 "required": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_k8s_cluster_role` resource manages Kubernetes Cluster Roles in F5 Distributed Cloud.\n\nKubernetes Cluster Roles define cluster-wide permissions for RBAC.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_k8s_cluster_role\" \"example\" {\n  name        = \"my-cluster-role\"\n  namespace   = \"system\"\n  description = \"Cluster role for admin access\"\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_k8s_cluster_role` resource manages Kubernetes Cluster Roles in F5 Distributed Cloud.\n\nKubernetes Cluster Roles define cluster-wide permissions for RBAC.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_k8s_cluster_role\" \"example\" {\n  name        = \"my-cluster-role\"\n  namespace   = \"system\"\n  description = \"Cluster role for admin access\"\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_k8s_cluster_role_binding": {
+        "f5distributedcloud_k8s_cluster_role_binding": {
           "version": 0,
           "block": {
             "attributes": {
@@ -2689,11 +2689,11 @@
                 "required": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_k8s_cluster_role_binding` resource manages Kubernetes Cluster Role Bindings in F5 Distributed Cloud.\n\nKubernetes Cluster Role Bindings bind cluster roles to users or service accounts.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_k8s_cluster_role_binding\" \"example\" {\n  name        = \"my-cluster-role-binding\"\n  namespace   = \"system\"\n  description = \"Binding admin role to service account\"\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_k8s_cluster_role_binding` resource manages Kubernetes Cluster Role Bindings in F5 Distributed Cloud.\n\nKubernetes Cluster Role Bindings bind cluster roles to users or service accounts.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_k8s_cluster_role_binding\" \"example\" {\n  name        = \"my-cluster-role-binding\"\n  namespace   = \"system\"\n  description = \"Binding admin role to service account\"\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_known_label": {
+        "f5distributedcloud_known_label": {
           "version": 0,
           "block": {
             "attributes": {
@@ -2730,11 +2730,11 @@
                 "required": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_known_label` resource manages Known Labels in F5 Distributed Cloud.\n\nKnown Labels define predefined labels for resource categorization and selection.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_known_label\" \"example\" {\n  name      = \"environment-label\"\n  namespace = \"shared\"\n  key       = \"environment\"\n  value     = \"production\"\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_known_label` resource manages Known Labels in F5 Distributed Cloud.\n\nKnown Labels define predefined labels for resource categorization and selection.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_known_label\" \"example\" {\n  name      = \"environment-label\"\n  namespace = \"shared\"\n  key       = \"environment\"\n  value     = \"production\"\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_log_receiver": {
+        "f5distributedcloud_log_receiver": {
           "version": 0,
           "block": {
             "attributes": {
@@ -2852,11 +2852,11 @@
                 }
               }
             },
-            "description": "\nThe `f5_distributed_cloud_log_receiver` resource manages Log Receivers in F5 Distributed Cloud.\n\nLog Receivers configure destinations for forwarding logs from F5 XC to external systems.\n\n## Example Usage\n\n### HTTP Log Receiver\n\n```hcl\nresource \"f5_distributed_cloud_log_receiver\" \"http\" {\n  name          = \"http-logs\"\n  namespace     = \"system\"\n  receiver_type = \"HTTP\"\n\n  http_receiver {\n    url        = \"https://logs.example.com/ingest\"\n    auth_token = var.log_token\n    batch_size = 100\n\n    tls_config {\n      skip_verify = false\n    }\n  }\n}\n```\n\n### Syslog Receiver\n\n```hcl\nresource \"f5_distributed_cloud_log_receiver\" \"syslog\" {\n  name          = \"syslog-logs\"\n  namespace     = \"system\"\n  receiver_type = \"SYSLOG\"\n\n  syslog_receiver {\n    address  = \"syslog.example.com\"\n    port     = 514\n    protocol = \"UDP\"\n    format   = \"RFC5424\"\n  }\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_log_receiver` resource manages Log Receivers in F5 Distributed Cloud.\n\nLog Receivers configure destinations for forwarding logs from F5 XC to external systems.\n\n## Example Usage\n\n### HTTP Log Receiver\n\n```hcl\nresource \"f5distributedcloud_log_receiver\" \"http\" {\n  name          = \"http-logs\"\n  namespace     = \"system\"\n  receiver_type = \"HTTP\"\n\n  http_receiver {\n    url        = \"https://logs.example.com/ingest\"\n    auth_token = var.log_token\n    batch_size = 100\n\n    tls_config {\n      skip_verify = false\n    }\n  }\n}\n```\n\n### Syslog Receiver\n\n```hcl\nresource \"f5distributedcloud_log_receiver\" \"syslog\" {\n  name          = \"syslog-logs\"\n  namespace     = \"system\"\n  receiver_type = \"SYSLOG\"\n\n  syslog_receiver {\n    address  = \"syslog.example.com\"\n    port     = 514\n    protocol = \"UDP\"\n    format   = \"RFC5424\"\n  }\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_malicious_user_mitigation": {
+        "f5distributedcloud_malicious_user_mitigation": {
           "version": 0,
           "block": {
             "attributes": {
@@ -2911,11 +2911,11 @@
                 "optional": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_malicious_user_mitigation` resource manages Malicious User Mitigation policies in F5 Distributed Cloud.\n\nMalicious User Mitigation helps protect against malicious user behavior through various challenge and blocking mechanisms.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_malicious_user_mitigation\" \"example\" {\n  name                 = \"malicious-user-policy\"\n  namespace            = \"my-namespace\"\n  mitigation_type      = \"CHALLENGE\"\n  captcha_challenge    = true\n  javascript_challenge = true\n  temporary_block      = false\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_malicious_user_mitigation` resource manages Malicious User Mitigation policies in F5 Distributed Cloud.\n\nMalicious User Mitigation helps protect against malicious user behavior through various challenge and blocking mechanisms.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_malicious_user_mitigation\" \"example\" {\n  name                 = \"malicious-user-policy\"\n  namespace            = \"my-namespace\"\n  mitigation_type      = \"CHALLENGE\"\n  captcha_challenge    = true\n  javascript_challenge = true\n  temporary_block      = false\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_namespace": {
+        "f5distributedcloud_namespace": {
           "version": 1,
           "block": {
             "attributes": {
@@ -2972,11 +2972,11 @@
                 }
               }
             },
-            "description": "\nThe `f5_distributed_cloud_namespace` resource manages namespaces in F5 Distributed Cloud.\n\nNamespaces are the fundamental organizational unit in F5 XC, providing logical isolation\nfor resources like load balancers, origin pools, and application firewalls.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_namespace\" \"example\" {\n  name        = \"my-namespace\"\n  description = \"Example namespace for my application\"\n\n  timeouts {\n    create = \"10m\"\n    update = \"10m\"\n    delete = \"10m\"\n  }\n}\n```\n\n## Import\n\nNamespaces can be imported using their name:\n\n```shell\nterraform import f5_distributed_cloud_namespace.example my-namespace\n```\n",
+            "description": "\nThe `f5distributedcloud_namespace` resource manages namespaces in F5 Distributed Cloud.\n\nNamespaces are the fundamental organizational unit in F5 XC, providing logical isolation\nfor resources like load balancers, origin pools, and application firewalls.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_namespace\" \"example\" {\n  name        = \"my-namespace\"\n  description = \"Example namespace for my application\"\n\n  timeouts {\n    create = \"10m\"\n    update = \"10m\"\n    delete = \"10m\"\n  }\n}\n```\n\n## Import\n\nNamespaces can be imported using their name:\n\n```shell\nterraform import f5distributedcloud_namespace.example my-namespace\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_namespace_role": {
+        "f5distributedcloud_namespace_role": {
           "version": 0,
           "block": {
             "attributes": {
@@ -3033,11 +3033,11 @@
                 }
               }
             },
-            "description": "\nThe `f5_distributed_cloud_namespace_role` resource manages Namespace Roles in F5 Distributed Cloud.\n\nNamespace Roles define permissions within a namespace, allowing fine-grained access control for resources and operations.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_namespace_role\" \"viewer\" {\n  name        = \"viewer-role\"\n  namespace   = \"my-namespace\"\n  description = \"Read-only access role for namespace resources\"\n  role_type   = \"CUSTOM\"\n\n  permissions {\n    resource   = \"origin_pool\"\n    operations = [\"read\", \"list\"]\n  }\n\n  permissions {\n    resource   = \"http_loadbalancer\"\n    operations = [\"read\", \"list\"]\n  }\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_namespace_role` resource manages Namespace Roles in F5 Distributed Cloud.\n\nNamespace Roles define permissions within a namespace, allowing fine-grained access control for resources and operations.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_namespace_role\" \"viewer\" {\n  name        = \"viewer-role\"\n  namespace   = \"my-namespace\"\n  description = \"Read-only access role for namespace resources\"\n  role_type   = \"CUSTOM\"\n\n  permissions {\n    resource   = \"origin_pool\"\n    operations = [\"read\", \"list\"]\n  }\n\n  permissions {\n    resource   = \"http_loadbalancer\"\n    operations = [\"read\", \"list\"]\n  }\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_nat_policy": {
+        "f5distributedcloud_nat_policy": {
           "version": 0,
           "block": {
             "attributes": {
@@ -3062,11 +3062,11 @@
                 "required": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_nat_policy` resource manages NAT Policies in F5 Distributed Cloud.\n\nNAT Policies configure network address translation rules.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_nat_policy\" \"example\" {\n  name        = \"nat-policy\"\n  namespace   = \"my-namespace\"\n  description = \"Example NAT policy\"\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_nat_policy` resource manages NAT Policies in F5 Distributed Cloud.\n\nNAT Policies configure network address translation rules.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_nat_policy\" \"example\" {\n  name        = \"nat-policy\"\n  namespace   = \"my-namespace\"\n  description = \"Example NAT policy\"\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_network_connector": {
+        "f5distributedcloud_network_connector": {
           "version": 0,
           "block": {
             "attributes": {
@@ -3091,11 +3091,11 @@
                 "required": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_network_connector` resource manages Network Connectors in F5 Distributed Cloud.\n\nNetwork Connectors enable connectivity between different network segments.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_network_connector\" \"example\" {\n  name        = \"my-network-connector\"\n  namespace   = \"system\"\n  description = \"Connector for site-to-site connectivity\"\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_network_connector` resource manages Network Connectors in F5 Distributed Cloud.\n\nNetwork Connectors enable connectivity between different network segments.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_network_connector\" \"example\" {\n  name        = \"my-network-connector\"\n  namespace   = \"system\"\n  description = \"Connector for site-to-site connectivity\"\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_network_firewall": {
+        "f5distributedcloud_network_firewall": {
           "version": 0,
           "block": {
             "attributes": {
@@ -3120,11 +3120,11 @@
                 "required": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_network_firewall` resource manages Network Firewalls in F5 Distributed Cloud.\n\nNetwork Firewalls provide network-level security controls.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_network_firewall\" \"example\" {\n  name        = \"my-network-firewall\"\n  namespace   = \"system\"\n  description = \"Network firewall for perimeter security\"\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_network_firewall` resource manages Network Firewalls in F5 Distributed Cloud.\n\nNetwork Firewalls provide network-level security controls.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_network_firewall\" \"example\" {\n  name        = \"my-network-firewall\"\n  namespace   = \"system\"\n  description = \"Network firewall for perimeter security\"\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_network_interface": {
+        "f5distributedcloud_network_interface": {
           "version": 0,
           "block": {
             "attributes": {
@@ -3149,11 +3149,11 @@
                 "required": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_network_interface` resource manages Network Interfaces in F5 Distributed Cloud.\n\nNetwork Interfaces configure site network connectivity.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_network_interface\" \"example\" {\n  name        = \"my-network-interface\"\n  namespace   = \"system\"\n  description = \"Site network interface configuration\"\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_network_interface` resource manages Network Interfaces in F5 Distributed Cloud.\n\nNetwork Interfaces configure site network connectivity.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_network_interface\" \"example\" {\n  name        = \"my-network-interface\"\n  namespace   = \"system\"\n  description = \"Site network interface configuration\"\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_network_policy": {
+        "f5distributedcloud_network_policy": {
           "version": 0,
           "block": {
             "attributes": {
@@ -3231,11 +3231,11 @@
                 }
               }
             },
-            "description": "\nThe `f5_distributed_cloud_network_policy` resource manages Network Policies in F5 Distributed Cloud.\n\nNetwork Policies define traffic rules for controlling network connectivity between workloads.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_network_policy\" \"example\" {\n  name        = \"network-policy\"\n  namespace   = \"my-namespace\"\n  policy_type = \"INGRESS\"\n\n  rules {\n    name          = \"allow-web\"\n    action        = \"ALLOW\"\n    source_prefix = \"10.0.0.0/8\"\n    protocol      = \"TCP\"\n    ports         = \"80,443\"\n  }\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_network_policy` resource manages Network Policies in F5 Distributed Cloud.\n\nNetwork Policies define traffic rules for controlling network connectivity between workloads.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_network_policy\" \"example\" {\n  name        = \"network-policy\"\n  namespace   = \"my-namespace\"\n  policy_type = \"INGRESS\"\n\n  rules {\n    name          = \"allow-web\"\n    action        = \"ALLOW\"\n    source_prefix = \"10.0.0.0/8\"\n    protocol      = \"TCP\"\n    ports         = \"80,443\"\n  }\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_network_policy_rule": {
+        "f5distributedcloud_network_policy_rule": {
           "version": 0,
           "block": {
             "attributes": {
@@ -3260,11 +3260,11 @@
                 "required": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_network_policy_rule` resource manages Network Policy Rules in F5 Distributed Cloud.\n\nNetwork Policy Rules define specific rules within a network policy.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_network_policy_rule\" \"example\" {\n  name        = \"my-network-policy-rule\"\n  namespace   = \"my-namespace\"\n  description = \"Example network policy rule\"\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_network_policy_rule` resource manages Network Policy Rules in F5 Distributed Cloud.\n\nNetwork Policy Rules define specific rules within a network policy.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_network_policy_rule\" \"example\" {\n  name        = \"my-network-policy-rule\"\n  namespace   = \"my-namespace\"\n  description = \"Example network policy rule\"\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_network_policy_set": {
+        "f5distributedcloud_network_policy_set": {
           "version": 0,
           "block": {
             "attributes": {
@@ -3293,11 +3293,11 @@
                 "required": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_network_policy_set` resource manages Network Policy Sets in F5 Distributed Cloud.\n\nNetwork Policy Sets group network policies together for easier management and application to workloads.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_network_policy_set\" \"example\" {\n  name        = \"my-policy-set\"\n  namespace   = \"my-namespace\"\n  description = \"Example network policy set\"\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_network_policy_set` resource manages Network Policy Sets in F5 Distributed Cloud.\n\nNetwork Policy Sets group network policies together for easier management and application to workloads.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_network_policy_set\" \"example\" {\n  name        = \"my-policy-set\"\n  namespace   = \"my-namespace\"\n  description = \"Example network policy set\"\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_oidc_provider": {
+        "f5distributedcloud_oidc_provider": {
           "version": 0,
           "block": {
             "attributes": {
@@ -3330,7 +3330,7 @@
             "description_kind": "plain"
           }
         },
-        "f5_distributed_cloud_origin_pool": {
+        "f5distributedcloud_origin_pool": {
           "version": 0,
           "block": {
             "attributes": {
@@ -3465,11 +3465,11 @@
                 }
               }
             },
-            "description": "\nThe `f5_distributed_cloud_origin_pool` resource manages Origin Pools in F5 Distributed Cloud.\n\nOrigin Pools define groups of backend servers that serve application traffic.\nThey are used by HTTP Load Balancers to route traffic to appropriate backends.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_origin_pool\" \"example\" {\n  name        = \"my-origin-pool\"\n  namespace   = \"my-namespace\"\n  description = \"Example Origin Pool\"\n\n  port              = 8080\n  endpoint_protocol = \"http\"\n\n  origin_servers {\n    public_ip {\n      ip = \"192.0.2.1\"\n    }\n  }\n}\n```\n\n## Import\n\nOrigin Pools can be imported using namespace/name:\n\n```shell\nterraform import f5_distributed_cloud_origin_pool.example my-namespace/my-origin-pool\n```\n",
+            "description": "\nThe `f5distributedcloud_origin_pool` resource manages Origin Pools in F5 Distributed Cloud.\n\nOrigin Pools define groups of backend servers that serve application traffic.\nThey are used by HTTP Load Balancers to route traffic to appropriate backends.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_origin_pool\" \"example\" {\n  name        = \"my-origin-pool\"\n  namespace   = \"my-namespace\"\n  description = \"Example Origin Pool\"\n\n  port              = 8080\n  endpoint_protocol = \"http\"\n\n  origin_servers {\n    public_ip {\n      ip = \"192.0.2.1\"\n    }\n  }\n}\n```\n\n## Import\n\nOrigin Pools can be imported using namespace/name:\n\n```shell\nterraform import f5distributedcloud_origin_pool.example my-namespace/my-origin-pool\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_policer": {
+        "f5distributedcloud_policer": {
           "version": 0,
           "block": {
             "attributes": {
@@ -3494,11 +3494,11 @@
                 "required": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_policer` resource manages Policers in F5 Distributed Cloud.\n\nPolicers control traffic rate limiting and shaping.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_policer\" \"example\" {\n  name        = \"my-policer\"\n  namespace   = \"my-namespace\"\n  description = \"Example policer for traffic control\"\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_policer` resource manages Policers in F5 Distributed Cloud.\n\nPolicers control traffic rate limiting and shaping.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_policer\" \"example\" {\n  name        = \"my-policer\"\n  namespace   = \"my-namespace\"\n  description = \"Example policer for traffic control\"\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_policy_based_routing": {
+        "f5distributedcloud_policy_based_routing": {
           "version": 0,
           "block": {
             "attributes": {
@@ -3531,7 +3531,7 @@
             "description_kind": "plain"
           }
         },
-        "f5_distributed_cloud_protocol_policer": {
+        "f5distributedcloud_protocol_policer": {
           "version": 0,
           "block": {
             "attributes": {
@@ -3580,11 +3580,11 @@
                 "required": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_protocol_policer` resource manages Protocol Policers in F5 Distributed Cloud.\n\nProtocol Policers define rate limiting policies for specific protocols.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_protocol_policer\" \"example\" {\n  name              = \"http-policer\"\n  namespace         = \"my-namespace\"\n  protocol          = \"HTTP\"\n  requests_per_unit = 1000\n  unit              = \"SECOND\"\n  burst_size        = 100\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_protocol_policer` resource manages Protocol Policers in F5 Distributed Cloud.\n\nProtocol Policers define rate limiting policies for specific protocols.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_protocol_policer\" \"example\" {\n  name              = \"http-policer\"\n  namespace         = \"my-namespace\"\n  protocol          = \"HTTP\"\n  requests_per_unit = 1000\n  unit              = \"SECOND\"\n  burst_size        = 100\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_proxy": {
+        "f5distributedcloud_proxy": {
           "version": 0,
           "block": {
             "attributes": {
@@ -3617,7 +3617,7 @@
             "description_kind": "plain"
           }
         },
-        "f5_distributed_cloud_public_ip": {
+        "f5distributedcloud_public_ip": {
           "version": 0,
           "block": {
             "attributes": {
@@ -3646,11 +3646,11 @@
                 "required": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_public_ip` resource manages Public IPs in F5 Distributed Cloud.\n\nPublic IPs provide external IP addresses that can be used for services deployed\nwithin the F5 Distributed Cloud platform.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_public_ip\" \"example\" {\n  name        = \"my-public-ip\"\n  namespace   = \"shared\"\n  description = \"Public IP for production services\"\n}\n```\n\n## Import\n\nPublic IPs can be imported using namespace/name:\n\n```shell\nterraform import f5_distributed_cloud_public_ip.example shared/my-public-ip\n```\n",
+            "description": "\nThe `f5distributedcloud_public_ip` resource manages Public IPs in F5 Distributed Cloud.\n\nPublic IPs provide external IP addresses that can be used for services deployed\nwithin the F5 Distributed Cloud platform.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_public_ip\" \"example\" {\n  name        = \"my-public-ip\"\n  namespace   = \"shared\"\n  description = \"Public IP for production services\"\n}\n```\n\n## Import\n\nPublic IPs can be imported using namespace/name:\n\n```shell\nterraform import f5distributedcloud_public_ip.example shared/my-public-ip\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_rate_limiter": {
+        "f5distributedcloud_rate_limiter": {
           "version": 0,
           "block": {
             "attributes": {
@@ -3693,11 +3693,11 @@
                 "required": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_rate_limiter` resource manages Rate Limiters in F5 Distributed Cloud.\n\nRate Limiters define rate limiting policies for controlling request throughput.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_rate_limiter\" \"example\" {\n  name             = \"api-rate-limit\"\n  namespace        = \"my-namespace\"\n  total_number     = 100\n  unit             = \"SECOND\"\n  burst_multiplier = 2\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_rate_limiter` resource manages Rate Limiters in F5 Distributed Cloud.\n\nRate Limiters define rate limiting policies for controlling request throughput.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_rate_limiter\" \"example\" {\n  name             = \"api-rate-limit\"\n  namespace        = \"my-namespace\"\n  total_number     = 100\n  unit             = \"SECOND\"\n  burst_multiplier = 2\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_rate_limiter_policy": {
+        "f5distributedcloud_rate_limiter_policy": {
           "version": 0,
           "block": {
             "attributes": {
@@ -3730,7 +3730,7 @@
             "description_kind": "plain"
           }
         },
-        "f5_distributed_cloud_rbac_policy": {
+        "f5distributedcloud_rbac_policy": {
           "version": 0,
           "block": {
             "attributes": {
@@ -3799,11 +3799,11 @@
                 }
               }
             },
-            "description": "\nThe `f5_distributed_cloud_rbac_policy` resource manages RBAC Policies in F5 Distributed Cloud.\n\nRBAC Policies define role-based access control rules that determine what actions users and services can perform on specific resources.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_rbac_policy\" \"example\" {\n  name        = \"my-rbac-policy\"\n  namespace   = \"my-namespace\"\n  description = \"RBAC policy for application access\"\n\n  rules {\n    action     = \"allow\"\n    api_groups = [\"app.f5.com\"]\n    resources  = [\"virtual_hosts\", \"origin_pools\"]\n    verbs      = [\"get\", \"list\", \"create\", \"update\", \"delete\"]\n  }\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_rbac_policy` resource manages RBAC Policies in F5 Distributed Cloud.\n\nRBAC Policies define role-based access control rules that determine what actions users and services can perform on specific resources.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_rbac_policy\" \"example\" {\n  name        = \"my-rbac-policy\"\n  namespace   = \"my-namespace\"\n  description = \"RBAC policy for application access\"\n\n  rules {\n    action     = \"allow\"\n    api_groups = [\"app.f5.com\"]\n    resources  = [\"virtual_hosts\", \"origin_pools\"]\n    verbs      = [\"get\", \"list\", \"create\", \"update\", \"delete\"]\n  }\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_registration": {
+        "f5distributedcloud_registration": {
           "version": 0,
           "block": {
             "attributes": {
@@ -3832,11 +3832,11 @@
                 "required": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_registration` resource manages Registrations in F5 Distributed Cloud.\n\nRegistrations manage site registration processes, allowing sites to be registered\nand configured within the F5 Distributed Cloud platform.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_registration\" \"example\" {\n  name        = \"my-registration\"\n  namespace   = \"system\"\n  description = \"My site registration\"\n}\n```\n\n## Import\n\nRegistrations can be imported using namespace/name:\n\n```shell\nterraform import f5_distributed_cloud_registration.example system/my-registration\n```\n",
+            "description": "\nThe `f5distributedcloud_registration` resource manages Registrations in F5 Distributed Cloud.\n\nRegistrations manage site registration processes, allowing sites to be registered\nand configured within the F5 Distributed Cloud platform.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_registration\" \"example\" {\n  name        = \"my-registration\"\n  namespace   = \"system\"\n  description = \"My site registration\"\n}\n```\n\n## Import\n\nRegistrations can be imported using namespace/name:\n\n```shell\nterraform import f5distributedcloud_registration.example system/my-registration\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_role": {
+        "f5distributedcloud_role": {
           "version": 0,
           "block": {
             "attributes": {
@@ -3893,11 +3893,11 @@
                 }
               }
             },
-            "description": "\nThe `f5_distributed_cloud_role` resource manages Roles in F5 Distributed Cloud.\n\nRoles define permissions for accessing and managing resources within the F5 XC platform.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_role\" \"viewer\" {\n  name        = \"viewer-role\"\n  namespace   = \"system\"\n  description = \"Read-only access role\"\n  role_type   = \"CUSTOM\"\n\n  permissions {\n    resource   = \"namespace\"\n    operations = [\"read\"]\n  }\n\n  permissions {\n    resource   = \"origin_pool\"\n    operations = [\"read\", \"list\"]\n  }\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_role` resource manages Roles in F5 Distributed Cloud.\n\nRoles define permissions for accessing and managing resources within the F5 XC platform.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_role\" \"viewer\" {\n  name        = \"viewer-role\"\n  namespace   = \"system\"\n  description = \"Read-only access role\"\n  role_type   = \"CUSTOM\"\n\n  permissions {\n    resource   = \"namespace\"\n    operations = [\"read\"]\n  }\n\n  permissions {\n    resource   = \"origin_pool\"\n    operations = [\"read\", \"list\"]\n  }\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_route": {
+        "f5distributedcloud_route": {
           "version": 0,
           "block": {
             "attributes": {
@@ -3943,11 +3943,11 @@
                 "required": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_route` resource manages Routes in F5 Distributed Cloud.\n\nRoutes define traffic routing rules for load balancers.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_route\" \"example\" {\n  name        = \"api-route\"\n  namespace   = \"my-namespace\"\n  path        = \"/api/v1/*\"\n  methods     = [\"GET\", \"POST\"]\n  destination = \"backend-pool\"\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_route` resource manages Routes in F5 Distributed Cloud.\n\nRoutes define traffic routing rules for load balancers.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_route\" \"example\" {\n  name        = \"api-route\"\n  namespace   = \"my-namespace\"\n  path        = \"/api/v1/*\"\n  methods     = [\"GET\", \"POST\"]\n  destination = \"backend-pool\"\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_secret_policy": {
+        "f5distributedcloud_secret_policy": {
           "version": 0,
           "block": {
             "attributes": {
@@ -3984,11 +3984,11 @@
                 "optional": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_secret_policy` resource manages Secret Policies in F5 Distributed Cloud.\n\nSecret Policies define access control for secrets management.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_secret_policy\" \"example\" {\n  name        = \"app-secrets-policy\"\n  namespace   = \"my-namespace\"\n  policy_type = \"ALLOW_READ\"\n  rules       = \"namespace/*\"\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_secret_policy` resource manages Secret Policies in F5 Distributed Cloud.\n\nSecret Policies define access control for secrets management.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_secret_policy\" \"example\" {\n  name        = \"app-secrets-policy\"\n  namespace   = \"my-namespace\"\n  policy_type = \"ALLOW_READ\"\n  rules       = \"namespace/*\"\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_secret_policy_rule": {
+        "f5distributedcloud_secret_policy_rule": {
           "version": 0,
           "block": {
             "attributes": {
@@ -4013,11 +4013,11 @@
                 "required": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_secret_policy_rule` resource manages Secret Policy Rules in F5 Distributed Cloud.\n\nSecret Policy Rules define specific rules within a secret policy.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_secret_policy_rule\" \"example\" {\n  name        = \"my-secret-policy-rule\"\n  namespace   = \"my-namespace\"\n  description = \"Example secret policy rule\"\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_secret_policy_rule` resource manages Secret Policy Rules in F5 Distributed Cloud.\n\nSecret Policy Rules define specific rules within a secret policy.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_secret_policy_rule\" \"example\" {\n  name        = \"my-secret-policy-rule\"\n  namespace   = \"my-namespace\"\n  description = \"Example secret policy rule\"\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_securemesh_site": {
+        "f5distributedcloud_securemesh_site": {
           "version": 0,
           "block": {
             "attributes": {
@@ -4042,11 +4042,11 @@
                 "required": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_securemesh_site` resource manages Securemesh Sites in F5 Distributed Cloud.\n\nSecuremesh Sites provide secure connectivity for distributed applications.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_securemesh_site\" \"example\" {\n  name        = \"my-securemesh-site\"\n  namespace   = \"system\"\n  description = \"Example securemesh site\"\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_securemesh_site` resource manages Securemesh Sites in F5 Distributed Cloud.\n\nSecuremesh Sites provide secure connectivity for distributed applications.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_securemesh_site\" \"example\" {\n  name        = \"my-securemesh-site\"\n  namespace   = \"system\"\n  description = \"Example securemesh site\"\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_segment": {
+        "f5distributedcloud_segment": {
           "version": 0,
           "block": {
             "attributes": {
@@ -4079,7 +4079,7 @@
             "description_kind": "plain"
           }
         },
-        "f5_distributed_cloud_segment_connection": {
+        "f5distributedcloud_segment_connection": {
           "version": 0,
           "block": {
             "attributes": {
@@ -4152,11 +4152,11 @@
                 }
               }
             },
-            "description": "\nThe `f5_distributed_cloud_segment_connection` resource manages Segment Connections in F5 Distributed Cloud.\n\nSegment Connections link network segments together, enabling communication between\ndifferent network segments within the F5 Distributed Cloud infrastructure.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_segment_connection\" \"example\" {\n  name        = \"my-segment-connection\"\n  namespace   = \"system\"\n  description = \"Connection between production and staging segments\"\n\n  segment1 {\n    name      = \"production-segment\"\n    namespace = \"system\"\n  }\n\n  segment2 {\n    name      = \"staging-segment\"\n    namespace = \"system\"\n  }\n}\n```\n\n## Import\n\nSegment Connections can be imported using namespace/name:\n\n```shell\nterraform import f5_distributed_cloud_segment_connection.example system/my-segment-connection\n```\n",
+            "description": "\nThe `f5distributedcloud_segment_connection` resource manages Segment Connections in F5 Distributed Cloud.\n\nSegment Connections link network segments together, enabling communication between\ndifferent network segments within the F5 Distributed Cloud infrastructure.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_segment_connection\" \"example\" {\n  name        = \"my-segment-connection\"\n  namespace   = \"system\"\n  description = \"Connection between production and staging segments\"\n\n  segment1 {\n    name      = \"production-segment\"\n    namespace = \"system\"\n  }\n\n  segment2 {\n    name      = \"staging-segment\"\n    namespace = \"system\"\n  }\n}\n```\n\n## Import\n\nSegment Connections can be imported using namespace/name:\n\n```shell\nterraform import f5distributedcloud_segment_connection.example system/my-segment-connection\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_service_mesh": {
+        "f5distributedcloud_service_mesh": {
           "version": 0,
           "block": {
             "attributes": {
@@ -4193,11 +4193,11 @@
                 "required": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_service_mesh` resource manages Service Meshes in F5 Distributed Cloud.\n\nService Meshes provide service-to-service communication management.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_service_mesh\" \"example\" {\n  name      = \"app-mesh\"\n  namespace = \"my-namespace\"\n  mesh_type = \"INGRESS\"\n  enabled   = true\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_service_mesh` resource manages Service Meshes in F5 Distributed Cloud.\n\nService Meshes provide service-to-service communication management.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_service_mesh\" \"example\" {\n  name      = \"app-mesh\"\n  namespace = \"my-namespace\"\n  mesh_type = \"INGRESS\"\n  enabled   = true\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_service_policy": {
+        "f5distributedcloud_service_policy": {
           "version": 0,
           "block": {
             "attributes": {
@@ -4318,11 +4318,11 @@
                 }
               }
             },
-            "description": "\nThe `f5_distributed_cloud_service_policy` resource manages Service Policies in F5 Distributed Cloud.\n\nService Policies define traffic control rules for service-to-service communication.\nThey can be used to implement security policies, traffic routing, and access control.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_service_policy\" \"example\" {\n  name        = \"my-service-policy\"\n  namespace   = \"my-namespace\"\n  description = \"Example service policy\"\n\n  default_action = \"deny\"\n\n  rules {\n    name   = \"allow-internal\"\n    action = \"allow\"\n  }\n}\n```\n\n## Import\n\nService Policies can be imported using namespace/name:\n\n```shell\nterraform import f5_distributed_cloud_service_policy.example my-namespace/my-service-policy\n```\n",
+            "description": "\nThe `f5distributedcloud_service_policy` resource manages Service Policies in F5 Distributed Cloud.\n\nService Policies define traffic control rules for service-to-service communication.\nThey can be used to implement security policies, traffic routing, and access control.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_service_policy\" \"example\" {\n  name        = \"my-service-policy\"\n  namespace   = \"my-namespace\"\n  description = \"Example service policy\"\n\n  default_action = \"deny\"\n\n  rules {\n    name   = \"allow-internal\"\n    action = \"allow\"\n  }\n}\n```\n\n## Import\n\nService Policies can be imported using namespace/name:\n\n```shell\nterraform import f5distributedcloud_service_policy.example my-namespace/my-service-policy\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_service_policy_rule": {
+        "f5distributedcloud_service_policy_rule": {
           "version": 0,
           "block": {
             "attributes": {
@@ -4347,11 +4347,11 @@
                 "required": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_service_policy_rule` resource manages Service Policy Rules in F5 Distributed Cloud.\n\nService Policy Rules define specific rules within a service policy.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_service_policy_rule\" \"example\" {\n  name        = \"my-service-policy-rule\"\n  namespace   = \"my-namespace\"\n  description = \"Example service policy rule\"\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_service_policy_rule` resource manages Service Policy Rules in F5 Distributed Cloud.\n\nService Policy Rules define specific rules within a service policy.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_service_policy_rule\" \"example\" {\n  name        = \"my-service-policy-rule\"\n  namespace   = \"my-namespace\"\n  description = \"Example service policy rule\"\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_service_policy_set": {
+        "f5distributedcloud_service_policy_set": {
           "version": 0,
           "block": {
             "attributes": {
@@ -4380,11 +4380,11 @@
                 "required": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_service_policy_set` resource manages Service Policy Sets in F5 Distributed Cloud.\n\nService Policy Sets group service policies together for organization and management purposes.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_service_policy_set\" \"example\" {\n  name        = \"my-policy-set\"\n  namespace   = \"my-namespace\"\n  description = \"Example service policy set\"\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_service_policy_set` resource manages Service Policy Sets in F5 Distributed Cloud.\n\nService Policy Sets group service policies together for organization and management purposes.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_service_policy_set\" \"example\" {\n  name        = \"my-policy-set\"\n  namespace   = \"my-namespace\"\n  description = \"Example service policy set\"\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_site": {
+        "f5distributedcloud_site": {
           "version": 0,
           "block": {
             "attributes": {
@@ -4417,7 +4417,7 @@
             "description_kind": "plain"
           }
         },
-        "f5_distributed_cloud_site_mesh_group": {
+        "f5distributedcloud_site_mesh_group": {
           "version": 0,
           "block": {
             "attributes": {
@@ -4471,11 +4471,11 @@
                 }
               }
             },
-            "description": "\nThe `f5_distributed_cloud_site_mesh_group` resource manages Site Mesh Groups in F5 Distributed Cloud.\n\nSite Mesh Groups enable network connectivity between sites in a service mesh topology.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_site_mesh_group\" \"example\" {\n  name      = \"my-mesh-group\"\n  namespace = \"system\"\n  type      = \"SITE_MESH_GROUP_TYPE_FULL_MESH\"\n\n  virtual_site {\n    name      = \"my-virtual-site\"\n    namespace = \"shared\"\n  }\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_site_mesh_group` resource manages Site Mesh Groups in F5 Distributed Cloud.\n\nSite Mesh Groups enable network connectivity between sites in a service mesh topology.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_site_mesh_group\" \"example\" {\n  name      = \"my-mesh-group\"\n  namespace = \"system\"\n  type      = \"SITE_MESH_GROUP_TYPE_FULL_MESH\"\n\n  virtual_site {\n    name      = \"my-virtual-site\"\n    namespace = \"shared\"\n  }\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_subnet": {
+        "f5distributedcloud_subnet": {
           "version": 0,
           "block": {
             "attributes": {
@@ -4506,11 +4506,11 @@
                 "required": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_subnet` resource manages Subnets in F5 Distributed Cloud.\n\nSubnets define IP address ranges within virtual networks.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_subnet\" \"example\" {\n  name        = \"my-subnet\"\n  namespace   = \"system\"\n  description = \"Application subnet\"\n  cidr        = \"10.0.1.0/24\"\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_subnet` resource manages Subnets in F5 Distributed Cloud.\n\nSubnets define IP address ranges within virtual networks.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_subnet\" \"example\" {\n  name        = \"my-subnet\"\n  namespace   = \"system\"\n  description = \"Application subnet\"\n  cidr        = \"10.0.1.0/24\"\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_tcp_loadbalancer": {
+        "f5distributedcloud_tcp_loadbalancer": {
           "version": 0,
           "block": {
             "attributes": {
@@ -4640,11 +4640,11 @@
                 }
               }
             },
-            "description": "\nThe `f5_distributed_cloud_tcp_loadbalancer` resource manages TCP Load Balancers in F5 Distributed Cloud.\n\nTCP Load Balancers distribute incoming TCP traffic across origin pools based on\nconfigured rules and policies. They operate at Layer 4 and handle raw TCP connections.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_tcp_loadbalancer\" \"example\" {\n  name        = \"my-tcp-lb\"\n  namespace   = \"my-namespace\"\n  description = \"Example TCP Load Balancer\"\n\n  domains     = [\"tcp.example.com\"]\n  listen_port = 3306\n\n  origin_pools {\n    pool_name      = f5_distributed_cloud_origin_pool.mysql.name\n    pool_namespace = \"my-namespace\"\n    weight         = 1\n    priority       = 1\n  }\n\n  advertise_on_public = true\n}\n```\n\n## Import\n\nTCP Load Balancers can be imported using namespace/name:\n\n```shell\nterraform import f5_distributed_cloud_tcp_loadbalancer.example my-namespace/my-tcp-lb\n```\n",
+            "description": "\nThe `f5distributedcloud_tcp_loadbalancer` resource manages TCP Load Balancers in F5 Distributed Cloud.\n\nTCP Load Balancers distribute incoming TCP traffic across origin pools based on\nconfigured rules and policies. They operate at Layer 4 and handle raw TCP connections.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_tcp_loadbalancer\" \"example\" {\n  name        = \"my-tcp-lb\"\n  namespace   = \"my-namespace\"\n  description = \"Example TCP Load Balancer\"\n\n  domains     = [\"tcp.example.com\"]\n  listen_port = 3306\n\n  origin_pools {\n    pool_name      = f5distributedcloud_origin_pool.mysql.name\n    pool_namespace = \"my-namespace\"\n    weight         = 1\n    priority       = 1\n  }\n\n  advertise_on_public = true\n}\n```\n\n## Import\n\nTCP Load Balancers can be imported using namespace/name:\n\n```shell\nterraform import f5distributedcloud_tcp_loadbalancer.example my-namespace/my-tcp-lb\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_token": {
+        "f5distributedcloud_token": {
           "version": 0,
           "block": {
             "attributes": {
@@ -4673,11 +4673,11 @@
                 "required": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_token` resource manages Tokens in F5 Distributed Cloud.\n\nTokens provide authentication for site registration, allowing Customer Edge (CE)\nsites to securely register with the F5 Distributed Cloud platform.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_token\" \"example\" {\n  name        = \"my-site-token\"\n  namespace   = \"system\"\n  description = \"Token for site registration\"\n}\n```\n\n## Import\n\nTokens can be imported using namespace/name:\n\n```shell\nterraform import f5_distributed_cloud_token.example system/my-site-token\n```\n",
+            "description": "\nThe `f5distributedcloud_token` resource manages Tokens in F5 Distributed Cloud.\n\nTokens provide authentication for site registration, allowing Customer Edge (CE)\nsites to securely register with the F5 Distributed Cloud platform.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_token\" \"example\" {\n  name        = \"my-site-token\"\n  namespace   = \"system\"\n  description = \"Token for site registration\"\n}\n```\n\n## Import\n\nTokens can be imported using namespace/name:\n\n```shell\nterraform import f5distributedcloud_token.example system/my-site-token\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_trusted_ca_list": {
+        "f5distributedcloud_trusted_ca_list": {
           "version": 0,
           "block": {
             "attributes": {
@@ -4710,7 +4710,7 @@
             "description_kind": "plain"
           }
         },
-        "f5_distributed_cloud_tunnel": {
+        "f5distributedcloud_tunnel": {
           "version": 0,
           "block": {
             "attributes": {
@@ -4759,11 +4759,11 @@
                 "required": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_tunnel` resource manages Tunnels in F5 Distributed Cloud.\n\nTunnels provide secure connectivity between sites.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_tunnel\" \"example\" {\n  name            = \"site-tunnel\"\n  namespace       = \"my-namespace\"\n  tunnel_type     = \"IPSEC\"\n  remote_ip       = \"203.0.113.1\"\n  local_ip        = \"192.0.2.1\"\n  encryption_type = \"AES256\"\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_tunnel` resource manages Tunnels in F5 Distributed Cloud.\n\nTunnels provide secure connectivity between sites.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_tunnel\" \"example\" {\n  name            = \"site-tunnel\"\n  namespace       = \"my-namespace\"\n  tunnel_type     = \"IPSEC\"\n  remote_ip       = \"203.0.113.1\"\n  local_ip        = \"192.0.2.1\"\n  encryption_type = \"AES256\"\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_udp_loadbalancer": {
+        "f5distributedcloud_udp_loadbalancer": {
           "version": 0,
           "block": {
             "attributes": {
@@ -4794,11 +4794,11 @@
                 "required": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_udp_loadbalancer` resource manages UDP Load Balancers in F5 Distributed Cloud.\n\nUDP Load Balancers provide load balancing for UDP-based applications.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_udp_loadbalancer\" \"example\" {\n  name        = \"my-udp-lb\"\n  namespace   = \"system\"\n  description = \"UDP load balancer for DNS traffic\"\n  port        = 53\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_udp_loadbalancer` resource manages UDP Load Balancers in F5 Distributed Cloud.\n\nUDP Load Balancers provide load balancing for UDP-based applications.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_udp_loadbalancer\" \"example\" {\n  name        = \"my-udp-lb\"\n  namespace   = \"system\"\n  description = \"UDP load balancer for DNS traffic\"\n  port        = 53\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_user": {
+        "f5distributedcloud_user": {
           "version": 0,
           "block": {
             "attributes": {
@@ -4865,11 +4865,11 @@
                 }
               }
             },
-            "description": "\nThe `f5_distributed_cloud_user` resource manages Users in F5 Distributed Cloud.\n\nUsers represent individuals who can access the F5 Distributed Cloud console and API.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_user\" \"example\" {\n  name       = \"john-doe\"\n  namespace  = \"system\"\n  email      = \"john.doe@example.com\"\n  first_name = \"John\"\n  last_name  = \"Doe\"\n  type       = \"USER\"\n\n  roles {\n    name      = \"admin-role\"\n    namespace = \"system\"\n  }\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_user` resource manages Users in F5 Distributed Cloud.\n\nUsers represent individuals who can access the F5 Distributed Cloud console and API.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_user\" \"example\" {\n  name       = \"john-doe\"\n  namespace  = \"system\"\n  email      = \"john.doe@example.com\"\n  first_name = \"John\"\n  last_name  = \"Doe\"\n  type       = \"USER\"\n\n  roles {\n    name      = \"admin-role\"\n    namespace = \"system\"\n  }\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_user_group": {
+        "f5distributedcloud_user_group": {
           "version": 0,
           "block": {
             "attributes": {
@@ -4898,11 +4898,11 @@
                 "required": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_user_group` resource manages User Groups in F5 Distributed Cloud.\n\nUser Groups organize users for access control, allowing you to assign permissions\nand policies to groups of users rather than individual users.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_user_group\" \"example\" {\n  name        = \"my-user-group\"\n  namespace   = \"system\"\n  description = \"User group for administrators\"\n}\n```\n\n## Import\n\nUser Groups can be imported using namespace/name:\n\n```shell\nterraform import f5_distributed_cloud_user_group.example system/my-user-group\n```\n",
+            "description": "\nThe `f5distributedcloud_user_group` resource manages User Groups in F5 Distributed Cloud.\n\nUser Groups organize users for access control, allowing you to assign permissions\nand policies to groups of users rather than individual users.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_user_group\" \"example\" {\n  name        = \"my-user-group\"\n  namespace   = \"system\"\n  description = \"User group for administrators\"\n}\n```\n\n## Import\n\nUser Groups can be imported using namespace/name:\n\n```shell\nterraform import f5distributedcloud_user_group.example system/my-user-group\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_user_identification": {
+        "f5distributedcloud_user_identification": {
           "version": 0,
           "block": {
             "attributes": {
@@ -4931,11 +4931,11 @@
                 "required": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_user_identification` resource manages User Identifications in F5 Distributed Cloud.\n\nUser Identifications define how users are identified for tracking and security purposes.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_user_identification\" \"example\" {\n  name        = \"my-user-identification\"\n  namespace   = \"my-namespace\"\n  description = \"Example User Identification\"\n}\n```\n\n## Import\n\nUser Identifications can be imported using namespace/name:\n\n```shell\nterraform import f5_distributed_cloud_user_identification.example my-namespace/my-user-identification\n```\n",
+            "description": "\nThe `f5distributedcloud_user_identification` resource manages User Identifications in F5 Distributed Cloud.\n\nUser Identifications define how users are identified for tracking and security purposes.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_user_identification\" \"example\" {\n  name        = \"my-user-identification\"\n  namespace   = \"my-namespace\"\n  description = \"Example User Identification\"\n}\n```\n\n## Import\n\nUser Identifications can be imported using namespace/name:\n\n```shell\nterraform import f5distributedcloud_user_identification.example my-namespace/my-user-identification\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_virtual_host": {
+        "f5distributedcloud_virtual_host": {
           "version": 0,
           "block": {
             "attributes": {
@@ -4969,11 +4969,11 @@
                 "required": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_virtual_host` resource manages Virtual Hosts in F5 Distributed Cloud.\n\nVirtual Hosts define HTTP routing configurations for domain-based traffic.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_virtual_host\" \"example\" {\n  name        = \"my-vhost\"\n  namespace   = \"system\"\n  description = \"Virtual host for web application\"\n  domains     = [\"app.example.com\", \"www.example.com\"]\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_virtual_host` resource manages Virtual Hosts in F5 Distributed Cloud.\n\nVirtual Hosts define HTTP routing configurations for domain-based traffic.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_virtual_host\" \"example\" {\n  name        = \"my-vhost\"\n  namespace   = \"system\"\n  description = \"Virtual host for web application\"\n  domains     = [\"app.example.com\", \"www.example.com\"]\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_virtual_k8s": {
+        "f5distributedcloud_virtual_k8s": {
           "version": 0,
           "block": {
             "attributes": {
@@ -4998,11 +4998,11 @@
                 "required": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_virtual_k8s` resource manages Virtual Kubernetes clusters in F5 Distributed Cloud.\n\nVirtual Kubernetes provides managed Kubernetes namespaces across distributed sites.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_virtual_k8s\" \"example\" {\n  name        = \"my-vk8s\"\n  namespace   = \"system\"\n  description = \"Virtual Kubernetes for application workloads\"\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_virtual_k8s` resource manages Virtual Kubernetes clusters in F5 Distributed Cloud.\n\nVirtual Kubernetes provides managed Kubernetes namespaces across distributed sites.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_virtual_k8s\" \"example\" {\n  name        = \"my-vk8s\"\n  namespace   = \"system\"\n  description = \"Virtual Kubernetes for application workloads\"\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_virtual_network": {
+        "f5distributedcloud_virtual_network": {
           "version": 0,
           "block": {
             "attributes": {
@@ -5027,11 +5027,11 @@
                 "required": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_virtual_network` resource manages Virtual Networks in F5 Distributed Cloud.\n\nVirtual Networks provide isolated network environments for workloads.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_virtual_network\" \"example\" {\n  name        = \"my-vnet\"\n  namespace   = \"system\"\n  description = \"Virtual network for application isolation\"\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_virtual_network` resource manages Virtual Networks in F5 Distributed Cloud.\n\nVirtual Networks provide isolated network environments for workloads.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_virtual_network\" \"example\" {\n  name        = \"my-vnet\"\n  namespace   = \"system\"\n  description = \"Virtual network for application isolation\"\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_virtual_site": {
+        "f5distributedcloud_virtual_site": {
           "version": 0,
           "block": {
             "attributes": {
@@ -5086,11 +5086,11 @@
                 }
               }
             },
-            "description": "\nThe `f5_distributed_cloud_virtual_site` resource manages Virtual Sites in F5 Distributed Cloud.\n\nVirtual Sites are logical groupings of physical sites that allow you to apply\nconfigurations and policies to multiple sites as a single entity.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_virtual_site\" \"example\" {\n  name        = \"my-virtual-site\"\n  namespace   = \"shared\"\n  description = \"Virtual site for production\"\n\n  site_type = \"REGIONAL_EDGE\"\n\n  site_selector {\n    expressions = [\"site.region == 'us-east'\"]\n  }\n}\n```\n\n## Import\n\nVirtual Sites can be imported using namespace/name:\n\n```shell\nterraform import f5_distributed_cloud_virtual_site.example shared/my-virtual-site\n```\n",
+            "description": "\nThe `f5distributedcloud_virtual_site` resource manages Virtual Sites in F5 Distributed Cloud.\n\nVirtual Sites are logical groupings of physical sites that allow you to apply\nconfigurations and policies to multiple sites as a single entity.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_virtual_site\" \"example\" {\n  name        = \"my-virtual-site\"\n  namespace   = \"shared\"\n  description = \"Virtual site for production\"\n\n  site_type = \"REGIONAL_EDGE\"\n\n  site_selector {\n    expressions = [\"site.region == 'us-east'\"]\n  }\n}\n```\n\n## Import\n\nVirtual Sites can be imported using namespace/name:\n\n```shell\nterraform import f5distributedcloud_virtual_site.example shared/my-virtual-site\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_voltstack_site": {
+        "f5distributedcloud_voltstack_site": {
           "version": 0,
           "block": {
             "attributes": {
@@ -5139,11 +5139,11 @@
                 "optional": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_voltstack_site` resource manages Voltstack Sites in F5 Distributed Cloud.\n\nVoltstack Sites are F5-managed compute infrastructure deployed at the edge.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_voltstack_site\" \"example\" {\n  name           = \"edge-site-1\"\n  namespace      = \"system\"\n  master_nodes   = 3\n  worker_nodes   = 2\n  site_type      = \"REGIONAL_EDGE\"\n  volterra_region = \"ves-io-us-west-2\"\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_voltstack_site` resource manages Voltstack Sites in F5 Distributed Cloud.\n\nVoltstack Sites are F5-managed compute infrastructure deployed at the edge.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_voltstack_site\" \"example\" {\n  name           = \"edge-site-1\"\n  namespace      = \"system\"\n  master_nodes   = 3\n  worker_nodes   = 2\n  site_type      = \"REGIONAL_EDGE\"\n  volterra_region = \"ves-io-us-west-2\"\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_waf": {
+        "f5distributedcloud_waf": {
           "version": 0,
           "block": {
             "attributes": {
@@ -5176,7 +5176,7 @@
             "description_kind": "plain"
           }
         },
-        "f5_distributed_cloud_waf_exclusion_policy": {
+        "f5distributedcloud_waf_exclusion_policy": {
           "version": 0,
           "block": {
             "attributes": {
@@ -5209,7 +5209,7 @@
             "description_kind": "plain"
           }
         },
-        "f5_distributed_cloud_waf_rule": {
+        "f5distributedcloud_waf_rule": {
           "version": 0,
           "block": {
             "attributes": {
@@ -5252,11 +5252,11 @@
                 "optional": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_waf_rule` resource manages WAF Rules in F5 Distributed Cloud.\n\nWAF Rules define custom Web Application Firewall rules for security policies.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_waf_rule\" \"example\" {\n  name      = \"custom-waf-rule\"\n  namespace = \"my-namespace\"\n  mode      = \"BLOCKING\"\n  rule_id   = \"942100\"\n  action    = \"BLOCK\"\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_waf_rule` resource manages WAF Rules in F5 Distributed Cloud.\n\nWAF Rules define custom Web Application Firewall rules for security policies.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_waf_rule\" \"example\" {\n  name      = \"custom-waf-rule\"\n  namespace = \"my-namespace\"\n  mode      = \"BLOCKING\"\n  rule_id   = \"942100\"\n  action    = \"BLOCK\"\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_workload": {
+        "f5distributedcloud_workload": {
           "version": 0,
           "block": {
             "attributes": {
@@ -5285,13 +5285,13 @@
                 "required": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_workload` resource manages Workloads in F5 Distributed Cloud.\n\nWorkloads represent application deployments that can be managed and monitored\nwithin the F5 Distributed Cloud platform.\n\n## Example Usage\n\n```hcl\nresource \"f5_distributed_cloud_workload\" \"example\" {\n  name        = \"my-workload\"\n  namespace   = \"my-namespace\"\n  description = \"Example workload for my application\"\n}\n```\n\n## Import\n\nWorkloads can be imported using namespace/name:\n\n```shell\nterraform import f5_distributed_cloud_workload.example my-namespace/my-workload\n```\n",
+            "description": "\nThe `f5distributedcloud_workload` resource manages Workloads in F5 Distributed Cloud.\n\nWorkloads represent application deployments that can be managed and monitored\nwithin the F5 Distributed Cloud platform.\n\n## Example Usage\n\n```hcl\nresource \"f5distributedcloud_workload\" \"example\" {\n  name        = \"my-workload\"\n  namespace   = \"my-namespace\"\n  description = \"Example workload for my application\"\n}\n```\n\n## Import\n\nWorkloads can be imported using namespace/name:\n\n```shell\nterraform import f5distributedcloud_workload.example my-namespace/my-workload\n```\n",
             "description_kind": "markdown"
           }
         }
       },
       "data_source_schemas": {
-        "f5_distributed_cloud_active_service_policies": {
+        "f5distributedcloud_active_service_policies": {
           "version": 0,
           "block": {
             "attributes": {
@@ -5326,11 +5326,11 @@
                 "required": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_active_service_policies` data source retrieves information about active service policies.\n\n## Example Usage\n\n```hcl\ndata \"f5_distributed_cloud_active_service_policies\" \"example\" {\n  name      = \"my-active-policies\"\n  namespace = \"my-namespace\"\n}\n\noutput \"enabled\" {\n  value = data.f5_distributed_cloud_active_service_policies.example.enabled\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_active_service_policies` data source retrieves information about active service policies.\n\n## Example Usage\n\n```hcl\ndata \"f5distributedcloud_active_service_policies\" \"example\" {\n  name      = \"my-active-policies\"\n  namespace = \"my-namespace\"\n}\n\noutput \"enabled\" {\n  value = data.f5distributedcloud_active_service_policies.example.enabled\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_alert_policy": {
+        "f5distributedcloud_alert_policy": {
           "version": 0,
           "block": {
             "attributes": {
@@ -5365,11 +5365,11 @@
                 "required": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_alert_policy` data source retrieves information about an existing alert policy.\n\n## Example Usage\n\n```hcl\ndata \"f5_distributed_cloud_alert_policy\" \"example\" {\n  name      = \"my-alert-policy\"\n  namespace = \"my-namespace\"\n}\n\noutput \"enabled\" {\n  value = data.f5_distributed_cloud_alert_policy.example.enabled\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_alert_policy` data source retrieves information about an existing alert policy.\n\n## Example Usage\n\n```hcl\ndata \"f5distributedcloud_alert_policy\" \"example\" {\n  name      = \"my-alert-policy\"\n  namespace = \"my-namespace\"\n}\n\noutput \"enabled\" {\n  value = data.f5distributedcloud_alert_policy.example.enabled\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_api_credential": {
+        "f5distributedcloud_api_credential": {
           "version": 0,
           "block": {
             "attributes": {
@@ -5404,11 +5404,11 @@
                 "required": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_api_credential` data source retrieves information about an existing API credential.\n\n## Example Usage\n\n```hcl\ndata \"f5_distributed_cloud_api_credential\" \"example\" {\n  name      = \"my-api-credential\"\n  namespace = \"system\"\n}\n\noutput \"credential_type\" {\n  value = data.f5_distributed_cloud_api_credential.example.credential_type\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_api_credential` data source retrieves information about an existing API credential.\n\n## Example Usage\n\n```hcl\ndata \"f5distributedcloud_api_credential\" \"example\" {\n  name      = \"my-api-credential\"\n  namespace = \"system\"\n}\n\noutput \"credential_type\" {\n  value = data.f5distributedcloud_api_credential.example.credential_type\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_api_definition": {
+        "f5distributedcloud_api_definition": {
           "version": 0,
           "block": {
             "attributes": {
@@ -5443,11 +5443,11 @@
                 "computed": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_api_definition` data source retrieves information about an existing API definition.\n\n## Example Usage\n\n```hcl\ndata \"f5_distributed_cloud_api_definition\" \"example\" {\n  name      = \"my-api-definition\"\n  namespace = \"my-namespace\"\n}\n\noutput \"swagger_url\" {\n  value = data.f5_distributed_cloud_api_definition.example.swagger_url\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_api_definition` data source retrieves information about an existing API definition.\n\n## Example Usage\n\n```hcl\ndata \"f5distributedcloud_api_definition\" \"example\" {\n  name      = \"my-api-definition\"\n  namespace = \"my-namespace\"\n}\n\noutput \"swagger_url\" {\n  value = data.f5distributedcloud_api_definition.example.swagger_url\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_api_group": {
+        "f5distributedcloud_api_group": {
           "version": 0,
           "block": {
             "attributes": {
@@ -5480,7 +5480,7 @@
             "description_kind": "plain"
           }
         },
-        "f5_distributed_cloud_app_firewall": {
+        "f5distributedcloud_app_firewall": {
           "version": 0,
           "block": {
             "attributes": {
@@ -5515,11 +5515,11 @@
                 "required": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_app_firewall` data source retrieves information about an existing Application Firewall.\n\n## Example Usage\n\n```hcl\ndata \"f5_distributed_cloud_app_firewall\" \"example\" {\n  name      = \"my-waf\"\n  namespace = \"my-namespace\"\n}\n\noutput \"waf_mode\" {\n  value = data.f5_distributed_cloud_app_firewall.example.mode\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_app_firewall` data source retrieves information about an existing Application Firewall.\n\n## Example Usage\n\n```hcl\ndata \"f5distributedcloud_app_firewall\" \"example\" {\n  name      = \"my-waf\"\n  namespace = \"my-namespace\"\n}\n\noutput \"waf_mode\" {\n  value = data.f5distributedcloud_app_firewall.example.mode\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_app_type": {
+        "f5distributedcloud_app_type": {
           "version": 0,
           "block": {
             "attributes": {
@@ -5554,11 +5554,11 @@
                 "required": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_app_type` data source retrieves information about an existing app type.\n\n## Example Usage\n\n```hcl\ndata \"f5_distributed_cloud_app_type\" \"example\" {\n  name      = \"my-app-type\"\n  namespace = \"shared\"\n}\n\noutput \"app_type\" {\n  value = data.f5_distributed_cloud_app_type.example.app_type\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_app_type` data source retrieves information about an existing app type.\n\n## Example Usage\n\n```hcl\ndata \"f5distributedcloud_app_type\" \"example\" {\n  name      = \"my-app-type\"\n  namespace = \"shared\"\n}\n\noutput \"app_type\" {\n  value = data.f5distributedcloud_app_type.example.app_type\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_authentication": {
+        "f5distributedcloud_authentication": {
           "version": 0,
           "block": {
             "attributes": {
@@ -5591,7 +5591,7 @@
             "description_kind": "plain"
           }
         },
-        "f5_distributed_cloud_aws_vpc_site": {
+        "f5distributedcloud_aws_vpc_site": {
           "version": 0,
           "block": {
             "attributes": {
@@ -5632,11 +5632,11 @@
                 "computed": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_aws_vpc_site` data source retrieves information about an existing AWS VPC site.\n\n## Example Usage\n\n```hcl\ndata \"f5_distributed_cloud_aws_vpc_site\" \"example\" {\n  name      = \"my-aws-site\"\n  namespace = \"system\"\n}\n\noutput \"site_state\" {\n  value = data.f5_distributed_cloud_aws_vpc_site.example.site_state\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_aws_vpc_site` data source retrieves information about an existing AWS VPC site.\n\n## Example Usage\n\n```hcl\ndata \"f5distributedcloud_aws_vpc_site\" \"example\" {\n  name      = \"my-aws-site\"\n  namespace = \"system\"\n}\n\noutput \"site_state\" {\n  value = data.f5distributedcloud_aws_vpc_site.example.site_state\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_azure_vnet_site": {
+        "f5distributedcloud_azure_vnet_site": {
           "version": 0,
           "block": {
             "attributes": {
@@ -5677,11 +5677,11 @@
                 "computed": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_azure_vnet_site` data source retrieves information about an existing Azure VNET site.\n\n## Example Usage\n\n```hcl\ndata \"f5_distributed_cloud_azure_vnet_site\" \"example\" {\n  name      = \"my-azure-site\"\n  namespace = \"system\"\n}\n\noutput \"site_state\" {\n  value = data.f5_distributed_cloud_azure_vnet_site.example.site_state\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_azure_vnet_site` data source retrieves information about an existing Azure VNET site.\n\n## Example Usage\n\n```hcl\ndata \"f5distributedcloud_azure_vnet_site\" \"example\" {\n  name      = \"my-azure-site\"\n  namespace = \"system\"\n}\n\noutput \"site_state\" {\n  value = data.f5distributedcloud_azure_vnet_site.example.site_state\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_certificate": {
+        "f5distributedcloud_certificate": {
           "version": 0,
           "block": {
             "attributes": {
@@ -5716,11 +5716,11 @@
                 "required": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_certificate` data source retrieves information about an existing certificate.\n\n## Example Usage\n\n```hcl\ndata \"f5_distributed_cloud_certificate\" \"example\" {\n  name      = \"my-certificate\"\n  namespace = \"my-namespace\"\n}\n\noutput \"cert_type\" {\n  value = data.f5_distributed_cloud_certificate.example.cert_type\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_certificate` data source retrieves information about an existing certificate.\n\n## Example Usage\n\n```hcl\ndata \"f5distributedcloud_certificate\" \"example\" {\n  name      = \"my-certificate\"\n  namespace = \"my-namespace\"\n}\n\noutput \"cert_type\" {\n  value = data.f5distributedcloud_certificate.example.cert_type\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_client_connection_limit": {
+        "f5distributedcloud_client_connection_limit": {
           "version": 0,
           "block": {
             "attributes": {
@@ -5755,11 +5755,11 @@
                 "required": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_client_connection_limit` data source retrieves information about an existing client connection limit.\n\n## Example Usage\n\n```hcl\ndata \"f5_distributed_cloud_client_connection_limit\" \"example\" {\n  name      = \"my-connection-limit\"\n  namespace = \"my-namespace\"\n}\n\noutput \"enabled\" {\n  value = data.f5_distributed_cloud_client_connection_limit.example.enabled\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_client_connection_limit` data source retrieves information about an existing client connection limit.\n\n## Example Usage\n\n```hcl\ndata \"f5distributedcloud_client_connection_limit\" \"example\" {\n  name      = \"my-connection-limit\"\n  namespace = \"my-namespace\"\n}\n\noutput \"enabled\" {\n  value = data.f5distributedcloud_client_connection_limit.example.enabled\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_cloud_credentials": {
+        "f5distributedcloud_cloud_credentials": {
           "version": 0,
           "block": {
             "attributes": {
@@ -5794,11 +5794,11 @@
                 "required": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_cloud_credentials` data source retrieves information about existing cloud credentials.\n\n## Example Usage\n\n```hcl\ndata \"f5_distributed_cloud_cloud_credentials\" \"example\" {\n  name      = \"my-aws-creds\"\n  namespace = \"system\"\n}\n\noutput \"cloud_type\" {\n  value = data.f5_distributed_cloud_cloud_credentials.example.cloud_type\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_cloud_credentials` data source retrieves information about existing cloud credentials.\n\n## Example Usage\n\n```hcl\ndata \"f5distributedcloud_cloud_credentials\" \"example\" {\n  name      = \"my-aws-creds\"\n  namespace = \"system\"\n}\n\noutput \"cloud_type\" {\n  value = data.f5distributedcloud_cloud_credentials.example.cloud_type\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_cloud_site": {
+        "f5distributedcloud_cloud_site": {
           "version": 0,
           "block": {
             "attributes": {
@@ -5833,11 +5833,11 @@
                 "computed": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_cloud_site` data source retrieves information about an existing cloud site.\n\n## Example Usage\n\n```hcl\ndata \"f5_distributed_cloud_cloud_site\" \"example\" {\n  name      = \"my-cloud-site\"\n  namespace = \"system\"\n}\n\noutput \"site_state\" {\n  value = data.f5_distributed_cloud_cloud_site.example.site_state\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_cloud_site` data source retrieves information about an existing cloud site.\n\n## Example Usage\n\n```hcl\ndata \"f5distributedcloud_cloud_site\" \"example\" {\n  name      = \"my-cloud-site\"\n  namespace = \"system\"\n}\n\noutput \"site_state\" {\n  value = data.f5distributedcloud_cloud_site.example.site_state\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_discovery": {
+        "f5distributedcloud_discovery": {
           "version": 0,
           "block": {
             "attributes": {
@@ -5872,11 +5872,11 @@
                 "required": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_discovery` data source retrieves information about an existing discovery configuration.\n\n## Example Usage\n\n```hcl\ndata \"f5_distributed_cloud_discovery\" \"example\" {\n  name      = \"my-discovery\"\n  namespace = \"my-namespace\"\n}\n\noutput \"discovery_type\" {\n  value = data.f5_distributed_cloud_discovery.example.discovery_type\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_discovery` data source retrieves information about an existing discovery configuration.\n\n## Example Usage\n\n```hcl\ndata \"f5distributedcloud_discovery\" \"example\" {\n  name      = \"my-discovery\"\n  namespace = \"my-namespace\"\n}\n\noutput \"discovery_type\" {\n  value = data.f5distributedcloud_discovery.example.discovery_type\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_dns_lb_pool": {
+        "f5distributedcloud_dns_lb_pool": {
           "version": 0,
           "block": {
             "attributes": {
@@ -5911,11 +5911,11 @@
                 "computed": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_dns_lb_pool` data source retrieves information about an existing DNS load balancer pool.\n\n## Example Usage\n\n```hcl\ndata \"f5_distributed_cloud_dns_lb_pool\" \"example\" {\n  name      = \"my-dns-lb-pool\"\n  namespace = \"my-namespace\"\n}\n\noutput \"pool_type\" {\n  value = data.f5_distributed_cloud_dns_lb_pool.example.pool_type\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_dns_lb_pool` data source retrieves information about an existing DNS load balancer pool.\n\n## Example Usage\n\n```hcl\ndata \"f5distributedcloud_dns_lb_pool\" \"example\" {\n  name      = \"my-dns-lb-pool\"\n  namespace = \"my-namespace\"\n}\n\noutput \"pool_type\" {\n  value = data.f5distributedcloud_dns_lb_pool.example.pool_type\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_dns_zone": {
+        "f5distributedcloud_dns_zone": {
           "version": 0,
           "block": {
             "attributes": {
@@ -5950,11 +5950,11 @@
                 "required": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_dns_zone` data source retrieves information about an existing DNS zone.\n\n## Example Usage\n\n```hcl\ndata \"f5_distributed_cloud_dns_zone\" \"example\" {\n  name      = \"my-dns-zone\"\n  namespace = \"my-namespace\"\n}\n\noutput \"domain\" {\n  value = data.f5_distributed_cloud_dns_zone.example.domain\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_dns_zone` data source retrieves information about an existing DNS zone.\n\n## Example Usage\n\n```hcl\ndata \"f5distributedcloud_dns_zone\" \"example\" {\n  name      = \"my-dns-zone\"\n  namespace = \"my-namespace\"\n}\n\noutput \"domain\" {\n  value = data.f5distributedcloud_dns_zone.example.domain\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_enhanced_firewall_policy": {
+        "f5distributedcloud_enhanced_firewall_policy": {
           "version": 0,
           "block": {
             "attributes": {
@@ -5989,11 +5989,11 @@
                 "required": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_enhanced_firewall_policy` data source retrieves information about an existing enhanced firewall policy.\n\n## Example Usage\n\n```hcl\ndata \"f5_distributed_cloud_enhanced_firewall_policy\" \"example\" {\n  name      = \"my-enhanced-firewall-policy\"\n  namespace = \"my-namespace\"\n}\n\noutput \"enabled\" {\n  value = data.f5_distributed_cloud_enhanced_firewall_policy.example.enabled\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_enhanced_firewall_policy` data source retrieves information about an existing enhanced firewall policy.\n\n## Example Usage\n\n```hcl\ndata \"f5distributedcloud_enhanced_firewall_policy\" \"example\" {\n  name      = \"my-enhanced-firewall-policy\"\n  namespace = \"my-namespace\"\n}\n\noutput \"enabled\" {\n  value = data.f5distributedcloud_enhanced_firewall_policy.example.enabled\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_forward_proxy_policy": {
+        "f5distributedcloud_forward_proxy_policy": {
           "version": 0,
           "block": {
             "attributes": {
@@ -6028,11 +6028,11 @@
                 "required": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_forward_proxy_policy` data source retrieves information about an existing forward proxy policy.\n\n## Example Usage\n\n```hcl\ndata \"f5_distributed_cloud_forward_proxy_policy\" \"example\" {\n  name      = \"my-forward-proxy-policy\"\n  namespace = \"my-namespace\"\n}\n\noutput \"enabled\" {\n  value = data.f5_distributed_cloud_forward_proxy_policy.example.enabled\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_forward_proxy_policy` data source retrieves information about an existing forward proxy policy.\n\n## Example Usage\n\n```hcl\ndata \"f5distributedcloud_forward_proxy_policy\" \"example\" {\n  name      = \"my-forward-proxy-policy\"\n  namespace = \"my-namespace\"\n}\n\noutput \"enabled\" {\n  value = data.f5distributedcloud_forward_proxy_policy.example.enabled\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_gcp_vpc_site": {
+        "f5distributedcloud_gcp_vpc_site": {
           "version": 0,
           "block": {
             "attributes": {
@@ -6073,11 +6073,11 @@
                 "computed": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_gcp_vpc_site` data source retrieves information about an existing GCP VPC site.\n\n## Example Usage\n\n```hcl\ndata \"f5_distributed_cloud_gcp_vpc_site\" \"example\" {\n  name      = \"my-gcp-site\"\n  namespace = \"system\"\n}\n\noutput \"site_state\" {\n  value = data.f5_distributed_cloud_gcp_vpc_site.example.site_state\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_gcp_vpc_site` data source retrieves information about an existing GCP VPC site.\n\n## Example Usage\n\n```hcl\ndata \"f5distributedcloud_gcp_vpc_site\" \"example\" {\n  name      = \"my-gcp-site\"\n  namespace = \"system\"\n}\n\noutput \"site_state\" {\n  value = data.f5distributedcloud_gcp_vpc_site.example.site_state\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_global_log_receiver": {
+        "f5distributedcloud_global_log_receiver": {
           "version": 0,
           "block": {
             "attributes": {
@@ -6112,11 +6112,11 @@
                 "computed": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_global_log_receiver` data source retrieves information about an existing global log receiver.\n\n## Example Usage\n\n```hcl\ndata \"f5_distributed_cloud_global_log_receiver\" \"example\" {\n  name      = \"my-global-log-receiver\"\n  namespace = \"system\"\n}\n\noutput \"receiver_type\" {\n  value = data.f5_distributed_cloud_global_log_receiver.example.receiver_type\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_global_log_receiver` data source retrieves information about an existing global log receiver.\n\n## Example Usage\n\n```hcl\ndata \"f5distributedcloud_global_log_receiver\" \"example\" {\n  name      = \"my-global-log-receiver\"\n  namespace = \"system\"\n}\n\noutput \"receiver_type\" {\n  value = data.f5distributedcloud_global_log_receiver.example.receiver_type\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_healthcheck": {
+        "f5distributedcloud_healthcheck": {
           "version": 0,
           "block": {
             "attributes": {
@@ -6175,11 +6175,11 @@
                 "computed": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_healthcheck` data source retrieves information about an existing healthcheck configuration.\n\n## Example Usage\n\n```hcl\ndata \"f5_distributed_cloud_healthcheck\" \"example\" {\n  name      = \"my-healthcheck\"\n  namespace = \"my-namespace\"\n}\n\noutput \"healthcheck_type\" {\n  value = data.f5_distributed_cloud_healthcheck.example.healthcheck_type\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_healthcheck` data source retrieves information about an existing healthcheck configuration.\n\n## Example Usage\n\n```hcl\ndata \"f5distributedcloud_healthcheck\" \"example\" {\n  name      = \"my-healthcheck\"\n  namespace = \"my-namespace\"\n}\n\noutput \"healthcheck_type\" {\n  value = data.f5distributedcloud_healthcheck.example.healthcheck_type\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_http_loadbalancer": {
+        "f5distributedcloud_http_loadbalancer": {
           "version": 0,
           "block": {
             "attributes": {
@@ -6217,11 +6217,11 @@
                 "required": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_http_loadbalancer` data source retrieves information about an existing HTTP Load Balancer.\n\n## Example Usage\n\n```hcl\ndata \"f5_distributed_cloud_http_loadbalancer\" \"example\" {\n  name      = \"my-lb\"\n  namespace = \"my-namespace\"\n}\n\noutput \"lb_domains\" {\n  value = data.f5_distributed_cloud_http_loadbalancer.example.domains\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_http_loadbalancer` data source retrieves information about an existing HTTP Load Balancer.\n\n## Example Usage\n\n```hcl\ndata \"f5distributedcloud_http_loadbalancer\" \"example\" {\n  name      = \"my-lb\"\n  namespace = \"my-namespace\"\n}\n\noutput \"lb_domains\" {\n  value = data.f5distributedcloud_http_loadbalancer.example.domains\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_ip_prefix_set": {
+        "f5distributedcloud_ip_prefix_set": {
           "version": 0,
           "block": {
             "attributes": {
@@ -6259,11 +6259,11 @@
                 "computed": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_ip_prefix_set` data source retrieves information about an existing IP prefix set.\n\n## Example Usage\n\n```hcl\ndata \"f5_distributed_cloud_ip_prefix_set\" \"example\" {\n  name      = \"my-prefix-set\"\n  namespace = \"my-namespace\"\n}\n\noutput \"prefixes\" {\n  value = data.f5_distributed_cloud_ip_prefix_set.example.prefixes\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_ip_prefix_set` data source retrieves information about an existing IP prefix set.\n\n## Example Usage\n\n```hcl\ndata \"f5distributedcloud_ip_prefix_set\" \"example\" {\n  name      = \"my-prefix-set\"\n  namespace = \"my-namespace\"\n}\n\noutput \"prefixes\" {\n  value = data.f5distributedcloud_ip_prefix_set.example.prefixes\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_known_label": {
+        "f5distributedcloud_known_label": {
           "version": 0,
           "block": {
             "attributes": {
@@ -6298,11 +6298,11 @@
                 "required": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_known_label` data source retrieves information about an existing known label.\n\n## Example Usage\n\n```hcl\ndata \"f5_distributed_cloud_known_label\" \"example\" {\n  name      = \"my-known-label\"\n  namespace = \"shared\"\n}\n\noutput \"label_key\" {\n  value = data.f5_distributed_cloud_known_label.example.label_key\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_known_label` data source retrieves information about an existing known label.\n\n## Example Usage\n\n```hcl\ndata \"f5distributedcloud_known_label\" \"example\" {\n  name      = \"my-known-label\"\n  namespace = \"shared\"\n}\n\noutput \"label_key\" {\n  value = data.f5distributedcloud_known_label.example.label_key\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_log_receiver": {
+        "f5distributedcloud_log_receiver": {
           "version": 0,
           "block": {
             "attributes": {
@@ -6337,11 +6337,11 @@
                 "computed": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_log_receiver` data source retrieves information about an existing log receiver.\n\n## Example Usage\n\n```hcl\ndata \"f5_distributed_cloud_log_receiver\" \"example\" {\n  name      = \"my-log-receiver\"\n  namespace = \"my-namespace\"\n}\n\noutput \"receiver_type\" {\n  value = data.f5_distributed_cloud_log_receiver.example.receiver_type\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_log_receiver` data source retrieves information about an existing log receiver.\n\n## Example Usage\n\n```hcl\ndata \"f5distributedcloud_log_receiver\" \"example\" {\n  name      = \"my-log-receiver\"\n  namespace = \"my-namespace\"\n}\n\noutput \"receiver_type\" {\n  value = data.f5distributedcloud_log_receiver.example.receiver_type\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_malicious_user_mitigation": {
+        "f5distributedcloud_malicious_user_mitigation": {
           "version": 0,
           "block": {
             "attributes": {
@@ -6376,11 +6376,11 @@
                 "required": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_malicious_user_mitigation` data source retrieves information about an existing malicious user mitigation configuration.\n\n## Example Usage\n\n```hcl\ndata \"f5_distributed_cloud_malicious_user_mitigation\" \"example\" {\n  name      = \"my-mitigation\"\n  namespace = \"my-namespace\"\n}\n\noutput \"enabled\" {\n  value = data.f5_distributed_cloud_malicious_user_mitigation.example.enabled\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_malicious_user_mitigation` data source retrieves information about an existing malicious user mitigation configuration.\n\n## Example Usage\n\n```hcl\ndata \"f5distributedcloud_malicious_user_mitigation\" \"example\" {\n  name      = \"my-mitigation\"\n  namespace = \"my-namespace\"\n}\n\noutput \"enabled\" {\n  value = data.f5distributedcloud_malicious_user_mitigation.example.enabled\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_namespace": {
+        "f5distributedcloud_namespace": {
           "version": 0,
           "block": {
             "attributes": {
@@ -6412,11 +6412,11 @@
                 "required": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_namespace` data source retrieves information about an existing namespace.\n\n## Example Usage\n\n```hcl\ndata \"f5_distributed_cloud_namespace\" \"example\" {\n  name = \"my-namespace\"\n}\n\noutput \"namespace_id\" {\n  value = data.f5_distributed_cloud_namespace.example.id\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_namespace` data source retrieves information about an existing namespace.\n\n## Example Usage\n\n```hcl\ndata \"f5distributedcloud_namespace\" \"example\" {\n  name = \"my-namespace\"\n}\n\noutput \"namespace_id\" {\n  value = data.f5distributedcloud_namespace.example.id\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_namespace_role": {
+        "f5distributedcloud_namespace_role": {
           "version": 0,
           "block": {
             "attributes": {
@@ -6449,7 +6449,7 @@
             "description_kind": "plain"
           }
         },
-        "f5_distributed_cloud_network_policy": {
+        "f5distributedcloud_network_policy": {
           "version": 0,
           "block": {
             "attributes": {
@@ -6484,11 +6484,11 @@
                 "computed": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_network_policy` data source retrieves information about an existing network policy.\n\n## Example Usage\n\n```hcl\ndata \"f5_distributed_cloud_network_policy\" \"example\" {\n  name      = \"my-network-policy\"\n  namespace = \"my-namespace\"\n}\n\noutput \"policy_type\" {\n  value = data.f5_distributed_cloud_network_policy.example.policy_type\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_network_policy` data source retrieves information about an existing network policy.\n\n## Example Usage\n\n```hcl\ndata \"f5distributedcloud_network_policy\" \"example\" {\n  name      = \"my-network-policy\"\n  namespace = \"my-namespace\"\n}\n\noutput \"policy_type\" {\n  value = data.f5distributedcloud_network_policy.example.policy_type\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_network_policy_set": {
+        "f5distributedcloud_network_policy_set": {
           "version": 0,
           "block": {
             "attributes": {
@@ -6521,7 +6521,7 @@
             "description_kind": "plain"
           }
         },
-        "f5_distributed_cloud_origin_pool": {
+        "f5distributedcloud_origin_pool": {
           "version": 0,
           "block": {
             "attributes": {
@@ -6574,11 +6574,11 @@
                 "computed": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_origin_pool` data source retrieves information about an existing origin pool.\n\n## Example Usage\n\n```hcl\ndata \"f5_distributed_cloud_origin_pool\" \"example\" {\n  name      = \"my-origin-pool\"\n  namespace = \"my-namespace\"\n}\n\noutput \"origin_pool_port\" {\n  value = data.f5_distributed_cloud_origin_pool.example.port\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_origin_pool` data source retrieves information about an existing origin pool.\n\n## Example Usage\n\n```hcl\ndata \"f5distributedcloud_origin_pool\" \"example\" {\n  name      = \"my-origin-pool\"\n  namespace = \"my-namespace\"\n}\n\noutput \"origin_pool_port\" {\n  value = data.f5distributedcloud_origin_pool.example.port\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_protocol_policer": {
+        "f5distributedcloud_protocol_policer": {
           "version": 0,
           "block": {
             "attributes": {
@@ -6613,11 +6613,11 @@
                 "required": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_protocol_policer` data source retrieves information about an existing protocol policer.\n\n## Example Usage\n\n```hcl\ndata \"f5_distributed_cloud_protocol_policer\" \"example\" {\n  name      = \"my-protocol-policer\"\n  namespace = \"my-namespace\"\n}\n\noutput \"enabled\" {\n  value = data.f5_distributed_cloud_protocol_policer.example.enabled\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_protocol_policer` data source retrieves information about an existing protocol policer.\n\n## Example Usage\n\n```hcl\ndata \"f5distributedcloud_protocol_policer\" \"example\" {\n  name      = \"my-protocol-policer\"\n  namespace = \"my-namespace\"\n}\n\noutput \"enabled\" {\n  value = data.f5distributedcloud_protocol_policer.example.enabled\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_public_ip": {
+        "f5distributedcloud_public_ip": {
           "version": 0,
           "block": {
             "attributes": {
@@ -6650,7 +6650,7 @@
             "description_kind": "plain"
           }
         },
-        "f5_distributed_cloud_rate_limiter": {
+        "f5distributedcloud_rate_limiter": {
           "version": 0,
           "block": {
             "attributes": {
@@ -6697,11 +6697,11 @@
                 "computed": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_rate_limiter` data source retrieves information about an existing rate limiter configuration.\n\n## Example Usage\n\n```hcl\ndata \"f5_distributed_cloud_rate_limiter\" \"example\" {\n  name      = \"my-rate-limiter\"\n  namespace = \"my-namespace\"\n}\n\noutput \"rate_limit\" {\n  value = \"${data.f5_distributed_cloud_rate_limiter.example.total_number} per ${data.f5_distributed_cloud_rate_limiter.example.unit}\"\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_rate_limiter` data source retrieves information about an existing rate limiter configuration.\n\n## Example Usage\n\n```hcl\ndata \"f5distributedcloud_rate_limiter\" \"example\" {\n  name      = \"my-rate-limiter\"\n  namespace = \"my-namespace\"\n}\n\noutput \"rate_limit\" {\n  value = \"${data.f5distributedcloud_rate_limiter.example.total_number} per ${data.f5distributedcloud_rate_limiter.example.unit}\"\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_rbac_policy": {
+        "f5distributedcloud_rbac_policy": {
           "version": 0,
           "block": {
             "attributes": {
@@ -6734,7 +6734,7 @@
             "description_kind": "plain"
           }
         },
-        "f5_distributed_cloud_registration": {
+        "f5distributedcloud_registration": {
           "version": 0,
           "block": {
             "attributes": {
@@ -6767,7 +6767,7 @@
             "description_kind": "plain"
           }
         },
-        "f5_distributed_cloud_role": {
+        "f5distributedcloud_role": {
           "version": 0,
           "block": {
             "attributes": {
@@ -6802,11 +6802,11 @@
                 "computed": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_role` data source retrieves information about an existing role.\n\n## Example Usage\n\n```hcl\ndata \"f5_distributed_cloud_role\" \"example\" {\n  name      = \"my-role\"\n  namespace = \"system\"\n}\n\noutput \"role_type\" {\n  value = data.f5_distributed_cloud_role.example.role_type\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_role` data source retrieves information about an existing role.\n\n## Example Usage\n\n```hcl\ndata \"f5distributedcloud_role\" \"example\" {\n  name      = \"my-role\"\n  namespace = \"system\"\n}\n\noutput \"role_type\" {\n  value = data.f5distributedcloud_role.example.role_type\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_route": {
+        "f5distributedcloud_route": {
           "version": 0,
           "block": {
             "attributes": {
@@ -6841,11 +6841,11 @@
                 "computed": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_route` data source retrieves information about an existing route.\n\n## Example Usage\n\n```hcl\ndata \"f5_distributed_cloud_route\" \"example\" {\n  name      = \"my-route\"\n  namespace = \"my-namespace\"\n}\n\noutput \"route_type\" {\n  value = data.f5_distributed_cloud_route.example.route_type\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_route` data source retrieves information about an existing route.\n\n## Example Usage\n\n```hcl\ndata \"f5distributedcloud_route\" \"example\" {\n  name      = \"my-route\"\n  namespace = \"my-namespace\"\n}\n\noutput \"route_type\" {\n  value = data.f5distributedcloud_route.example.route_type\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_secret_policy": {
+        "f5distributedcloud_secret_policy": {
           "version": 0,
           "block": {
             "attributes": {
@@ -6880,11 +6880,11 @@
                 "required": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_secret_policy` data source retrieves information about an existing secret policy.\n\n## Example Usage\n\n```hcl\ndata \"f5_distributed_cloud_secret_policy\" \"example\" {\n  name      = \"my-secret-policy\"\n  namespace = \"my-namespace\"\n}\n\noutput \"enabled\" {\n  value = data.f5_distributed_cloud_secret_policy.example.enabled\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_secret_policy` data source retrieves information about an existing secret policy.\n\n## Example Usage\n\n```hcl\ndata \"f5distributedcloud_secret_policy\" \"example\" {\n  name      = \"my-secret-policy\"\n  namespace = \"my-namespace\"\n}\n\noutput \"enabled\" {\n  value = data.f5distributedcloud_secret_policy.example.enabled\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_segment": {
+        "f5distributedcloud_segment": {
           "version": 0,
           "block": {
             "attributes": {
@@ -6917,7 +6917,7 @@
             "description_kind": "plain"
           }
         },
-        "f5_distributed_cloud_service_mesh": {
+        "f5distributedcloud_service_mesh": {
           "version": 0,
           "block": {
             "attributes": {
@@ -6952,11 +6952,11 @@
                 "required": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_service_mesh` data source retrieves information about an existing service mesh.\n\n## Example Usage\n\n```hcl\ndata \"f5_distributed_cloud_service_mesh\" \"example\" {\n  name      = \"my-service-mesh\"\n  namespace = \"my-namespace\"\n}\n\noutput \"mesh_type\" {\n  value = data.f5_distributed_cloud_service_mesh.example.mesh_type\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_service_mesh` data source retrieves information about an existing service mesh.\n\n## Example Usage\n\n```hcl\ndata \"f5distributedcloud_service_mesh\" \"example\" {\n  name      = \"my-service-mesh\"\n  namespace = \"my-namespace\"\n}\n\noutput \"mesh_type\" {\n  value = data.f5distributedcloud_service_mesh.example.mesh_type\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_service_policy": {
+        "f5distributedcloud_service_policy": {
           "version": 0,
           "block": {
             "attributes": {
@@ -6991,11 +6991,11 @@
                 "required": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_service_policy` data source retrieves information about an existing service policy.\n\n## Example Usage\n\n```hcl\ndata \"f5_distributed_cloud_service_policy\" \"example\" {\n  name      = \"my-service-policy\"\n  namespace = \"my-namespace\"\n}\n\noutput \"policy_algo\" {\n  value = data.f5_distributed_cloud_service_policy.example.algo\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_service_policy` data source retrieves information about an existing service policy.\n\n## Example Usage\n\n```hcl\ndata \"f5distributedcloud_service_policy\" \"example\" {\n  name      = \"my-service-policy\"\n  namespace = \"my-namespace\"\n}\n\noutput \"policy_algo\" {\n  value = data.f5distributedcloud_service_policy.example.algo\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_service_policy_set": {
+        "f5distributedcloud_service_policy_set": {
           "version": 0,
           "block": {
             "attributes": {
@@ -7028,7 +7028,7 @@
             "description_kind": "plain"
           }
         },
-        "f5_distributed_cloud_site": {
+        "f5distributedcloud_site": {
           "version": 0,
           "block": {
             "attributes": {
@@ -7061,7 +7061,7 @@
             "description_kind": "plain"
           }
         },
-        "f5_distributed_cloud_site_mesh_group": {
+        "f5distributedcloud_site_mesh_group": {
           "version": 0,
           "block": {
             "attributes": {
@@ -7096,11 +7096,11 @@
                 "required": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_site_mesh_group` data source retrieves information about an existing site mesh group.\n\n## Example Usage\n\n```hcl\ndata \"f5_distributed_cloud_site_mesh_group\" \"example\" {\n  name      = \"my-site-mesh-group\"\n  namespace = \"system\"\n}\n\noutput \"mesh_type\" {\n  value = data.f5_distributed_cloud_site_mesh_group.example.mesh_type\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_site_mesh_group` data source retrieves information about an existing site mesh group.\n\n## Example Usage\n\n```hcl\ndata \"f5distributedcloud_site_mesh_group\" \"example\" {\n  name      = \"my-site-mesh-group\"\n  namespace = \"system\"\n}\n\noutput \"mesh_type\" {\n  value = data.f5distributedcloud_site_mesh_group.example.mesh_type\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_tcp_loadbalancer": {
+        "f5distributedcloud_tcp_loadbalancer": {
           "version": 0,
           "block": {
             "attributes": {
@@ -7141,11 +7141,11 @@
                 "required": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_tcp_loadbalancer` data source retrieves information about an existing TCP load balancer.\n\n## Example Usage\n\n```hcl\ndata \"f5_distributed_cloud_tcp_loadbalancer\" \"example\" {\n  name      = \"my-tcp-lb\"\n  namespace = \"my-namespace\"\n}\n\noutput \"tcp_lb_port\" {\n  value = data.f5_distributed_cloud_tcp_loadbalancer.example.listen_port\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_tcp_loadbalancer` data source retrieves information about an existing TCP load balancer.\n\n## Example Usage\n\n```hcl\ndata \"f5distributedcloud_tcp_loadbalancer\" \"example\" {\n  name      = \"my-tcp-lb\"\n  namespace = \"my-namespace\"\n}\n\noutput \"tcp_lb_port\" {\n  value = data.f5distributedcloud_tcp_loadbalancer.example.listen_port\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_token": {
+        "f5distributedcloud_token": {
           "version": 0,
           "block": {
             "attributes": {
@@ -7178,7 +7178,7 @@
             "description_kind": "plain"
           }
         },
-        "f5_distributed_cloud_tunnel": {
+        "f5distributedcloud_tunnel": {
           "version": 0,
           "block": {
             "attributes": {
@@ -7213,11 +7213,11 @@
                 "computed": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_tunnel` data source retrieves information about an existing tunnel.\n\n## Example Usage\n\n```hcl\ndata \"f5_distributed_cloud_tunnel\" \"example\" {\n  name      = \"my-tunnel\"\n  namespace = \"my-namespace\"\n}\n\noutput \"tunnel_type\" {\n  value = data.f5_distributed_cloud_tunnel.example.tunnel_type\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_tunnel` data source retrieves information about an existing tunnel.\n\n## Example Usage\n\n```hcl\ndata \"f5distributedcloud_tunnel\" \"example\" {\n  name      = \"my-tunnel\"\n  namespace = \"my-namespace\"\n}\n\noutput \"tunnel_type\" {\n  value = data.f5distributedcloud_tunnel.example.tunnel_type\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_user": {
+        "f5distributedcloud_user": {
           "version": 0,
           "block": {
             "attributes": {
@@ -7252,11 +7252,11 @@
                 "required": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_user` data source retrieves information about an existing user.\n\n## Example Usage\n\n```hcl\ndata \"f5_distributed_cloud_user\" \"example\" {\n  name      = \"my-user\"\n  namespace = \"system\"\n}\n\noutput \"email\" {\n  value = data.f5_distributed_cloud_user.example.email\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_user` data source retrieves information about an existing user.\n\n## Example Usage\n\n```hcl\ndata \"f5distributedcloud_user\" \"example\" {\n  name      = \"my-user\"\n  namespace = \"system\"\n}\n\noutput \"email\" {\n  value = data.f5distributedcloud_user.example.email\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_virtual_site": {
+        "f5distributedcloud_virtual_site": {
           "version": 0,
           "block": {
             "attributes": {
@@ -7291,11 +7291,11 @@
                 "computed": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_virtual_site` data source retrieves information about an existing virtual site.\n\n## Example Usage\n\n```hcl\ndata \"f5_distributed_cloud_virtual_site\" \"example\" {\n  name      = \"my-virtual-site\"\n  namespace = \"my-namespace\"\n}\n\noutput \"site_type\" {\n  value = data.f5_distributed_cloud_virtual_site.example.site_type\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_virtual_site` data source retrieves information about an existing virtual site.\n\n## Example Usage\n\n```hcl\ndata \"f5distributedcloud_virtual_site\" \"example\" {\n  name      = \"my-virtual-site\"\n  namespace = \"my-namespace\"\n}\n\noutput \"site_type\" {\n  value = data.f5distributedcloud_virtual_site.example.site_type\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_voltstack_site": {
+        "f5distributedcloud_voltstack_site": {
           "version": 0,
           "block": {
             "attributes": {
@@ -7336,11 +7336,11 @@
                 "computed": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_voltstack_site` data source retrieves information about an existing Voltstack site.\n\n## Example Usage\n\n```hcl\ndata \"f5_distributed_cloud_voltstack_site\" \"example\" {\n  name      = \"my-voltstack-site\"\n  namespace = \"system\"\n}\n\noutput \"site_state\" {\n  value = data.f5_distributed_cloud_voltstack_site.example.site_state\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_voltstack_site` data source retrieves information about an existing Voltstack site.\n\n## Example Usage\n\n```hcl\ndata \"f5distributedcloud_voltstack_site\" \"example\" {\n  name      = \"my-voltstack-site\"\n  namespace = \"system\"\n}\n\noutput \"site_state\" {\n  value = data.f5distributedcloud_voltstack_site.example.site_state\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_waf_rule": {
+        "f5distributedcloud_waf_rule": {
           "version": 0,
           "block": {
             "attributes": {
@@ -7375,11 +7375,11 @@
                 "required": true
               }
             },
-            "description": "\nThe `f5_distributed_cloud_waf_rule` data source retrieves information about an existing WAF rule.\n\n## Example Usage\n\n```hcl\ndata \"f5_distributed_cloud_waf_rule\" \"example\" {\n  name      = \"my-waf-rule\"\n  namespace = \"my-namespace\"\n}\n\noutput \"waf_mode\" {\n  value = data.f5_distributed_cloud_waf_rule.example.mode\n}\n```\n",
+            "description": "\nThe `f5distributedcloud_waf_rule` data source retrieves information about an existing WAF rule.\n\n## Example Usage\n\n```hcl\ndata \"f5distributedcloud_waf_rule\" \"example\" {\n  name      = \"my-waf-rule\"\n  namespace = \"my-namespace\"\n}\n\noutput \"waf_mode\" {\n  value = data.f5distributedcloud_waf_rule.example.mode\n}\n```\n",
             "description_kind": "markdown"
           }
         },
-        "f5_distributed_cloud_workload": {
+        "f5distributedcloud_workload": {
           "version": 0,
           "block": {
             "attributes": {
