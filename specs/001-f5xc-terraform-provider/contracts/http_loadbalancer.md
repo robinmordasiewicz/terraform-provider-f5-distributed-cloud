@@ -1,9 +1,9 @@
-# Resource Contract: f5_distributed_cloud_http_loadbalancer
+# Resource Contract: f5distributedcloud_http_loadbalancer
 
 ## Resource Schema (Simplified)
 
 ```hcl
-resource "f5_distributed_cloud_http_loadbalancer" "example" {
+resource "f5distributedcloud_http_loadbalancer" "example" {
   name      = string           # Required
   namespace = string           # Required
 
@@ -119,7 +119,7 @@ Postconditions:
 ```
 Import ID: {namespace}/{name}
 
-terraform import f5_distributed_cloud_http_loadbalancer.example production/api-gateway
+terraform import f5distributedcloud_http_loadbalancer.example production/api-gateway
 ```
 
 ## Validation Rules

@@ -11,7 +11,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/types"
 
-	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/client"
+	"github.com/robinmordasiewicz/terraform-provider-f5distributedcloud/internal/client"
 )
 
 var _ datasource.DataSource = &IPPrefixSetDataSource{}
@@ -52,18 +52,18 @@ func (d *IPPrefixSetDataSource) Schema(ctx context.Context, req datasource.Schem
 	resp.Schema = schema.Schema{
 		Description: "Fetches information about an existing F5 Distributed Cloud IP Prefix Set.",
 		MarkdownDescription: `
-The ` + "`f5_distributed_cloud_ip_prefix_set`" + ` data source retrieves information about an existing IP prefix set.
+The ` + "`f5distributedcloud_ip_prefix_set`" + ` data source retrieves information about an existing IP prefix set.
 
 ## Example Usage
 
 ` + "```hcl" + `
-data "f5_distributed_cloud_ip_prefix_set" "example" {
+data "f5distributedcloud_ip_prefix_set" "example" {
   name      = "my-prefix-set"
   namespace = "my-namespace"
 }
 
 output "prefixes" {
-  value = data.f5_distributed_cloud_ip_prefix_set.example.prefixes
+  value = data.f5distributedcloud_ip_prefix_set.example.prefixes
 }
 ` + "```" + `
 `,

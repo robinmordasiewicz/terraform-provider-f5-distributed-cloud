@@ -13,14 +13,14 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages F5 Distributed Cloud GCP VPC Site.",
 		MarkdownDescription: `
-The ` + "`f5_distributed_cloud_gcp_vpc_site`" + ` resource manages GCP VPC Sites in F5 Distributed Cloud.
+The ` + "`f5distributedcloud_gcp_vpc_site`" + ` resource manages GCP VPC Sites in F5 Distributed Cloud.
 
 GCP VPC Sites deploy F5 XC nodes into an existing or new GCP VPC network.
 
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5_distributed_cloud_gcp_vpc_site" "example" {
+resource "f5distributedcloud_gcp_vpc_site" "example" {
   name                  = "gcp-site-1"
   namespace             = "system"
   gcp_region            = "us-west1"

@@ -10,7 +10,7 @@ import (
 
 	"github.com/hashicorp/terraform-plugin-framework/providerserver"
 
-	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/provider"
+	"github.com/robinmordasiewicz/terraform-provider-f5distributedcloud/internal/provider"
 )
 
 // version is set during build via ldflags.

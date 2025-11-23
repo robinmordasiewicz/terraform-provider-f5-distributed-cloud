@@ -11,7 +11,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/types"
 
-	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/client"
+	"github.com/robinmordasiewicz/terraform-provider-f5distributedcloud/internal/client"
 )
 
 var _ datasource.DataSource = &TCPLoadBalancerDataSource{}
@@ -54,18 +54,18 @@ func (d *TCPLoadBalancerDataSource) Schema(ctx context.Context, req datasource.S
 	resp.Schema = schema.Schema{
 		Description: "Fetches information about an existing F5 Distributed Cloud TCP Load Balancer.",
 		MarkdownDescription: `
-The ` + "`f5_distributed_cloud_tcp_loadbalancer`" + ` data source retrieves information about an existing TCP load balancer.
+The ` + "`f5distributedcloud_tcp_loadbalancer`" + ` data source retrieves information about an existing TCP load balancer.
 
 ## Example Usage
 
 ` + "```hcl" + `
-data "f5_distributed_cloud_tcp_loadbalancer" "example" {
+data "f5distributedcloud_tcp_loadbalancer" "example" {
   name      = "my-tcp-lb"
   namespace = "my-namespace"
 }
 
 output "tcp_lb_port" {
-  value = data.f5_distributed_cloud_tcp_loadbalancer.example.listen_port
+  value = data.f5distributedcloud_tcp_loadbalancer.example.listen_port
 }
 ` + "```" + `
 `,

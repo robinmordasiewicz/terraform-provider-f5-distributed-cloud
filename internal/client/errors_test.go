@@ -394,7 +394,7 @@ func TestNewAuthenticationError(t *testing.T) {
 			}
 
 			// Test Unwrap
-			if tt.wrappedErr != nil && authErr.Unwrap() != tt.wrappedErr {
+			if tt.wrappedErr != nil && !errors.Is(authErr.Unwrap(), tt.wrappedErr) {
 				t.Errorf("Unwrap() = %v, want %v", authErr.Unwrap(), tt.wrappedErr)
 			}
 		})

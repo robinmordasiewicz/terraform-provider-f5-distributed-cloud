@@ -11,7 +11,8 @@
 
 set -e
 
-# Resource types to migrate (add more as needed)
+# Resource types supported for migration (reference list)
+# shellcheck disable=SC2034
 RESOURCE_TYPES=(
     "namespace"
     "origin_pool"
@@ -37,7 +38,7 @@ echo ""
 
 # Backup current state
 echo "1. Backing up current state..."
-terraform state pull > terraform.tfstate.backup.$(date +%Y%m%d_%H%M%S)
+terraform state pull > "terraform.tfstate.backup.$(date +%Y%m%d_%H%M%S)"
 echo "   State backed up successfully."
 echo ""
 

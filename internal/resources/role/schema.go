@@ -16,14 +16,14 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages F5 Distributed Cloud Role.",
 		MarkdownDescription: `
-The ` + "`f5_distributed_cloud_role`" + ` resource manages Roles in F5 Distributed Cloud.
+The ` + "`f5distributedcloud_role`" + ` resource manages Roles in F5 Distributed Cloud.
 
 Roles define permissions for accessing and managing resources within the F5 XC platform.
 
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5_distributed_cloud_role" "viewer" {
+resource "f5distributedcloud_role" "viewer" {
   name        = "viewer-role"
   namespace   = "system"
   description = "Read-only access role"

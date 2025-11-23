@@ -13,14 +13,14 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages an F5 Distributed Cloud BGP configuration.",
 		MarkdownDescription: `
-The ` + "`f5_distributed_cloud_bgp`" + ` resource manages BGP configurations in F5 Distributed Cloud.
+The ` + "`f5distributedcloud_bgp`" + ` resource manages BGP configurations in F5 Distributed Cloud.
 
 BGP configurations define Border Gateway Protocol settings for network routing.
 
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5_distributed_cloud_bgp" "example" {
+resource "f5distributedcloud_bgp" "example" {
   name        = "my-bgp-config"
   namespace   = "system"
   description = "BGP configuration"

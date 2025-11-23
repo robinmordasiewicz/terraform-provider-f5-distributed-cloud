@@ -13,14 +13,14 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages F5 Distributed Cloud Voltstack Site.",
 		MarkdownDescription: `
-The ` + "`f5_distributed_cloud_voltstack_site`" + ` resource manages Voltstack Sites in F5 Distributed Cloud.
+The ` + "`f5distributedcloud_voltstack_site`" + ` resource manages Voltstack Sites in F5 Distributed Cloud.
 
 Voltstack Sites are F5-managed compute infrastructure deployed at the edge.
 
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5_distributed_cloud_voltstack_site" "example" {
+resource "f5distributedcloud_voltstack_site" "example" {
   name           = "edge-site-1"
   namespace      = "system"
   master_nodes   = 3

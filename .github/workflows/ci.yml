@@ -1,0 +1,100 @@
+# Copyright (c) Robin Mordasiewicz
+# SPDX-License-Identifier: MPL-2.0
+
+# CI workflow for quality checks
+# Runs pre-commit hooks and other validation on all PRs and pushes
+
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+# Prevent concurrent runs on same branch
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  quality-checks:
+    name: Quality Checks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: 'go.mod'
+          cache: true
+
+      - name: Setup Python (for pre-commit)
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install pre-commit
+        run: pip install pre-commit
+
+      - name: Install golangci-lint
+        uses: golangci/golangci-lint-action@v6
+        with:
+          version: latest
+          args: --version
+
+      - name: Install detect-secrets
+        run: pip install detect-secrets
+
+      - name: Install Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_wrapper: false
+
+      - name: Run pre-commit
+        run: pre-commit run --all-files --show-diff-on-failure
+
+      - name: Build
+        run: go build ./...
+
+      - name: Test
+        run: go test ./... -v -timeout 10m
+
+  docs-generation:
+    name: Documentation Check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: 'go.mod'
+          cache: true
+
+      - name: Install tfplugindocs
+        run: go install github.com/hashicorp/terraform-plugin-docs/cmd/tfplugindocs@latest
+
+      - name: Generate docs
+        run: |
+          tfplugindocs generate --provider-name f5_distributed_cloud
+          echo "Documentation generated successfully"
+
+      - name: Check for uncommitted doc changes
+        run: |
+          if [ -n "$(git status --porcelain docs/)" ]; then
+            echo "::error::Documentation is out of date. Run 'tfplugindocs generate' locally and commit the changes."
+            git diff docs/
+            exit 1
+          fi
+          echo "Documentation is up to date"

@@ -1,0 +1,25 @@
+# Binaries
+terraform-provider-f5-distributed-cloud
+*.exe
+
+# Generated files
+schema.json
+
+# Test cache
+.terraform/
+*.tfstate
+*.tfstate.*
+.terraform.lock.hcl
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+
+# Go
+vendor/

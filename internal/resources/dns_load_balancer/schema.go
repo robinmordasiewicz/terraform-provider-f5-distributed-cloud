@@ -13,14 +13,14 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages an F5 Distributed Cloud DNS Load Balancer.",
 		MarkdownDescription: `
-The ` + "`f5_distributed_cloud_dns_load_balancer`" + ` resource manages DNS Load Balancers in F5 Distributed Cloud.
+The ` + "`f5distributedcloud_dns_load_balancer`" + ` resource manages DNS Load Balancers in F5 Distributed Cloud.
 
 DNS Load Balancers provide global server load balancing (GSLB) capabilities.
 
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5_distributed_cloud_dns_load_balancer" "example" {
+resource "f5distributedcloud_dns_load_balancer" "example" {
   name              = "my-dns-lb"
   namespace         = "system"
   description       = "DNS load balancer for global distribution"

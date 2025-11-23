@@ -11,7 +11,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/types"
 
-	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/client"
+	"github.com/robinmordasiewicz/terraform-provider-f5distributedcloud/internal/client"
 )
 
 var _ datasource.DataSource = &DNSLBPoolDataSource{}
@@ -52,18 +52,18 @@ func (d *DNSLBPoolDataSource) Schema(ctx context.Context, req datasource.SchemaR
 	resp.Schema = schema.Schema{
 		Description: "Fetches information about an existing F5 Distributed Cloud DNS Load Balancer Pool.",
 		MarkdownDescription: `
-The ` + "`f5_distributed_cloud_dns_lb_pool`" + ` data source retrieves information about an existing DNS load balancer pool.
+The ` + "`f5distributedcloud_dns_lb_pool`" + ` data source retrieves information about an existing DNS load balancer pool.
 
 ## Example Usage
 
 ` + "```hcl" + `
-data "f5_distributed_cloud_dns_lb_pool" "example" {
+data "f5distributedcloud_dns_lb_pool" "example" {
   name      = "my-dns-lb-pool"
   namespace = "my-namespace"
 }
 
 output "pool_type" {
-  value = data.f5_distributed_cloud_dns_lb_pool.example.pool_type
+  value = data.f5distributedcloud_dns_lb_pool.example.pool_type
 }
 ` + "```" + `
 `,

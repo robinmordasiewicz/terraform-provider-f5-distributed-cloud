@@ -11,7 +11,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/types"
 
-	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/client"
+	"github.com/robinmordasiewicz/terraform-provider-f5distributedcloud/internal/client"
 )
 
 var _ datasource.DataSource = &TunnelDataSource{}
@@ -52,18 +52,18 @@ func (d *TunnelDataSource) Schema(ctx context.Context, req datasource.SchemaRequ
 	resp.Schema = schema.Schema{
 		Description: "Fetches information about an existing F5 Distributed Cloud Tunnel.",
 		MarkdownDescription: `
-The ` + "`f5_distributed_cloud_tunnel`" + ` data source retrieves information about an existing tunnel.
+The ` + "`f5distributedcloud_tunnel`" + ` data source retrieves information about an existing tunnel.
 
 ## Example Usage
 
 ` + "```hcl" + `
-data "f5_distributed_cloud_tunnel" "example" {
+data "f5distributedcloud_tunnel" "example" {
   name      = "my-tunnel"
   namespace = "my-namespace"
 }
 
 output "tunnel_type" {
-  value = data.f5_distributed_cloud_tunnel.example.tunnel_type
+  value = data.f5distributedcloud_tunnel.example.tunnel_type
 }
 ` + "```" + `
 `,

@@ -13,14 +13,14 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages an F5 Distributed Cloud Secret Policy Rule.",
 		MarkdownDescription: `
-The ` + "`f5_distributed_cloud_secret_policy_rule`" + ` resource manages Secret Policy Rules in F5 Distributed Cloud.
+The ` + "`f5distributedcloud_secret_policy_rule`" + ` resource manages Secret Policy Rules in F5 Distributed Cloud.
 
 Secret Policy Rules define specific rules within a secret policy.
 
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5_distributed_cloud_secret_policy_rule" "example" {
+resource "f5distributedcloud_secret_policy_rule" "example" {
   name        = "my-secret-policy-rule"
   namespace   = "my-namespace"
   description = "Example secret policy rule"

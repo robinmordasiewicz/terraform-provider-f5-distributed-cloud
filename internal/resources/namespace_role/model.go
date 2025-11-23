@@ -3,7 +3,11 @@
 
 package namespace_role
 
-import "github.com/hashicorp/terraform-plugin-framework/types"
+import (
+	"context"
+
+	"github.com/hashicorp/terraform-plugin-framework/types"
+)
 
 type NamespaceRoleResourceModel struct {
 	Name        types.String      `tfsdk:"name"`
@@ -59,7 +63,7 @@ func (m *NamespaceRoleResourceModel) ToAPIRequest() *APINamespaceRole {
 			}
 			if !perm.Operations.IsNull() {
 				ops := make([]string, 0)
-				perm.Operations.ElementsAs(nil, &ops, false)
+				perm.Operations.ElementsAs(context.Background(), &ops, false)
 				apiPerm.Operations = ops
 			}
 			spec.Permissions[i] = apiPerm

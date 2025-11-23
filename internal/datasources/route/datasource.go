@@ -11,7 +11,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/types"
 
-	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/client"
+	"github.com/robinmordasiewicz/terraform-provider-f5distributedcloud/internal/client"
 )
 
 var _ datasource.DataSource = &RouteDataSource{}
@@ -52,18 +52,18 @@ func (d *RouteDataSource) Schema(ctx context.Context, req datasource.SchemaReque
 	resp.Schema = schema.Schema{
 		Description: "Fetches information about an existing F5 Distributed Cloud Route.",
 		MarkdownDescription: `
-The ` + "`f5_distributed_cloud_route`" + ` data source retrieves information about an existing route.
+The ` + "`f5distributedcloud_route`" + ` data source retrieves information about an existing route.
 
 ## Example Usage
 
 ` + "```hcl" + `
-data "f5_distributed_cloud_route" "example" {
+data "f5distributedcloud_route" "example" {
   name      = "my-route"
   namespace = "my-namespace"
 }
 
 output "route_type" {
-  value = data.f5_distributed_cloud_route.example.route_type
+  value = data.f5distributedcloud_route.example.route_type
 }
 ` + "```" + `
 `,

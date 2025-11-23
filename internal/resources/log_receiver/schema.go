@@ -15,7 +15,7 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages F5 Distributed Cloud Log Receiver.",
 		MarkdownDescription: `
-The ` + "`f5_distributed_cloud_log_receiver`" + ` resource manages Log Receivers in F5 Distributed Cloud.
+The ` + "`f5distributedcloud_log_receiver`" + ` resource manages Log Receivers in F5 Distributed Cloud.
 
 Log Receivers configure destinations for forwarding logs from F5 XC to external systems.
 
@@ -24,7 +24,7 @@ Log Receivers configure destinations for forwarding logs from F5 XC to external 
 ### HTTP Log Receiver
 
 ` + "```hcl" + `
-resource "f5_distributed_cloud_log_receiver" "http" {
+resource "f5distributedcloud_log_receiver" "http" {
   name          = "http-logs"
   namespace     = "system"
   receiver_type = "HTTP"
@@ -44,7 +44,7 @@ resource "f5_distributed_cloud_log_receiver" "http" {
 ### Syslog Receiver
 
 ` + "```hcl" + `
-resource "f5_distributed_cloud_log_receiver" "syslog" {
+resource "f5distributedcloud_log_receiver" "syslog" {
   name          = "syslog-logs"
   namespace     = "system"
   receiver_type = "SYSLOG"

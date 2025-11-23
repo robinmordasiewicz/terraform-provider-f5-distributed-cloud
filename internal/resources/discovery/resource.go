@@ -11,11 +11,16 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-log/tflog"
 
-	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/client"
+	"github.com/robinmordasiewicz/terraform-provider-f5distributedcloud/internal/client"
 )
 
 var _ resource.Resource = &DiscoveryResource{}
 var _ resource.ResourceWithImportState = &DiscoveryResource{}
+
+// apiPathBase is the F5 XC API path for discovery resources.
+//
+//nolint:misspell // F5 XC API uses non-standard plural
+const apiPathBase = "discoverys"
 
 type DiscoveryResource struct {
 	client *client.Client
@@ -52,7 +57,7 @@ func (r *DiscoveryResource) Create(ctx context.Context, req resource.CreateReque
 	tflog.Debug(ctx, "Creating Discovery", map[string]interface{}{"name": data.Name.ValueString()})
 	apiReq := data.ToAPIRequest()
 	var apiResp APIDiscovery
-	path := fmt.Sprintf("/config/namespaces/%s/discoverys", data.Namespace.ValueString())
+	path := fmt.Sprintf("/config/namespaces/%s/%s", data.Namespace.ValueString(), apiPathBase)
 	if err := r.client.Post(ctx, path, apiReq, &apiResp); err != nil {
 		resp.Diagnostics.AddError("Error creating Discovery", err.Error())
 		return
@@ -68,7 +73,7 @@ func (r *DiscoveryResource) Read(ctx context.Context, req resource.ReadRequest, 
 		return
 	}
 	var apiResp APIDiscovery
-	path := fmt.Sprintf("/config/namespaces/%s/discoverys/%s", data.Namespace.ValueString(), data.Name.ValueString())
+	path := fmt.Sprintf("/config/namespaces/%s/%s/%s", data.Namespace.ValueString(), apiPathBase, data.Name.ValueString())
 	if err := r.client.Get(ctx, path, &apiResp); err != nil {
 		if client.IsNotFound(err) {
 			resp.State.RemoveResource(ctx)
@@ -89,7 +94,7 @@ func (r *DiscoveryResource) Update(ctx context.Context, req resource.UpdateReque
 	}
 	apiReq := data.ToAPIRequest()
 	var apiResp APIDiscovery
-	path := fmt.Sprintf("/config/namespaces/%s/discoverys/%s", data.Namespace.ValueString(), data.Name.ValueString())
+	path := fmt.Sprintf("/config/namespaces/%s/%s/%s", data.Namespace.ValueString(), apiPathBase, data.Name.ValueString())
 	if err := r.client.Put(ctx, path, apiReq, &apiResp); err != nil {
 		resp.Diagnostics.AddError("Error updating Discovery", err.Error())
 		return
@@ -104,7 +109,7 @@ func (r *DiscoveryResource) Delete(ctx context.Context, req resource.DeleteReque
 	if resp.Diagnostics.HasError() {
 		return
 	}
-	path := fmt.Sprintf("/config/namespaces/%s/discoverys/%s", data.Namespace.ValueString(), data.Name.ValueString())
+	path := fmt.Sprintf("/config/namespaces/%s/%s/%s", data.Namespace.ValueString(), apiPathBase, data.Name.ValueString())
 	if err := r.client.Delete(ctx, path); err != nil && !client.IsNotFound(err) {
 		resp.Diagnostics.AddError("Error deleting Discovery", err.Error())
 	}
@@ -117,7 +122,7 @@ func (r *DiscoveryResource) ImportState(ctx context.Context, req resource.Import
 		return
 	}
 	var apiResp APIDiscovery
-	path := fmt.Sprintf("/config/namespaces/%s/discoverys/%s", parts[0], parts[1])
+	path := fmt.Sprintf("/config/namespaces/%s/%s/%s", parts[0], apiPathBase, parts[1])
 	if err := r.client.Get(ctx, path, &apiResp); err != nil {
 		resp.Diagnostics.AddError("Error importing Discovery", err.Error())
 		return

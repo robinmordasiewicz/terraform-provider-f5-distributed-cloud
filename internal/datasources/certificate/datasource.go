@@ -11,7 +11,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/types"
 
-	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/client"
+	"github.com/robinmordasiewicz/terraform-provider-f5distributedcloud/internal/client"
 )
 
 var _ datasource.DataSource = &CertificateDataSource{}
@@ -53,18 +53,18 @@ func (d *CertificateDataSource) Schema(ctx context.Context, req datasource.Schem
 	resp.Schema = schema.Schema{
 		Description: "Fetches information about an existing F5 Distributed Cloud Certificate.",
 		MarkdownDescription: `
-The ` + "`f5_distributed_cloud_certificate`" + ` data source retrieves information about an existing certificate.
+The ` + "`f5distributedcloud_certificate`" + ` data source retrieves information about an existing certificate.
 
 ## Example Usage
 
 ` + "```hcl" + `
-data "f5_distributed_cloud_certificate" "example" {
+data "f5distributedcloud_certificate" "example" {
   name      = "my-certificate"
   namespace = "my-namespace"
 }
 
 output "cert_type" {
-  value = data.f5_distributed_cloud_certificate.example.cert_type
+  value = data.f5distributedcloud_certificate.example.cert_type
 }
 ` + "```" + `
 `,

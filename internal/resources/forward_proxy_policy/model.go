@@ -3,7 +3,11 @@
 
 package forward_proxy_policy
 
-import "github.com/hashicorp/terraform-plugin-framework/types"
+import (
+	"context"
+
+	"github.com/hashicorp/terraform-plugin-framework/types"
+)
 
 type ForwardProxyPolicyResourceModel struct {
 	Name        types.String     `tfsdk:"name"`
@@ -60,7 +64,7 @@ func (m *ForwardProxyPolicyResourceModel) ToAPIRequest() *APIForwardProxyPolicy 
 			}
 			if !rule.HTTPMethods.IsNull() {
 				methods := make([]string, 0)
-				rule.HTTPMethods.ElementsAs(nil, &methods, false)
+				rule.HTTPMethods.ElementsAs(context.Background(), &methods, false)
 				apiRule.HTTPMethods = methods
 			}
 			spec.ProxyRules[i] = apiRule

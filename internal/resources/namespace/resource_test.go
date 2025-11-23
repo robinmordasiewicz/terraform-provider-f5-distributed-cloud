@@ -13,11 +13,11 @@ import (
 	"github.com/hashicorp/terraform-plugin-testing/helper/acctest"
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
 
-	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/provider"
+	"github.com/robinmordasiewicz/terraform-provider-f5distributedcloud/internal/provider"
 )
 
 var testAccProtoV6ProviderFactories = map[string]func() (tfprotov6.ProviderServer, error){
-	"f5_distributed_cloud": providerserver.NewProtocol6WithError(provider.New("test")()),
+	"f5distributedcloud": providerserver.NewProtocol6WithError(provider.New("test")()),
 }
 
 func testAccPreCheck(t *testing.T) {
@@ -42,9 +42,9 @@ func TestAccNamespaceResource_create(t *testing.T) {
 			{
 				Config: testAccNamespaceResourceConfig(rName, "Test namespace created by Terraform acceptance test"),
 				Check: resource.ComposeTestCheckFunc(
-					resource.TestCheckResourceAttr("f5_distributed_cloud_namespace.test", "name", rName),
-					resource.TestCheckResourceAttr("f5_distributed_cloud_namespace.test", "description", "Test namespace created by Terraform acceptance test"),
-					resource.TestCheckResourceAttrSet("f5_distributed_cloud_namespace.test", "id"),
+					resource.TestCheckResourceAttr("f5distributedcloud_namespace.test", "name", rName),
+					resource.TestCheckResourceAttr("f5distributedcloud_namespace.test", "description", "Test namespace created by Terraform acceptance test"),
+					resource.TestCheckResourceAttrSet("f5distributedcloud_namespace.test", "id"),
 				),
 			},
 		},
@@ -63,13 +63,13 @@ func TestAccNamespaceResource_update(t *testing.T) {
 			{
 				Config: testAccNamespaceResourceConfig(rName, "Initial description"),
 				Check: resource.ComposeTestCheckFunc(
-					resource.TestCheckResourceAttr("f5_distributed_cloud_namespace.test", "description", "Initial description"),
+					resource.TestCheckResourceAttr("f5distributedcloud_namespace.test", "description", "Initial description"),
 				),
 			},
 			{
 				Config: testAccNamespaceResourceConfig(rName, "Updated description"),
 				Check: resource.ComposeTestCheckFunc(
-					resource.TestCheckResourceAttr("f5_distributed_cloud_namespace.test", "description", "Updated description"),
+					resource.TestCheckResourceAttr("f5distributedcloud_namespace.test", "description", "Updated description"),
 				),
 			},
 		},
@@ -88,7 +88,7 @@ func TestAccNamespaceResource_delete(t *testing.T) {
 			{
 				Config: testAccNamespaceResourceConfig(rName, "Namespace to be deleted"),
 				Check: resource.ComposeTestCheckFunc(
-					resource.TestCheckResourceAttr("f5_distributed_cloud_namespace.test", "name", rName),
+					resource.TestCheckResourceAttr("f5distributedcloud_namespace.test", "name", rName),
 				),
 			},
 			// Destruction is tested automatically after the test
@@ -108,11 +108,11 @@ func TestAccNamespaceResource_import(t *testing.T) {
 			{
 				Config: testAccNamespaceResourceConfig(rName, "Test namespace for import"),
 				Check: resource.ComposeTestCheckFunc(
-					resource.TestCheckResourceAttr("f5_distributed_cloud_namespace.test", "name", rName),
+					resource.TestCheckResourceAttr("f5distributedcloud_namespace.test", "name", rName),
 				),
 			},
 			{
-				ResourceName:      "f5_distributed_cloud_namespace.test",
+				ResourceName:      "f5distributedcloud_namespace.test",
 				ImportState:       true,
 				ImportStateVerify: true,
 				ImportStateId:     rName,
@@ -123,9 +123,9 @@ func TestAccNamespaceResource_import(t *testing.T) {
 
 func testAccNamespaceResourceConfig(name, description string) string {
 	return fmt.Sprintf(`
-provider "f5_distributed_cloud" {}
+provider "f5distributedcloud" {}
 
-resource "f5_distributed_cloud_namespace" "test" {
+resource "f5distributedcloud_namespace" "test" {
   name        = %[1]q
   description = %[2]q
 }

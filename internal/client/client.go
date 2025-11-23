@@ -100,7 +100,7 @@ func NewClient(config *ClientConfig) (*Client, error) {
 
 	userAgent := config.UserAgent
 	if userAgent == "" {
-		userAgent = "terraform-provider-f5-distributed-cloud"
+		userAgent = "terraform-provider-f5distributedcloud"
 	}
 
 	// Create retryable HTTP client
@@ -132,9 +132,10 @@ func customRetryPolicy(ctx context.Context, resp *http.Response, err error) (boo
 		return false, ctx.Err()
 	}
 
-	// Retry on connection errors
+	// Retry on connection errors - returning nil here is intentional as
+	// retryablehttp preserves the original error; we just signal to retry.
 	if err != nil {
-		return true, nil
+		return true, nil //nolint:nilerr // intentional: signal retry, original error preserved by retryablehttp
 	}
 
 	// Retry on specific status codes

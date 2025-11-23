@@ -13,14 +13,14 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages an F5 Distributed Cloud UDP Load Balancer.",
 		MarkdownDescription: `
-The ` + "`f5_distributed_cloud_udp_loadbalancer`" + ` resource manages UDP Load Balancers in F5 Distributed Cloud.
+The ` + "`f5distributedcloud_udp_loadbalancer`" + ` resource manages UDP Load Balancers in F5 Distributed Cloud.
 
 UDP Load Balancers provide load balancing for UDP-based applications.
 
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5_distributed_cloud_udp_loadbalancer" "example" {
+resource "f5distributedcloud_udp_loadbalancer" "example" {
   name        = "my-udp-lb"
   namespace   = "system"
   description = "UDP load balancer for DNS traffic"

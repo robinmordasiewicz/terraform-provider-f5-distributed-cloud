@@ -13,11 +13,11 @@ import (
 	"github.com/hashicorp/terraform-plugin-testing/helper/acctest"
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
 
-	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/provider"
+	"github.com/robinmordasiewicz/terraform-provider-f5distributedcloud/internal/provider"
 )
 
 var testAccProtoV6ProviderFactories = map[string]func() (tfprotov6.ProviderServer, error){
-	"f5_distributed_cloud": providerserver.NewProtocol6WithError(provider.New("test")()),
+	"f5distributedcloud": providerserver.NewProtocol6WithError(provider.New("test")()),
 }
 
 func testAccPreCheck(t *testing.T) {
@@ -45,9 +45,9 @@ func TestAccOriginPoolResource_create(t *testing.T) {
 			{
 				Config: testAccOriginPoolResourceConfig(rName, namespace, "Test Origin Pool"),
 				Check: resource.ComposeTestCheckFunc(
-					resource.TestCheckResourceAttr("f5_distributed_cloud_origin_pool.test", "name", rName),
-					resource.TestCheckResourceAttr("f5_distributed_cloud_origin_pool.test", "namespace", namespace),
-					resource.TestCheckResourceAttrSet("f5_distributed_cloud_origin_pool.test", "id"),
+					resource.TestCheckResourceAttr("f5distributedcloud_origin_pool.test", "name", rName),
+					resource.TestCheckResourceAttr("f5distributedcloud_origin_pool.test", "namespace", namespace),
+					resource.TestCheckResourceAttrSet("f5distributedcloud_origin_pool.test", "id"),
 				),
 			},
 		},
@@ -68,11 +68,11 @@ func TestAccOriginPoolResource_update(t *testing.T) {
 		Steps: []resource.TestStep{
 			{
 				Config: testAccOriginPoolResourceConfig(rName, namespace, "Initial"),
-				Check:  resource.TestCheckResourceAttr("f5_distributed_cloud_origin_pool.test", "description", "Initial"),
+				Check:  resource.TestCheckResourceAttr("f5distributedcloud_origin_pool.test", "description", "Initial"),
 			},
 			{
 				Config: testAccOriginPoolResourceConfig(rName, namespace, "Updated"),
-				Check:  resource.TestCheckResourceAttr("f5_distributed_cloud_origin_pool.test", "description", "Updated"),
+				Check:  resource.TestCheckResourceAttr("f5distributedcloud_origin_pool.test", "description", "Updated"),
 			},
 		},
 	})
@@ -113,7 +113,7 @@ func TestAccOriginPoolResource_import(t *testing.T) {
 				Config: testAccOriginPoolResourceConfig(rName, namespace, "For import"),
 			},
 			{
-				ResourceName:      "f5_distributed_cloud_origin_pool.test",
+				ResourceName:      "f5distributedcloud_origin_pool.test",
 				ImportState:       true,
 				ImportStateVerify: true,
 				ImportStateId:     namespace + "/" + rName,
@@ -124,9 +124,9 @@ func TestAccOriginPoolResource_import(t *testing.T) {
 
 func testAccOriginPoolResourceConfig(name, namespace, description string) string {
 	return fmt.Sprintf(`
-provider "f5_distributed_cloud" {}
+provider "f5distributedcloud" {}
 
-resource "f5_distributed_cloud_origin_pool" "test" {
+resource "f5distributedcloud_origin_pool" "test" {
   name        = %[1]q
   namespace   = %[2]q
   description = %[3]q

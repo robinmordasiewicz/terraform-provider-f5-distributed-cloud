@@ -13,11 +13,11 @@ import (
 	"github.com/hashicorp/terraform-plugin-testing/helper/acctest"
 	"github.com/hashicorp/terraform-plugin-testing/helper/resource"
 
-	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/provider"
+	"github.com/robinmordasiewicz/terraform-provider-f5distributedcloud/internal/provider"
 )
 
 var testAccProtoV6ProviderFactories = map[string]func() (tfprotov6.ProviderServer, error){
-	"f5_distributed_cloud": providerserver.NewProtocol6WithError(provider.New("test")()),
+	"f5distributedcloud": providerserver.NewProtocol6WithError(provider.New("test")()),
 }
 
 func testAccPreCheck(t *testing.T) {
@@ -45,10 +45,10 @@ func TestAccAppFirewallResource_create(t *testing.T) {
 			{
 				Config: testAccAppFirewallResourceConfig(rName, namespace, "Test App Firewall", "monitoring"),
 				Check: resource.ComposeTestCheckFunc(
-					resource.TestCheckResourceAttr("f5_distributed_cloud_app_firewall.test", "name", rName),
-					resource.TestCheckResourceAttr("f5_distributed_cloud_app_firewall.test", "namespace", namespace),
-					resource.TestCheckResourceAttr("f5_distributed_cloud_app_firewall.test", "mode", "monitoring"),
-					resource.TestCheckResourceAttrSet("f5_distributed_cloud_app_firewall.test", "id"),
+					resource.TestCheckResourceAttr("f5distributedcloud_app_firewall.test", "name", rName),
+					resource.TestCheckResourceAttr("f5distributedcloud_app_firewall.test", "namespace", namespace),
+					resource.TestCheckResourceAttr("f5distributedcloud_app_firewall.test", "mode", "monitoring"),
+					resource.TestCheckResourceAttrSet("f5distributedcloud_app_firewall.test", "id"),
 				),
 			},
 		},
@@ -70,15 +70,15 @@ func TestAccAppFirewallResource_update(t *testing.T) {
 			{
 				Config: testAccAppFirewallResourceConfig(rName, namespace, "Initial", "monitoring"),
 				Check: resource.ComposeTestCheckFunc(
-					resource.TestCheckResourceAttr("f5_distributed_cloud_app_firewall.test", "description", "Initial"),
-					resource.TestCheckResourceAttr("f5_distributed_cloud_app_firewall.test", "mode", "monitoring"),
+					resource.TestCheckResourceAttr("f5distributedcloud_app_firewall.test", "description", "Initial"),
+					resource.TestCheckResourceAttr("f5distributedcloud_app_firewall.test", "mode", "monitoring"),
 				),
 			},
 			{
 				Config: testAccAppFirewallResourceConfig(rName, namespace, "Updated", "blocking"),
 				Check: resource.ComposeTestCheckFunc(
-					resource.TestCheckResourceAttr("f5_distributed_cloud_app_firewall.test", "description", "Updated"),
-					resource.TestCheckResourceAttr("f5_distributed_cloud_app_firewall.test", "mode", "blocking"),
+					resource.TestCheckResourceAttr("f5distributedcloud_app_firewall.test", "description", "Updated"),
+					resource.TestCheckResourceAttr("f5distributedcloud_app_firewall.test", "mode", "blocking"),
 				),
 			},
 		},
@@ -120,7 +120,7 @@ func TestAccAppFirewallResource_import(t *testing.T) {
 				Config: testAccAppFirewallResourceConfig(rName, namespace, "For import", "monitoring"),
 			},
 			{
-				ResourceName:      "f5_distributed_cloud_app_firewall.test",
+				ResourceName:      "f5distributedcloud_app_firewall.test",
 				ImportState:       true,
 				ImportStateVerify: true,
 				ImportStateId:     namespace + "/" + rName,
@@ -144,9 +144,9 @@ func TestAccAppFirewallResource_botProtection(t *testing.T) {
 			{
 				Config: testAccAppFirewallResourceConfigWithBotProtection(rName, namespace),
 				Check: resource.ComposeTestCheckFunc(
-					resource.TestCheckResourceAttr("f5_distributed_cloud_app_firewall.test", "name", rName),
-					resource.TestCheckResourceAttr("f5_distributed_cloud_app_firewall.test", "bot_protection.good_bot_action", "allow"),
-					resource.TestCheckResourceAttr("f5_distributed_cloud_app_firewall.test", "bot_protection.malicious_bot_action", "block"),
+					resource.TestCheckResourceAttr("f5distributedcloud_app_firewall.test", "name", rName),
+					resource.TestCheckResourceAttr("f5distributedcloud_app_firewall.test", "bot_protection.good_bot_action", "allow"),
+					resource.TestCheckResourceAttr("f5distributedcloud_app_firewall.test", "bot_protection.malicious_bot_action", "block"),
 				),
 			},
 		},
@@ -155,9 +155,9 @@ func TestAccAppFirewallResource_botProtection(t *testing.T) {
 
 func testAccAppFirewallResourceConfig(name, namespace, description, mode string) string {
 	return fmt.Sprintf(`
-provider "f5_distributed_cloud" {}
+provider "f5distributedcloud" {}
 
-resource "f5_distributed_cloud_app_firewall" "test" {
+resource "f5distributedcloud_app_firewall" "test" {
   name        = %[1]q
   namespace   = %[2]q
   description = %[3]q
@@ -173,9 +173,9 @@ resource "f5_distributed_cloud_app_firewall" "test" {
 
 func testAccAppFirewallResourceConfigWithBotProtection(name, namespace string) string {
 	return fmt.Sprintf(`
-provider "f5_distributed_cloud" {}
+provider "f5distributedcloud" {}
 
-resource "f5_distributed_cloud_app_firewall" "test" {
+resource "f5distributedcloud_app_firewall" "test" {
   name        = %[1]q
   namespace   = %[2]q
   description = "App Firewall with Bot Protection"

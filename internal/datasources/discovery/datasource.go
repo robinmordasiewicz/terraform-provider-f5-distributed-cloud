@@ -11,10 +11,15 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/datasource/schema"
 	"github.com/hashicorp/terraform-plugin-framework/types"
 
-	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/client"
+	"github.com/robinmordasiewicz/terraform-provider-f5distributedcloud/internal/client"
 )
 
 var _ datasource.DataSource = &DiscoveryDataSource{}
+
+// apiPathBase is the F5 XC API path for discovery resources.
+//
+//nolint:misspell // F5 XC API uses non-standard plural
+const apiPathBase = "discoverys"
 
 func NewDiscoveryDataSource() datasource.DataSource {
 	return &DiscoveryDataSource{}
@@ -52,18 +57,18 @@ func (d *DiscoveryDataSource) Schema(ctx context.Context, req datasource.SchemaR
 	resp.Schema = schema.Schema{
 		Description: "Fetches information about an existing F5 Distributed Cloud Discovery.",
 		MarkdownDescription: `
-The ` + "`f5_distributed_cloud_discovery`" + ` data source retrieves information about an existing discovery configuration.
+The ` + "`f5distributedcloud_discovery`" + ` data source retrieves information about an existing discovery configuration.
 
 ## Example Usage
 
 ` + "```hcl" + `
-data "f5_distributed_cloud_discovery" "example" {
+data "f5distributedcloud_discovery" "example" {
   name      = "my-discovery"
   namespace = "my-namespace"
 }
 
 output "discovery_type" {
-  value = data.f5_distributed_cloud_discovery.example.discovery_type
+  value = data.f5distributedcloud_discovery.example.discovery_type
 }
 ` + "```" + `
 `,
@@ -113,7 +118,7 @@ func (d *DiscoveryDataSource) Read(ctx context.Context, req datasource.ReadReque
 	}
 
 	var apiResp APIDiscovery
-	path := fmt.Sprintf("/config/namespaces/%s/discoverys/%s", data.Namespace.ValueString(), data.Name.ValueString())
+	path := fmt.Sprintf("/config/namespaces/%s/%s/%s", data.Namespace.ValueString(), apiPathBase, data.Name.ValueString())
 	if err := d.client.Get(ctx, path, &apiResp); err != nil {
 		resp.Diagnostics.AddError("Error Reading Discovery",
 			fmt.Sprintf("Could not read discovery %s/%s: %s", data.Namespace.ValueString(), data.Name.ValueString(), err))

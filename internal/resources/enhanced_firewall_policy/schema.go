@@ -15,14 +15,14 @@ func Schema() schema.Schema {
 	return schema.Schema{
 		Description: "Manages F5 Distributed Cloud Enhanced Firewall Policy.",
 		MarkdownDescription: `
-The ` + "`f5_distributed_cloud_enhanced_firewall_policy`" + ` resource manages Enhanced Firewall Policies in F5 Distributed Cloud.
+The ` + "`f5distributedcloud_enhanced_firewall_policy`" + ` resource manages Enhanced Firewall Policies in F5 Distributed Cloud.
 
 Enhanced Firewall Policies provide Layer 3/4 network security controls with advanced rule configurations.
 
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5_distributed_cloud_enhanced_firewall_policy" "example" {
+resource "f5distributedcloud_enhanced_firewall_policy" "example" {
   name      = "enhanced-fw"
   namespace = "my-namespace"
 

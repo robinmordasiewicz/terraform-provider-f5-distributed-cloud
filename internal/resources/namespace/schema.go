@@ -4,6 +4,8 @@
 package namespace
 
 import (
+	"context"
+
 	"github.com/hashicorp/terraform-plugin-framework-timeouts/resource/timeouts"
 	"github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
@@ -11,7 +13,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema/stringplanmodifier"
 	"github.com/hashicorp/terraform-plugin-framework/schema/validator"
 
-	"github.com/robinmordasiewicz/terraform-provider-f5-distributed-cloud/internal/validators"
+	"github.com/robinmordasiewicz/terraform-provider-f5distributedcloud/internal/validators"
 )
 
 // SchemaVersion is the current schema version for the namespace resource.
@@ -23,7 +25,7 @@ func Schema() schema.Schema {
 		Version:     SchemaVersion,
 		Description: "Manages an F5 Distributed Cloud namespace.",
 		MarkdownDescription: `
-The ` + "`f5_distributed_cloud_namespace`" + ` resource manages namespaces in F5 Distributed Cloud.
+The ` + "`f5distributedcloud_namespace`" + ` resource manages namespaces in F5 Distributed Cloud.
 
 Namespaces are the fundamental organizational unit in F5 XC, providing logical isolation
 for resources like load balancers, origin pools, and application firewalls.
@@ -31,7 +33,7 @@ for resources like load balancers, origin pools, and application firewalls.
 ## Example Usage
 
 ` + "```hcl" + `
-resource "f5_distributed_cloud_namespace" "example" {
+resource "f5distributedcloud_namespace" "example" {
   name        = "my-namespace"
   description = "Example namespace for my application"
 
@@ -48,7 +50,7 @@ resource "f5_distributed_cloud_namespace" "example" {
 Namespaces can be imported using their name:
 
 ` + "```shell" + `
-terraform import f5_distributed_cloud_namespace.example my-namespace
+terraform import f5distributedcloud_namespace.example my-namespace
 ` + "```" + `
 `,
 		Attributes: map[string]schema.Attribute{
@@ -79,7 +81,7 @@ terraform import f5_distributed_cloud_namespace.example my-namespace
 		},
 		Blocks: map[string]schema.Block{
 			"timeouts": timeouts.Block(
-				nil,
+				context.Background(),
 				timeouts.Opts{
 					Create: true,
 					Read:   true,
