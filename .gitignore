@@ -1,5 +1,5 @@
 # Binaries
-terraform-provider-f5-distributed-cloud
+terraform-provider-f5distributedcloud
 *.exe
 
 # Generated files

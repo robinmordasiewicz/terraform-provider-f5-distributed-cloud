@@ -33,9 +33,9 @@ echo "Found $(echo "$DATASOURCES" | wc -w | tr -d ' ') data sources"
 # Check for orphaned resource examples
 echo ""
 echo "Checking resource examples..."
-for dir in examples/resources/f5_distributed_cloud_*/; do
+for dir in examples/resources/f5distributedcloud_*/; do
     if [ -d "$dir" ]; then
-        name=$(basename "$dir" | sed 's/f5_distributed_cloud_//')
+        name=$(basename "$dir" | sed 's/f5distributedcloud_//')
         if ! echo "$RESOURCES" | grep -qw "$name" 2>/dev/null; then
             # Try alternate naming (handle camelCase to snake_case differences)
             found=false
@@ -56,9 +56,9 @@ done
 echo ""
 echo "Checking data source examples..."
 orphaned_ds=()
-for dir in examples/data-sources/f5_distributed_cloud_*/; do
+for dir in examples/data-sources/f5distributedcloud_*/; do
     if [ -d "$dir" ]; then
-        name=$(basename "$dir" | sed 's/f5_distributed_cloud_//')
+        name=$(basename "$dir" | sed 's/f5distributedcloud_//')
         if ! echo "$DATASOURCES" | grep -qw "$name" 2>/dev/null; then
             echo "  Orphaned: $dir"
             orphaned_ds+=("$dir")
